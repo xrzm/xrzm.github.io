@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>markdown基本语法</title>
-    <url>/2024/02/05/markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</url>
+    <url>/2024/02/05/1/</url>
     <content><![CDATA[<p>#markdown基本语法说明</p>
 <span id="more"></span>
 
@@ -36,7 +36,7 @@
 <p>插入图片Markdown语法代码：<code>![图片alt](图片链接 &quot;图片title&quot;)</code> 的格式。<br>例如：<img src="https://ts1.cn.mm.bing.net/th/id/R-C.9e45a633e95179a37c907fa2797999ad?rik=aMuPS4TunAh5ZA&riu=http://www.quazero.com/uploads/allimg/140303/1-140303214Q2.jpg&ehk=P/irfYpARc1fHht+WpapYR4W15p6SLABE8CBexoeon4=&risl=&pid=ImgRaw&r=0" alt="这是一张图片" title="just a example"></p>
 <p>##代码<br>行内代码使用单个反引号 <code> 包围。例如：</code>代码&#96;。</p>
 <p>代码块使用三个反引号`&#96;&#96;或四个空格缩进。例如：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\这是一个代码块</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">这是一个代码块</span><br></pre></td></tr></table></figure>
 
 
 <p>##分割线<br>你可以使用三个以上的星号 ***、减号 — 或下划线 ___ 来创建一个水平分割线。</p>
