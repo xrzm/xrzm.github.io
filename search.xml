@@ -40,7 +40,6 @@
 <p>这是一个链接 <a href="https://markdown.com.cn/">Markdown语法</a></p>
 <p><a href="https://markdown.com.cn/">https://markdown.com.cn</a></p>
 <p>插入图片Markdown语法代码：<code>![图片alt](图片链接 &quot;图片title&quot;)</code></p>
-<p>[<img src="https://pic1.zhimg.com/v2-e0ca937a1d3296e7463aa0aa096bef48_r.jpg" title="图片名称">]</p>
 <p>引用测试：</p>
 <blockquote>
 <p>这是一条引用</p>
