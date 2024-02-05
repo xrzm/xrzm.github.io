@@ -1,6 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>markdown基本语法</title>
+    <url>/2024/02/05/markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<p>#markdown基本语法说明</p>
+<span id="more"></span>
+
+<p>##标题<br>在 Markdown 中，你可以通过在文字前面加上 # 来创建标题。# 的数量代表标题的级别。例如：</p>
+<p># 一级标题</p>
+<p>## 二级标题</p>
+<p>### 三级标题</p>
+<p>#### 四级标题</p>
+<p>##### 五级标题</p>
+<p>###### 六级标题</p>
+<p>##段落和换行<br>普通的文本会被转换为段落，段落之间通过一个或多个空白行来分隔。</p>
+<p>如果你想要在不形成新段落的情况下进行换行（即在同一段落中换行），你可以在行尾添加两个或更多的空格然后回车。</p>
+<p>##强调<br>你可以使用星号 * 或下划线 _ 来强调文本：</p>
+<p>斜体：<br>可以用一个 * 或 _ 包围文本来使其变为斜体。例如：<em>斜体</em> 或 _斜体_。</p>
+<p>粗体：<br>可以用两个 ** 或 __ 包围文本来使其变为粗体。例如：<strong>粗体</strong> 或 __粗体__。</p>
+<p>粗斜体：三个 *** 或 ___ 包围文本。例如：<em><strong>粗斜体</strong></em> 或 ___粗斜体___。</p>
+<p>##列表<br>Markdown 支持有序列表和无序列表。</p>
+<p>无序列表可以使用星号 *，加号 +，或是减号 - 作为列表标记。</p>
+<ul>
+<li>项目1</li>
+<li>项目2</li>
+<li>项目3</li>
+</ul>
+<p>有序列表直接使用数字接着一个英文句点 .。</p>
+<ol>
+<li>第一项</li>
+<li>第二项</li>
+<li>第三项</li>
+</ol>
+<p>##链接和图片<br>链接使用 <code>[链接文本](URL)</code> 的格式。例如：<a href="https://cn.bing.com/">Bing</a></p>
+<p>插入图片Markdown语法代码：<code>![图片alt](图片链接 &quot;图片title&quot;)</code> 的格式。<br>例如：<img src="https://ts1.cn.mm.bing.net/th/id/R-C.9e45a633e95179a37c907fa2797999ad?rik=aMuPS4TunAh5ZA&riu=http://www.quazero.com/uploads/allimg/140303/1-140303214Q2.jpg&ehk=P/irfYpARc1fHht+WpapYR4W15p6SLABE8CBexoeon4=&risl=&pid=ImgRaw&r=0" alt="这是一张图片" title="just a example"></p>
+<p>##代码<br>行内代码使用单个反引号 <code> 包围。例如：</code>代码&#96;。</p>
+<p>代码块使用三个反引号`&#96;&#96;或四个空格缩进。例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\这是一个代码块</span><br></pre></td></tr></table></figure>
+
+
+<p>##分割线<br>你可以使用三个以上的星号 ***、减号 — 或下划线 ___ 来创建一个水平分割线。</p>
+<hr>
+<p>##引用<br>引用使用 &gt; 符号。例如：</p>
+<blockquote>
+<p>这是一个引用。</p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>hexo</tag>
+        <tag>markdown</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2024/02/04/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -17,42 +68,5 @@
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>第一篇博客</title>
-    <url>/2024/02/05/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<h1 id="这是一级标题"><a href="#这是一级标题" class="headerlink" title="这是一级标题"></a>这是一级标题</h1><h2 id="这是二级标题"><a href="#这是二级标题" class="headerlink" title="这是二级标题"></a>这是二级标题</h2><p>无序列表测试：</p>
-<ul>
-<li>哈哈</li>
-<li>嘿嘿</li>
-<li>吼吼</li>
-</ul>
-<p>第一段</p>
-<p>第二段<br>在一行的末尾添加两个或多个空格，然后按回车键,即可创建一个换行</p>
-<p>I just love <strong>bold text</strong>.（加粗）</p>
-<p>测试代码块<code>hello world</code>.</p>
-<pre><code>&lt;html&gt;
-  &lt;head&gt;
-  &lt;/head&gt;
-&lt;/html&gt;
-</code></pre>
-<p>超链接Markdown语法代码：<code>[超链接显示名](超链接地址 &quot;超链接title&quot;)</code></p>
-<p>这是一个链接 <a href="https://markdown.com.cn/">Markdown语法</a></p>
-<p><a href="https://markdown.com.cn/">https://markdown.com.cn</a></p>
-<p>插入图片Markdown语法代码：<code>![图片alt](图片链接 &quot;图片title&quot;)</code></p>
-<p>引用测试：</p>
-<blockquote>
-<p>这是一条引用</p>
-</blockquote>
-<ol>
-<li>First item</li>
-<li>Second item</li>
-<li>Third item</li>
-<li>Fourth item</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
   </entry>
 </search>
