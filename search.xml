@@ -1,129 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search>
-  <entry>
-    <title>next主题边框圆角化</title>
-    <url>/2024/02/06/next%E4%B8%BB%E9%A2%98%E8%BE%B9%E6%A1%86%E5%9C%86%E8%A7%92%E5%8C%96/</url>
-    <content><![CDATA[<h1 id="next主题边框完全圆角化"><a href="#next主题边框完全圆角化" class="headerlink" title="next主题边框完全圆角化"></a>next主题边框完全圆角化</h1><p>问题描述：next主题边框圆角化后作者所属的边框有一层阴影，圆角化不明显</p>
-<span id="more"></span>
-<h2 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h2><p>打开文件 “&#x2F;themes&#x2F;next&#x2F;source&#x2F;css&#x2F;_variables&#x2F;Gemini.styl”，<br>在</p>
-<pre><code>// Settings for some of the most global styles.
-// --------------------------------------------------
-// $body-bg-color           = #eee;
-$body-bg-color           = transparent;
-
-// Borders.
-// --------------------------------------------------
-$box-shadow-inner        = 0 2px 2px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0, 0, .06), 0 1px 5px 0 rgba(0, 0, 0, .12);
-$box-shadow              = 0 2px 2px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0,   0, .06), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 -1px .5px 0 rgba(0, 0, 0, .09);
-</code></pre>
-<p>中将 <code>$body-bg-color</code> 赋值为透明 transparent</p>
-]]></content>
+<search> 
+  
+  
+    
+    <entry>
+      <title>next主题边框圆角化</title>
+      <link href="/next%E4%B8%BB%E9%A2%98%E8%BE%B9%E6%A1%86%E5%9C%86%E8%A7%92%E5%8C%96/"/>
+      <url>/next%E4%B8%BB%E9%A2%98%E8%BE%B9%E6%A1%86%E5%9C%86%E8%A7%92%E5%8C%96/</url>
+      
+        <content type="html"><![CDATA[<h1 id="next主题边框完全圆角化"><a href="#next主题边框完全圆角化" class="headerlink" title="next主题边框完全圆角化"></a>next主题边框完全圆角化</h1><p>问题描述：next主题边框圆角化后作者所属的边框有一层阴影，圆角化不明显</p><span id="more"></span><h2 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h2><p>打开文件 “&#x2F;themes&#x2F;next&#x2F;source&#x2F;css&#x2F;_variables&#x2F;Gemini.styl”，<br>在</p><pre><code>// Settings for some of the most global styles.// --------------------------------------------------// $body-bg-color           = #eee;$body-bg-color           = transparent;// Borders.// --------------------------------------------------$box-shadow-inner        = 0 2px 2px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0, 0, .06), 0 1px 5px 0 rgba(0, 0, 0, .12);$box-shadow              = 0 2px 2px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0,   0, .06), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 -1px .5px 0 rgba(0, 0, 0, .09);</code></pre><p>中将 <code>$body-bg-color</code> 赋值为透明 transparent</p>]]></content>
+      
+      
       <categories>
-        <category>hexo</category>
+          
+          <category> hexo </category>
+          
       </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>next</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>next主题顶部黑边处理</title>
-    <url>/2024/02/06/next%E4%B8%BB%E9%A2%98%E9%A1%B6%E9%83%A8%E9%BB%91%E8%BE%B9%E5%A4%84%E7%90%86/</url>
-    <content><![CDATA[<h1 id="next主题顶部黑边处理"><a href="#next主题顶部黑边处理" class="headerlink" title="next主题顶部黑边处理"></a>next主题顶部黑边处理</h1><p>问题描述：next主题优化后仍然有一条黑边在顶部出现</p>
-<span id="more"></span>
-<h2 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h2><h3 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h3><p>打开文件 “themes\next\layout_layout.swig” ,在 </p>
-<pre><code>&lt;body itemscope itemtype=&quot;http://schema.org/WebPage&quot;&gt;
-  &lt;div class=&quot;container&#123;%- if theme.motion.enable %&#125; use-motion&#123;%- endif %&#125;&quot;&gt;
-    &lt;div class=&quot;headband&quot;&gt;&lt;/div&gt;
-</code></pre>
-<p>中删除 “<code>&lt;div class=&quot;headband&quot;&gt;&lt;/div&gt;</code>”</p>
-<h3 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h3><p>打开文件 “themes\next\source\css_variables\base.styl” ，<br>在</p>
-<pre><code>// Headband
-// --------------------------------------------------
-$headband-height                = 3px;
-$headband-bg                    = $black-deep;
-</code></pre>
-<p>中找到“<code>$headband-height</code>”，把3px改成0px；</p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+            <tag> next </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>next主题顶部黑边处理</title>
+      <link href="/next%E4%B8%BB%E9%A2%98%E9%A1%B6%E9%83%A8%E9%BB%91%E8%BE%B9%E5%A4%84%E7%90%86/"/>
+      <url>/next%E4%B8%BB%E9%A2%98%E9%A1%B6%E9%83%A8%E9%BB%91%E8%BE%B9%E5%A4%84%E7%90%86/</url>
+      
+        <content type="html"><![CDATA[<h1 id="next主题顶部黑边处理"><a href="#next主题顶部黑边处理" class="headerlink" title="next主题顶部黑边处理"></a>next主题顶部黑边处理</h1><p>问题描述：next主题优化后仍然有一条黑边在顶部出现</p><span id="more"></span><h2 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h2><h3 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h3><p>打开文件 “themes\next\layout_layout.swig” ,在 </p><pre><code>&lt;body itemscope itemtype=&quot;http://schema.org/WebPage&quot;&gt;  &lt;div class=&quot;container&#123;%- if theme.motion.enable %&#125; use-motion&#123;%- endif %&#125;&quot;&gt;    &lt;div class=&quot;headband&quot;&gt;&lt;/div&gt;</code></pre><p>中删除 “<code>&lt;div class=&quot;headband&quot;&gt;&lt;/div&gt;</code>”</p><h3 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h3><p>打开文件 “themes\next\source\css_variables\base.styl” ，<br>在</p><pre><code>// Headband// --------------------------------------------------$headband-height                = 3px;$headband-bg                    = $black-deep;</code></pre><p>中找到“<code>$headband-height</code>”，把3px改成0px；</p>]]></content>
+      
+      
       <categories>
-        <category>hexo</category>
+          
+          <category> hexo </category>
+          
       </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>next</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>markdown基本语法</title>
-    <url>/2024/02/05/1/</url>
-    <content><![CDATA[<h1 id="markdown基本语法说明"><a href="#markdown基本语法说明" class="headerlink" title="markdown基本语法说明"></a>markdown基本语法说明</h1><span id="more"></span>
-
-<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>在 Markdown 中，你可以通过在文字前面加上 # 来创建标题。# 的数量代表标题的级别。注意，#和标题之间要有一个空格 。例如：</p>
-<p># 一级标题</p>
-<p>## 二级标题</p>
-<p>### 三级标题</p>
-<p>#### 四级标题</p>
-<p>##### 五级标题</p>
-<p>###### 六级标题</p>
-<h2 id="段落和换行"><a href="#段落和换行" class="headerlink" title="段落和换行"></a>段落和换行</h2><p>普通的文本会被转换为段落，段落之间通过一个或多个空白行来分隔。</p>
-<p>如果你想要在不形成新段落的情况下进行换行（即在同一段落中换行），你可以在行尾添加两个或更多的空格然后回车。</p>
-<h2 id="强调"><a href="#强调" class="headerlink" title="强调"></a>强调</h2><p>你可以使用星号 * 或下划线 _ 来强调文本：</p>
-<p>斜体：<br>可以用一个 * 或 _ 包围文本来使其变为斜体。例如：<em>斜体</em> 或 _斜体_。</p>
-<p>粗体：<br>可以用两个 ** 或 __ 包围文本来使其变为粗体。例如：<strong>粗体</strong> 或 __粗体__。</p>
-<p>粗斜体：三个 *** 或 ___ 包围文本。例如：<em><strong>粗斜体</strong></em> 或 ___粗斜体___。</p>
-<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p>Markdown 支持有序列表和无序列表。</p>
-<p>无序列表可以使用星号 *，加号 +，或是减号 - 作为列表标记。</p>
-<ul>
-<li>项目1</li>
-<li>项目2</li>
-<li>项目3</li>
-</ul>
-<p>有序列表直接使用数字接着一个英文句点 .。</p>
-<ol>
-<li>第一项</li>
-<li>第二项</li>
-<li>第三项</li>
-</ol>
-<h2 id="链接和图片"><a href="#链接和图片" class="headerlink" title="链接和图片"></a>链接和图片</h2><p>链接使用 <code>[链接文本](URL)</code> 的格式。例如：<a href="https://cn.bing.com/">Bing</a></p>
-<p>插入图片Markdown语法代码：<code>![图片alt](图片链接 &quot;图片title&quot;)</code> 的格式。<br>例如：<img src="https://pic2.zhimg.com/v2-5fb13110e1de13d4c11e6e7f5b8026da_r.jpg" alt="这是一张图片" title="just a example"></p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>行内代码使用单个反引号 <code> 包围。例如：</code>代码&#96;。</p>
-<p>代码块使用三个反引号`&#96;&#96;或四个空格缩进。例如：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">这是一个代码块</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2><p>你可以使用三个以上的星号 ***、减号 — 或下划线 ___ 来创建一个水平分割线。</p>
-<hr>
-<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>引用使用 &gt; 符号。例如：</p>
-<blockquote>
-<p>这是一个引用。</p>
-</blockquote>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+            <tag> next </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>markdown基本语法</title>
+      <link href="/1/"/>
+      <url>/1/</url>
+      
+        <content type="html"><![CDATA[<h1 id="markdown基本语法说明"><a href="#markdown基本语法说明" class="headerlink" title="markdown基本语法说明"></a>markdown基本语法说明</h1><span id="more"></span><h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>在 Markdown 中，你可以通过在文字前面加上 # 来创建标题。# 的数量代表标题的级别。注意，#和标题之间要有一个空格 。例如：</p><p># 一级标题</p><p>## 二级标题</p><p>### 三级标题</p><p>#### 四级标题</p><p>##### 五级标题</p><p>###### 六级标题</p><h2 id="段落和换行"><a href="#段落和换行" class="headerlink" title="段落和换行"></a>段落和换行</h2><p>普通的文本会被转换为段落，段落之间通过一个或多个空白行来分隔。</p><p>如果你想要在不形成新段落的情况下进行换行（即在同一段落中换行），你可以在行尾添加两个或更多的空格然后回车。</p><h2 id="强调"><a href="#强调" class="headerlink" title="强调"></a>强调</h2><p>你可以使用星号 * 或下划线 _ 来强调文本：</p><p>斜体：<br>可以用一个 * 或 _ 包围文本来使其变为斜体。例如：<em>斜体</em> 或 _斜体_。</p><p>粗体：<br>可以用两个 ** 或 __ 包围文本来使其变为粗体。例如：<strong>粗体</strong> 或 __粗体__。</p><p>粗斜体：三个 *** 或 ___ 包围文本。例如：<em><strong>粗斜体</strong></em> 或 ___粗斜体___。</p><h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p>Markdown 支持有序列表和无序列表。</p><p>无序列表可以使用星号 *，加号 +，或是减号 - 作为列表标记。</p><ul><li>项目1</li><li>项目2</li><li>项目3</li></ul><p>有序列表直接使用数字接着一个英文句点 .。</p><ol><li>第一项</li><li>第二项</li><li>第三项</li></ol><h2 id="链接和图片"><a href="#链接和图片" class="headerlink" title="链接和图片"></a>链接和图片</h2><p>链接使用 <code>[链接文本](URL)</code> 的格式。例如：<a href="https://cn.bing.com/">Bing</a></p><p>插入图片Markdown语法代码：<code>![图片alt](图片链接 &quot;图片title&quot;)</code> 的格式。<br>例如：<img src="https://pic2.zhimg.com/v2-5fb13110e1de13d4c11e6e7f5b8026da_r.jpg" alt="这是一张图片" title="just a example"></p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>行内代码使用单个反引号 <code> 包围。例如：</code>代码&#96;。</p><p>代码块使用三个反引号`&#96;&#96;或四个空格缩进。例如：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这是一个代码块</span><br></pre></td></tr></table></figure><h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2><p>你可以使用三个以上的星号 ***、减号 — 或下划线 ___ 来创建一个水平分割线。</p><hr><h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>引用使用 &gt; 符号。例如：</p><blockquote><p>这是一个引用。</p></blockquote>]]></content>
+      
+      
       <categories>
-        <category>hexo</category>
+          
+          <category> hexo </category>
+          
       </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>markdown</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2024/02/04/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>!</p>
-<span id="more"></span> 
-<p>This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+            <tag> markdown </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/hello-world/"/>
+      <url>/hello-world/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>!</p><span id="more"></span> <p>This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+  
+  
 </search>
