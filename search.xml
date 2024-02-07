@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>markdown基本语法</title>
-    <url>/article/8530.html</url>
+    <url>/article/8530/</url>
     <content><![CDATA[<h1 id="markdown基本语法说明"><a href="#markdown基本语法说明" class="headerlink" title="markdown基本语法说明"></a>markdown基本语法说明</h1><span id="more"></span>
 
 <h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>在 Markdown 中，你可以通过在文字前面加上 # 来创建标题。# 的数量代表标题的级别。注意，#和标题之间要有一个空格 。例如：</p>
@@ -55,7 +55,7 @@
   </entry>
   <entry>
     <title>Hello World</title>
-    <url>/article/16107.html</url>
+    <url>/article/16107/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>!</p>
 <span id="more"></span> 
 <p>This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -75,7 +75,7 @@
   </entry>
   <entry>
     <title>next主题边框圆角化</title>
-    <url>/article/47864.html</url>
+    <url>/article/47864/</url>
     <content><![CDATA[<h1 id="next主题边框完全圆角化"><a href="#next主题边框完全圆角化" class="headerlink" title="next主题边框完全圆角化"></a>next主题边框完全圆角化</h1><p>问题描述：next主题边框圆角化后作者所属的边框有一层阴影，圆角化不明显</p>
 <span id="more"></span>
 <h2 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h2><p>打开文件 “&#x2F;themes&#x2F;next&#x2F;source&#x2F;css&#x2F;_variables&#x2F;Gemini.styl”，<br>在</p>
@@ -100,8 +100,13 @@ $box-shadow              = 0 2px 2px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0
       </tags>
   </entry>
   <entry>
+    <title>hexo博客提交百度、谷歌收录</title>
+    <url>/article/4058979906/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>next主题顶部黑边处理</title>
-    <url>/article/937.html</url>
+    <url>/article/937/</url>
     <content><![CDATA[<h1 id="next主题顶部黑边处理"><a href="#next主题顶部黑边处理" class="headerlink" title="next主题顶部黑边处理"></a>next主题顶部黑边处理</h1><p>问题描述：next主题优化后仍然有一条黑边在顶部出现</p>
 <span id="more"></span>
 <h2 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h2><h3 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h3><p>打开文件 “themes\next\layout_layout.swig” ,在 </p>
