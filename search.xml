@@ -1,6 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>33</title>
+    <url>/posts/174200537.html</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>SSTI模版注入</title>
+    <url>/posts/3320036978.html</url>
+    <content><![CDATA[<h2 id="漏洞成因及危害"><a href="#漏洞成因及危害" class="headerlink" title="漏洞成因及危害"></a>漏洞成因及危害</h2><p>SSTI（Server-Side Template Injection）是一种发生在服务器端模板中的漏洞。当应用程序接受用户输入并将其直接传递到模板引擎中进行解析时，如果未对用户输入进行<strong>充分的验证和过滤</strong>，攻击者可以通过构造<strong>恶意的输入</strong>来注入模板代码，导致服务器端模板引擎执行恶意代码。</p>
+<span id="more"></span>
+<hr>
+<p>当使用Twig模板引擎时，如果未正确处理用户输入，可能导致SSTI漏洞。以下是一个简单的例子：</p>
+<p>假设有一个包含以下代码的Twig模板文件 <code>template.twig</code>：</p>
+<pre><code>Hello, &#123;&#123; name &#125;&#125;!
+</code></pre>
+<p>在后端PHP代码中，可能会这样使用Twig引擎来渲染模板：</p>
+<pre><code>$loader = new \Twig\Loader\FilesystemLoader(&#39;/path/to/templates&#39;);
+$twig = new \Twig\Environment($loader);
+
+$name = $_GET[&#39;name&#39;]; // 从用户输入获取name参数
+echo $twig-&gt;render(&#39;template.twig&#39;, [&#39;name&#39; =&gt; $name]);
+</code></pre>
+<p>如果攻击者将name参数设置为恶意Twig模板代码，比如：</p>
+<pre><code>&#123;&#123; 7 * 7 &#125;&#125;
+</code></pre>
+<p>那么最终生成的模板内容将是：</p>
+<pre><code>Hello, 49!
+</code></pre>
+<p>但是，如果攻击者将name参数设置为更危险的代码，比如：</p>
+<pre><code>&#123;&#123; _self.env.registerUndefinedFilterCallback('exec') &#125;&#125;
+&#123;&#123; filter('ls -la') &#125;&#125;
+</code></pre>
+<p>这将导致Twig引擎执行系统命令 ls -la，可能导致服务器远程命令执行漏洞，造成严重安全问题。</p>
+<h2 id="常见的模版"><a href="#常见的模版" class="headerlink" title="常见的模版"></a>常见的模版</h2><p><strong>PHP</strong></p>
+<p>Twig模板变量: <code>&#123;&#123;%s&#125;&#125;</code><br>Smarty模板变量: &#96;</p>
+]]></content>
+      <categories>
+        <category>web攻防</category>
+      </categories>
+      <tags>
+        <tag>web攻防</tag>
+        <tag>注入</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>next主题边框圆角化</title>
     <url>/posts/47864.html</url>
     <content><![CDATA[<h1 id="next主题边框完全圆角化"><a href="#next主题边框完全圆角化" class="headerlink" title="next主题边框完全圆角化"></a>next主题边框完全圆角化</h1><p>问题描述：next主题边框圆角化后作者所属的边框有一层阴影，圆角化不明显</p>
