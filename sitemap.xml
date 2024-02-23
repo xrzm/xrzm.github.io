@@ -2,18 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://xrzmblog.cn/posts/174200537.html</loc>
-    
-    <lastmod>2024-02-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://xrzmblog.cn/posts/3320036978.html</loc>
     
-    <lastmod>2024-02-18</lastmod>
+    <lastmod>2024-02-23</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -85,7 +76,7 @@
 
   <url>
     <loc>https://xrzmblog.cn/</loc>
-    <lastmod>2024-02-21</lastmod>
+    <lastmod>2024-02-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -93,35 +84,35 @@
   
   <url>
     <loc>https://xrzmblog.cn/tags/hexo/</loc>
-    <lastmod>2024-02-21</lastmod>
+    <lastmod>2024-02-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://xrzmblog.cn/tags/markdown/</loc>
-    <lastmod>2024-02-21</lastmod>
+    <lastmod>2024-02-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://xrzmblog.cn/tags/web%E6%94%BB%E9%98%B2/</loc>
-    <lastmod>2024-02-21</lastmod>
+    <lastmod>2024-02-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://xrzmblog.cn/tags/%E6%B3%A8%E5%85%A5/</loc>
-    <lastmod>2024-02-21</lastmod>
+    <lastmod>2024-02-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://xrzmblog.cn/tags/next/</loc>
-    <lastmod>2024-02-21</lastmod>
+    <lastmod>2024-02-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -130,14 +121,14 @@
   
   <url>
     <loc>https://xrzmblog.cn/categories/hexo/</loc>
-    <lastmod>2024-02-21</lastmod>
+    <lastmod>2024-02-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://xrzmblog.cn/categories/web%E6%94%BB%E9%98%B2/</loc>
-    <lastmod>2024-02-21</lastmod>
+    <lastmod>2024-02-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
