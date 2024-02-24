@@ -1,6 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>SSTI模版注入</title>
+    <url>/posts/3320036978.html</url>
+    <content><![CDATA[<h2 id="SSTI"><a href="#SSTI" class="headerlink" title="SSTI"></a>SSTI</h2><p>SSTI（Server-Side Template Injection）是一种发生在服务器端模板中的漏洞。当应用程序接受用户输入并将其直接传递到模板引擎中进行解析时，如果未对用户输入进行<strong>充分的验证和过滤</strong>，攻击者可以通过构造<strong>恶意的输入</strong>来注入模板代码，导致服务器端模板引擎执行恶意代码。</p>
+<span id="more"></span>
+<hr>
+<p>下面将引用一个简单的例子来说明，假设有一个包含以下代码的Twig模板文件 <code>template.twig</code>：</p>
+<pre><code>Hello, &#123;&#123; name &#125;&#125;!
+</code></pre>
+<p>在后端PHP代码中，可能会这样使用Twig引擎来渲染模板：</p>
+<pre><code>$loader = new \Twig\Loader\FilesystemLoader(&#39;/path/to/templates&#39;);
+$twig = new \Twig\Environment($loader);
+
+$name = $_GET[&#39;name&#39;]; // 从用户输入获取name参数
+echo $twig-&gt;render(&#39;template.twig&#39;, [&#39;name&#39; =&gt; $name]);
+//正确的代码应该在后面两段加上过滤和验证
+</code></pre>
+<p>如果攻击者将name参数设置为恶意Twig模板代码，比如：</p>
+<pre><code>&#123;&#123; 7 * 7 &#125;&#125;
+</code></pre>
+<p>那么最终生成的模板内容将是：</p>
+<pre><code>Hello, 49!
+</code></pre>
+<p>但是，如果攻击者将name参数设置为更危险的代码，比如：</p>
+<pre><code>&#123;&#123; _self.env.registerUndefinedFilterCallback('exec') &#125;&#125;
+&#123;&#123; filter('ls -la') &#125;&#125;
+</code></pre>
+<p>这将导致Twig引擎执行系统命令 ls -la，可能导致服务器远程命令执行漏洞，造成严重安全问题。</p>
+<br>
+
+<h2 id="常见的模版"><a href="#常见的模版" class="headerlink" title="常见的模版"></a>常见的模版</h2><p><strong>PHP</strong><br>Twig、Smarty 、Blade﻿</p>
+<p><strong>Python</strong><br>Jinja2、Tornado、Django、MaKo</p>
+<p><strong>Java</strong><br>FreeMarker、Velocity</p>
+<p><strong>更多模版参考</strong>：</p>
+<p><img src="/posts/3320036978/0.png"></p>
+<br>
+
+<h2 id="python案例说明"><a href="#python案例说明" class="headerlink" title="python案例说明"></a>python案例说明</h2><pre><code>from flask import Flask    # Jinja2是Flask框架的一部分，Jinja2会把模板参数提供的相应的值替换成 &#123;&#123;…&#125;&#125; 块
+from flask import request
+from flask import config
+from flask import render_template_string
+app = Flask(__name__)
+
+app.config[&#39;SECRET_KEY&#39;] = &quot;flag&#123;SSTI_123456&#125;&quot;
+@app.route(&#39;/&#39;)
+def hello_world():
+    return &#39;Hello World!&#39;
+
+@app.errorhandler(404)
+def page_not_found(e):
+    template = &#39;&#39;&#39;
+&#123;%% block body %%&#125;
+    &lt;div class=&quot;center-content error&quot;&gt;    # 这里是报错页面所显示的内容
+        &lt;h1&gt;Oops! That page doesn&#39;t exist.&lt;/h1&gt;
+        &lt;h3&gt;%s&lt;/h3&gt;    # %s接收404_url下的参数，返回到报错页面中
+    &lt;/div&gt; 
+&#123;%% endblock %%&#125;
+&#39;&#39;&#39; % (request.args.get(&#39;404_url&#39;))
+    return render_template_string(template), 404
+
+if __name__ == &#39;__main__&#39;:
+    app.run(host=&#39;0.0.0.0&#39;,debug=True)
+</code></pre>
+<p>随便输入字符使得页面报错，并利用404_url来接收参数，发现存在注入<br><img src="/posts/3320036978/1.png"></p>
+<p>使用<strong>payload</strong>进行注入</p>
+<pre><code>使用__import__的os。
+&quot;&quot;.__class__.__bases__[0].__subclasses__()[75].__init__.__globals__.__import__(&#39;os&#39;).popen(&#39;whoami&#39;).read()
+</code></pre>
+<p><img src="/posts/3320036978/2.png"></p>
+<br>
+
+<h2 id="CTF习题"><a href="#CTF习题" class="headerlink" title="CTF习题"></a>CTF习题</h2><p>1、这里看到flask框架及渲染，猜测是ssti注入<br><img src="/posts/3320036978/3.png"></p>
+<p>2、在shrine路径下输入49验证<br><img src="/posts/3320036978/4.png"></p>
+<p>3、由于safe_jinja函数对输入的参数进行了过滤，不能直接使用<code>&#123;&#123;config&#125;&#125;</code>，但这里可以使用python内置函数url_for 或 get_flashed_messages<br><img src="/posts/3320036978/5.png"></p>
+<p>4、爆出current_app，由于flag存在app.config里<br>所以输入url_for.<strong>globals</strong>.current_app.config[‘FLAG’]，得到flag<br><img src="/posts/3320036978/6.png"></p>
+<br>
+
+<p>所以在开发Web应用程序时，始终要警惕并避免直接使用用户输入构造动态内容，尤其是在模板渲染过程中。对用户输入进行严格的验证和过滤，以及遵循最佳的安全实践，是保护系统免受SSTI等安全威胁的关键。</p>
+]]></content>
+      <categories>
+        <category>web攻防</category>
+      </categories>
+      <tags>
+        <tag>web攻防</tag>
+        <tag>注入</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>next主题边框圆角化</title>
+    <url>/posts/47864.html</url>
+    <content><![CDATA[<h1 id="next主题边框完全圆角化"><a href="#next主题边框完全圆角化" class="headerlink" title="next主题边框完全圆角化"></a>next主题边框完全圆角化</h1><p>问题描述：next主题边框圆角化后作者所属的边框有一层阴影，圆角化不明显</p>
+<span id="more"></span>
+<h2 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h2><p>打开文件 “&#x2F;themes&#x2F;next&#x2F;source&#x2F;css&#x2F;_variables&#x2F;Gemini.styl”，<br>在</p>
+<pre><code>// Settings for some of the most global styles.
+// --------------------------------------------------
+// $body-bg-color           = #eee;
+$body-bg-color           = transparent;
+
+// Borders.
+// --------------------------------------------------
+$box-shadow-inner        = 0 2px 2px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0, 0, .06), 0 1px 5px 0 rgba(0, 0, 0, .12);
+$box-shadow              = 0 2px 2px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0,   0, .06), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 -1px .5px 0 rgba(0, 0, 0, .09);
+</code></pre>
+<p>中将 <code>$body-bg-color</code> 赋值为透明 transparent</p>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>next</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>next主题顶部黑边处理</title>
+    <url>/posts/937.html</url>
+    <content><![CDATA[<h1 id="next主题顶部黑边处理"><a href="#next主题顶部黑边处理" class="headerlink" title="next主题顶部黑边处理"></a>next主题顶部黑边处理</h1><p>问题描述：next主题优化后仍然有一条黑边在顶部出现</p>
+<span id="more"></span>
+<h2 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h2><h3 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h3><p>打开文件 “themes\next\layout_layout.swig” ,在 </p>
+<pre><code>&lt;body itemscope itemtype=&quot;http://schema.org/WebPage&quot;&gt;
+  &lt;div class=&quot;container&#123;%- if theme.motion.enable %&#125; use-motion&#123;%- endif %&#125;&quot;&gt;
+    &lt;div class=&quot;headband&quot;&gt;&lt;/div&gt;
+</code></pre>
+<p>中删除 “<code>&lt;div class=&quot;headband&quot;&gt;&lt;/div&gt;</code>”</p>
+<h3 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h3><p>打开文件 “themes\next\source\css_variables\base.styl” ，<br>在</p>
+<pre><code>// Headband
+// --------------------------------------------------
+$headband-height                = 3px;
+$headband-bg                    = $black-deep;
+</code></pre>
+<p>中找到“<code>$headband-height</code>”，把3px改成0px；</p>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>next</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>markdown基本语法</title>
     <url>/posts/47caaf1e.html</url>
     <content><![CDATA[<h1 id="markdown基本语法说明"><a href="#markdown基本语法说明" class="headerlink" title="markdown基本语法说明"></a>markdown基本语法说明</h1><span id="more"></span>
@@ -51,126 +191,6 @@
       <tags>
         <tag>hexo</tag>
         <tag>markdown</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>next主题顶部黑边处理</title>
-    <url>/posts/937.html</url>
-    <content><![CDATA[<h1 id="next主题顶部黑边处理"><a href="#next主题顶部黑边处理" class="headerlink" title="next主题顶部黑边处理"></a>next主题顶部黑边处理</h1><p>问题描述：next主题优化后仍然有一条黑边在顶部出现</p>
-<span id="more"></span>
-<h2 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h2><h3 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h3><p>打开文件 “themes\next\layout_layout.swig” ,在 </p>
-<pre><code>&lt;body itemscope itemtype=&quot;http://schema.org/WebPage&quot;&gt;
-  &lt;div class=&quot;container&#123;%- if theme.motion.enable %&#125; use-motion&#123;%- endif %&#125;&quot;&gt;
-    &lt;div class=&quot;headband&quot;&gt;&lt;/div&gt;
-</code></pre>
-<p>中删除 “<code>&lt;div class=&quot;headband&quot;&gt;&lt;/div&gt;</code>”</p>
-<h3 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h3><p>打开文件 “themes\next\source\css_variables\base.styl” ，<br>在</p>
-<pre><code>// Headband
-// --------------------------------------------------
-$headband-height                = 3px;
-$headband-bg                    = $black-deep;
-</code></pre>
-<p>中找到“<code>$headband-height</code>”，把3px改成0px；</p>
-]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>next</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>next主题边框圆角化</title>
-    <url>/posts/47864.html</url>
-    <content><![CDATA[<h1 id="next主题边框完全圆角化"><a href="#next主题边框完全圆角化" class="headerlink" title="next主题边框完全圆角化"></a>next主题边框完全圆角化</h1><p>问题描述：next主题边框圆角化后作者所属的边框有一层阴影，圆角化不明显</p>
-<span id="more"></span>
-<h2 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h2><p>打开文件 “&#x2F;themes&#x2F;next&#x2F;source&#x2F;css&#x2F;_variables&#x2F;Gemini.styl”，<br>在</p>
-<pre><code>// Settings for some of the most global styles.
-// --------------------------------------------------
-// $body-bg-color           = #eee;
-$body-bg-color           = transparent;
-
-// Borders.
-// --------------------------------------------------
-$box-shadow-inner        = 0 2px 2px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0, 0, .06), 0 1px 5px 0 rgba(0, 0, 0, .12);
-$box-shadow              = 0 2px 2px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0,   0, .06), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 -1px .5px 0 rgba(0, 0, 0, .09);
-</code></pre>
-<p>中将 <code>$body-bg-color</code> 赋值为透明 transparent</p>
-]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>next</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SSTI模版注入</title>
-    <url>/posts/3320036978.html</url>
-    <content><![CDATA[<h2 id="SSTI"><a href="#SSTI" class="headerlink" title="SSTI"></a>SSTI</h2><p>SSTI（Server-Side Template Injection）是一种发生在服务器端模板中的漏洞。当应用程序接受用户输入并将其直接传递到模板引擎中进行解析时，如果未对用户输入进行<strong>充分的验证和过滤</strong>，攻击者可以通过构造<strong>恶意的输入</strong>来注入模板代码，导致服务器端模板引擎执行恶意代码。</p>
-<span id="more"></span>
-<hr>
-<p>下面将引用一个简单的例子来说明，假设有一个包含以下代码的Twig模板文件 <code>template.twig</code>：</p>
-<pre><code>Hello, &#123;&#123; name &#125;&#125;!
-</code></pre>
-<p>在后端PHP代码中，可能会这样使用Twig引擎来渲染模板：</p>
-<pre><code>$loader = new \Twig\Loader\FilesystemLoader(&#39;/path/to/templates&#39;);
-$twig = new \Twig\Environment($loader);
-
-$name = $_GET[&#39;name&#39;]; // 从用户输入获取name参数
-echo $twig-&gt;render(&#39;template.twig&#39;, [&#39;name&#39; =&gt; $name]);
-</code></pre>
-<p>如果攻击者将name参数设置为恶意Twig模板代码，比如：</p>
-<pre><code>&#123;&#123; 7 * 7 &#125;&#125;
-</code></pre>
-<p>那么最终生成的模板内容将是：</p>
-<pre><code>Hello, 49!
-</code></pre>
-<p>但是，如果攻击者将name参数设置为更危险的代码，比如：</p>
-<pre><code>&#123;&#123; _self.env.registerUndefinedFilterCallback('exec') &#125;&#125;
-&#123;&#123; filter('ls -la') &#125;&#125;
-</code></pre>
-<p>这将导致Twig引擎执行系统命令 ls -la，可能导致服务器远程命令执行漏洞，造成严重安全问题。</p>
-<h2 id="常见的模版"><a href="#常见的模版" class="headerlink" title="常见的模版"></a>常见的模版</h2><p><strong>PHP</strong><br>Twig、Smarty 、Blade﻿</p>
-<p><strong>Python</strong><br>Jinja2、Tornado、Django、MaKo</p>
-<p><strong>Java</strong><br>FreeMarker、Velocity</p>
-<p><strong>更多模版参考</strong>：</p>
-<p><img src="/posts/3320036978/ssti-payload.jpg"></p>
-<h2 id="python案例说明"><a href="#python案例说明" class="headerlink" title="python案例说明"></a>python案例说明</h2><pre><code>from flask import Flask
-from flask import request
-from flask import config
-from flask import render_template_string
-app = Flask(__name__)
-
-app.config[&#39;SECRET_KEY&#39;] = &quot;flag&#123;SSTI_123456&#125;&quot;
-@app.route(&#39;/&#39;)
-def hello_world():
-    return &#39;Hello World!&#39;
-
-@app.errorhandler(404)
-def page_not_found(e):
-    template = &#39;&#39;&#39;
-&#123;%% block body %%&#125;
-    &lt;div class=&quot;center-content error&quot;&gt;
-        &lt;h1&gt;Oops! That page doesn&#39;t exist.&lt;/h1&gt;
-        &lt;h3&gt;%s&lt;/h3&gt;
-    &lt;/div&gt; 
-&#123;%% endblock %%&#125;
-&#39;&#39;&#39; % (request.args.get(&#39;404_url&#39;))
-    return render_template_string(template), 404
-
-if __name__ == &#39;__main__&#39;:
-    app.run(host=&#39;0.0.0.0&#39;,debug=True)
-</code></pre>
-]]></content>
-      <categories>
-        <category>web攻防</category>
-      </categories>
-      <tags>
-        <tag>web攻防</tag>
-        <tag>注入</tag>
       </tags>
   </entry>
 </search>
