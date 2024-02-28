@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>window 2003搭建web服务器</title>
+    <url>/posts/3309922375.html</url>
+    <content><![CDATA[<h2 id="window-server-2003-enterprise-edition下载"><a href="#window-server-2003-enterprise-edition下载" class="headerlink" title="window server 2003 enterprise edition下载"></a>window server 2003 enterprise edition下载</h2><p>百度网盘链接：<a href="https://pan.baidu.com/s/1R3Q-cf9n0t1MqKaF7WBWGA?pwd=5mia">https://pan.baidu.com/s/1R3Q-cf9n0t1MqKaF7WBWGA?pwd=5mia</a><br>提取码：5mia</p>
+<span id="more"></span>
+<h2 id="搭建步骤"><a href="#搭建步骤" class="headerlink" title="搭建步骤"></a>搭建步骤</h2><p>1、用vmware创建虚拟机，没什么值得注意的地方，正常安装就行</p>
+<p>2、安装好虚拟机后按步骤来<br><img src="/posts/3309922375/0.png"><br><img src="/posts/3309922375/1.png"><br><img src="/posts/3309922375/2.png"><br><img src="/posts/3309922375/3.png"><br><img src="/posts/3309922375/4.png"><br><img src="/posts/3309922375/5.png"><br><img src="/posts/3309922375/6.png"><br><img src="/posts/3309922375/7.png"><br><img src="/posts/3309922375/8.png"><br><br></p>
+<p>3、创建一个文件夹以放置文件，路径就是文件夹的路径<br><img src="/posts/3309922375/9.png"><br><img src="/posts/3309922375/10.png"><br><img src="/posts/3309922375/11.png"><br><img src="/posts/3309922375/12.png"><br><br></p>
+<p>4、打开test文件夹，创建一个index文本文件，随便输入并保存，记得把最后把后缀名改为html<br><img src="/posts/3309922375/16.png"><br><br></p>
+<p>5、右键test，把权限打开，防止网站无法访问，如果还是无法访问，那么把IIS管理器内web服务扩展里的权限也打开<br><img src="/posts/3309922375/17.png"><br><br></p>
+<p>6、可以看到网站已经可以打开了<br><img src="/posts/3309922375/18.png"><br><br></p>
+<p>7、一般我们使用win2003是为了用源码搭建靶场的，如果有源码在手，我们可以在第三步时就将路径设为源码的文件夹（注意：不是下图这里更改，这里只是作演示）<br><img src="/posts/3309922375/19.png"><br><br></p>
+<p>8、如果在访问网站时需要验证时,可以在用户组里创建一个用户以进行验证并访问网站(我已经验证过了所以没有弹出框可以截出来)<br><img src="/posts/3309922375/13.png"><br><img src="/posts/3309922375/14.png"><br><img src="/posts/3309922375/15.png"></p>
+]]></content>
+      <categories>
+        <category>web攻防</category>
+      </categories>
+      <tags>
+        <tag>web攻防</tag>
+        <tag>靶场</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SSTI模版注入</title>
     <url>/posts/3320036978.html</url>
     <content><![CDATA[<h2 id="SSTI"><a href="#SSTI" class="headerlink" title="SSTI"></a>SSTI</h2><p>SSTI（Server-Side Template Injection）是一种发生在服务器端模板中的漏洞。当应用程序接受用户输入并将其直接传递到模板引擎中进行解析时，如果未对用户输入进行<strong>充分的验证和过滤</strong>，攻击者可以通过构造<strong>恶意的输入</strong>来注入模板代码，导致服务器端模板引擎执行恶意代码。</p>
