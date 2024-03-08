@@ -16,9 +16,9 @@
 <p><img src="/posts/2586621136/7.png"></p>
 <p><img src="/posts/2586621136/8.png"></p>
 <p><img src="/posts/2586621136/9.png"><br><br></p>
-<p>7、在实验的目标靶机上关闭实时保护，防止木马被杀掉。<br><img src="/posts/2586621136/10.png"></p>
-<p>8、当靶机点击exe文件后，目标列表会新增一位。<br><img src="/posts/2586621136/11.png"></p>
-<p>9、单击右键目标靶机，设置回连间隔为0，以实时查看kali对靶机的操作。<br><img src="/posts/2586621136/12.png"></p>
+<p>7、在实验的目标靶机上关闭实时保护，防止木马被杀掉。<br><img src="/posts/2586621136/10.png"><br><br></p>
+<p>8、当靶机点击exe文件后，目标列表会新增一位。<br><img src="/posts/2586621136/11.png"><br><br></p>
+<p>9、单击右键目标靶机，设置回连间隔为0，以实时查看kali对靶机的操作。<br><img src="/posts/2586621136/12.png"><br><br></p>
 <p>10、以下是两个简单的操作。值得注意的是：在执行命令时，需要在命令前添加”shell”<br><img src="/posts/2586621136/13.png"><br><img src="/posts/2586621136/14.png"></p>
 ]]></content>
       <categories>
