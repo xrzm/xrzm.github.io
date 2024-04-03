@@ -1,6 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Invoke-obfuscation实现混淆免杀</title>
+    <url>/posts/2497940050.html</url>
+    <content><![CDATA[<h2 id="方法一：使用powershell进行免杀"><a href="#方法一：使用powershell进行免杀" class="headerlink" title="方法一：使用powershell进行免杀"></a>方法一：使用powershell进行免杀</h2><span id="more"></span>
+
+<p>1、首先改变window的文件执行策略，并关闭window内的病毒实时查杀<br><img src="/posts/2497940050/1.png"><br><br></p>
+<p>2、打开kali内的cobalt strike ，生成payload后门，注意输出格式为powershell<br><img src="/posts/2497940050/2.png"></p>
+<p><img src="/posts/2497940050/3.png"><br><br></p>
+<p>3、使用文件托管进行文件传输<br><img src="/posts/2497940050/4.png"><br><br></p>
+<p>4、使用本机打开网站，并将里面的内容复制到文本文档内<br><img src="/posts/2497940050/5.png"><br><br></p>
+<p>5、另存为文件，注意保存类型和文件后缀，后缀名为ps1，是数字1<br><img src="/posts/2497940050/6.png"><br><br></p>
+<p>6、在powershell内输入以下代码，执行文件，可以在kali的监听器内发现本机<br><img src="/posts/2497940050/7.png"><br><br></p>
+<h2 id="方法二：-使用invoke-obfuscation进行免杀"><a href="#方法二：-使用invoke-obfuscation进行免杀" class="headerlink" title="方法二： 使用invoke-obfuscation进行免杀"></a>方法二： 使用invoke-obfuscation进行免杀</h2><p>1、首先在github下载invoke-obfuscation的压缩包<br><img src="/posts/2497940050/8.png"><br><br></p>
+<p>2、解压后定位到文件夹内依次输入<br>import-module .&#x2F;invoke-obfuscation.psd1<br>Invoke-obfuscation<br>以运行软件<br><img src="/posts/2497940050/9.png"><br><br></p>
+<p>3、输入“set scriptpath 需要混淆的文件的地址”<br><img src="/posts/2497940050/11.png"><br><br></p>
+<p>4、输入encoding选择编码进行混淆，在1~8的编码方式中进行选择<br>（这里使用第一个ASCII编码发现无法避免window查杀，后来测试第五个AES加密可以实现免杀）<br><img src="/posts/2497940050/12.png"><br><br></p>
+<p>5、输入“out 存放混淆后的文件的地址”，得到文件<br><img src="/posts/2497940050/13.png"><br><br></p>
+<p>6、在powershell里执行文件可以看到kali的监听器已经发现了本机<br><img src="/posts/2497940050/14.png"><br><br></p>
+<p>7、将window的病毒实时查杀打开后，再打开未进行混淆的pay.ps1，发现该文件已经被window杀掉了。<br><img src="/posts/2497940050/15.png"><br><br></p>
+<p>8、而进行混淆后的pay111.ps1还可以运行。<br><img src="/posts/2497940050/16.png"><br><br></p>
+]]></content>
+      <categories>
+        <category>web攻防</category>
+      </categories>
+      <tags>
+        <tag>web攻防</tag>
+        <tag>工具使用</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Cobaltstrike网络共享后门</title>
     <url>/posts/3343148988.html</url>
     <content><![CDATA[<h2 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h2><span id="more"></span>
