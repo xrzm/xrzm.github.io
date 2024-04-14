@@ -62,7 +62,18 @@ portfwd add -l 9999 -r 192.168.100.158 -p 3389     		                      #将1
 clearev                                                 #清除日志
 </code></pre>
 <p>16、进入shell输入<code>systeminfo</code>查看目标主机信息<br><img src="/posts/1051313787/14.png"><br><br></p>
-<p>其他的抽时间补充</p>
+<h2 id="利用-ms17-010（永恒之蓝）攻击"><a href="#利用-ms17-010（永恒之蓝）攻击" class="headerlink" title="利用 ms17_010（永恒之蓝）攻击"></a>利用 ms17_010（永恒之蓝）攻击</h2><p>17、在kali终端输入msfconsole进入Metasploit<br><img src="/posts/1051313787/15.png"><br><br></p>
+<p>18、搜索ms17_010漏洞，找到四个模块，前两个是漏洞利用模块，后两个是辅助模块<br><img src="/posts/1051313787/16.png"><br><br></p>
+<p>19、输入use auxiliary&#x2F;scanner&#x2F;smb&#x2F;smb_ms17_010(或者输入use 3)使用Auxiliary辅助探测模块对漏洞进行探测；<br>输入show options查看这个模块需要配置的信息<br><img src="/posts/1051313787/17.png"><br><br></p>
+<p>20、设定好扫描192.168.225.100到192.168.225.200<br><code>注：RHOSTS 参数是要探测主机的ip或ip范围，我们探测一个ip范围内的主机是否存在漏洞</code><br>发现192.168.225.136主机存在永恒之蓝漏洞（我先前打开了一个有该漏洞的虚拟机在同一网段）<br><img src="/posts/1051313787/18.png"></p>
+<p><img src="/posts/1051313787/19.png"></p>
+<p><img src="/posts/1051313787/20.png"><br><br></p>
+<p>21、使用exploit模块漏洞进行攻击<br><img src="/posts/1051313787/21.png"><br><br></p>
+<p>22、设置攻击载荷和必要参数，输入exploit进行攻击，攻击成功！<br><img src="/posts/1051313787/22.png"></p>
+<p><img src="/posts/1051313787/23.png"><br><br></p>
+<p>23、输入getuid查看当前权限，得知当前是最高权限<br><img src="/posts/1051313787/24.png"><br><br></p>
+<p>24、接下来是后渗透阶段，尝试上传文件到目标主机：upload 本机路径 上传目标路径<br>上传成功，到目标主机里查看文件确认。<br><img src="/posts/1051313787/25.png"></p>
+<p><img src="/posts/1051313787/26.png"><br><br></p>
 ]]></content>
       <categories>
         <category>web攻防</category>

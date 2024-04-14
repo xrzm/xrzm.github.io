@@ -43,8 +43,20 @@
 <meta property="og:image" content="https://xrzmblog.cn/posts/1051313787/12.png">
 <meta property="og:image" content="https://xrzmblog.cn/posts/1051313787/13.png">
 <meta property="og:image" content="https://xrzmblog.cn/posts/1051313787/14.png">
+<meta property="og:image" content="https://xrzmblog.cn/posts/1051313787/15.png">
+<meta property="og:image" content="https://xrzmblog.cn/posts/1051313787/16.png">
+<meta property="og:image" content="https://xrzmblog.cn/posts/1051313787/17.png">
+<meta property="og:image" content="https://xrzmblog.cn/posts/1051313787/18.png">
+<meta property="og:image" content="https://xrzmblog.cn/posts/1051313787/19.png">
+<meta property="og:image" content="https://xrzmblog.cn/posts/1051313787/20.png">
+<meta property="og:image" content="https://xrzmblog.cn/posts/1051313787/21.png">
+<meta property="og:image" content="https://xrzmblog.cn/posts/1051313787/22.png">
+<meta property="og:image" content="https://xrzmblog.cn/posts/1051313787/23.png">
+<meta property="og:image" content="https://xrzmblog.cn/posts/1051313787/24.png">
+<meta property="og:image" content="https://xrzmblog.cn/posts/1051313787/25.png">
+<meta property="og:image" content="https://xrzmblog.cn/posts/1051313787/26.png">
 <meta property="article:published_time" content="2024-04-10T10:53:52.000Z">
-<meta property="article:modified_time" content="2024-04-10T11:13:24.610Z">
+<meta property="article:modified_time" content="2024-04-14T15:34:58.799Z">
 <meta property="article:author" content="仙人掌门">
 <meta property="article:tag" content="web攻防">
 <meta property="article:tag" content="工具使用">
@@ -230,10 +242,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2024-04-10 18:53:52 / 修改时间：19:13:24" itemprop="dateCreated datePublished" datetime="2024-04-10T18:53:52+08:00">2024-04-10</time>
+              <time title="创建时间：2024-04-10 18:53:52" itemprop="dateCreated datePublished" datetime="2024-04-10T18:53:52+08:00">2024-04-10</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-04-14 23:34:58" itemprop="dateModified" datetime="2024-04-14T23:34:58+08:00">2024-04-14</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -321,7 +339,18 @@ portfwd add -l 9999 -r 192.168.100.158 -p 3389     		                      #将1
 clearev                                                 #清除日志
 </code></pre>
 <p>16、进入shell输入<code>systeminfo</code>查看目标主机信息<br><img src="/posts/1051313787/14.png"><br><br></p>
-<p>其他的抽时间补充</p>
+<h2 id="利用-ms17-010（永恒之蓝）攻击"><a href="#利用-ms17-010（永恒之蓝）攻击" class="headerlink" title="利用 ms17_010（永恒之蓝）攻击"></a>利用 ms17_010（永恒之蓝）攻击</h2><p>17、在kali终端输入msfconsole进入Metasploit<br><img src="/posts/1051313787/15.png"><br><br></p>
+<p>18、搜索ms17_010漏洞，找到四个模块，前两个是漏洞利用模块，后两个是辅助模块<br><img src="/posts/1051313787/16.png"><br><br></p>
+<p>19、输入use auxiliary&#x2F;scanner&#x2F;smb&#x2F;smb_ms17_010(或者输入use 3)使用Auxiliary辅助探测模块对漏洞进行探测；<br>输入show options查看这个模块需要配置的信息<br><img src="/posts/1051313787/17.png"><br><br></p>
+<p>20、设定好扫描192.168.225.100到192.168.225.200<br><code>注：RHOSTS 参数是要探测主机的ip或ip范围，我们探测一个ip范围内的主机是否存在漏洞</code><br>发现192.168.225.136主机存在永恒之蓝漏洞（我先前打开了一个有该漏洞的虚拟机在同一网段）<br><img src="/posts/1051313787/18.png"></p>
+<p><img src="/posts/1051313787/19.png"></p>
+<p><img src="/posts/1051313787/20.png"><br><br></p>
+<p>21、使用exploit模块漏洞进行攻击<br><img src="/posts/1051313787/21.png"><br><br></p>
+<p>22、设置攻击载荷和必要参数，输入exploit进行攻击，攻击成功！<br><img src="/posts/1051313787/22.png"></p>
+<p><img src="/posts/1051313787/23.png"><br><br></p>
+<p>23、输入getuid查看当前权限，得知当前是最高权限<br><img src="/posts/1051313787/24.png"><br><br></p>
+<p>24、接下来是后渗透阶段，尝试上传文件到目标主机：upload 本机路径 上传目标路径<br>上传成功，到目标主机里查看文件确认。<br><img src="/posts/1051313787/25.png"></p>
+<p><img src="/posts/1051313787/26.png"><br><br></p>
 
     </div>
 
@@ -425,7 +454,7 @@ clearev                                                 #清除日志
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Metasploit%E7%9A%84%E5%85%8D%E6%9D%80%E5%92%8C%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">Metasploit的免杀和基本使用</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Metasploit%E7%9A%84%E5%85%8D%E6%9D%80%E5%92%8C%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">Metasploit的免杀和基本使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A9%E7%94%A8-ms17-010%EF%BC%88%E6%B0%B8%E6%81%92%E4%B9%8B%E8%93%9D%EF%BC%89%E6%94%BB%E5%87%BB"><span class="nav-number">2.</span> <span class="nav-text">利用 ms17_010（永恒之蓝）攻击</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
