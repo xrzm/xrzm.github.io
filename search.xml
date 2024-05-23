@@ -27,9 +27,8 @@
   <entry>
     <title>函数缺陷和弱类型比较</title>
     <url>/posts/1458372311.html</url>
-    <content><![CDATA[<span id="more"></span>
-
-<h2 id="1、in-array"><a href="#1、in-array" class="headerlink" title="1、in_array()"></a>1、in_array()</h2><p><code>in_array(search,array,type)</code> 如果给定的值 search 存在于数组 array 中则返回 true。如果第三个参数设置为 true，函数只有在元素存在于数组中且数据类型与给定值相同时才返回 true。如果没有在数组中找到参数，函数返回 false。 </p>
+    <content><![CDATA[<h2 id="1、in-array"><a href="#1、in-array" class="headerlink" title="1、in_array()"></a>1、in_array()</h2><span id="more"></span>
+<p><code>in_array(search,array,type)</code> 如果给定的值 search 存在于数组 array 中则返回 true。如果第三个参数设置为 true，函数只有在元素存在于数组中且数据类型与给定值相同时才返回 true。如果没有在数组中找到参数，函数返回 false。 </p>
 <p>那么为什么会出现安全问题呢，我们来看看下面代码</p>
 <p><img src="/posts/1458372311/1.7.1.png" alt="file"></p>
 <p>在没设置第三个参数的情况下<code>in_array()</code>函数将会吧<code>1 and 1=1</code>转为数字1比较，那么这样就造成了一些安全问题，在注入或上传的情况下可能绕过。</p>
@@ -56,7 +55,9 @@
   <entry>
     <title>CTF-web-wp</title>
     <url>/posts/773187307.html</url>
-    <content><![CDATA[<h1 id="web-代码执行"><a href="#web-代码执行" class="headerlink" title="web-代码执行"></a>web-代码执行</h1><h2 id="RCE你会吗？？"><a href="#RCE你会吗？？" class="headerlink" title="RCE你会吗？？"></a>RCE你会吗？？</h2><p>1、打开网站看到提示我们进行目录扫描<br><img src="/posts/773187307/1.png"></p>
+    <content><![CDATA[<p>错题难题归档</p>
+<span id="more"></span>
+<h1 id="web-代码执行"><a href="#web-代码执行" class="headerlink" title="web-代码执行"></a>web-代码执行</h1><h2 id="RCE你会吗？？"><a href="#RCE你会吗？？" class="headerlink" title="RCE你会吗？？"></a>RCE你会吗？？</h2><p>1、打开网站看到提示我们进行目录扫描<br><img src="/posts/773187307/1.png"></p>
 <p>2、使用dirsearch进行扫描，得到四个结果，进入flag.php毫不意外是假的flag，进入robots.txt,得到提示：tools.php<br><img src="/posts/773187307/2.png"><br><img src="/posts/773187307/4.png"></p>
 <p>3、进入源代码，进行初步审计，发现第一个考点是php死亡函数绕过<br><img src="/posts/773187307/5.png"></p>
 <figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(isset(<span class="variable">$_GET</span>[<span class="string">&#x27;file&#x27;</span>])|<span class="params"></span>|<span class="variable">$_GET</span>[<span class="string">&#x27;content&#x27;</span>])&#123;</span><br><span class="line">    <span class="variable">$d</span>   = <span class="string">&#x27;&lt;?php die(&quot;nononon&quot;);?&gt;&#x27;</span>; <span class="regexp">//</span> phpdienononon</span><br><span class="line">    <span class="variable">$a</span>= <span class="variable">$d</span>. <span class="variable">$_GET</span>[<span class="string">&#x27;content&#x27;</span>];</span><br><span class="line">    <span class="variable">@file_put_contents</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;file&#x27;</span>],<span class="variable">$a</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
