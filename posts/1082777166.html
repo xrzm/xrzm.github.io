@@ -36,7 +36,7 @@
 <meta property="og:image" content="https://xrzmblog.cn/posts/1082777166/5.png">
 <meta property="og:image" content="https://xrzmblog.cn/posts/1082777166/6.png">
 <meta property="article:published_time" content="2024-05-07T11:54:05.000Z">
-<meta property="article:modified_time" content="2024-05-07T12:55:54.996Z">
+<meta property="article:modified_time" content="2024-05-20T15:42:51.655Z">
 <meta property="article:author" content="仙人掌门">
 <meta property="article:tag" content="web攻防">
 <meta property="article:tag" content="web漏洞">
@@ -222,17 +222,23 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2024-05-07 19:54:05 / 修改时间：20:55:54" itemprop="dateCreated datePublished" datetime="2024-05-07T19:54:05+08:00">2024-05-07</time>
+              <time title="创建时间：2024-05-07 19:54:05" itemprop="dateCreated datePublished" datetime="2024-05-07T19:54:05+08:00">2024-05-07</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-05-20 23:42:51" itemprop="dateModified" datetime="2024-05-20T23:42:51+08:00">2024-05-20</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/web%E6%94%BB%E9%98%B2/" itemprop="url" rel="index"><span itemprop="name">web攻防</span></a>
+                  <a href="/categories/web%E6%BC%8F%E6%B4%9E/" itemprop="url" rel="index"><span itemprop="name">web漏洞</span></a>
                 </span>
             </span>
 
@@ -261,8 +267,27 @@
 <h2 id="PHP伪协议"><a href="#PHP伪协议" class="headerlink" title="PHP伪协议"></a>PHP伪协议</h2><p>常见伪协议：</p>
 <figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">file:</span><span class="comment">// — 访问本地文件系统</span></span><br><span class="line"><span class="symbol">http:</span><span class="comment">// — 访问 HTTP(s) 网址</span></span><br><span class="line"><span class="symbol">ftp:</span><span class="comment">// — 访问 FTP(s) URLs</span></span><br><span class="line"><span class="symbol">php:</span><span class="comment">// — 访问各个输入/输出流（I/O streams）</span></span><br><span class="line"><span class="symbol">zlib:</span><span class="comment">// — 压缩流</span></span><br><span class="line"><span class="symbol">data:</span><span class="comment">// — 数据（RFC 2397）</span></span><br><span class="line"><span class="symbol">glob:</span><span class="comment">// — 查找匹配的文件路径模式</span></span><br><span class="line"><span class="symbol">phar:</span><span class="comment">// — PHP 归档</span></span><br><span class="line"><span class="symbol">ssh2:</span><span class="comment">// — Secure Shell 2</span></span><br><span class="line"><span class="symbol">rar:</span><span class="comment">// — RAR</span></span><br><span class="line"><span class="symbol">ogg:</span><span class="comment">// — 音频流</span></span><br><span class="line"><span class="symbol">expect:</span><span class="comment">// — 处理交互式的流</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="本地文件包含漏洞（LFI）"><a href="#本地文件包含漏洞（LFI）" class="headerlink" title="本地文件包含漏洞（LFI）"></a>本地文件包含漏洞（LFI）</h2><p>当一个Web应用程序接收到用户输入并将其作为文件路径来包含文件时，如果没有进行适当的验证和清理，就可能被攻击者利用来访问或包含服务器上的其他文件。<br><br></p>
-<h2 id="远程文件包含漏洞（RFI）"><a href="#远程文件包含漏洞（RFI）" class="headerlink" title="远程文件包含漏洞（RFI）"></a>远程文件包含漏洞（RFI）</h2><p>远程文件包含漏洞允许攻击者通过构造特定的URL或请求参数，使得服务器尝试加载一个远程控制的文件。这通常涉及到PHP的include或require语句，这些语句可以用来包含外部文件。如果这些语句没有得到适当的限制，攻击者就可以利用它们来包含恶意文件，如webshell，这是一种可以远程执行命令的脚本。<br><br></p>
+<p>关于php:&#x2F;&#x2F;filter ，可以参考<code>https://www.anquanke.com/post/id/202510#h3-9</code>  ，写的很详细<br><br></p>
+<h2 id="本地文件包含漏洞（LFI）"><a href="#本地文件包含漏洞（LFI）" class="headerlink" title="本地文件包含漏洞（LFI）"></a>本地文件包含漏洞（LFI）</h2><p>当一个Web应用程序接收到用户输入并将其作为文件路径来包含文件时，如果没有进行适当的验证和清理，就可能被攻击者利用来访问或包含服务器上的其他文件。</p>
+<p>一些常见的敏感目录信息路径:<br><strong>Windows系统:</strong></p>
+<p>C:\boot.ini &#x2F;&#x2F;查看系统版本<br>C:\windows\system32\inetsrv\MetaBase.xml &#x2F;&#x2F;IIS配置文件<br>C:\windows\repair\sam &#x2F;&#x2F;存储Windows系统初次安装的密码<br>C:\ProgramFiles\mysql\my.ini &#x2F;&#x2F;Mysql配置<br>C:\ProgramFiles\mysql\data\mysql\user.MYD &#x2F;&#x2F;MySQL root密码<br>C:\windows\php.ini &#x2F;&#x2F;php配置信息  </p>
+<p><strong>Linux&#x2F;Unix系统:</strong><br>&#x2F;etc&#x2F;password &#x2F;&#x2F;账户信息<br>&#x2F;etc&#x2F;shadow &#x2F;&#x2F;账户密码信息<br>&#x2F;usr&#x2F;local&#x2F;app&#x2F;apache2&#x2F;conf&#x2F;httpd.conf &#x2F;&#x2F;Apache2默认配置文件<br>&#x2F;usr&#x2F;local&#x2F;app&#x2F;apache2&#x2F;conf&#x2F;extra&#x2F;httpd-vhost.conf &#x2F;&#x2F;虚拟网站配置<br>&#x2F;usr&#x2F;local&#x2F;app&#x2F;php5&#x2F;lib&#x2F;php.ini &#x2F;&#x2F;PHP相关配置<br>&#x2F;etc&#x2F;httpd&#x2F;conf&#x2F;httpd.conf &#x2F;&#x2F;Apache配置文件<br>&#x2F;etc&#x2F;my.conf &#x2F;&#x2F;mysql配置文件  </p>
+<p>文件包含一般会指定后缀，这样我们就需要截断来绕过。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="variable">$file</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;name&#x27;</span>];</span><br><span class="line">    <span class="keyword">include</span>(<span class="variable">$file</span> . <span class="string">&quot;html&quot;</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>在PHP5.2.x中我们可以通过使用%00来截断后面的内容、也可以使用路径长度截断，不过都在php5.3中被修复了。</p>
+<p>payload：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">http</span>://<span class="number">127.0.0.1</span>/test.php?name=D:\phpstudy\PHPTutorial\MySQL\my.ini%<span class="number">00</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>利用字符.或者&#x2F;.或者.&#x2F;来截断。系统文件路径长度限制：<code>windows 259个bytes</code>  <code>linux 4096个bytes</code>。</p>
+<p><strong>1、日志文件利用</strong><br>当无法包含文件，或者找不到文件上传入口时，可以考虑利用日志文件</p>
+<br>
+
+<h2 id="远程文件包含漏洞（RFI）"><a href="#远程文件包含漏洞（RFI）" class="headerlink" title="远程文件包含漏洞（RFI）"></a>远程文件包含漏洞（RFI）</h2><p>远程文件包含漏洞允许攻击者通过构造特定的URL或请求参数，使得服务器尝试加载一个远程控制的文件。这通常涉及到PHP的include或require语句，这些语句可以用来包含外部文件。如果这些语句没有得到适当的限制，攻击者就可以利用它们来包含恶意文件，如webshell，这是一种可以远程执行命令的脚本。</p>
+<p>RFI存在的前提是在php.ini中配置<code>allow_url_include</code>、 <code>allow_url_fopen</code>为on。</p>
+<p>对于RFI，我们可以使用?截断，不受版本限制：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">http</span>://<span class="number">127.0.0.1</span>/test.php?name=http://<span class="number">127.0.0.1</span>/<span class="number">1</span>.txt?</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<br>
+
 <h2 id="CTF例题"><a href="#CTF例题" class="headerlink" title="CTF例题"></a>CTF例题</h2><p>攻防世界—泰山杯-简单的文件包含<br>1、源码如下:<br><img src="/posts/1082777166/1.png"></p>
 <p>2、输入<br><code>http://61.147.171.105:54882/?filename=php://filter/convert.base64-encode/resource=check.php</code> 回显do not hack ,说明在check.php内对代码进行了过滤(使用string.rot13过滤器也不行)<br><img src="/posts/1082777166/2.png"></p>
 <p>3、只能逐个尝试过滤器,过滤器详情可以参考<br><code>https://blog.csdn.net/qq_44657899/article/details/109300335</code><br>这里尝试使用convert.iconv*,得知使用了正确的过滤器,但是应该是字符编码不符合<br><img src="/posts/1082777166/3.png"></p>
@@ -307,10 +332,13 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/posts/2211845110.html" rel="prev" title="序列化和反序列化">
-      <i class="fa fa-chevron-left"></i> 序列化和反序列化
+    <a href="/posts/2211845110.html" rel="prev" title="php序列化和反序列化">
+      <i class="fa fa-chevron-left"></i> php序列化和反序列化
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/posts/773187307.html" rel="next" title="CTF-web-wp">
+      CTF-web-wp <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -390,20 +418,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
