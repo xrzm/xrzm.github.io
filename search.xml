@@ -3,8 +3,7 @@
   <entry>
     <title>mysql期末复习</title>
     <url>/posts/3243020805.html</url>
-    <content><![CDATA[<p>没有排版，勉强看</p>
-<h2 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h2><h3 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> DATABASE 数据库名;</span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<h2 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h2><h3 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> DATABASE 数据库名;</span><br></pre></td></tr></table></figure>
 
 <h3 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">DROP</span> DATABASE 数据库名;</span><br></pre></td></tr></table></figure>
 
@@ -258,6 +257,8 @@
     <url>/posts/2430104760.html</url>
     <content><![CDATA[<h2 id="高性能服务器解决方案：选择DK盾，选择卓越"><a href="#高性能服务器解决方案：选择DK盾，选择卓越" class="headerlink" title="高性能服务器解决方案：选择DK盾，选择卓越"></a>高性能服务器解决方案：选择DK盾，选择卓越</h2><p>在当今数字化和信息化飞速发展的时代，企业对高性能服务器的需求不断增长。无论是大数据处理、云计算还是企业资源计划（ERP），稳定、高效、安全的服务器都是关键。DK盾致力于为各种规模的企业提供顶级服务器解决方案，以满足您的各类业务需求。</p>
 <h2 id="什么是DK盾？"><a href="#什么是DK盾？" class="headerlink" title="什么是DK盾？"></a>什么是DK盾？</h2><p>DK盾是一家领先的服务器供应商，专注于提供高性能、可靠性突出且安全性极高的服务器设备。我们的产品线涵盖了从入门级到企业级的各种服务器解决方案，适用于不同行业和应用场景。</p>
+<span id="more"></span>
+
 <h2 id="主要功能与优势"><a href="#主要功能与优势" class="headerlink" title="主要功能与优势"></a>主要功能与优势</h2><p><strong>高性能硬件配置：</strong>DK盾服务器搭载最新的处理器、超高速内存和先进的存储技术，确保您的应用程序和服务能够快速响应，显著提升工作效率。</p>
 <p><strong>卓越的可靠性：</strong>我们的服务器采用冗余电源、热插拔硬盘和智能管理系统，最大限度地减少宕机时间，确保您的业务持续运转。</p>
 <p><strong>强大的扩展性：</strong>无论是存储扩展还是计算扩展，DK盾服务器都具备灵活的扩展能力，能够轻松应对业务增长带来的挑战。</p>
@@ -274,9 +275,9 @@
     <title>SSRF漏洞</title>
     <url>/posts/1355767420.html</url>
     <content><![CDATA[<h1 id="SSRF漏洞定义"><a href="#SSRF漏洞定义" class="headerlink" title="SSRF漏洞定义"></a>SSRF漏洞定义</h1><p>SSRF(<strong>S</strong>erver-<strong>S</strong>ide <strong>R</strong>equest <strong>F</strong>orgery：服务器跨站请求),是一种由攻击者构造形成由服务端发起请求的一个安全漏洞。</p>
+<h2 id="攻击的目标"><a href="#攻击的目标" class="headerlink" title="攻击的目标"></a>攻击的目标</h2><p>从外网无法访问的<strong>内部系统</strong>（因为它是由服务端发起的，所以它能够请求到与它相连而与外网隔离的内网。也就是说可以利用一个网络请求的服务，当作跳板进行攻击）<br><br></p>
 <span id="more"></span>
 
-<h2 id="攻击的目标"><a href="#攻击的目标" class="headerlink" title="攻击的目标"></a>攻击的目标</h2><p>从外网无法访问的<strong>内部系统</strong>（因为它是由服务端发起的，所以它能够请求到与它相连而与外网隔离的内网。也就是说可以利用一个网络请求的服务，当作跳板进行攻击）<br><br></p>
 <h2 id="形成的原因"><a href="#形成的原因" class="headerlink" title="形成的原因"></a>形成的原因</h2><p>大多是由于服务端提供了从其他服务器应用<strong>获取数据</strong>的功能，且没有对目标地址做过滤和限制。<br><br></p>
 <h2 id="SSRF漏洞危害"><a href="#SSRF漏洞危害" class="headerlink" title="SSRF漏洞危害"></a>SSRF漏洞危害</h2><p>通过服务器A（SSRF服务器）访问A所在内网的其他服务器获取信息，进而利用SSRF实现其他漏洞利用。</p>
 <p>1、利用file协议读取本地文件<br>2、对服务器所在内网、本地进行端口扫描，获取一些服务的banner信息<br>3、攻击运行在内网或本地的应用程序<br>4、对内网web应用进行指纹识别，识别企业内部的资产信息<br>5、攻击内外网的web应用，主要是使用HTTP GET请求就可以实现的攻击  </p>
@@ -378,7 +379,7 @@
   <entry>
     <title>XXE漏洞利用</title>
     <url>/posts/4120014032.html</url>
-    <content><![CDATA[<h2 id="XXE漏洞简述"><a href="#XXE漏洞简述" class="headerlink" title="XXE漏洞简述"></a>XXE漏洞简述</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>XXE漏洞（<strong>X</strong>ML E<strong>x</strong>ternal <strong>E</strong>ntity Injection）是一种常见的网络安全漏洞，主要发生在应用程序解析XML输入时。该漏洞的成因是应用程序没有对外部实体进行限制或过滤，导致攻击者可以注入恶意的外部实体，从而执行一系列危害性操作</p>
+    <content><![CDATA[<h2 id="XXE漏洞简述"><a href="#XXE漏洞简述" class="headerlink" title="XXE漏洞简述"></a>XXE漏洞简述</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>XXE漏洞（<strong>X</strong>ML E<strong>x</strong>ternal <strong>E</strong>ntity Injection）是一种常见的网络安全漏洞，主要发生在应用程序解析XML输入时。该漏洞的成因是应用程序没有对外部实体进行限制或过滤，导致攻击者可以注入恶意的外部实体，从而执行一系列危害性操作.</p>
 <span id="more"></span>
 <br>
 
@@ -431,8 +432,9 @@
     <title>CTF_RCE</title>
     <url>/posts/2308381537.html</url>
     <content><![CDATA[<p>RCE定义: 利用软件漏洞执行远程代码<br>RCE可以分为两种主要形式：<strong>远程命令执行</strong>和<strong>远程代码执行</strong></p>
-<span id="more"></span>
 <h1 id="RCE的绕过"><a href="#RCE的绕过" class="headerlink" title="RCE的绕过"></a>RCE的绕过</h1><p><strong>LINUX系统</strong>的管道符:<br>1、” ; “: 执行完前面的语句在执行后面的语句。<br>2、” | “: 显示后面的语句的执行结果。<br>3、” || “：当前的语句执行出错时，执行后面的语句。<br>4、” &amp; “：两条命令都执行，如果前面语句为假则执行后面的语句，前面的语句可真可假。<br>5、” &amp;&amp; “：如果前面的语句为假则直接出错，也不执行后面的语句，前面的语句为真则执行两条命令，前面的语句只能为真。<br>注：<strong>windows没有”;”</strong></p>
+<span id="more"></span>
+
 <h2 id="过滤空格、引号、关键字等"><a href="#过滤空格、引号、关键字等" class="headerlink" title="过滤空格、引号、关键字等"></a>过滤空格、引号、关键字等</h2><h3 id="替代法"><a href="#替代法" class="headerlink" title="替代法"></a>替代法</h3><figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="symbol">more:</span>一页一页的显示档案内容</span><br><span class="line"><span class="symbol">less:</span>与 more 类似</span><br><span class="line"><span class="symbol">head:</span>查看头几行</span><br><span class="line"><span class="symbol">tac:</span>从最后一行开始显示，可以看出 tac 是 cat 的反向显示</span><br><span class="line"><span class="symbol">tail:</span>查看尾几行</span><br><span class="line">nl：显示的时候，顺便输出行号</span><br><span class="line"><span class="symbol">od:</span>以二进制的方式读取档案内容</span><br><span class="line"><span class="symbol">vi:</span>一种编辑器，这个也可以查看</span><br><span class="line"><span class="symbol">vim:</span>一种编辑器，这个也可以查看</span><br><span class="line"><span class="symbol">sort:</span>可以查看</span><br><span class="line"><span class="symbol">uniq:</span>可以查看</span><br><span class="line">file -f:报错出具体内容</span><br><span class="line">sh /flag <span class="number">2</span>&gt;%<span class="number">261</span> <span class="comment">//报错出文件内容</span></span><br></pre></td></tr></table></figure>
 <p>linux命令大全：<a href="https://www.runoob.com/linux/linux-command-manual.html">https://www.runoob.com/linux/linux-command-manual.html</a><br><br></p>
 <h3 id="使用Shell特殊变量-和-，-x-x-绕过-x指任意值"><a href="#使用Shell特殊变量-和-，-x-x-绕过-x指任意值" class="headerlink" title="使用Shell特殊变量$*和$@，$x,${x}绕过(x指任意值)"></a>使用Shell特殊变量$*和$@，$x,${x}绕过(x指任意值)</h3><figure class="highlight crystal"><table><tr><td class="code"><pre><span class="line">ca<span class="variable">$*</span>t  flag.php</span><br><span class="line">ca<span class="variable">$@</span>t flag.php</span><br><span class="line">ca<span class="variable">$xt</span> flag.php</span><br><span class="line">ca<span class="variable">$&#123;</span>X&#125;t flag.php</span><br></pre></td></tr></table></figure>
@@ -564,8 +566,7 @@ https://blog.csdn.net/2301_76690905/article/details/134533626  ]]></content>
   <entry>
     <title>CTF-web-wp</title>
     <url>/posts/773187307.html</url>
-    <content><![CDATA[<p>错题难题归档</p>
-<span id="more"></span>
+    <content><![CDATA[<p>CTF比赛和刷题时的错题难题归档  </p>
 <h1 id="RCE"><a href="#RCE" class="headerlink" title="RCE"></a>RCE</h1><h2 id="SAS-RCE你会吗？？-死亡函数绕过"><a href="#SAS-RCE你会吗？？-死亡函数绕过" class="headerlink" title="SAS-RCE你会吗？？(死亡函数绕过)"></a>SAS-RCE你会吗？？(死亡函数绕过)</h2><p>1、打开网站看到提示我们进行目录扫描<br><img src="/posts/773187307/1.png"></p>
 <p>2、使用dirsearch进行扫描，得到四个结果，进入flag.php毫不意外是假的flag，进入robots.txt,得到提示：tools.php<br><img src="/posts/773187307/2.png"><br><img src="/posts/773187307/4.png"></p>
 <p>3、进入源代码，进行初步审计，发现第一个考点是php死亡函数绕过<br><img src="/posts/773187307/5.png"></p>
@@ -781,6 +782,7 @@ https://blog.csdn.net/2301_76690905/article/details/134533626  ]]></content>
     <title>php序列化和反序列化</title>
     <url>/posts/2211845110.html</url>
     <content><![CDATA[<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>serialize()     &#x2F;&#x2F;序列化:将变量转换为可保存或传输的字符串的过程；<br>unserialize()   &#x2F;&#x2F;反序列化:在适当的时候把这个字符串再转化成原来的变量使用。</p>
+<p>在实际应用中，序列化和反序列化不仅可以用于数据存储和传输，还可以用于对象的传递和攻击。例如，通过利用魔术方法（如__wakeup()和__destruct()），攻击者可以在反序列化过程中执行恶意代码。这种漏洞被称为反序列化漏洞，是一种常见的安全问题。</p>
 <span id="more"></span>
 
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span></span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$name</span> = <span class="string">&#x27;ctf&#x27;</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$isAdmin</span> = <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$user</span> = <span class="keyword">new</span> <span class="title class_">User</span>();</span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">serialize</span>(<span class="variable">$user</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
