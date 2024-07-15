@@ -2589,7 +2589,7 @@ figure.highlight pre .javascript .function {
 }
 #recent-posts > .recent-post-item >.recent-post-info > .article-title {
   color: var(--text-highlight-color);
-  font-size: 1.55em;
+  font-size: 2em;
   line-height: 1.4;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
@@ -2671,7 +2671,7 @@ figure.highlight pre .javascript .function {
   }
 }
 .tag-cloud-title {
-  font-size: 2.57em;
+  font-size: 3.5em;
 }
 @media screen and (max-width: 768px) {
   .tag-cloud-title {
@@ -3506,7 +3506,7 @@ h1.page-title + .tag-cloud-list {
 #page-header #site-title {
   margin: 0;
   color: var(--white);
-  font-size: 1.85em;
+  font-size: 2em;
 }
 @media screen and (min-width: 768px) {
   #page-header #site-title {
