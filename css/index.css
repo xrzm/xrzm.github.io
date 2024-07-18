@@ -1521,7 +1521,7 @@ h4,
 h5,
 h6 {
   position: relative;
-  margin: 26px 0 16px;
+  margin: 20px 0 14px;
   color: var(--text-highlight-color);
   font-weight: bold;
 }
