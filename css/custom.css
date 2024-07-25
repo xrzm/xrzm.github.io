@@ -69,3 +69,6 @@ h1::before, h2::before, h3::before, h4::before, h5::before, h6::before {
     -webkit-animation: ccc 3.2s linear infinite ;
     animation: ccc 3.2s linear infinite ;
 }
+.post-toc .nav .nav-level-1>.nav-child { 
+    display: block; 
+ }
