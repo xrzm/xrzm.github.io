@@ -2,6 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://xrzmblog.cn/posts/2211195324.html</loc>
+    
+    <lastmod>2024-07-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://xrzmblog.cn/posts/2088121029.html</loc>
+    
+    <lastmod>2024-07-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://xrzmblog.cn/posts/1299261525.html</loc>
+    
+    <lastmod>2024-07-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://xrzmblog.cn/posts/4120014032.html</loc>
+    
+    <lastmod>2024-07-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://xrzmblog.cn/posts/1870127371.html</loc>
     
     <lastmod>2024-07-28</lastmod>
@@ -50,15 +86,6 @@
     <loc>https://xrzmblog.cn/posts/1082777166.html</loc>
     
     <lastmod>2024-07-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://xrzmblog.cn/posts/2088121029.html</loc>
-    
-    <lastmod>2024-07-24</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -119,15 +146,6 @@
   </url>
   
   <url>
-    <loc>https://xrzmblog.cn/posts/1299261525.html</loc>
-    
-    <lastmod>2024-07-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://xrzmblog.cn/posts/2430104760.html</loc>
     
     <lastmod>2024-07-24</lastmod>
@@ -165,15 +183,6 @@
   
   <url>
     <loc>https://xrzmblog.cn/posts/3243020805.html</loc>
-    
-    <lastmod>2024-07-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://xrzmblog.cn/posts/4120014032.html</loc>
     
     <lastmod>2024-07-18</lastmod>
     
@@ -276,6 +285,13 @@
   
   <url>
     <loc>https://xrzmblog.cn/tags/%E9%9D%B6%E5%9C%BA%E6%90%AD%E5%BB%BA/</loc>
+    <lastmod>2024-07-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xrzmblog.cn/tags/OWASP-Top10/</loc>
     <lastmod>2024-07-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
