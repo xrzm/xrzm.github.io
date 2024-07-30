@@ -133,6 +133,15 @@
 
 
 
+<h3 id="靶场演示"><a href="#靶场演示" class="headerlink" title="靶场演示"></a>靶场演示</h3><p>pikachu（Over Permission-水平越权）</p>
+<p>1、打开靶场查看提示，上面有几个用户名和密码，登录其中一个，观察到上方的URL栏的参数暴露了。</p>
+<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407301520488.png" alt="image-20240730152053453"></p>
+<p>2、直接修改username参数不用通过检验即可查看kobe的信息，这就是水平越权</p>
+<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407301522909.png" alt="image-20240730152220870"></p>
+<br>
+
+
+
 <h2 id="垂直越权"><a href="#垂直越权" class="headerlink" title="垂直越权"></a>垂直越权</h2><p>垂直越权（Vertical Privilege Escalation）则是指<strong>不同权限级别之间的越权操作</strong>。例如，一个普通用户执行管理员用户的权限。垂直越权的主要特点是攻击者通过一系列操作，最终以权限较低的账户，实现对高权限资源的访问或操作。</p>
 <p>垂直越权的常见场景包括：</p>
 <ol>
@@ -144,27 +153,104 @@
 
 
 
+<h3 id="靶场演示-1"><a href="#靶场演示-1" class="headerlink" title="靶场演示"></a>靶场演示</h3><p>pikachu（Over Permission-垂直越权）</p>
+<p>1、点击提示，我们先登录admin这个超级用户.</p>
+<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407301524351.png" alt="image-20240730152453310"></p>
+<p>2、进入超级用户页面，我们添加用户xrzm，然后使用burpsuite进行抓包并把数据包发到Repeater重发器备用</p>
+<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407301601923.png" alt="image-20240730160148864"></p>
+<p>3、现在进入普通用户pikachu，使用burpsuite进行抓包，把Cookie保存下来备用。</p>
+<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407301613004.png" alt="image-20240730161340952"></p>
+<p>4、然后把第一次抓的包（admin界面添加用户）粘贴覆盖这个数据包，只更改其中的Cookie（改成普通用户的Cookie），添加一个Hacker用户。</p>
+<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407301629561.png" alt="64dbf2761578f79d5cd8d6f4ca6107e"></p>
+<p>5、发包之后会自动退出登录，重新登录pikachu即可看到Hacker用户已经添加到列表了。</p>
+<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407301631149.png" alt="image-20240730163131100"></p>
+<br>
+
+
+
 <h2 id="Redis未授权访问"><a href="#Redis未授权访问" class="headerlink" title="Redis未授权访问"></a>Redis未授权访问</h2><p>Redis未授权访问漏洞是指由于Redis服务器配置不当，导致攻击者无需认证即可访问和操作Redis服务的漏洞。</p>
 <p>该漏洞主要由以下几个方面的原因引起：</p>
 <ol>
 <li><strong>默认绑定IP</strong>：Redis默认情况下会绑定在<code>0.0.0.0:6379</code>端口上，这意味着它将服务暴露到公网上。</li>
 <li><strong>缺少密码认证</strong>：如果Redis<strong>没有设置密码认证</strong>（一般为空），则任何用户都可以通过IP地址和端口进行远程登录。</li>
 </ol>
-<h3 id="实现步骤："><a href="#实现步骤：" class="headerlink" title="实现步骤："></a>实现步骤：</h3><h3 id="漏洞的影响版本："><a href="#漏洞的影响版本：" class="headerlink" title="漏洞的影响版本："></a>漏洞的影响版本：</h3><p><code>Redis 2.x，3.x，4.x，5.x</code></p>
+<h3 id="漏洞的影响版本："><a href="#漏洞的影响版本：" class="headerlink" title="漏洞的影响版本："></a>漏洞的影响版本：</h3><p>Redis <strong>2.x，3.x，4.x，5.x</strong></p>
+<h3 id="实现步骤："><a href="#实现步骤：" class="headerlink" title="实现步骤："></a>实现步骤：</h3><ol>
+<li>在攻击机上安装并配置Redis客户端工具（如<code>redis-cli</code>）。</li>
+<li>检查目标Redis实例是否<strong>暴露在公网且未设置密码认证</strong>。</li>
+<li>根据目标系统的环境和配置，选择合适的方法<strong>进行提权</strong>，例如写入webshell、反弹shell或写入SSH公钥。</li>
+<li>执行相应的命令或脚本，进一步执行恶意操作。</li>
+</ol>
 <br>
 
-<p>Redis的其他漏洞可以参考：</p>
-<p><a href="https://blog.csdn.net/dreamthe/article/details/123427989">Redis未授权漏洞复现及利用（window,linux）_windows下redis未授权访问漏洞修复-CSDN博客</a></p>
+
+
+<h3 id="实战演示"><a href="#实战演示" class="headerlink" title="实战演示"></a>实战演示</h3><p>1、首先在两台虚拟机上安装Redis，其中<code>centos</code>作为靶机，<code>kali</code>作为攻击机</p>
+<p><mark style="background-color: #F4A460">centos安装</mark>步骤代码如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">1、su root  <span class="comment">#获取root权限</span></span><br><span class="line">2、wget http://download.redis.io/releases/redis-4.0.10.tar.gz  <span class="comment">#下载4.0.10的redis压缩包</span></span><br><span class="line">3、tar -zxvfredis-4.0.10.tar.gz  <span class="comment">#解压压缩包</span></span><br><span class="line">4、<span class="built_in">cd</span> redis-4.0.10/src/  <span class="comment">#进入src目录</span></span><br><span class="line">5、make  <span class="comment">#开始安装</span></span><br><span class="line">6、<span class="built_in">cd</span> ../  <span class="comment">#进入上一级目录</span></span><br><span class="line">7、编辑redis.conf文件：</span><br><span class="line">	在redis-4.0.10目录下用vim打开redis.conf文件，然后找到daemonize 值（应该在整个页面的9%处）改为<span class="built_in">yes</span>（后台启动，不然窗口一关服务就挂了）</span><br><span class="line">	<span class="built_in">bind</span> 127.0.0.1（页面4%处）注释掉，否则只允许本地访问</span><br><span class="line">	protected-mode no（页面6%处）</span><br><span class="line">8、<span class="built_in">cd</span> src  <span class="comment">#重新回到src目录</span></span><br><span class="line">9、<span class="built_in">cp</span> redis-server /usr/bin</span><br><span class="line">10、<span class="built_in">cp</span> redis-cli /usr/bin <span class="comment">#将redis-server和redis-cli拷贝到/usr/bin目录下（这样启动redis-server和redis-cli就不用每次都进入安装目录了）</span></span><br><span class="line">11、<span class="built_in">cp</span> redis.conf /etc/ <span class="comment">#返回目录redis-4.0.10，将redis.conf拷贝到/etc/目录下</span></span><br><span class="line">12、redis-server /etc/redis.conf <span class="comment">#使用/etc/目录下的reids.conf文件中的配置启动redis服务</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>这样子就算是启动成功了：</p>
+<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407301836121.png" alt="image-20240730183619071"></p>
+<p><mark style="background-color: #F4A460">kali安装</mark>步骤代码如下：</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">1</span>、wget https://download.redis.io/releases/redis-<span class="number">7</span>.<span class="number">0</span>.<span class="number">0</span>.tar.gz</span><br><span class="line"><span class="attribute">2</span>、tar -zxf redis-<span class="number">7</span>.<span class="number">0</span>.<span class="number">0</span>.tar.gz</span><br><span class="line"><span class="attribute">3</span>、cd redis-<span class="number">7</span>.<span class="number">0</span>.<span class="number">0</span></span><br><span class="line"><span class="attribute">4</span>、make</span><br><span class="line"><span class="attribute">5</span>、cp src/redis-cli /usr/bin</span><br></pre></td></tr></table></figure>
+
+
+
+<p>2、安装完成后查看centos的ip地址，然后在kali中输入<code>./redis-cli -h 靶机ip地址</code>即可连接（如果是window做攻击机，那么在cli后面加上.exe即可）</p>
+<p><strong>注：测试的时候如果出现redis客户端一直连不上的情况，在靶机上执行了以下命令，客户端就可以连接上了。</strong></p>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">iptables -L -nv</span></span><br><span class="line"><span class="attribute">iptables -F</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407301944302.png" alt="image-20240730194415257"></p>
+<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407301958081.png" alt="image-20240730195816040"></p>
+<p>3、到目前为止，<strong>Redis未授权访问漏洞已经复现完了，接下来就是漏洞利用环节。</strong></p>
+<br>
+
+
+
+<h4 id="未授权-Redis-拿-shell"><a href="#未授权-Redis-拿-shell" class="headerlink" title="未授权 Redis 拿 shell"></a>未授权 Redis 拿 shell</h4><p>一般来说，拿shell有<strong>四种方式：</strong></p>
+<figure class="highlight basic"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span>.通过 Redis 漏洞写 <span class="keyword">shell</span></span><br><span class="line"><span class="number">2</span>.通过写 SSH <span class="keyword">key</span> 拿 <span class="keyword">shell</span></span><br><span class="line"><span class="number">3</span>.通过 crontab 反弹 <span class="keyword">shell</span></span><br><span class="line"><span class="number">4</span>.通过 Redis 主从复制反弹 <span class="keyword">shell</span>	</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="Redis-漏洞写-shell"><a href="#Redis-漏洞写-shell" class="headerlink" title="Redis 漏洞写 shell"></a>Redis 漏洞写 shell</h4><br>
+
+<h4 id="写-SSH-key-拿-shell"><a href="#写-SSH-key-拿-shell" class="headerlink" title="写 SSH key 拿 shell"></a>写 SSH key 拿 shell</h4><br>
+
+<h4 id="crontab-反弹-shell"><a href="#crontab-反弹-shell" class="headerlink" title="crontab 反弹 shell"></a>crontab 反弹 shell</h4><br>
+
+<h4 id="Redis-主从复制反弹-shell"><a href="#Redis-主从复制反弹-shell" class="headerlink" title="Redis 主从复制反弹 shell"></a>Redis 主从复制反弹 shell</h4><br>
+
+
+
+
+
+<h3 id="防御措施"><a href="#防御措施" class="headerlink" title="防御措施"></a>防御措施</h3><p>为了防止Redis未授权访问，可以采取以下措施：</p>
+<ol>
+<li><strong>设置密码认证</strong>：通过开启Redis的密码认证功能，只有知道密码的用户才能连接到Redis数据库。这可以显著增强安全性，防止未经授权的访问和恶意攻击。</li>
+<li><strong>绑定信任的IP地址</strong>：在Redis配置文件中使用<code>bind</code>选项，仅允许信任的IP地址访问Redis服务。例如，可以将Redis绑定到内网IP地址上，避免公网访问。</li>
+<li><strong>修改默认端口</strong>：将Redis的默认端口（通常是6379）改为其他端口，以减少被扫描和利用的风险。</li>
+<li><strong>启用TLS&#x2F;SSL加密</strong>：通过配置TLS&#x2F;SSL证书，确保数据传输过程中的加密，防止数据在传输过程中被截获或篡改。</li>
+<li><strong>使用ACL进行精细控制</strong>：利用Redis的用户权限管理（ACL）功能，对不同用户的访问权限进行详细控制。可以创建、设置和删除用户及其权限，从而实现更细粒度的安全管理。</li>
+<li><strong>禁用危险命令</strong>：禁用或限制那些可能带来安全风险的命令，如<code>FLUSHDB</code>和<code>FLUSHALL</code>等，以防止恶意用户执行这些操作。</li>
+<li><strong>防火墙规则</strong>：配置防火墙规则，阻止非信任来源的IP访问Redis服务，进一步限制外部访问。</li>
+</ol>
+<br>
+
+<br>
+
 <p>更多的未授权访问漏洞可以参考：</p>
 <p><a href="https://www.freebuf.com/articles/web/338459.html">常用的30+种未授权访问漏洞汇总 - FreeBuf网络安全行业门户</a></p>
-<br>
+<p>参考文章：</p>
+<p><a href="https://www.cnblogs.com/qingzhang/articles/18195354">redis未授权漏洞复现（超详细） - qingzhang123 - 博客园 (cnblogs.com)</a></p>
 ]]></content>
       <categories>
         <category>web漏洞</category>
       </categories>
       <tags>
-        <tag>OWASP_Top10</tag>
         <tag>web漏洞</tag>
+        <tag>OWASP_Top10</tag>
       </tags>
   </entry>
   <entry>
@@ -976,8 +1062,8 @@
         <category>web漏洞</category>
       </categories>
       <tags>
-        <tag>OWASP_Top10</tag>
         <tag>web漏洞</tag>
+        <tag>OWASP_Top10</tag>
         <tag>注入</tag>
       </tags>
   </entry>
@@ -1180,8 +1266,8 @@
         <category>web漏洞</category>
       </categories>
       <tags>
-        <tag>OWASP_Top10</tag>
         <tag>web漏洞</tag>
+        <tag>OWASP_Top10</tag>
       </tags>
   </entry>
   <entry>
@@ -1629,8 +1715,8 @@
         <category>web漏洞</category>
       </categories>
       <tags>
-        <tag>OWASP_Top10</tag>
         <tag>web漏洞</tag>
+        <tag>OWASP_Top10</tag>
       </tags>
   </entry>
   <entry>
