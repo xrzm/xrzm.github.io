@@ -1,0 +1,258 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>OWASP_Top10之失效的身份认证 | 掌门のblog</title><meta name="author" content="仙人掌门"><meta name="copyright" content="仙人掌门"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="失效的身份认证失效的身份认证漏洞（Broken Authentication）是指在应用程序的身份验证和会话管理过程中，由于设计或实现上的缺陷，攻击者能够破译密码、密钥或会话令牌，或者利用其他开发缺陷来冒充其他用户的身份。 这种漏洞通常会导致攻击者可以暂时性或永久性地冒充其他用户，从而破坏系统的安全性。 漏洞成因： 技术缺陷：身份验证机制本身存在弱点，无法有效防止暴力攻击。例如，密码过于简单或使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OWASP_Top10之失效的身份认证">
+<meta property="og:url" content="https://xrzmblog.cn/posts/2470586283.html">
+<meta property="og:site_name" content="掌门のblog">
+<meta property="og:description" content="失效的身份认证失效的身份认证漏洞（Broken Authentication）是指在应用程序的身份验证和会话管理过程中，由于设计或实现上的缺陷，攻击者能够破译密码、密钥或会话令牌，或者利用其他开发缺陷来冒充其他用户的身份。 这种漏洞通常会导致攻击者可以暂时性或永久性地冒充其他用户，从而破坏系统的安全性。 漏洞成因： 技术缺陷：身份验证机制本身存在弱点，无法有效防止暴力攻击。例如，密码过于简单或使用">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151616081.png">
+<meta property="article:published_time" content="2024-08-02T05:49:47.000Z">
+<meta property="article:modified_time" content="2024-08-02T06:25:22.473Z">
+<meta property="article:author" content="仙人掌门">
+<meta property="article:tag" content="OWASP_Top10">
+<meta property="article:tag" content="web漏洞">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151616081.png"><link rel="shortcut icon" href="/img/Z(16).png"><link rel="canonical" href="https://xrzmblog.cn/posts/2470586283.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><meta name="baidu-site-verification" content="codeva-4E4lrwunJh"/><link rel="stylesheet" href="/css/index.css?v=4.12.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?a8ef2d4c869b68eb48bef2f0cb6c08c0";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: 仙人掌门","link":"链接: ","source":"来源: 掌门のblog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'OWASP_Top10之失效的身份认证',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-08-02 14:25:22'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 7.1.1"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">26</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">13</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151616081.png')"><nav id="nav"><span id="blog-info"><a href="/" title="掌门のblog"><img class="site-icon" src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407181554497.png"/><span class="site-name">掌门のblog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">OWASP_Top10之失效的身份认证</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-08-02T05:49:47.000Z" title="发表于 2024-08-02 13:49:47">2024-08-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-08-02T06:25:22.473Z" title="更新于 2024-08-02 14:25:22">2024-08-02</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/web%E6%BC%8F%E6%B4%9E/">web漏洞</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="失效的身份认证"><a href="#失效的身份认证" class="headerlink" title="失效的身份认证"></a>失效的身份认证</h1><p>失效的身份认证漏洞（<strong>B</strong>roken <strong>A</strong>uthentication）是指在应用程序的身份验证和会话管理过程中，由于设计或实现上的缺陷，攻击者能够破译密码、密钥或会话令牌，或者利用其他开发缺陷来冒充其他用户的身份。</p>
+<p>这种漏洞通常会导致攻击者可以暂时性或永久性地冒充其他用户，从而破坏系统的安全性。</p>
+<h2 id="漏洞成因："><a href="#漏洞成因：" class="headerlink" title="漏洞成因："></a>漏洞成因：</h2><ol>
+<li><strong>技术缺陷</strong>：身份验证机制本身存在弱点，无法有效防止暴力攻击。例如，密码过于简单或使用了不安全的哈希方法（如未加盐的MD5）来存储密码，这使得密码容易被破解。</li>
+<li><strong>逻辑缺陷和编码问题</strong>：在实现身份验证功能时，开发者可能会出现逻辑错误或编码不当，导致攻击者能够完全绕过身份验证机制。例如，某些系统可能没有正确处理会话令牌或密钥，或者在某些情况下允许未经授权的用户访问敏感资源。</li>
+<li><strong>用户行为</strong>：用户的行为也可能导致身份认证失效。例如，弱密码、重复使用默认密码等行为增加了被攻击的风险。此外，钓鱼攻击和社会工程学攻击也常利用用户的疏忽来获取凭证。</li>
+<li><strong>安全协议和配置错误</strong>：不安全的身份验证协议和配置错误也是常见原因。例如，单点登录（SSO）配置不当、基于CMS的访问漏洞、JWT令牌使用不当等都可能导致身份认证失效。</li>
+<li><strong>会话管理问题</strong>：错误使用应用程序的身份认证和会话管理功能，使攻击者能够破译密码、密钥或会话令牌，或者利用其他开发缺陷暂时或永久地冒充其他用户的身份。例如，服务器端生成的会话ID不够随机或熵低，容易被猜测或重放。</li>
+<li><strong>外部攻击</strong>：一些外部攻击手段如密码转储、字典攻击、撞库攻击等也会导致身份认证失效。这些攻击通常是在进行钓鱼或社会工程学攻击后发现的。</li>
+</ol>
+<br>
+
+
+
+<h2 id="漏洞危害"><a href="#漏洞危害" class="headerlink" title="漏洞危害"></a>漏洞危害</h2><p>恶意用户可能会窃取或操纵用户会话和cookie，进而模仿合法用户。<br>比如：</p>
+<ul>
+<li>窃取用户凭证和会话信息；</li>
+<li>冒充用户身份查看或者变更记录，甚至执行事务；</li>
+<li>访问未授权的页面和资源；执行超越权限操作</li>
+</ul>
+<br>
+
+
+
+<h2 id="如何判断："><a href="#如何判断：" class="headerlink" title="如何判断："></a>如何判断：</h2><ol>
+<li><strong>登录页面错误回显不一致</strong>：如果在Web网站的登录页面上，当输入错误的用户名或密码时，系统返回的信息不一致或者没有明确提示，这可能表明存在身份认证漏洞。</li>
+<li><strong>会话管理问题</strong>：攻击者可以利用应用程序的身份认证和会话管理功能的缺陷来窃取密码、密钥或会话令牌。例如，通过分析HTTP请求包，发现用户在登录后仍然能够访问受限资源，或者在未重新登录的情况下切换到其他用户的会话，这都可能是会话管理失效的表现。</li>
+<li><strong>密码破解和字典攻击</strong>：如果系统允许暴力破解或字典攻击，即允许多次尝试猜测密码，而不会锁定账户或采取其他安全措施，这也表明身份认证机制存在缺陷。</li>
+<li><strong>绕过机制</strong>：某些情况下，攻击者可以绕过身份验证机制，如通过修改请求包中的数据来绕过会话验证，或者利用系统漏洞直接获取会话令牌。</li>
+<li><strong>审计日志和监控</strong>：通过查看系统的审计日志和监控报告，可以发现异常登录行为或未授权访问事件。如果频繁出现此类事件，可能表明身份认证机制被绕过或失效。</li>
+<li><strong>第三方工具扫描</strong>：使用专业的漏洞扫描工具（如锐捷RG-SCAN）对系统进行全面扫描，可以发现潜在的身份认证漏洞，并进行相应的修复</li>
+</ol>
+<br>
+
+
+
+<h2 id="防御措施："><a href="#防御措施：" class="headerlink" title="防御措施："></a>防御措施：</h2><h3 id="区分公共区域和受限区域"><a href="#区分公共区域和受限区域" class="headerlink" title="区分公共区域和受限区域"></a>区分公共区域和受限区域</h3><ul>
+<li>允许公共区域匿名访问，受限区域需身份验证。</li>
+<li>不同区域使用不同的身份验证和授权规则。</li>
+<li>避免在不必要的地方使用 SSL 以提升性能。</li>
+</ul>
+<h3 id="帐户锁定策略"><a href="#帐户锁定策略" class="headerlink" title="帐户锁定策略"></a>帐户锁定策略</h3><ul>
+<li>几次登录失败后禁用帐户或记录日志。</li>
+<li>Windows 验证（如 NTLM 或 Kerberos）自动应用策略。</li>
+<li>表单验证需应用程序在设计阶段合并策略。</li>
+<li>预防服务攻击：使用自定义帐户名替代默认服务帐户。</li>
+</ul>
+<h3 id="验证-Cookie-内容"><a href="#验证-Cookie-内容" class="headerlink" title="验证 Cookie 内容"></a>验证 Cookie 内容</h3><ul>
+<li>通过加密和安全通信通道保护验证票证。</li>
+<li>身份验证 cookie 只通过 HTTPS 连接传输。</li>
+<li>使用 SSL 并对 cookie 内容加密，防止 XSS 攻击查看和修改 cookie。</li>
+<li>限制验证票证的有效期以防重复攻击。</li>
+</ul>
+<h3 id="零信任安全模型"><a href="#零信任安全模型" class="headerlink" title="零信任安全模型"></a>零信任安全模型</h3><ul>
+<li>基于“零信任”原则，不再默认信任任何内部或外部网络请求，而是通过持续验证和最小权限原则来确保安全性。</li>
+</ul>
+<h3 id="多因素认证（MFA）"><a href="#多因素认证（MFA）" class="headerlink" title="多因素认证（MFA）"></a>多因素认证（MFA）</h3><ul>
+<li>多因素认证要求用户提供两种或以上的验证方式，如密码和手机短信验证码、指纹识别、动态口令等。这大大增加了攻击者成功入侵系统的难度。</li>
+</ul>
+<h3 id="会话管理与令牌策略"><a href="#会话管理与令牌策略" class="headerlink" title="会话管理与令牌策略"></a>会话管理与令牌策略</h3><ul>
+<li>确保会话令牌的不可预测性，并定期更新令牌以防止被猜测或爆破。例如，在使用JWT时，应始终执行算法验证，并固定签名算法在后端，不以JWT里的算法为标准。</li>
+</ul>
+<h3 id="加盐哈希和强密码策略"><a href="#加盐哈希和强密码策略" class="headerlink" title="加盐哈希和强密码策略"></a>加盐哈希和强密码策略</h3><ul>
+<li>采用加盐哈希方法来存储用户密码，避免使用简单的MD5哈希方法</li>
+<li>制定严格的密码策略，包括最小长度、复杂度要求及定期更换密码。</li>
+</ul>
+<br>
+
+
+
+<p>参考文章：</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/whoim_i/article/details/103171346">失效的身份认证和会话管理-CSDN博客</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_73826804/article/details/136226960">owasp top10 | 十大常见漏洞详解_owasp top 10 2024-CSDN博客</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://xrzmblog.cn">仙人掌门</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://xrzmblog.cn/posts/2470586283.html">https://xrzmblog.cn/posts/2470586283.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://xrzmblog.cn" target="_blank">掌门のblog</a>！</span></div></div><div class="tag_share"><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/4100443308.html" title="OWASP_Top10漏洞简述"><img class="cover" src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151616081.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">OWASP_Top10漏洞简述</div></div></a></div><div class="next-post pull-right"><a href="/posts/2211195324.html" title="OWASP_Top10之失效的访问控制"><img class="cover" src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407301522909.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">OWASP_Top10之失效的访问控制</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/4100443308.html" title="OWASP_Top10漏洞简述"><img class="cover" src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151616081.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-08-02</div><div class="title">OWASP_Top10漏洞简述</div></div></a></div><div><a href="/posts/2211195324.html" title="OWASP_Top10之失效的访问控制"><img class="cover" src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407301522909.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-07-28</div><div class="title">OWASP_Top10之失效的访问控制</div></div></a></div><div><a href="/posts/1299261525.html" title="OWASP_Top10之注入漏洞"><img class="cover" src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151642209.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-07-20</div><div class="title">OWASP_Top10之注入漏洞</div></div></a></div><div><a href="/posts/2088121029.html" title="OWASP_Top10之XSS漏洞"><img class="cover" src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407191601315.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-07-11</div><div class="title">OWASP_Top10之XSS漏洞</div></div></a></div><div><a href="/posts/4120014032.html" title="OWASP_Top10之XML外部实体漏洞"><img class="cover" src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151633676.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-06-16</div><div class="title">OWASP_Top10之XML外部实体漏洞</div></div></a></div><div><a href="/posts/1870127371.html" title="Nodejs原型链污染"><img class="cover" src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407281326705.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-07-26</div><div class="title">Nodejs原型链污染</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="lv-container" data-id="city" data-uid="MTAyMC81OTQ4OS8zNTk1MQ=="></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">仙人掌门</div><div class="author-info__description">人生如棋</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">26</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">13</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xrzm"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/xrzm" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1464947922@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%B1%E6%95%88%E7%9A%84%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81"><span class="toc-number">1.</span> <span class="toc-text">失效的身份认证</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E6%88%90%E5%9B%A0%EF%BC%9A"><span class="toc-number">1.1.</span> <span class="toc-text">漏洞成因：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E5%8D%B1%E5%AE%B3"><span class="toc-number">1.2.</span> <span class="toc-text">漏洞危害</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%EF%BC%9A"><span class="toc-number">1.3.</span> <span class="toc-text">如何判断：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%98%B2%E5%BE%A1%E6%8E%AA%E6%96%BD%EF%BC%9A"><span class="toc-number">1.4.</span> <span class="toc-text">防御措施：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%BA%E5%88%86%E5%85%AC%E5%85%B1%E5%8C%BA%E5%9F%9F%E5%92%8C%E5%8F%97%E9%99%90%E5%8C%BA%E5%9F%9F"><span class="toc-number">1.4.1.</span> <span class="toc-text">区分公共区域和受限区域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%90%E6%88%B7%E9%94%81%E5%AE%9A%E7%AD%96%E7%95%A5"><span class="toc-number">1.4.2.</span> <span class="toc-text">帐户锁定策略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81-Cookie-%E5%86%85%E5%AE%B9"><span class="toc-number">1.4.3.</span> <span class="toc-text">验证 Cookie 内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%B6%E4%BF%A1%E4%BB%BB%E5%AE%89%E5%85%A8%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.4.4.</span> <span class="toc-text">零信任安全模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E5%9B%A0%E7%B4%A0%E8%AE%A4%E8%AF%81%EF%BC%88MFA%EF%BC%89"><span class="toc-number">1.4.5.</span> <span class="toc-text">多因素认证（MFA）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%9A%E8%AF%9D%E7%AE%A1%E7%90%86%E4%B8%8E%E4%BB%A4%E7%89%8C%E7%AD%96%E7%95%A5"><span class="toc-number">1.4.6.</span> <span class="toc-text">会话管理与令牌策略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0%E7%9B%90%E5%93%88%E5%B8%8C%E5%92%8C%E5%BC%BA%E5%AF%86%E7%A0%81%E7%AD%96%E7%95%A5"><span class="toc-number">1.4.7.</span> <span class="toc-text">加盐哈希和强密码策略</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/4100443308.html" title="OWASP_Top10漏洞简述"><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151616081.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="OWASP_Top10漏洞简述"/></a><div class="content"><a class="title" href="/posts/4100443308.html" title="OWASP_Top10漏洞简述">OWASP_Top10漏洞简述</a><time datetime="2024-08-02T11:31:39.000Z" title="发表于 2024-08-02 19:31:39">2024-08-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/2470586283.html" title="OWASP_Top10之失效的身份认证"><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151616081.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="OWASP_Top10之失效的身份认证"/></a><div class="content"><a class="title" href="/posts/2470586283.html" title="OWASP_Top10之失效的身份认证">OWASP_Top10之失效的身份认证</a><time datetime="2024-08-02T05:49:47.000Z" title="发表于 2024-08-02 13:49:47">2024-08-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/2211195324.html" title="OWASP_Top10之失效的访问控制"><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407301522909.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="OWASP_Top10之失效的访问控制"/></a><div class="content"><a class="title" href="/posts/2211195324.html" title="OWASP_Top10之失效的访问控制">OWASP_Top10之失效的访问控制</a><time datetime="2024-07-28T11:31:15.000Z" title="发表于 2024-07-28 19:31:15">2024-07-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/1870127371.html" title="Nodejs原型链污染"><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407281326705.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Nodejs原型链污染"/></a><div class="content"><a class="title" href="/posts/1870127371.html" title="Nodejs原型链污染">Nodejs原型链污染</a><time datetime="2024-07-26T09:03:11.000Z" title="发表于 2024-07-26 17:03:11">2024-07-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/3509412693.html" title="CSRF漏洞"><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407241602815.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CSRF漏洞"/></a><div class="content"><a class="title" href="/posts/3509412693.html" title="CSRF漏洞">CSRF漏洞</a><time datetime="2024-07-23T11:27:57.000Z" title="发表于 2024-07-23 19:27:57">2024-07-23</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151616081.png')"><div id="footer-wrap"><div class="copyright">&copy;2024 By 仙人掌门</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my <a href="https://xrzmblog.cn/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.12.0"></script><script src="/js/main.js?v=4.12.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(()=>{
+  const loadLivere = () => {
+    if (typeof LivereTower === 'object') window.LivereTower.init()
+    else {
+      (function(d, s) {
+          var j, e = d.getElementsByTagName(s)[0];
+          if (typeof LivereTower === 'function') { return; }
+          j = d.createElement(s);
+          j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+          j.async = true;
+          e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    }
+  }
+
+  if ('Livere' === 'Livere' || !false) {
+    if (false) btf.loadComment(document.getElementById('lv-container'), loadLivere)
+    else loadLivere()
+  } else {
+    window.loadOtherComment = loadLivere
+  }
+})()</script></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.12.0"></script></div></div></body></html>
