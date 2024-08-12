@@ -1018,7 +1018,7 @@
 <ul>
 <li><p>如果你是linux系统使用cat,是windows系统使用type.</p>
 </li>
-<li><p>如果你是windows那你利用ssh密钥连接运行ssh -i id_rsa <a href="mailto:&#x72;&#x6f;&#x6f;&#116;&#x40;&#x31;&#x39;&#50;&#46;&#49;&#x36;&#x38;&#x2e;&#x34;&#51;&#x2e;&#x31;&#x34;&#x31;">&#x72;&#x6f;&#x6f;&#116;&#x40;&#x31;&#x39;&#50;&#46;&#49;&#x36;&#x38;&#x2e;&#x34;&#51;&#x2e;&#x31;&#x34;&#x31;</a>需要在.ssh目录下，因为权限问题。</p>
+<li><p>如果你是windows那你利用ssh密钥连接运行ssh -i id_rsa <a href="mailto:&#x72;&#111;&#111;&#x74;&#64;&#49;&#57;&#50;&#x2e;&#x31;&#54;&#x38;&#46;&#x34;&#51;&#46;&#x31;&#x34;&#49;">&#x72;&#111;&#111;&#x74;&#64;&#49;&#57;&#50;&#x2e;&#x31;&#54;&#x38;&#46;&#x34;&#51;&#46;&#x31;&#x34;&#49;</a>需要在.ssh目录下，因为权限问题。</p>
 </li>
 <li><p>你利用redis上传公钥时候运行代码是在你解压的redis文件下运行。</p>
 </li>
@@ -1688,8 +1688,22 @@
   <entry>
     <title>OWASP_Top10之注入漏洞</title>
     <url>/posts/1299261525.html</url>
-    <content><![CDATA[<h1 id="SQL数据库类型判断"><a href="#SQL数据库类型判断" class="headerlink" title="SQL数据库类型判断"></a>SQL数据库类型判断</h1><p>常见的数据库：Oracle、MySQL、SQL Server、Access、Postgresql，mongodb等</p>
-<h2 id="前端与数据库类型"><a href="#前端与数据库类型" class="headerlink" title="前端与数据库类型"></a>前端与数据库类型</h2><p><strong>asp：</strong>SQL Server，Access<br><strong>.net：</strong>SQL Server<br><strong>php：</strong>MySQL，PostgreSQL<br><strong>java：</strong>Oracle，MySQL</p>
+    <content><![CDATA[<h1 id="注入攻击"><a href="#注入攻击" class="headerlink" title="注入攻击"></a>注入攻击</h1><p>注入攻击的本质，是把用户输入的数据当作代码执行，或者用于生成其他语义的内容。</p>
+<p>注入攻击有<strong>两个前提条件：</strong></p>
+<p>1、用户能够控制数据的输入。</p>
+<p>2、原本要执行的代码<strong>拼接</strong>了用户的输入。</p>
+<h1 id="SQL数据库类型判断"><a href="#SQL数据库类型判断" class="headerlink" title="SQL数据库类型判断"></a>SQL数据库类型判断</h1><h2 id="SQL常见数据库："><a href="#SQL常见数据库：" class="headerlink" title="SQL常见数据库："></a>SQL常见数据库：</h2><ul>
+<li><strong>MySQL</strong>：开源、广泛使用，适用于各种应用场景，特别是Web应用。</li>
+<li><strong>PostgreSQL</strong>：开源，功能强大，支持复杂的查询和数据操作，适用于高要求的应用。</li>
+<li><strong>SQLite</strong>：轻量级，适合嵌入式系统和移动应用，通常用于小型项目或开发测试。</li>
+<li><strong>Microsoft SQL Server</strong>：由微软开发，功能丰富，适用于企业级应用。</li>
+<li><strong>Oracle Database</strong>：由Oracle公司提供，具有强大的企业级功能，适用于大规模和高性能的需求。</li>
+<li><strong>MariaDB</strong>：MySQL的一个分支，开源，致力于保持MySQL的兼容性，并提供额外的功能和改进。</li>
+</ul>
+<br>
+
+
+
 <h2 id="根据数据库特有函数来判断"><a href="#根据数据库特有函数来判断" class="headerlink" title="根据数据库特有函数来判断"></a>根据数据库特有函数来判断</h2><h3 id="len和length"><a href="#len和length" class="headerlink" title="len和length"></a>len和length</h3><p>len()：SQL Server 、MySQL以及db2返回长度的函数。<br>length()：Oracle和INFORMIX返回长度的函数。</p>
 <h3 id="version和-version"><a href="#version和-version" class="headerlink" title="version和@@version"></a>version和@@version</h3><p><strong>SQL Server：</strong>select@@version –<br><strong>Oracle</strong> :select banner from v$version<br><strong>MySQL：</strong>select @@version，version() –<br><strong>PostgreSQL:</strong> select version() –</p>
 <h3 id="substring和substr"><a href="#substring和substr" class="headerlink" title="substring和substr"></a>substring和substr</h3><p>MySQL两个函数都可以使用<br>Oracle只可调用substr<br>SQL Server只可调用substring</p>
@@ -1730,7 +1744,7 @@
 
 
 
-<h2 id="预防措施"><a href="#预防措施" class="headerlink" title="预防措施"></a>预防措施</h2><ol>
+<h1 id="预防措施"><a href="#预防措施" class="headerlink" title="预防措施"></a>预防措施</h1><ol>
 <li><strong>使用参数化查询</strong>：这是最有效的防护方法之一。通过预编译语句（ prepared statements）将SQL语句和数据分开，确保SQL语句不会因为输入数据的不同而改变。</li>
 <li><strong>输入验证和过滤</strong>：对用户的输入进行严格的校验和过滤，避免将未经处理的用户输入直接拼接到SQL语句中。可以通过正则表达式限制输入格式，或者对特殊字符进行转义处理。</li>
 <li><strong>使用ORM框架</strong>：对象关系映射（ORM）框架如MyBatis、Hibernate等通常内置了参数化查询和输入验证功能，能够减少SQL注入的风险。</li>
@@ -1745,31 +1759,223 @@
 
 
 
-<h1 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h1><h2 id="渗透"><a href="#渗透" class="headerlink" title="渗透"></a>渗透</h2><h3 id="MySQL渗透思路"><a href="#MySQL渗透思路" class="headerlink" title="MySQL渗透思路"></a>MySQL渗透思路</h3><ol>
+<h1 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h1><h2 id="MySQL渗透思路"><a href="#MySQL渗透思路" class="headerlink" title="MySQL渗透思路"></a>MySQL渗透思路</h2><ol>
 <li>端口、版本信息收集</li>
 <li>数据库管理信息收集</li>
 <li>暴力破解</li>
 <li>查看是否有源代码或文件包泄露漏洞</li>
 <li>使用phpMyAdmin账号获取webshell，或利用CMS漏洞获取webshell</li>
 </ol>
-<h3 id="SQL注入分类"><a href="#SQL注入分类" class="headerlink" title="SQL注入分类"></a>SQL注入分类</h3><ul>
-<li>Boolean（布尔注入）</li>
-<li>Union（联合注入）</li>
-<li>Into Outfile（数据导出语句）</li>
-<li>Error（报错注入）</li>
-<li>Time-based（时间盲注）</li>
-<li>堆叠注入</li>
-<li>二次注入</li>
-<li>宽字节</li>
-<li>Regexp（正则表达式）</li>
-<li>Header（HTTP头部注入）</li>
-<li>万能密码</li>
+<br>
+
+
+
+<h2 id="SQL注入分类"><a href="#SQL注入分类" class="headerlink" title="SQL注入分类"></a>SQL注入分类</h2><p>SQL注入攻击是一种通过将恶意SQL代码插入到输入字段中以操控数据库的攻击方式。不同类型的SQL注入攻击针对不同的系统漏洞和输入处理方式。以下是SQL注入的常见分类及其特点：</p>
+<h3 id="1-Boolean（布尔注入）"><a href="#1-Boolean（布尔注入）" class="headerlink" title="1. Boolean（布尔注入）"></a>1. Boolean（布尔注入）</h3><p><strong>特点</strong>：</p>
+<ul>
+<li>利用布尔表达式进行判断。</li>
+<li>通过在SQL查询中插入条件语句，观察返回页面的不同来推断数据库信息。</li>
 </ul>
-<h3 id="MySQL版本区别"><a href="#MySQL版本区别" class="headerlink" title="MySQL版本区别"></a>MySQL版本区别</h3><ul>
+<p><strong>例子</strong>：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> users <span class="keyword">WHERE</span> username <span class="operator">=</span> <span class="string">&#x27;admin&#x27;</span> <span class="keyword">AND</span> <span class="string">&#x27;1&#x27;</span><span class="operator">=</span><span class="string">&#x27;1&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果返回的页面与正常请求相同，说明条件成立；否则不成立。</li>
+</ul>
+<p><strong>防御</strong>：</p>
+<ul>
+<li>使用参数化查询。</li>
+<li>验证和过滤输入。</li>
+</ul>
+<br>
+
+
+
+<h3 id="2-Union（联合注入）"><a href="#2-Union（联合注入）" class="headerlink" title="2. Union（联合注入）"></a>2. Union（联合注入）</h3><p><strong>特点</strong>：</p>
+<ul>
+<li>使用<code>UNION</code>关键字将恶意查询与合法查询合并，以获取额外的数据。</li>
+<li>需要对目标表和恶意查询表的列数、数据类型进行匹配。</li>
+</ul>
+<p><strong>例子</strong>：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> name, email <span class="keyword">FROM</span> users <span class="keyword">WHERE</span> id <span class="operator">=</span> <span class="number">1</span> <span class="keyword">UNION</span> <span class="keyword">SELECT</span> username, password <span class="keyword">FROM</span> admins;</span><br></pre></td></tr></table></figure>
+
+<p><strong>防御</strong>：</p>
+<ul>
+<li>使用参数化查询。</li>
+<li>限制或禁用数据库用户对<code>UNION</code>操作的权限。</li>
+</ul>
+<br>
+
+
+
+<h3 id="3-Into-Outfile（数据导出语句）"><a href="#3-Into-Outfile（数据导出语句）" class="headerlink" title="3. Into Outfile（数据导出语句）"></a>3. Into Outfile（数据导出语句）</h3><p><strong>特点</strong>：</p>
+<ul>
+<li>利用<code>INTO OUTFILE</code>语句将数据库中的数据导出到服务器文件系统。</li>
+<li>需要有写文件的权限。</li>
+</ul>
+<p><strong>例子</strong>：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> users <span class="keyword">INTO</span> OUTFILE <span class="string">&#x27;/var/www/html/users.txt&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>防御</strong>：</p>
+<ul>
+<li>限制数据库用户的文件写权限。</li>
+<li>使用安全的文件路径和名称。</li>
+</ul>
+<br>
+
+
+
+<h3 id="4-Error（报错注入）"><a href="#4-Error（报错注入）" class="headerlink" title="4. Error（报错注入）"></a>4. Error（报错注入）</h3><p><strong>特点</strong>：</p>
+<ul>
+<li>通过构造错误的SQL语句，利用数据库返回的错误信息来推断数据库结构或数据。</li>
+<li>依赖于错误信息暴露的细节。</li>
+</ul>
+<p><strong>例子</strong>：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> users <span class="keyword">WHERE</span> id <span class="operator">=</span> <span class="number">1</span> <span class="keyword">AND</span> (<span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="keyword">FROM</span> information_schema.tables);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果导致错误并返回信息，攻击者可以根据错误信息推测数据库结构。</li>
+</ul>
+<p><strong>防御</strong>：</p>
+<ul>
+<li>不显示详细的数据库错误信息给用户。</li>
+<li>使用通用错误页面替代详细错误信息。</li>
+</ul>
+<br>
+
+
+
+<h3 id="5-Time-based（时间盲注）"><a href="#5-Time-based（时间盲注）" class="headerlink" title="5. Time-based（时间盲注）"></a>5. Time-based（时间盲注）</h3><p><strong>特点</strong>：</p>
+<ul>
+<li>通过使用延迟函数（如<code>SLEEP()</code>）判断SQL语句的真假。</li>
+<li>没有直接的页面反馈，通过响应时间来推测数据库的响应。</li>
+</ul>
+<p><strong>例子</strong>：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> users <span class="keyword">WHERE</span> id <span class="operator">=</span> <span class="number">1</span> <span class="keyword">AND</span> IF(<span class="number">1</span><span class="operator">=</span><span class="number">1</span>, SLEEP(<span class="number">5</span>), <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果页面响应时间增加，说明条件为真。</li>
+</ul>
+<p><strong>防御</strong>：</p>
+<ul>
+<li>使用参数化查询。</li>
+<li>对用户输入进行严格验证和过滤。</li>
+</ul>
+<br>
+
+
+
+<h3 id="6-堆叠注入（Stacked-Queries）"><a href="#6-堆叠注入（Stacked-Queries）" class="headerlink" title="6. 堆叠注入（Stacked Queries）"></a>6. 堆叠注入（Stacked Queries）</h3><p><strong>特点</strong>：</p>
+<ul>
+<li>应用程序允许一次执行多条SQL语句，通过分号<code>;</code>分隔。</li>
+<li>受到Web开发语言和数据库中间件的限制</li>
+</ul>
+<p><strong>例子</strong>：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> users; <span class="keyword">DROP</span> <span class="keyword">TABLE</span> users;</span><br></pre></td></tr></table></figure>
+
+<p><strong>防御</strong>：</p>
+<ul>
+<li>禁用多语句执行。</li>
+<li>使用参数化查询。</li>
+</ul>
+<br>
+
+
+
+<h3 id="7-二次注入"><a href="#7-二次注入" class="headerlink" title="7. 二次注入"></a>7. 二次注入</h3><p><strong>特点</strong>：</p>
+<ul>
+<li>攻击者将恶意代码插入数据库中，稍后在应用程序从数据库中读取这些数据并执行时触发注入。</li>
+<li>通常涉及用户输入被存储后未进行适当的清理和验证。</li>
+</ul>
+<p><strong>例子</strong>：</p>
+<ul>
+<li>用户名字段存储了恶意SQL，在读取时被执行。</li>
+</ul>
+<p><strong>防御</strong>：</p>
+<ul>
+<li>在数据写入和读取时均进行过滤和验证。</li>
+<li>使用参数化查询。</li>
+</ul>
+<br>
+
+
+
+<h3 id="8-宽字节注入"><a href="#8-宽字节注入" class="headerlink" title="8. 宽字节注入"></a>8. 宽字节注入</h3><p><strong>特点</strong>：</p>
+<ul>
+<li>利用不正确的字符编码处理，特别是多字节字符集，如UTF-8。</li>
+<li>攻击者通过操控字符编码来绕过输入验证。</li>
+</ul>
+<p><strong>例子</strong>：</p>
+<ul>
+<li>在应用中输入<code>%df%27</code>，造成SQL语句中单引号被截断。</li>
+</ul>
+<p><strong>防御</strong>：</p>
+<ul>
+<li>正确处理字符集。</li>
+<li>在数据库连接时设置适当的字符集。</li>
+</ul>
+<br>
+
+
+
+<h3 id="9-Regexp（正则表达式）"><a href="#9-Regexp（正则表达式）" class="headerlink" title="9. Regexp（正则表达式）"></a>9. Regexp（正则表达式）</h3><p><strong>特点</strong>：</p>
+<ul>
+<li>利用SQL中的正则表达式匹配功能进行注入。</li>
+<li>可以用于构造复杂的条件语句。</li>
+</ul>
+<p><strong>例子</strong>：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> users <span class="keyword">WHERE</span> username REGEXP <span class="string">&#x27;^[a-z]+$&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用正则表达式构造恶意匹配条件。</li>
+</ul>
+<p><strong>防御</strong>：</p>
+<ul>
+<li>使用参数化查询。</li>
+<li>对正则表达式进行严格控制。</li>
+</ul>
+<br>
+
+
+
+<h3 id="10-Header（HTTP头部注入）"><a href="#10-Header（HTTP头部注入）" class="headerlink" title="10. Header（HTTP头部注入）"></a>10. Header（HTTP头部注入）</h3><p><strong>特点</strong>：</p>
+<ul>
+<li>攻击者将恶意SQL注入到HTTP头部字段中，服务器端未对头部信息进行过滤时可能被执行。</li>
+<li>常见头部字段如User-Agent、Referer等。</li>
+</ul>
+<p><strong>例子</strong>：</p>
+<ul>
+<li>在User-Agent字段中插入SQL代码。</li>
+</ul>
+<p><strong>防御</strong>：</p>
+<ul>
+<li>对HTTP头部信息进行验证和过滤。</li>
+<li>使用参数化查询。</li>
+</ul>
+<br>
+
+
+
+<h3 id="11-万能密码"><a href="#11-万能密码" class="headerlink" title="11. 万能密码"></a>11. 万能密码</h3><p><strong>特点</strong>：</p>
+<ul>
+<li>使用特殊输入绕过认证机制。</li>
+<li>利用SQL注入使得任何密码均可通过验证。</li>
+</ul>
+<p><strong>例子</strong>：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> users <span class="keyword">WHERE</span> username <span class="operator">=</span> <span class="string">&#x27;admin&#x27;</span> <span class="keyword">AND</span> password <span class="operator">=</span> <span class="string">&#x27;&#x27;</span> <span class="keyword">OR</span> <span class="string">&#x27;1&#x27;</span><span class="operator">=</span><span class="string">&#x27;1&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>条件永远为真，允许攻击者登录。</li>
+</ul>
+<p><strong>防御</strong>：</p>
+<ul>
+<li>使用参数化查询。</li>
+<li>对用户输入进行严格的验证和过滤。</li>
+</ul>
+<br>
+
+
+
+<h2 id="MySQL版本区别及特性"><a href="#MySQL版本区别及特性" class="headerlink" title="MySQL版本区别及特性"></a>MySQL版本区别及特性</h2><h3 id="MySQL版本区别："><a href="#MySQL版本区别：" class="headerlink" title="MySQL版本区别："></a>MySQL版本区别：</h3><ul>
 <li><strong>MySQL &lt; 5.0</strong>：没有<code>information_schema</code>，多用户单操作。</li>
 <li><strong>MySQL &gt; 5.0</strong>：多用户多操作。</li>
 </ul>
-<h3 id="MySQL-5-7特性"><a href="#MySQL-5-7特性" class="headerlink" title="MySQL 5.7特性"></a>MySQL 5.7特性</h3><ol>
+<h3 id="MySQL-5-7特性："><a href="#MySQL-5-7特性：" class="headerlink" title="MySQL 5.7特性："></a><strong>MySQL 5.7特性：</strong></h3><ol>
 <li>随机root密码</li>
 <li>test数据库</li>
 <li>默认SSL</li>
@@ -1779,83 +1985,83 @@
 <li>支持两类生成列（generated column）</li>
 <li>引入系统库（sys schema）</li>
 </ol>
-<h3 id="拿Shell前提条件"><a href="#拿Shell前提条件" class="headerlink" title="拿Shell前提条件"></a>拿Shell前提条件</h3><ul>
-<li>拥有网站写权限</li>
-<li><code>secure_file_priv</code>为空</li>
-<li>知道网站绝对路径</li>
-<li><code>into outfile</code></li>
-<li>日志挂马</li>
-<li>文件包含</li>
-<li>数据库备份拿shell</li>
+<br>
+
+
+
+<h2 id="常用万能密码"><a href="#常用万能密码" class="headerlink" title="常用万能密码"></a>常用万能密码</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="string">&#x27;or&#x27;</span><span class="operator">=</span><span class="string">&#x27;or&#x27;</span></span><br><span class="line"><span class="string">&#x27; or 1=&#x27;</span><span class="number">1</span></span><br><span class="line"><span class="string">&#x27;or&#x27;</span><span class="operator">=</span><span class="string">&#x27;or&#x27;</span></span><br><span class="line">admin</span><br><span class="line">admin<span class="string">&#x27;--</span></span><br><span class="line"><span class="string">admin&#x27;</span> <span class="keyword">or</span> <span class="number">4</span><span class="operator">=</span><span class="number">4</span><span class="comment">--</span></span><br><span class="line">admin<span class="string">&#x27; or &#x27;</span><span class="number">1</span><span class="string">&#x27;=&#x27;</span><span class="number">1</span><span class="string">&#x27;--</span></span><br><span class="line"><span class="string">admin888</span></span><br><span class="line"><span class="string">&quot;or &quot;a&quot;=&quot;a</span></span><br><span class="line"><span class="string">admin&#x27;</span> <span class="keyword">or</span> <span class="number">2</span><span class="operator">=</span><span class="number">2</span>#</span><br><span class="line">a<span class="string">&#x27; having 1=1#</span></span><br><span class="line"><span class="string">a&#x27;</span> <span class="keyword">having</span> <span class="number">1</span><span class="operator">=</span><span class="number">1</span><span class="comment">--</span></span><br><span class="line">admin<span class="string">&#x27; or &#x27;</span><span class="number">2</span><span class="string">&#x27;=&#x27;</span><span class="number">2</span></span><br><span class="line"><span class="string">&#x27;)or(&#x27;</span>a<span class="string">&#x27;=&#x27;</span>a</span><br><span class="line"><span class="keyword">or</span> <span class="number">4</span><span class="operator">=</span><span class="number">4</span><span class="comment">--</span></span><br><span class="line">c</span><br><span class="line">a<span class="string">&#x27;or&#x27;</span> <span class="number">4</span><span class="operator">=</span><span class="number">4</span><span class="comment">--</span></span><br><span class="line">&quot;or 4=4--</span><br><span class="line">&#x27;or&#x27;a&#x27;=&#x27;a</span><br><span class="line">&quot;<span class="keyword">or</span>&quot;=&quot;a<span class="string">&#x27;=&#x27;</span>a</span><br><span class="line"><span class="string">&#x27;or&#x27;&#x27;=&#x27;</span></span><br><span class="line"><span class="string">&#x27;or&#x27;</span><span class="operator">=</span><span class="string">&#x27;or&#x27;</span></span><br><span class="line"><span class="number">1</span> <span class="keyword">or</span> <span class="string">&#x27;1&#x27;</span><span class="operator">=</span><span class="string">&#x27;1&#x27;</span><span class="operator">=</span><span class="number">1</span></span><br><span class="line"><span class="number">1</span> <span class="keyword">or</span> <span class="string">&#x27;1&#x27;</span><span class="operator">=</span><span class="string">&#x27;1&#x27;</span> <span class="keyword">or</span> <span class="number">4</span><span class="operator">=</span><span class="number">4</span></span><br><span class="line"><span class="string">&#x27;OR 4=4%00</span></span><br><span class="line"><span class="string">&quot;or 4=4%00</span></span><br><span class="line"><span class="string">&#x27;</span>xor</span><br><span class="line">admin<span class="string">&#x27; UNION Select 1,1,1 FROM admin Where &#x27;&#x27;=&#x27;</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">-1</span><span class="operator">%</span>cf<span class="string">&#x27; union select 1,1,1 as password,1,1,1 %23</span></span><br><span class="line"><span class="string">1</span></span><br><span class="line"><span class="string">17..admin&#x27;</span> <span class="keyword">or</span> <span class="string">&#x27;a&#x27;</span><span class="operator">=</span><span class="string">&#x27;a 密码随便</span></span><br><span class="line"><span class="string">&#x27;</span><span class="keyword">or</span><span class="string">&#x27;=&#x27;</span><span class="keyword">or</span><span class="string">&#x27;</span></span><br><span class="line"><span class="string">&#x27;</span><span class="keyword">or</span> <span class="number">4</span><span class="operator">=</span><span class="number">4</span><span class="comment">/*</span></span><br><span class="line"><span class="comment">something</span></span><br><span class="line"><span class="comment">&#x27; OR &#x27;1&#x27;=&#x27;1</span></span><br><span class="line"><span class="comment">1&#x27;or&#x27;1&#x27;=&#x27;1</span></span><br><span class="line"><span class="comment">admin&#x27; OR 4=4/*</span></span><br><span class="line"><span class="comment">1&#x27;or&#x27;1&#x27;=&#x27;1</span></span><br></pre></td></tr></table></figure>
+
+<br>
+
+
+
+<h2 id="常见的MySQL注入点"><a href="#常见的MySQL注入点" class="headerlink" title="常见的MySQL注入点"></a>常见的MySQL注入点</h2><ol>
+<li><strong>用户输入表单</strong>：<ul>
+<li><strong>登录表单</strong>：攻击者可能在用户名或密码字段输入恶意SQL代码。</li>
+<li><strong>注册表单</strong>：未正确验证和过滤的输入字段可能被用来插入恶意SQL。</li>
 </ul>
-<h3 id="常用万能密码"><a href="#常用万能密码" class="headerlink" title="常用万能密码"></a>常用万能密码</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="string">&#x27;or&#x27;</span><span class="operator">=</span><span class="string">&#x27;or&#x27;</span></span><br><span class="line"><span class="string">&#x27; or 1=&#x27;</span><span class="number">1</span></span><br><span class="line"><span class="string">&#x27;or&#x27;</span><span class="operator">=</span><span class="string">&#x27;or&#x27;</span></span><br><span class="line">admin</span><br><span class="line">admin<span class="string">&#x27;--</span></span><br><span class="line"><span class="string">admin&#x27;</span> <span class="keyword">or</span> <span class="number">4</span><span class="operator">=</span><span class="number">4</span><span class="comment">--</span></span><br><span class="line">admin<span class="string">&#x27; or &#x27;</span><span class="number">1</span><span class="string">&#x27;=&#x27;</span><span class="number">1</span><span class="string">&#x27;--</span></span><br><span class="line"><span class="string">admin888</span></span><br><span class="line"><span class="string">&quot;or &quot;a&quot;=&quot;a</span></span><br><span class="line"><span class="string">admin&#x27;</span> <span class="keyword">or</span> <span class="number">2</span><span class="operator">=</span><span class="number">2</span>#</span><br><span class="line">a<span class="string">&#x27; having 1=1#</span></span><br><span class="line"><span class="string">a&#x27;</span> <span class="keyword">having</span> <span class="number">1</span><span class="operator">=</span><span class="number">1</span><span class="comment">--</span></span><br><span class="line">admin<span class="string">&#x27; or &#x27;</span><span class="number">2</span><span class="string">&#x27;=&#x27;</span><span class="number">2</span></span><br><span class="line"><span class="string">&#x27;)or(&#x27;</span>a<span class="string">&#x27;=&#x27;</span>a</span><br><span class="line"><span class="keyword">or</span> <span class="number">4</span><span class="operator">=</span><span class="number">4</span><span class="comment">--</span></span><br><span class="line">c</span><br><span class="line">a<span class="string">&#x27;or&#x27;</span> <span class="number">4</span><span class="operator">=</span><span class="number">4</span><span class="comment">--</span></span><br><span class="line">&quot;or 4=4--</span><br><span class="line">&#x27;or&#x27;a&#x27;=&#x27;a</span><br><span class="line">&quot;<span class="keyword">or</span>&quot;=&quot;a<span class="string">&#x27;=&#x27;</span>a</span><br><span class="line"><span class="string">&#x27;or&#x27;&#x27;=&#x27;</span></span><br><span class="line"><span class="string">&#x27;or&#x27;</span><span class="operator">=</span><span class="string">&#x27;or&#x27;</span></span><br><span class="line"><span class="number">1</span> <span class="keyword">or</span> <span class="string">&#x27;1&#x27;</span><span class="operator">=</span><span class="string">&#x27;1&#x27;</span><span class="operator">=</span><span class="number">1</span></span><br><span class="line"><span class="number">1</span> <span class="keyword">or</span> <span class="string">&#x27;1&#x27;</span><span class="operator">=</span><span class="string">&#x27;1&#x27;</span> <span class="keyword">or</span> <span class="number">4</span><span class="operator">=</span><span class="number">4</span></span><br><span class="line"><span class="string">&#x27;OR 4=4%00</span></span><br><span class="line"><span class="string">&quot;or 4=4%00</span></span><br><span class="line"><span class="string">&#x27;</span>xor</span><br><span class="line">admin<span class="string">&#x27; UNION Select 1,1,1 FROM admin Where &#x27;&#x27;=&#x27;</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">-1</span><span class="operator">%</span>cf<span class="string">&#x27; union select 1,1,1 as password,1,1,1 %23</span></span><br><span class="line"><span class="string">1</span></span><br><span class="line"><span class="string">17..admin&#x27;</span> <span class="keyword">or</span> <span class="string">&#x27;a&#x27;</span><span class="operator">=</span><span class="string">&#x27;a 密码随便</span></span><br><span class="line"><span class="string">&#x27;</span><span class="keyword">or</span><span class="string">&#x27;=&#x27;</span><span class="keyword">or</span><span class="string">&#x27;</span></span><br><span class="line"><span class="string">&#x27;</span><span class="keyword">or</span> <span class="number">4</span><span class="operator">=</span><span class="number">4</span><span class="comment">/*</span></span><br><span class="line"><span class="comment">something</span></span><br><span class="line"><span class="comment">&#x27; OR &#x27;1&#x27;=&#x27;1</span></span><br><span class="line"><span class="comment">1&#x27;or&#x27;1&#x27;=&#x27;1</span></span><br><span class="line"><span class="comment">admin&#x27; OR 4=4/*</span></span><br><span class="line"><span class="comment">1&#x27;or&#x27;1&#x27;=&#x27;1</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="SQL分块传输"><a href="#SQL分块传输" class="headerlink" title="SQL分块传输"></a>SQL分块传输</h3><ul>
-<li><p>请求头加上<code>Transher-Encoding:Chunked</code></p>
 </li>
-<li><p>POST数据检测示例：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">2 (数据长度)</span><br><span class="line">id</span><br><span class="line">2</span><br><span class="line">=1</span><br><span class="line">0 (分块请求结束)</span><br></pre></td></tr></table></figure>
+<li><strong>URL参数</strong>：<ul>
+<li>动态生成的SQL查询中使用的GET参数，例如<code>http://example.com/page?id=1</code>，如果<code>id</code>参数未经过适当的处理，就可能成为注入点。</li>
+</ul>
 </li>
-<li><p>逃避防火墙追踪</p>
+<li><strong>搜索框</strong>：<ul>
+<li>搜索功能通常涉及动态SQL查询，未对用户输入进行适当过滤时容易受到攻击。</li>
+</ul>
 </li>
+<li><strong>Cookie和HTTP头</strong>：<ul>
+<li>攻击者可以通过操控Cookie或HTTP头中的数据插入恶意SQL。</li>
 </ul>
-<h3 id="XFF（X-Forwarded-For）"><a href="#XFF（X-Forwarded-For）" class="headerlink" title="XFF（X-Forwarded-For）"></a>XFF（X-Forwarded-For）</h3><ul>
-<li>带入系统DNS进行SQL注入</li>
+</li>
+<li><strong>隐藏字段</strong>：<ul>
+<li>HTML表单中的隐藏字段可能被攻击者修改，用于注入SQL代码。</li>
 </ul>
-<h3 id="Sleep函数"><a href="#Sleep函数" class="headerlink" title="Sleep函数"></a>Sleep函数</h3><ul>
-<li><code>benchmark(count, expr)</code>总是返回0</li>
+</li>
+<li><strong>客户端输入的任何其他数据</strong>：<ul>
+<li>例如Ajax请求、JSON或XML数据，如果直接用于SQL查询，则可能成为注入点。</li>
 </ul>
-<h3 id="get-lock函数示例"><a href="#get-lock函数示例" class="headerlink" title="get_lock函数示例"></a>get_lock函数示例</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">get_lock(<span class="string">&#x27;xxx&#x27;</span>,<span class="number">1</span>); 结果<span class="number">1</span></span><br><span class="line">get_lock(<span class="string">&#x27;xxx&#x27;</span>,<span class="number">5</span>); 结果<span class="number">0</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<br>
 
 
 
-<h3 id="正则Bug"><a href="#正则Bug" class="headerlink" title="正则Bug"></a>正则Bug</h3><ul>
-<li><code>rpad</code></li>
-<li><code>repeat</code></li>
-</ul>
-<h3 id="预编译示例"><a href="#预编译示例" class="headerlink" title="预编译示例"></a>预编译示例</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> id <span class="operator">=</span> ?</span><br></pre></td></tr></table></figure>
+<h2 id="延时注入示例"><a href="#延时注入示例" class="headerlink" title="延时注入示例"></a>延时注入示例</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">if(ascil(substr(&quot;haha&quot;,<span class="number">1</span>,<span class="number">1</span>))<span class="operator">=</span><span class="number">104</span>,sleep(<span class="number">5</span>),<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<br>
 
 
 
-<h3 id="MySQL注入点"><a href="#MySQL注入点" class="headerlink" title="MySQL注入点"></a>MySQL注入点</h3><ul>
-<li>写一句话条件：root绝对路径、load_file、union查询、web目录写权限、into outfile</li>
-</ul>
-<h3 id="遇到字符转义"><a href="#遇到字符转义" class="headerlink" title="遇到字符转义"></a>遇到字符转义</h3><ul>
-<li>宽字节绕过</li>
-<li>HEX绕过</li>
-</ul>
-<h3 id="不使用逻辑运算符注入"><a href="#不使用逻辑运算符注入" class="headerlink" title="不使用逻辑运算符注入"></a>不使用逻辑运算符注入</h3><ul>
-<li>使用<code>order by</code>直接注入（用<code>1=1</code>、<code>1=2</code>测试注入点）</li>
-</ul>
-<h3 id="利用防注入拿Shell"><a href="#利用防注入拿Shell" class="headerlink" title="利用防注入拿Shell"></a>利用防注入拿Shell</h3><ul>
-<li>URL提交一句话</li>
-</ul>
-<h3 id="堆叠注入与Union"><a href="#堆叠注入与Union" class="headerlink" title="堆叠注入与Union"></a>堆叠注入与Union</h3><ul>
-<li><strong>Union</strong>：夹带私货</li>
-<li><strong>堆叠注入</strong>：先执行操作</li>
-</ul>
-<h3 id="延时注入示例"><a href="#延时注入示例" class="headerlink" title="延时注入示例"></a>延时注入示例</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">if(ascil(substr(&quot;haha&quot;,<span class="number">1</span>,<span class="number">1</span>))<span class="operator">=</span><span class="number">104</span>,sleep(<span class="number">5</span>),<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="写文件的函数"><a href="#写文件的函数" class="headerlink" title="写文件的函数"></a>写文件的函数</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="string">&#x27;xxx&#x27;</span> <span class="keyword">into</span> outfile <span class="string">&#x27;路径&#x27;</span></span><br><span class="line"><span class="keyword">select</span> <span class="string">&#x27;xxx&#x27;</span> <span class="keyword">into</span> dumpfile <span class="string">&#x27;路径&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<br>
 
 
 
-<h3 id="写文件的函数"><a href="#写文件的函数" class="headerlink" title="写文件的函数"></a>写文件的函数</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="string">&#x27;xxx&#x27;</span> <span class="keyword">into</span> outfile <span class="string">&#x27;路径&#x27;</span></span><br><span class="line"><span class="keyword">select</span> <span class="string">&#x27;xxx&#x27;</span> <span class="keyword">into</span> dumpfile <span class="string">&#x27;路径&#x27;</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="MySQL默认数据库"><a href="#MySQL默认数据库" class="headerlink" title="MySQL默认数据库"></a>MySQL默认数据库</h3><ul>
+<h2 id="MySQL默认数据库"><a href="#MySQL默认数据库" class="headerlink" title="MySQL默认数据库"></a>MySQL默认数据库</h2><ul>
 <li>mysql</li>
 <li>information_schema</li>
 <li>test</li>
 <li>performance_schema（5.6之前手动）</li>
 </ul>
-<h3 id="UDF提权条件"><a href="#UDF提权条件" class="headerlink" title="UDF提权条件"></a>UDF提权条件</h3><ul>
+<br>
+
+
+
+<h2 id="UDF提权条件"><a href="#UDF提权条件" class="headerlink" title="UDF提权条件"></a>UDF提权条件</h2><ul>
 <li>获得数据库账号，insert&#x2F;delete权限，以root为主</li>
 <li>拥有<code>udf.dll</code>写入目录的权限</li>
 </ul>
-<h3 id="MySQL常用payload"><a href="#MySQL常用payload" class="headerlink" title="MySQL常用payload"></a>MySQL常用payload</h3><p><a href="https://blog.csdn.net/qq_31343581/article/details/104661821">sql注入payload总结-CSDN博客</a></p>
-<h3 id="MySQL注入绕过技巧"><a href="#MySQL注入绕过技巧" class="headerlink" title="MySQL注入绕过技巧"></a>MySQL注入绕过技巧</h3><h4 id="1-空格绕过（注释符、-a0）"><a href="#1-空格绕过（注释符、-a0）" class="headerlink" title="1. 空格绕过（注释符、%a0）"></a>1. 空格绕过（注释符、%a0）</h4><ul>
+<br>
+
+
+
+<h2 id="MySQL常用payload"><a href="#MySQL常用payload" class="headerlink" title="MySQL常用payload"></a>MySQL常用payload</h2><p><a href="https://blog.csdn.net/qq_31343581/article/details/104661821">sql注入payload总结-CSDN博客</a></p>
+<br>
+
+
+
+<h2 id="MySQL注入绕过技巧"><a href="#MySQL注入绕过技巧" class="headerlink" title="MySQL注入绕过技巧"></a>MySQL注入绕过技巧</h2><h3 id="1-空格绕过（注释符、-a0）"><a href="#1-空格绕过（注释符、-a0）" class="headerlink" title="1. 空格绕过（注释符、%a0）"></a>1. 空格绕过（注释符、%a0）</h3><ul>
 <li>两个空格代替一个空格</li>
 <li>用Tab代替空格</li>
 <li>%a0表示空格</li>
@@ -1866,43 +2072,75 @@
 <p>最基本的绕过方法是用注释替换空格：</p>
 <figure class="highlight actionscript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*注释*/</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="2-括号绕过空格"><a href="#2-括号绕过空格" class="headerlink" title="2. 括号绕过空格"></a>2. 括号绕过空格</h4><p>如果空格被过滤，但括号没有，可以使用括号绕过。在MySQL中，括号用来包围子查询，因此任何可以计算出结果的语句都可以用括号包围起来，两端不需要多余空格。例如：</p>
+<br>
+
+
+
+<h3 id="2-括号绕过空格"><a href="#2-括号绕过空格" class="headerlink" title="2. 括号绕过空格"></a>2. 括号绕过空格</h3><p>如果空格被过滤，但括号没有，可以使用括号绕过。在MySQL中，括号用来包围子查询，因此任何可以计算出结果的语句都可以用括号包围起来，两端不需要多余空格。例如：</p>
 <figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="built_in">select</span>(user())<span class="built_in">fromdualwhere</span>(<span class="number">1</span>=<span class="number">1</span>)<span class="built_in">and</span>(<span class="number">2</span>=<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
 
 <p>这种方法常用于基于时间的盲注，例如：</p>
 <figure class="highlight perl"><table><tr><td class="code"><pre><span class="line">?id=<span class="number">1</span>%27and(<span class="keyword">sleep</span>(ascii(mid(database()from(<span class="number">1</span>)<span class="keyword">for</span>(<span class="number">1</span>)))=<span class="number">109</span>))%23</span><br></pre></td></tr></table></figure>
 
 <p>上面的方法既没有逗号也没有空格，猜测database()的第一个字符ascii码是否为109，若是则加载延时。</p>
-<h4 id="3-引号绕过（使用十六进制）"><a href="#3-引号绕过（使用十六进制）" class="headerlink" title="3. 引号绕过（使用十六进制）"></a>3. 引号绕过（使用十六进制）</h4><p>在SQL语句中，如where子句使用引号过滤时，可以使用十六进制。例如：</p>
+<br>
+
+
+
+<h3 id="3-引号绕过（使用十六进制）"><a href="#3-引号绕过（使用十六进制）" class="headerlink" title="3. 引号绕过（使用十六进制）"></a>3. 引号绕过（使用十六进制）</h3><p>在SQL语句中，如where子句使用引号过滤时，可以使用十六进制。例如：</p>
 <figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">column_name</span> <span class="keyword">from</span> information_schema.<span class="keyword">tables</span> <span class="keyword">where</span> <span class="built_in">table_name</span>=&quot;users&quot;</span><br></pre></td></tr></table></figure>
 
 <p>如果引号被过滤，可以用十六进制表示users：</p>
 <figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">column_name</span> <span class="keyword">from</span> information_schema.<span class="keyword">tables</span> <span class="keyword">where</span> <span class="built_in">table_name</span>=<span class="number">0x7573657273</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="4-逗号绕过（limit使用from或者offset）"><a href="#4-逗号绕过（limit使用from或者offset）" class="headerlink" title="4. 逗号绕过（limit使用from或者offset）"></a>4. 逗号绕过（limit使用from或者offset）</h4><p>在使用盲注时，需使用到<code>substr()</code>、<code>mid()</code>、<code>limit</code>等方法，这些方法都需要逗号。例如：</p>
+<br>
+
+
+
+<h3 id="4-逗号绕过（limit使用from或者offset）"><a href="#4-逗号绕过（limit使用from或者offset）" class="headerlink" title="4. 逗号绕过（limit使用from或者offset）"></a>4. 逗号绕过（limit使用from或者offset）</h3><p>在使用盲注时，需使用到<code>substr()</code>、<code>mid()</code>、<code>limit</code>等方法，这些方法都需要逗号。例如：</p>
 <figure class="highlight n1ql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">substr</span>(<span class="keyword">database</span>() <span class="keyword">from</span> <span class="number">1</span> <span class="keyword">for</span> <span class="number">1</span>);</span><br><span class="line"><span class="keyword">select</span> mid(<span class="keyword">database</span>() <span class="keyword">from</span> <span class="number">1</span> <span class="keyword">for</span> <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
 
 <p>对于limit，可以使用offset绕过：</p>
 <figure class="highlight n1ql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> news <span class="keyword">limit</span> <span class="number">0</span>,<span class="number">1</span></span><br><span class="line">等价于</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> news <span class="keyword">limit</span> <span class="number">1</span> <span class="keyword">offset</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="5-比较符号（）绕过（使用greatest-）"><a href="#5-比较符号（）绕过（使用greatest-）" class="headerlink" title="5. 比较符号（&lt;&gt;）绕过（使用greatest()）"></a>5. 比较符号（&lt;&gt;）绕过（使用greatest()）</h4><p>在使用盲注和二分查找时，若比较操作符被过滤，可以用<code>greatest()</code>函数。例如：</p>
+<br>
+
+
+
+<h3 id="5-比较符号（）绕过（使用greatest-）"><a href="#5-比较符号（）绕过（使用greatest-）" class="headerlink" title="5. 比较符号（&lt;&gt;）绕过（使用greatest()）"></a>5. 比较符号（&lt;&gt;）绕过（使用greatest()）</h3><p>在使用盲注和二分查找时，若比较操作符被过滤，可以用<code>greatest()</code>函数。例如：</p>
 <figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> users <span class="keyword">where</span> id=<span class="number">1</span> <span class="keyword">and</span> ascii(substr(<span class="keyword">database</span>(), <span class="number">0</span>, <span class="number">1</span>)) &gt; <span class="number">64</span></span><br></pre></td></tr></table></figure>
 
 <p>可以变为：</p>
 <figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> users <span class="keyword">where</span> id=<span class="number">1</span> <span class="keyword">and</span> greatest(ascii(substr(<span class="keyword">database</span>(), <span class="number">0</span>, <span class="number">1</span>)), <span class="number">64</span>) = <span class="number">64</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="6-AND与OR绕过"><a href="#6-AND与OR绕过" class="headerlink" title="6. AND与OR绕过"></a>6. <code>AND</code>与<code>OR</code>绕过</h4><ul>
+<br>
+
+
+
+<h3 id="6-AND与OR绕过"><a href="#6-AND与OR绕过" class="headerlink" title="6. AND与OR绕过"></a>6. <code>AND</code>与<code>OR</code>绕过</h3><ul>
 <li><code>AND</code> 可以使用 <code>&amp;&amp;</code></li>
 <li><code>OR</code> 可以使用 <code>||</code></li>
 </ul>
-<h4 id="7-绕过注释符号过滤"><a href="#7-绕过注释符号过滤" class="headerlink" title="7. 绕过注释符号过滤"></a>7. 绕过注释符号过滤</h4><p>例如：</p>
+<br>
+
+
+
+<h3 id="7-绕过注释符号过滤"><a href="#7-绕过注释符号过滤" class="headerlink" title="7. 绕过注释符号过滤"></a>7. 绕过注释符号过滤</h3><p>例如：</p>
 <figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">id</span>=<span class="number">1</span>&#x27;union select <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>||&#x27;<span class="number">1</span></span><br></pre></td></tr></table></figure>
 
 <p>可以使用以下方法绕过注释符：</p>
 <figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">id</span>=<span class="number">1</span>&#x27;union select <span class="number">1</span>,<span class="number">2</span>,&#x27;<span class="number">3</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="8-绕过"><a href="#8-绕过" class="headerlink" title="8. =绕过"></a>8. <code>=</code>绕过</h4><p>可以使用<code>LIKE</code>或者<code>&lt;</code>或者<code>&gt;</code>来绕过。</p>
-<h4 id="9-绕过union、select、where等关键字"><a href="#9-绕过union、select、where等关键字" class="headerlink" title="9. 绕过union、select、where等关键字"></a>9. 绕过union、select、where等关键字</h4><p>（1）使用注释符绕过：</p>
+<br>
+
+
+
+<h3 id="8-绕过"><a href="#8-绕过" class="headerlink" title="8. =绕过"></a>8. <code>=</code>绕过</h3><p>可以使用<code>LIKE</code>或者<code>&lt;</code>或者<code>&gt;</code>来绕过。</p>
+<br>
+
+
+
+<h3 id="9-绕过union、select、where等关键字"><a href="#9-绕过union、select、where等关键字" class="headerlink" title="9. 绕过union、select、where等关键字"></a>9. 绕过union、select、where等关键字</h3><p>（1）使用注释符绕过：</p>
 <p>常用注释符：</p>
 <figure class="highlight brainfuck"><table><tr><td class="code"><pre><span class="line"><span class="comment">//，</span><span class="literal">--</span> <span class="string">,</span> <span class="comment">/**/</span><span class="string">,</span> <span class="comment">#</span><span class="string">,</span> <span class="literal">--+</span><span class="string">,</span> <span class="literal">--</span> <span class="literal">-</span><span class="string">,</span> <span class="comment">;</span><span class="string">,</span><span class="comment">%00</span><span class="string">,</span><span class="literal">--</span><span class="comment">a</span></span><br></pre></td></tr></table></figure>
 
@@ -1918,14 +2156,26 @@
 <p>（4）双关键字绕过：</p>
 <figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">id</span>=-<span class="number">1</span>&#x27;UNIunionONSeLselectECT <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>–-</span><br></pre></td></tr></table></figure>
 
-<h4 id="10-通用绕过（编码）"><a href="#10-通用绕过（编码）" class="headerlink" title="10. 通用绕过（编码）"></a>10. 通用绕过（编码）</h4><p>如URLEncode编码，ASCII, HEX, unicode编码绕过：</p>
+<br>
+
+
+
+<h3 id="10-通用绕过（编码）"><a href="#10-通用绕过（编码）" class="headerlink" title="10. 通用绕过（编码）"></a>10. 通用绕过（编码）</h3><p>如URLEncode编码，ASCII, HEX, unicode编码绕过：</p>
 <p>例如：</p>
 <figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">or</span> <span class="number">1</span>=<span class="number">1</span> 即 %<span class="number">6</span>f%<span class="number">72</span>%<span class="number">20</span>%<span class="number">31</span>%<span class="number">3</span>d%<span class="number">31</span></span><br><span class="line"><span class="attribute">Test</span> 即 CHAR(<span class="number">101</span>)+CHAR(<span class="number">97</span>)+CHAR(<span class="number">115</span>)+CHAR(<span class="number">116</span>)</span><br></pre></td></tr></table></figure>
 
-<h4 id="11-等价函数绕过"><a href="#11-等价函数绕过" class="headerlink" title="11. 等价函数绕过"></a>11. 等价函数绕过</h4><p>例如：</p>
+<br>
+
+
+
+<h3 id="11-等价函数绕过"><a href="#11-等价函数绕过" class="headerlink" title="11. 等价函数绕过"></a>11. 等价函数绕过</h3><p>例如：</p>
 <figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">hex</span><span class="params">()</span></span>、<span class="built_in">bin</span>() ==&gt; <span class="built_in">ascii</span>()</span><br><span class="line"><span class="function"><span class="title">sleep</span><span class="params">()</span></span> ==&gt; <span class="built_in">benchmark</span>()</span><br><span class="line"><span class="function"><span class="title">concat_ws</span><span class="params">()</span></span> ==&gt; <span class="built_in">group_concat</span>()</span><br><span class="line"><span class="function"><span class="title">mid</span><span class="params">()</span></span>、<span class="built_in">substr</span>() ==&gt; <span class="built_in">substring</span>()</span><br><span class="line">@@user ==&gt; <span class="built_in">user</span>()</span><br><span class="line">@@datadir ==&gt; <span class="built_in">datadir</span>()</span><br></pre></td></tr></table></figure>
 
-<h4 id="12-宽字节注入"><a href="#12-宽字节注入" class="headerlink" title="12. 宽字节注入"></a>12. 宽字节注入</h4><p>例如，利用GBK编码：</p>
+<br>
+
+
+
+<h3 id="12-宽字节注入"><a href="#12-宽字节注入" class="headerlink" title="12. 宽字节注入"></a>12. 宽字节注入</h3><p>例如，利用GBK编码：</p>
 <p>（1）%df 吃掉 \ ，形成 %df%5c%27：</p>
 <figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">id</span>=-<span class="number">1</span>%df%<span class="number">27</span>union select <span class="number">1</span>,user(),<span class="number">3</span>--+</span><br></pre></td></tr></table></figure>
 
@@ -1950,12 +2200,22 @@
 <li>安全启动项</li>
 <li>备份策略</li>
 </ul>
+<br>
+
+
+
+
+
 <h3 id="修复宽字节注入"><a href="#修复宽字节注入" class="headerlink" title="修复宽字节注入"></a>修复宽字节注入</h3><ul>
 <li>使用<code>set charcter_set_client=binary</code></li>
 <li>Windows：修改<code>my.ini</code></li>
 <li>Linux：修改<code>my.cnf</code></li>
 <li>PHP：<code>mysql_query(&quot;set character_set_client=binary&quot;)</code></li>
 </ul>
+<br>
+
+
+
 <h3 id="WAF规避技术"><a href="#WAF规避技术" class="headerlink" title="WAF规避技术"></a>WAF规避技术</h3><ul>
 <li>大小写转换</li>
 <li><code>/!/</code></li>
@@ -1965,40 +2225,19 @@
 <li>URL编码</li>
 <li>ASCII</li>
 </ul>
-<h3 id="脱敏处理"><a href="#脱敏处理" class="headerlink" title="脱敏处理"></a>脱敏处理</h3><ul>
-<li>隐藏重要信息</li>
-</ul>
 <br>
 
 
 
-
-
-<h1 id="Oracle"><a href="#Oracle" class="headerlink" title="Oracle"></a>Oracle</h1><h2 id="渗透-1"><a href="#渗透-1" class="headerlink" title="渗透"></a>渗透</h2><h3 id="Oracle数据库渗透思路"><a href="#Oracle数据库渗透思路" class="headerlink" title="Oracle数据库渗透思路"></a>Oracle数据库渗透思路</h3><ol>
-<li>对数据库端口进行扫描</li>
-<li>对数据库版本相关信息进行收集</li>
-<li>获取数据库SID安全的值</li>
-<li>数据库提权</li>
-</ol>
-<h3 id="Oracle提权方法"><a href="#Oracle提权方法" class="headerlink" title="Oracle提权方法"></a>Oracle提权方法</h3><ol>
-<li><strong>SET_OUTPUT_TO_JAVA</strong>：利用DBMS_JAVA.SET_OUTPUT_TO_JAVA()函数的特性提升权限</li>
-<li><strong>GET_DOMAIN_INDEX_TABLES</strong>：利用PL&#x2F;SQL Injection提升权限</li>
-<li><strong>LT.FINDDDRICSET</strong>：利用SYS.LT.FINDRICSET函数的注入漏洞提升权限</li>
-<li><strong>SDO_DROP_USER_BEFORE</strong>：触发器漏洞（触发器是独立存储的对象，由事件触发运行）</li>
-</ol>
-<br>
-
-
-
-
-
-<h1 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h1><h2 id="渗透-2"><a href="#渗透-2" class="headerlink" title="渗透"></a>渗透</h2><h3 id="Redis相关"><a href="#Redis相关" class="headerlink" title="Redis相关"></a>Redis相关</h3><ul>
-<li>密钥登录SSH</li>
-<li>写Shell</li>
-<li>未授权访问</li>
+<h3 id="脱敏处理"><a href="#脱敏处理" class="headerlink" title="脱敏处理"></a>脱敏处理</h3><p>数据脱敏是为了在开发、测试和分析中使用数据而不暴露敏感信息：</p>
+<ul>
+<li><strong>隐藏重要信息</strong>：通过替换或屏蔽敏感数据的部分信息，使其无法被识别。例如：<ul>
+<li><strong>部分掩码</strong>：对于身份证号码、信用卡号，显示部分字符（如<code>**** **** **** 1234</code>）。</li>
+<li><strong>伪数据</strong>：用虚拟数据替换真实数据。</li>
 </ul>
-<h3 id="Redis与Windows"><a href="#Redis与Windows" class="headerlink" title="Redis与Windows"></a>Redis与Windows</h3><ul>
-<li>使用Telnet连接Redis，把木马写入启动项，写入mof使用魔法提权</li>
+</li>
+<li><strong>加密存储</strong>：对敏感数据进行加密，只有授权用户才能解密查看。</li>
+<li><strong>数据匿名化</strong>：完全删除可识别个人身份的信息，确保无法逆向还原到个人。</li>
 </ul>
 <br>
 
@@ -2006,6 +2245,10 @@
 
 <h1 id="其他注入攻击"><a href="#其他注入攻击" class="headerlink" title="其他注入攻击"></a>其他注入攻击</h1><p>除了最常见的SQL注入外，在Web安全领域还有其他的注入攻击，这些注入攻击都类似，都是应用程序违背了“数据与代码分离”原则而导致的。</p>
 <h2 id="NoSQL注入"><a href="#NoSQL注入" class="headerlink" title="NoSQL注入"></a>NoSQL注入</h2><p>现代Web应用大量使用NoSQL（Not Only SQL）数据库，在一些大规模高并发的应用中，NoSQL有独特的优势，但NoSQL数据库并不是特指某个数据库，很多非关系型数据库我们都称为NoSQL数据库。</p>
+<br>
+
+<br>
+
 <p>参考文章：</p>
 <p><a href="https://www.cnblogs.com/Lay0us/p/13262231.html#%E6%8C%81%E4%B9%85">SQL注入 WIKI - Lay0us - 博客园 (cnblogs.com)</a></p>
 <p>白帽子讲Web安全</p>
