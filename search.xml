@@ -1018,7 +1018,7 @@
 <ul>
 <li><p>如果你是linux系统使用cat,是windows系统使用type.</p>
 </li>
-<li><p>如果你是windows那你利用ssh密钥连接运行ssh -i id_rsa <a href="mailto:&#x72;&#111;&#111;&#x74;&#64;&#49;&#57;&#50;&#x2e;&#x31;&#54;&#x38;&#46;&#x34;&#51;&#46;&#x31;&#x34;&#49;">&#x72;&#111;&#111;&#x74;&#64;&#49;&#57;&#50;&#x2e;&#x31;&#54;&#x38;&#46;&#x34;&#51;&#46;&#x31;&#x34;&#49;</a>需要在.ssh目录下，因为权限问题。</p>
+<li><p>如果你是windows那你利用ssh密钥连接运行ssh -i id_rsa <a href="mailto:&#114;&#x6f;&#111;&#116;&#x40;&#49;&#57;&#x32;&#46;&#x31;&#54;&#x38;&#46;&#x34;&#51;&#x2e;&#x31;&#52;&#49;">&#114;&#x6f;&#111;&#116;&#x40;&#49;&#57;&#x32;&#46;&#x31;&#54;&#x38;&#46;&#x34;&#51;&#x2e;&#x31;&#52;&#49;</a>需要在.ssh目录下，因为权限问题。</p>
 </li>
 <li><p>你利用redis上传公钥时候运行代码是在你解压的redis文件下运行。</p>
 </li>
@@ -1830,9 +1830,10 @@
 <li>依赖于错误信息暴露的细节。</li>
 </ul>
 <p><strong>例子</strong>：</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> users <span class="keyword">WHERE</span> id <span class="operator">=</span> <span class="number">1</span> <span class="keyword">AND</span> (<span class="keyword">SELECT</span> <span class="built_in">COUNT</span>(<span class="operator">*</span>) <span class="keyword">FROM</span> information_schema.tables);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">id<span class="operator">=</span><span class="number">1</span><span class="string">&#x27; and ExtractValue(1,concat(0x7e,database())) -- </span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>如果导致错误并返回信息，攻击者可以根据错误信息推测数据库结构。</li>
+<li>其中0x7e表示字符‘<code>~</code>’，它与数据库名拼接后一定是一个<strong>非法的XPath格式</strong>。</li>
+<li>如果导致错误并返回信息，攻击者可以根据错误信息得到数据库名。</li>
 </ul>
 <p><strong>防御</strong>：</p>
 <ul>
@@ -1843,20 +1844,64 @@
 
 
 
-<h3 id="5-Time-based（时间盲注）"><a href="#5-Time-based（时间盲注）" class="headerlink" title="5. Time-based（时间盲注）"></a>5. Time-based（时间盲注）</h3><p><strong>特点</strong>：</p>
+<h3 id="5-Blind-SQL-Injection（盲注）"><a href="#5-Blind-SQL-Injection（盲注）" class="headerlink" title="5. Blind SQL Injection（盲注）"></a>5. Blind SQL Injection（盲注）</h3><p>现代Web应用在默认情况下大部分不会显示错误信息，所以攻击者需要使用“盲注”技巧来探测其是否存在SQL注入漏洞</p>
+<h4 id="布尔盲注（Boolean-based）"><a href="#布尔盲注（Boolean-based）" class="headerlink" title="布尔盲注（Boolean-based）"></a>布尔盲注（Boolean-based）</h4><p>最常见的盲注验证方法是，构造简单的条件语句，根据返回的页面是否发生变化，来判断SQL语句是否被执行。</p>
+<p><strong>示例</strong>：</p>
+<p>假设一个应用程序使用以下SQL查询来验证用户登录：</p>
+<figure class="highlight n1ql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> users <span class="keyword">WHERE</span> username = <span class="string">&#x27;admin&#x27;</span> <span class="keyword">AND</span> <span class="keyword">password</span> = <span class="string">&#x27;password&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>如果攻击者输入<code>&#39; OR 1=1--</code>作为密码，SQL语句将变为：</p>
+<figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> users <span class="keyword">WHERE</span> username = <span class="string">&#x27;admin&#x27;</span> <span class="keyword">AND</span> <span class="keyword">password</span> = <span class="string">&#x27;&#x27;</span> <span class="keyword">OR</span> <span class="number">1</span>=<span class="number">1</span><span class="comment">--&#x27;;</span></span><br></pre></td></tr></table></figure>
+
+<p>如果返回的页面内容不同，攻击者就可以确定查询条件为真，从而推测出数据库中的信息。</p>
+<p><mark style="background-color: #F4A460">注意：</mark>在布尔型盲注中，存在注入漏洞不一定是体现在查询结果的不一致上，有时候在HTTP响应中的其他地方也会体现细微差异，如<strong>DOM节点差异</strong>，可能需要多次尝试来验证。在<strong>自动化扫描器中</strong>，通常会通过响应内容的长度来判断是否存在注入漏洞。</p>
+<br>
+
+
+
+<h4 id="时间盲注（Time-based）"><a href="#时间盲注（Time-based）" class="headerlink" title="时间盲注（Time-based）"></a>时间盲注（Time-based）</h4><p>如果查询结果<strong>仅仅用于应用程序的内部处理逻辑</strong>，并不影响页面的输出内容，那么布尔型盲注就失效了，我们需要其他的手段来探测应用程序是否存在SQL注入漏洞。</p>
+<p><strong>示例</strong>：</p>
+<p>假设攻击者尝试通过注入以下SQL语句来判断管理员用户名是否为<code>admin</code>：</p>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">SELECT <span class="keyword">IF</span>(<span class="attribute">username</span>=<span class="string">&#x27;admin&#x27;</span>, SLEEP(5), 0) <span class="keyword">FROM</span> users;</span><br></pre></td></tr></table></figure>
+
+<p>如果响应时间延迟了5秒，攻击者可以确定查询条件为真，即用户名为<code>admin</code>。</p>
+<p><strong>不同的数据库可使用的延时方法：</strong></p>
+<table>
+<thead>
+<tr>
+<th>数据库系统</th>
+<th>延时函数调用示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>MySQL</td>
+<td>BENCHMARK(10000000, md5(1))</td>
+</tr>
+<tr>
+<td></td>
+<td>SLEEP(5)</td>
+</tr>
+<tr>
+<td></td>
+<td>GET_LOCK(1,5)</td>
+</tr>
+<tr>
+<td>PostgreSQL</td>
+<td>pg_sleep(5)</td>
+</tr>
+<tr>
+<td></td>
+<td>generate_series(1,1000000)</td>
+</tr>
+<tr>
+<td>SQL Server</td>
+<td>WAITFOR DELAY ‘0:0:5’</td>
+</tr>
+</tbody></table>
+<p>此外，还有一些<strong>通用的方法</strong>可以实现延时效果：</p>
 <ul>
-<li>通过使用延迟函数（如<code>SLEEP()</code>）判断SQL语句的真假。</li>
-<li>没有直接的页面反馈，通过响应时间来推测数据库的响应。</li>
-</ul>
-<p><strong>例子</strong>：</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> users <span class="keyword">WHERE</span> id <span class="operator">=</span> <span class="number">1</span> <span class="keyword">AND</span> IF(<span class="number">1</span><span class="operator">=</span><span class="number">1</span>, SLEEP(<span class="number">5</span>), <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
-<ul>
-<li>如果页面响应时间增加，说明条件为真。</li>
-</ul>
-<p><strong>防御</strong>：</p>
-<ul>
-<li>使用参数化查询。</li>
-<li>对用户输入进行严格验证和过滤。</li>
+<li>让服务端查询一个大表</li>
+<li>让数据库对一个表执行笛卡尔积操作</li>
 </ul>
 <br>
 
@@ -1879,7 +1924,7 @@
 
 
 
-<h3 id="7-二次注入"><a href="#7-二次注入" class="headerlink" title="7. 二次注入"></a>7. 二次注入</h3><p><strong>特点</strong>：</p>
+<h3 id="7-二次注入（存储型注入）"><a href="#7-二次注入（存储型注入）" class="headerlink" title="7. 二次注入（存储型注入）"></a>7. 二次注入（存储型注入）</h3><p><strong>特点</strong>：</p>
 <ul>
 <li>攻击者将恶意代码插入数据库中，稍后在应用程序从数据库中读取这些数据并执行时触发注入。</li>
 <li>通常涉及用户输入被存储后未进行适当的清理和验证。</li>
@@ -1996,62 +2041,72 @@
 
 
 <h2 id="常见的MySQL注入点"><a href="#常见的MySQL注入点" class="headerlink" title="常见的MySQL注入点"></a>常见的MySQL注入点</h2><ol>
-<li><strong>用户输入表单</strong>：<ul>
+<li><p><strong>用户输入表单</strong>：</p>
+<ul>
 <li><strong>登录表单</strong>：攻击者可能在用户名或密码字段输入恶意SQL代码。</li>
 <li><strong>注册表单</strong>：未正确验证和过滤的输入字段可能被用来插入恶意SQL。</li>
 </ul>
 </li>
-<li><strong>URL参数</strong>：<ul>
+<li><p><strong>URL参数</strong>：</p>
+<ul>
 <li>动态生成的SQL查询中使用的GET参数，例如<code>http://example.com/page?id=1</code>，如果<code>id</code>参数未经过适当的处理，就可能成为注入点。</li>
 </ul>
 </li>
-<li><strong>搜索框</strong>：<ul>
+<li><p><strong>搜索框</strong>：</p>
+<ul>
 <li>搜索功能通常涉及动态SQL查询，未对用户输入进行适当过滤时容易受到攻击。</li>
 </ul>
 </li>
-<li><strong>Cookie和HTTP头</strong>：<ul>
+<li><p><strong>Cookie和HTTP头</strong>：</p>
+<ul>
 <li>攻击者可以通过操控Cookie或HTTP头中的数据插入恶意SQL。</li>
 </ul>
 </li>
-<li><strong>隐藏字段</strong>：<ul>
+<li><p><strong>隐藏字段</strong>：</p>
+<ul>
 <li>HTML表单中的隐藏字段可能被攻击者修改，用于注入SQL代码。</li>
 </ul>
 </li>
-<li><strong>客户端输入的任何其他数据</strong>：<ul>
+<li><p><strong>客户端输入的任何其他数据</strong>：</p>
+<ul>
 <li>例如Ajax请求、JSON或XML数据，如果直接用于SQL查询，则可能成为注入点。</li>
 </ul>
 </li>
+<li><p><strong>ORDER BY 或LIMIT参数：</strong></p>
+<ul>
+<li><strong>注意：</strong>不仅仅是在查询条件中，在SQL语句的ORDER BY 或LIMIT参数中也可能发生注入。比如，Web应用支持通过URL中的order参数来控制查询结果的排序，我们可以通过如下盲注方式来验证是否存在注入：</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">items.php?<span class="keyword">order</span><span class="operator">=</span>sleep(<span class="number">2</span>)</span><br></pre></td></tr></table></figure></li>
 </ol>
 <br>
 
 
 
-<h2 id="延时注入示例"><a href="#延时注入示例" class="headerlink" title="延时注入示例"></a>延时注入示例</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">if(ascil(substr(&quot;haha&quot;,<span class="number">1</span>,<span class="number">1</span>))<span class="operator">=</span><span class="number">104</span>,sleep(<span class="number">5</span>),<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-
-<br>
-
-
-
-<h2 id="写文件的函数"><a href="#写文件的函数" class="headerlink" title="写文件的函数"></a>写文件的函数</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="string">&#x27;xxx&#x27;</span> <span class="keyword">into</span> outfile <span class="string">&#x27;路径&#x27;</span></span><br><span class="line"><span class="keyword">select</span> <span class="string">&#x27;xxx&#x27;</span> <span class="keyword">into</span> dumpfile <span class="string">&#x27;路径&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<br>
-
-
-
-<h2 id="MySQL默认数据库"><a href="#MySQL默认数据库" class="headerlink" title="MySQL默认数据库"></a>MySQL默认数据库</h2><ul>
-<li>mysql</li>
-<li>information_schema</li>
-<li>test</li>
-<li>performance_schema（5.6之前手动）</li>
+<h2 id="SQL读写文件技巧"><a href="#SQL读写文件技巧" class="headerlink" title="SQL读写文件技巧"></a>SQL读写文件技巧</h2><p><strong>前提条件：</strong></p>
+<ul>
+<li>当前数据库进程有读写系统相应文件或目录的权限</li>
+<li>数据库账号被授予了FILE权限</li>
+<li>数据库配置中的<code>secure_file_priv</code>值为空</li>
+<li>知道Web目录路径</li>
+</ul>
+<p><strong>读取系统文件：</strong></p>
+<ul>
+<li>LOAD_FILE()</li>
+</ul>
+<p><strong>写入文件：</strong></p>
+<ul>
+<li>INTO OUTFILE</li>
+<li>INTO DUMPFILE（和前者的区别是这个语句适用于二进制文件）</li>
 </ul>
 <br>
 
 
 
-<h2 id="UDF提权条件"><a href="#UDF提权条件" class="headerlink" title="UDF提权条件"></a>UDF提权条件</h2><ul>
-<li>获得数据库账号，insert&#x2F;delete权限，以root为主</li>
-<li>拥有<code>udf.dll</code>写入目录的权限</li>
-</ul>
+<h2 id="UDF提权（命令执行）"><a href="#UDF提权（命令执行）" class="headerlink" title="UDF提权（命令执行）"></a>UDF提权（命令执行）</h2><p>在MySQL中，除了可以通过导出Webshell间接地执行命令外，还可以利用用户自定义函数，即UDF（User-Defined Functions）.</p>
+<p>MySQL支持从本地文件系统中载入一个动态链接库作为自定义函数，使用如下语法可以创建UDF：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">FUNCTION</span> function_name <span class="keyword">RETURNS</span> data_type SONAME shared_library</span><br></pre></td></tr></table></figure>
+
+<p>······</p>
 <br>
 
 
