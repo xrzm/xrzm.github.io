@@ -1,0 +1,227 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>misc内存取证 | Zm's Blog</title><meta name="author" content="仙人掌门"><meta name="copyright" content="仙人掌门"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="内存取证内存取证是网络安全竞赛中的一项重要技术，主要目的是通过分析计算机系统的内存数据来获取关键信息。 Volatility是一款开源的基于Python开发的内存取证工具集，可以分析内存中的各种数据。它能够处理多种类型的内存文件，如.raw、.vmem、.img等，并提供丰富的命令用于分析这些文件。  Linux下载链接：Home of The Volatility Foundation | Vo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="misc内存取证">
+<meta property="og:url" content="https://xrzmblog.cn/posts/3868078152.html">
+<meta property="og:site_name" content="Zm&#39;s Blog">
+<meta property="og:description" content="内存取证内存取证是网络安全竞赛中的一项重要技术，主要目的是通过分析计算机系统的内存数据来获取关键信息。 Volatility是一款开源的基于Python开发的内存取证工具集，可以分析内存中的各种数据。它能够处理多种类型的内存文件，如.raw、.vmem、.img等，并提供丰富的命令用于分析这些文件。  Linux下载链接：Home of The Volatility Foundation | Vo">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202409031347122.png">
+<meta property="article:published_time" content="2024-09-03T05:34:05.000Z">
+<meta property="article:modified_time" content="2024-09-03T08:24:38.730Z">
+<meta property="article:author" content="仙人掌门">
+<meta property="article:tag" content="misc">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202409031347122.png"><link rel="shortcut icon" href="/img/Z(16).png"><link rel="canonical" href="https://xrzmblog.cn/posts/3868078152.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><meta name="baidu-site-verification" content="codeva-4E4lrwunJh"/><link rel="stylesheet" href="/css/index.css?v=4.12.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?a8ef2d4c869b68eb48bef2f0cb6c08c0";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: 仙人掌门","link":"链接: ","source":"来源: Zm's Blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'misc内存取证',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-09-03 16:24:38'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 7.1.1"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">31</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151616081.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Zm's Blog"><img class="site-icon" src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407181554497.png"/><span class="site-name">Zm's Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">misc内存取证</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-09-03T05:34:05.000Z" title="发表于 2024-09-03 13:34:05">2024-09-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-09-03T08:24:38.730Z" title="更新于 2024-09-03 16:24:38">2024-09-03</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%9D%82%E9%A1%B9/">杂项</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="内存取证"><a href="#内存取证" class="headerlink" title="内存取证"></a>内存取证</h1><p>内存取证是网络安全竞赛中的一项重要技术，主要目的是通过<strong>分析计算机系统的内存数据来获取关键信息。</strong></p>
+<p><strong>Volatility</strong>是一款开源的基于Python开发的内存取证工具集，可以分析内存中的各种数据。它能够处理多种类型的内存文件，如<code>.raw</code>、<code>.vmem</code>、<code>.img</code>等，并提供丰富的命令用于分析这些文件。</p>
+<blockquote>
+<p>Linux下载链接：<a target="_blank" rel="noopener" href="https://volatilityfoundation.org/">Home of The Volatility Foundation | Volatility Memory Forensics - The Volatility Foundation - Promoting Accessible Memory Analysis Tools Within the Memory Forensics Community</a></p>
+<p>Windows下载链接：Http:&#x2F;&#x2F;downloads.volatilityfoundation.org&#x2F;releases&#x2F;2.6&#x2F;volatility_2.6_win64_standalone.zip</p>
+</blockquote>
+<p>例如，使用<code>imageinfo</code>命令可以查看内存镜像的基本信息，使用<code>pslist</code>命令可以列出所有进程，而<code>dumpfiles</code>命令则可以导出内存中的文件</p>
+<br>
+
+
+
+<h2 id="Volatility选项"><a href="#Volatility选项" class="headerlink" title="Volatility选项"></a>Volatility选项</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">Options:</span><br><span class="line">  -h, --help            列出所有可用选项及其默认值</span><br><span class="line">                        默认值可以在配置文件中设置</span><br><span class="line">                        (/etc/volatilityrc)</span><br><span class="line">  <span class="attribute">--conf-file</span>=/home/kali/.volatilityrc</span><br><span class="line">                        基于用户的配置文件</span><br><span class="line">  -d, --<span class="built_in">debug</span>           调试Volatility</span><br><span class="line">  <span class="attribute">--plugins</span>=PLUGINS     要使用的其他插件目录（冒号分隔）</span><br><span class="line">  --<span class="built_in">info</span>                打印所有注册对象的信息</span><br><span class="line">  <span class="attribute">--cache-directory</span>=/home/kali/.cache/volatility</span><br><span class="line">                        存放缓存文件的目录</span><br><span class="line">  --cache               使用缓存</span><br><span class="line">  <span class="attribute">--tz</span>=TZ               设置 (Olson) 时区以使用 pytz（如果已安装）或 tzset 显示时间戳</span><br><span class="line">  -f FILENAME, <span class="attribute">--filename</span>=FILENAME</span><br><span class="line">                        打开图像时使用的文件名</span><br><span class="line">  <span class="attribute">--profile</span>=WinXPSP2x86</span><br><span class="line">                        要加载的配置文件的名称（使用 --<span class="built_in">info</span> 查看支持的配置文件列表）</span><br><span class="line">  -l LOCATION, <span class="attribute">--location</span>=LOCATION</span><br><span class="line">                        从中加载地址空间的 URN 位置</span><br><span class="line">  -w, --write           启用写支持</span><br><span class="line">  <span class="attribute">--dtb</span>=DTB             DTB 地址</span><br><span class="line">  <span class="attribute">--shift</span>=SHIFT         Mac KASLR 移位地址</span><br><span class="line">  <span class="attribute">--output</span>=text         以这种格式输出（支持特定于模块，请参阅下面的模块输出选项）</span><br><span class="line">  <span class="attribute">--output-file</span>=OUTPUT_FILE</span><br><span class="line">                        在此文件中写入输出</span><br><span class="line">  -v, --verbose         详细信息</span><br><span class="line">  -g KDBG, <span class="attribute">--kdbg</span>=KDBG  指定一个 KDBG 虚拟地址（注意：对于 64 位 Windows 8 及更高版本，这是 KdCopyDataBlock 的地址）</span><br><span class="line">  --force               强制使用可疑配置文件</span><br><span class="line">  -k KPCR, <span class="attribute">--kpcr</span>=KPCR  指定特定的 KPCR 地址</span><br><span class="line">  <span class="attribute">--cookie</span>=COOKIE       指定 nt!ObHeaderCookie 的地址（仅适用于 Windows 10）</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<br>
+
+
+
+<h2 id="常用命令："><a href="#常用命令：" class="headerlink" title="常用命令："></a>常用命令：</h2><figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br></pre></td><td class="code"><pre><span class="line">支持的插件命令:</span><br><span class="line">		amcache        	查看AmCache应用程序痕迹信息</span><br><span class="line">		apihooks       	检测内核及进程的内存空间中的API hook</span><br><span class="line">		atoms          	列出会话及窗口站atom表</span><br><span class="line">		atomscan       	Atom表的池扫描(Pool scanner)</span><br><span class="line">		auditpol       	列出注册表HKLMSECURITYPolicyPolAdtEv的审计策略信息</span><br><span class="line">		bigpools       	使用BigPagePoolScanner转储大分页池(big page pools)</span><br><span class="line">		bioskbd        	从实时模式内存中读取键盘缓冲数据(早期电脑可以读取出BIOS开机密码)</span><br><span class="line">		cachedump      	获取内存中缓存的域帐号的密码哈希</span><br><span class="line">		callbacks      	打印全系统通知例程</span><br><span class="line">		clipboard      	提取Windows剪贴板中的内容</span><br><span class="line">		cmdline        	显示进程命令行参数</span><br><span class="line">		cmdscan        	提取执行的命令行历史记录（扫描<span class="variable">_COMMAND_HISTORY</span>信息）</span><br><span class="line">		connections    	打印系统打开的网络连接(仅支持Windows XP 和<span class="number">2003</span>)</span><br><span class="line">		connscan       	打印TCP连接信息</span><br><span class="line">		consoles       	提取执行的命令行历史记录（扫描<span class="variable">_CONSOLE_INFORMATION</span>信息）</span><br><span class="line">		crashinfo      	提取崩溃转储信息</span><br><span class="line">		deskscan       	tagDESKTOP池扫描(Poolscaner)</span><br><span class="line">		devicetree     	显示设备树信息</span><br><span class="line">		dlldump        	从进程地址空间转储动态链接库</span><br><span class="line">		dlllist        	打印每个进程加载的动态链接库列表</span><br><span class="line">		driverirp      	IRP hook驱动检测</span><br><span class="line">		drivermodule   	关联驱动对象至内核模块</span><br><span class="line">		driverscan     	驱动对象池扫描</span><br><span class="line">		dumpcerts      	提取RAS私钥及SSL公钥</span><br><span class="line">		dumpfiles      	提取内存中映射或缓存的文件</span><br><span class="line">		dumpregistry   	转储内存中注册表信息至磁盘</span><br><span class="line">		editbox        	查看Edit编辑控件信息 (Listbox正在实验中)</span><br><span class="line">		envars         	显示进程的环境变量</span><br><span class="line">		eventhooks     	打印Windows事件hook详细信息</span><br><span class="line">		evtlogs        	提取Windows事件日志（仅支持XP/<span class="number">2003</span>)</span><br><span class="line">		filescan       	提取文件对象（file objects）池信息</span><br><span class="line">		gahti          	转储用户句柄（handle）类型信息</span><br><span class="line">		gditimers      	打印已安装的GDI计时器(timers)及回调(callbacks)</span><br><span class="line">		gdt            	显示全局描述符表(Global Deor Table)</span><br><span class="line">		getservicesids 	获取注册表中的服务名称并返回SID信息</span><br><span class="line">		getsids        	打印每个进程的SID信息</span><br><span class="line">		handles        	打印每个进程打开的句柄的列表</span><br><span class="line">		hashdump       	转储内存中的Windows帐户密码哈希(LM/NTLM)</span><br><span class="line">		hibinfo        	转储休眠文件信息</span><br><span class="line">		hivedump       	打印注册表配置单元信息</span><br><span class="line">		hivelist       	打印注册表配置单元列表</span><br><span class="line">		hivescan       	注册表配置单元池扫描</span><br><span class="line">		hpakextract    	从HPAK文件（Fast Dump格式）提取物理内存数据</span><br><span class="line">		hpakinfo       	查看HPAK文件属性及相关信息</span><br><span class="line">		idt            	显示中断描述符表(Interrupt Deor Table)</span><br><span class="line">		iehistory      	重建IE缓存及访问历史记录</span><br><span class="line">		imagecopy      	将物理地址空间导出原生DD镜像文件</span><br><span class="line">		imageinfo      	查看/识别镜像信息</span><br><span class="line">		impscan        	扫描对导入函数的调用</span><br><span class="line">		joblinks       	打印进程任务链接信息</span><br><span class="line">		kdbgscan       	搜索和转储潜在KDBG值</span><br><span class="line">		kpcrscan       	搜索和转储潜在KPCR值</span><br><span class="line">		ldrmodules     	检测未链接的动态链接DLL</span><br><span class="line">		lsadump        	从注册表中提取LSA密钥信息（已解密）</span><br><span class="line">		machoinfo      	转储Mach-O 文件格式信息</span><br><span class="line">		malfind        	查找隐藏的和插入的代码</span><br><span class="line">		mbrparser      	扫描并解析潜在的主引导记录(MBR)</span><br><span class="line">		memdump        	转储进程的可寻址内存</span><br><span class="line">		memmap         	打印内存映射</span><br><span class="line">		messagehooks   	桌面和窗口消息钩子的线程列表</span><br><span class="line">		mftparser      	扫描并解析潜在的MFT条目</span><br><span class="line">		moddump        	转储内核驱动程序到可执行文件的示例</span><br><span class="line">		modscan        	内核模块池扫描</span><br><span class="line">		modules        	打印加载模块的列表</span><br><span class="line">		multiscan      	批量扫描各种对象</span><br><span class="line">		mutantscan     	对互斥对象池扫描</span><br><span class="line">		notepad        	查看记事本当前显示的文本</span><br><span class="line">		objtypescan    	扫描窗口对象类型对象</span><br><span class="line">		patcher        	基于页面扫描的补丁程序内存</span><br><span class="line">		poolpeek       	可配置的池扫描器插件</span><br><span class="line">		printkey       	打印注册表项及其子项和值</span><br><span class="line">		privs          	显示进程权限</span><br><span class="line">		procdump       	进程转储到一个可执行文件示例</span><br><span class="line">		pslist         	按照EPROCESS列表打印所有正在运行的进程</span><br><span class="line">		psscan         	进程对象池扫描</span><br><span class="line">		pstree         	以树型方式打印进程列表</span><br><span class="line">		psxview        	查找带有隐藏进程的所有进程列表</span><br><span class="line">		qemuinfo       	转储 Qemu 信息</span><br><span class="line">		raw2dmp        	将物理内存原生数据转换为windbg崩溃转储格式</span><br><span class="line">		<span class="built_in">screenshot</span>     	基于GDI Windows的虚拟屏幕截图保存</span><br><span class="line">		servicediff    	Windows服务列表(ala Plugx)</span><br><span class="line">		sessions       	<span class="variable">_MM_SESSION_SPACE</span>的详细信息列表(用户登录会话)</span><br><span class="line">		shellbags      	打印Shellbags信息</span><br><span class="line">		shimcache      	解析应用程序兼容性Shim缓存注册表项</span><br><span class="line">		shutdowntime   	从内存中的注册表信息获取机器关机时间</span><br><span class="line">		sockets        	打印已打开套接字列表</span><br><span class="line">		sockscan       	TCP套接字对象池扫描</span><br><span class="line">		ssdt           	显示SSDT条目</span><br><span class="line">		strings        	物理到虚拟地址的偏移匹配(需要一些时间，带详细信息)</span><br><span class="line">		svcscan        	Windows服务列表扫描</span><br><span class="line">		symlinkscan    	符号链接对象池扫描</span><br><span class="line">		thrdscan       	线程对象池扫描</span><br><span class="line">		threads        	调查<span class="variable">_ETHREAD</span> 和<span class="variable">_KTHREADs</span></span><br><span class="line">		timeliner      	创建内存中的各种痕迹信息的时间线</span><br><span class="line">		timers         	打印内核计时器及关联模块的DPC</span><br><span class="line">		truecryptmaster	Recover 	恢复TrueCrypt <span class="number">7.1</span>a主密钥</span><br><span class="line">		truecryptpassphrase		查找并提取TrueCrypt密码</span><br><span class="line">		truecryptsummary	TrueCrypt摘要信息</span><br><span class="line">		unloadedmodules	打印卸载的模块信息列表</span><br><span class="line">		userassist     	打印注册表中UserAssist相关信息</span><br><span class="line">		userhandles    	转储用户句柄表</span><br><span class="line">		vaddump        	转储VAD数据为文件</span><br><span class="line">		vadinfo        	转储VAD信息</span><br><span class="line">		vadtree        	以树形方式显示VAD树信息</span><br><span class="line">		vadwalk        	显示遍历VAD树</span><br><span class="line">		vboxinfo       	转储Virtualbox信息（虚拟机）</span><br><span class="line">		verinfo        	打印PE镜像中的版本信息</span><br><span class="line">		vmwareinfo     	转储VMware VMSS/VMSN 信息</span><br><span class="line">		volshell       	内存镜像中的shell</span><br><span class="line">		windows        	打印桌面窗口(详细信息)</span><br><span class="line">		wintree        	Z顺序打印桌面窗口树</span><br><span class="line">		wndscan        	池扫描窗口站</span><br><span class="line">		yarascan       	以Yara签名扫描进程或内核内存</span><br></pre></td></tr></table></figure>
+
+
+
+<br>
+
+
+
+<h2 id="例题演示"><a href="#例题演示" class="headerlink" title="例题演示"></a>例题演示</h2><p>1、首先输入<code>imageinfo</code>命令来获取镜像信息，查看可能的操作系统</p>
+<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202409031339847.png" alt="image-20240903133912783"></p>
+<p>2、然后输入<code>volatility - f xxx.vmem --profile= [操作系统] volshell</code>来确认，一旦出现<code>&gt;&gt;&gt;</code>，则说明操作系统判断正确</p>
+<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202409031343236.png" alt="image-20240903134324206"></p>
+<p>3、当我们判断完操作系统后，就可以去利用插件做题了，例如查看正在运行的程序：<code>pslist</code></p>
+<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202409031347122.png" alt="image-20240903134700066"></p>
+<p>4、我们看回这道例题：</p>
+<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202409031348964.png" alt="image-20240903134815936"></p>
+<p>5、题目告诉我们npm在cmd中输入命令，那么我们可以直接输入<code>cmdscan</code>命令来<strong>查看命令行操作，显示cmd历史命令</strong>。flag就在其中。</p>
+<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202409031349974.png" alt="image-20240903134910928"></p>
+<br>
+
+<br>
+
+
+
+<p>参考文章：</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_68012373/article/details/127419463">内存取证-volatility工具的使用 （史上更全教程，更全命令）_volatility内存取证-CSDN博客</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://xrzmblog.cn">仙人掌门</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://xrzmblog.cn/posts/3868078152.html">https://xrzmblog.cn/posts/3868078152.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://xrzmblog.cn" target="_blank">Zm's Blog</a>！</span></div></div><div class="tag_share"><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/1836413801.html" title="Tomcat漏洞详解"><img class="cover" src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202409031643052.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Tomcat漏洞详解</div></div></a></div><div class="next-post pull-right"><a href="/posts/4134390418.html" title="Python反序列化"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Python反序列化</div></div></a></div></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="lv-container" data-id="city" data-uid="MTAyMC81OTQ4OS8zNTk1MQ=="></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">仙人掌门</div><div class="author-info__description">人生如棋</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">31</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xrzm"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/xrzm" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1464947922@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%86%85%E5%AD%98%E5%8F%96%E8%AF%81"><span class="toc-number">1.</span> <span class="toc-text">内存取证</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Volatility%E9%80%89%E9%A1%B9"><span class="toc-number">1.1.</span> <span class="toc-text">Volatility选项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%EF%BC%9A"><span class="toc-number">1.2.</span> <span class="toc-text">常用命令：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98%E6%BC%94%E7%A4%BA"><span class="toc-number">1.3.</span> <span class="toc-text">例题演示</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/1836413801.html" title="Tomcat漏洞详解"><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202409031643052.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Tomcat漏洞详解"/></a><div class="content"><a class="title" href="/posts/1836413801.html" title="Tomcat漏洞详解">Tomcat漏洞详解</a><time datetime="2024-09-03T06:25:44.000Z" title="发表于 2024-09-03 14:25:44">2024-09-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/3868078152.html" title="misc内存取证"><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202409031347122.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="misc内存取证"/></a><div class="content"><a class="title" href="/posts/3868078152.html" title="misc内存取证">misc内存取证</a><time datetime="2024-09-03T05:34:05.000Z" title="发表于 2024-09-03 13:34:05">2024-09-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/4134390418.html" title="Python反序列化">Python反序列化</a><time datetime="2024-08-28T06:01:20.000Z" title="发表于 2024-08-28 14:01:20">2024-08-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/750254257.html" title="深入了解同源策略"><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202408081649048.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="深入了解同源策略"/></a><div class="content"><a class="title" href="/posts/750254257.html" title="深入了解同源策略">深入了解同源策略</a><time datetime="2024-08-08T08:45:52.000Z" title="发表于 2024-08-08 16:45:52">2024-08-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/1668101123.html" title="Cookie和会话安全"><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202408051312706.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Cookie和会话安全"/></a><div class="content"><a class="title" href="/posts/1668101123.html" title="Cookie和会话安全">Cookie和会话安全</a><time datetime="2024-08-04T09:59:25.000Z" title="发表于 2024-08-04 17:59:25">2024-08-04</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151616081.png')"><div id="footer-wrap"><div class="copyright">&copy;2024 By 仙人掌门</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my <a href="https://xrzmblog.cn/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.12.0"></script><script src="/js/main.js?v=4.12.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(()=>{
+  const loadLivere = () => {
+    if (typeof LivereTower === 'object') window.LivereTower.init()
+    else {
+      (function(d, s) {
+          var j, e = d.getElementsByTagName(s)[0];
+          if (typeof LivereTower === 'function') { return; }
+          j = d.createElement(s);
+          j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+          j.async = true;
+          e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    }
+  }
+
+  if ('Livere' === 'Livere' || !false) {
+    if (false) btf.loadComment(document.getElementById('lv-container'), loadLivere)
+    else loadLivere()
+  } else {
+    window.loadOtherComment = loadLivere
+  }
+})()</script></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.12.0"></script></div></div></body></html>
