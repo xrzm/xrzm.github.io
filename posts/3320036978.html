@@ -552,7 +552,7 @@
 <p>2、使用burpsuite抓包，post数据：7*7，得到回显49，于是得知存在ssti注入<br><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151657596.png"></p>
 <p>3、直接输入<code>&#123;&#123;system("ls /")&#125;&#125;</code>，得到flag的所在<br><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151657027.png"></p>
 <p>4、输入<code>&#123;&#123;system("cat+/flag_13_searchmaster")&#125;&#125;</code>，获取flag<br><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151657132.png"><br><br></p>
-<h2 id="GDOUCTF-2023"><a href="#GDOUCTF-2023" class="headerlink" title="[GDOUCTF 2023]"></a>[GDOUCTF 2023]<ez_ze></ez_ze></h2><p>更详细的绕过方法可以看<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_52635170/article/details/129856818">https://blog.csdn.net/weixin_52635170/article/details/129856818</a></p>
+<h2 id="GDOUCTF-2023"><a href="#GDOUCTF-2023" class="headerlink" title="[GDOUCTF 2023]"></a>[GDOUCTF 2023]<ez_ze></h2><p>更详细的绕过方法可以看<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_52635170/article/details/129856818">https://blog.csdn.net/weixin_52635170/article/details/129856818</a></p>
 <p>1、首先判断有无ssti漏洞，我们在输入框中输入<code>&#123;&#123;print 123&#125;&#125;</code>,发现无法执行，输入<code>&#123;%print 123%&#125;</code>是可以输出123的，说明存在ssti注入。<br><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151657570.png"></p>
 <p>2、经测试，本题还禁用了<code>_</code> <code>&#123;</code> <code>&quot;</code> <code>.</code> <code>\</code> <code>request</code> <code>pop</code> <code>os</code> <code>popen</code>等，所以我们的payload需要绕过一些关键词和符号，设置为：<br><code>lipsum.__globals__.getitem[os].popen(cat /flag).read()</code></p>
 <p>3、所以我们需要通过<code>lipsum|string|list</code>获取<code>_</code></p>
