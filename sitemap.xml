@@ -367,6 +367,13 @@
   </url>
   
   <url>
+    <loc>https://xrzmblog.cn/tags/CTF-web%E9%A2%98%E8%A7%A3/</loc>
+    <lastmod>2025-12-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://xrzmblog.cn/tags/web%E6%94%BB%E9%98%B2/</loc>
     <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
@@ -381,21 +388,14 @@
   </url>
   
   <url>
-    <loc>https://xrzmblog.cn/tags/web%E6%BC%8F%E6%B4%9E/</loc>
-    <lastmod>2025-12-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://xrzmblog.cn/tags/CTF-web%E9%A2%98%E8%A7%A3/</loc>
-    <lastmod>2025-12-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://xrzmblog.cn/tags/%E4%BB%A3%E7%A0%81%E7%BB%95%E8%BF%87/</loc>
+    <lastmod>2025-12-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xrzmblog.cn/tags/web%E6%BC%8F%E6%B4%9E/</loc>
     <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -481,6 +481,13 @@
   </url>
   
   <url>
+    <loc>https://xrzmblog.cn/categories/CTF/</loc>
+    <lastmod>2025-12-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://xrzmblog.cn/categories/%E9%9D%B6%E5%9C%BA%E6%90%AD%E5%BB%BA/</loc>
     <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
@@ -489,13 +496,6 @@
   
   <url>
     <loc>https://xrzmblog.cn/categories/web/</loc>
-    <lastmod>2025-12-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://xrzmblog.cn/categories/CTF/</loc>
     <lastmod>2025-12-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
